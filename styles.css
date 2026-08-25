@@ -66,7 +66,7 @@ body {
 .header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 5;
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -319,7 +319,6 @@ body {
 }
 
 .drink-section .section-header {
-  padding-top: 6px;
   border-top: 1.5px solid var(--color-black);
   padding-top: 16px;
 }
@@ -484,12 +483,20 @@ body {
   display: block;
 }
 
+.tables-container {
+  position: relative;
+  height: 800px;
+  margin: 18px 16px 0;
+}
+
 .stage-label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 18px 16px 0;
-  margin-top: 18px;
 }
 
 .stage-label .line {
@@ -506,9 +513,12 @@ body {
 }
 
 .main-table {
+  position: absolute;
+  left: 50%;
+  top: 28px;
+  transform: translateX(-50%);
   width: 168px;
   height: 44px;
-  margin: 10px auto 0;
   border-radius: 8px;
   background: var(--color-black);
   display: flex;
@@ -517,12 +527,6 @@ body {
   font-size: 15px;
   font-weight: 600;
   color: var(--color-white);
-}
-
-.tables-container {
-  position: relative;
-  height: 800px;
-  margin: 18px 16px 0;
 }
 
 .table-circle {
@@ -634,7 +638,7 @@ body {
 .table-badge {
   font-family: var(--font-mono);
   font-size: 13px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.16em;
   color: var(--color-black);
   background: var(--color-yellow);
   padding: 2px 7px;
