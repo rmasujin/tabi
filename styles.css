@@ -964,6 +964,7 @@ body {
   display: flex;
   justify-content: center;
   z-index: 100;
+  pointer-events: none;
 }
 
 .nav-container {
@@ -977,6 +978,7 @@ body {
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(10, 10, 10, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
+  pointer-events: auto;
 }
 
 .nav-btn {
