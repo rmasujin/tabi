@@ -12,6 +12,7 @@
     home: document.getElementById('screen-home'),
     menu: document.getElementById('screen-menu'),
     seats: document.getElementById('screen-seats'),
+    profile: document.getElementById('screen-profile'),
     tableDetail: document.getElementById('screen-table-detail')
   };
 
@@ -48,7 +49,7 @@
     }
 
     // Update nav buttons (only for main screens)
-    if (screenName !== 'tableDetail') {
+    if (screenName !== 'tableDetail' && screenName !== 'profile') {
       updateNavButtons(screenName);
       // Update URL hash
       window.location.hash = screenName;
@@ -139,11 +140,25 @@
     });
   });
 
-  // Event listeners - Back button
-  const backBtn = document.getElementById('back-to-seats');
-  if (backBtn) {
-    backBtn.addEventListener('click', backToSeats);
+  // Event listeners - Back buttons
+  const backToSeatsBtn = document.getElementById('back-to-seats');
+  if (backToSeatsBtn) {
+    backToSeatsBtn.addEventListener('click', backToSeats);
   }
+
+  const backToHomeBtn = document.getElementById('back-to-home');
+  if (backToHomeBtn) {
+    backToHomeBtn.addEventListener('click', () => showScreen('home'));
+  }
+
+  // Event listeners - Posts (click to show profile)
+  const posts = document.querySelectorAll('.post');
+  posts.forEach(post => {
+    post.addEventListener('click', (e) => {
+      showScreen('profile');
+    });
+    post.style.cursor = 'pointer';
+  });
 
   // Handle URL hash changes
   window.addEventListener('hashchange', () => {
