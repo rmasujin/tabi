@@ -35,7 +35,7 @@ body {
 #app {
   position: fixed;
   top: 0;
-  bottom: 96px;
+  bottom: 0;
   left: 0;
   right: 0;
   overflow: hidden;
