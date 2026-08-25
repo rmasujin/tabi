@@ -818,44 +818,57 @@ body {
   z-index: 100;
 }
 
-.nav-btn {
+.nav-container {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 16px;
-  height: 60px;
+  gap: 6px;
+  padding: 7px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(10, 10, 10, 0.08);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.14);
-  cursor: pointer;
-  transition: all 0.2s;
-  color: var(--color-black);
-  font-family: var(--font-sans);
-  font-size: 15px;
 }
 
-.nav-btn:not(:last-child) {
-  margin-right: 6px;
+.nav-btn {
+  display: flex;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  transition: all 0.2s;
+  padding: 0;
 }
 
 .nav-btn.active {
-  background: var(--color-yellow);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
   padding: 0 20px 0 16px;
-}
-
-.nav-btn:not(.active) .nav-label {
-  display: none;
+  border-radius: 999px;
+  background: var(--color-yellow);
+  width: auto;
 }
 
 .nav-btn:active {
-  transform: scale(0.97);
+  opacity: 0.7;
 }
 
 .nav-label {
+  display: none;
+  font-size: 15px;
   font-weight: 600;
+  color: var(--color-black);
+}
+
+.nav-btn.active .nav-label {
+  display: block;
 }
 
 /* Safe area support for iPhone */
