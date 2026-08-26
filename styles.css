@@ -481,6 +481,19 @@ body {
   background: #F4F4F0;
 }
 
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: var(--color-black);
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: var(--color-gray-mid);
+}
+
 .search-placeholder {
   font-size: 16px;
   color: var(--color-gray-mid);

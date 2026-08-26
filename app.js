@@ -288,14 +288,29 @@
   }, { passive: false });
 
   // Render table list view
-  function renderTableList() {
+  function renderTableList(searchQuery = '') {
     const tableListContainer = document.querySelector('.table-list');
     if (!tableListContainer) return;
 
     tableListContainer.innerHTML = '';
 
     // Filter out takasago (head table) and render regular tables
-    const regularTables = SEATING_DATA.tables.filter(t => t.shape === 'round');
+    let regularTables = SEATING_DATA.tables.filter(t => t.shape === 'round');
+
+    // Apply search filter if query exists
+    if (searchQuery) {
+      regularTables = regularTables.filter(table => {
+        return table.guests.some(guest =>
+          guest.name.includes(searchQuery) ||
+          guest.kana.includes(searchQuery)
+        );
+      });
+    }
+
+    if (regularTables.length === 0) {
+      tableListContainer.innerHTML = '<div style="padding: 40px 16px; text-align: center; color: #8A8A82; font-size: 15px;">該当するゲストが見つかりません</div>';
+      return;
+    }
 
     regularTables.forEach(table => {
       const firstGuest = table.guests[0];
@@ -330,6 +345,46 @@
     });
   }
 
+  // Search functionality
+  function setupSearch() {
+    const searchInput = document.getElementById('search-input');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+
+      // Update list view
+      renderTableList(query);
+
+      // Highlight matching tables in map view if query exists
+      const tableCircles = document.querySelectorAll('.table-circle');
+      if (query) {
+        tableCircles.forEach(circle => {
+          const tableId = circle.getAttribute('data-table');
+          const table = SEATING_DATA.tables.find(t => t.id === tableId);
+
+          if (table) {
+            const hasMatch = table.guests.some(guest =>
+              guest.name.includes(query) ||
+              guest.kana.includes(query)
+            );
+
+            if (hasMatch) {
+              circle.style.opacity = '1';
+            } else {
+              circle.style.opacity = '0.3';
+            }
+          }
+        });
+      } else {
+        // Reset opacity when search is cleared
+        tableCircles.forEach(circle => {
+          circle.style.opacity = '1';
+        });
+      }
+    });
+  }
+
   // Initialize from URL hash
   function init() {
     const hash = window.location.hash.slice(1);
@@ -347,6 +402,9 @@
 
     // Render table list
     renderTableList();
+
+    // Setup search functionality
+    setupSearch();
   }
 
   // Start the app
