@@ -86,12 +86,72 @@
     }
   }
 
-  function showTableDetail(tableName) {
+  function showTableDetail(tableId) {
     showScreen('tableDetail');
 
+    const table = SEATING_DATA.tables.find(t => t.id === tableId || t.label === tableId);
+    if (!table) return;
+
+    renderTableDetail(table);
+  }
+
+  function renderTableDetail(table) {
     const titleEl = document.getElementById('table-detail-title');
     if (titleEl) {
-      titleEl.textContent = tableName + ' 卓';
+      titleEl.textContent = table.label + ' 卓';
+    }
+
+    // Update table header
+    const tableBadge = document.querySelector('#screen-table-detail .table-badge');
+    const seatsInfo = document.querySelector('#screen-table-detail .seats-info');
+    const tableDescription = document.querySelector('#screen-table-detail .table-description');
+
+    if (tableBadge) tableBadge.textContent = `TABLE ${table.label}`;
+    if (seatsInfo) seatsInfo.textContent = `${table.guests.length} ／ ${table.seatCount} SEATS`;
+    if (tableDescription) tableDescription.textContent = table.category;
+
+    // Update seat diagram
+    const seatDiagram = document.querySelector('.seat-diagram');
+    if (seatDiagram) {
+      const tableLetter = seatDiagram.querySelector('.table-letter');
+      if (tableLetter) tableLetter.textContent = table.label;
+
+      // Update seat positions
+      const allSeats = Array.from({length: table.seatCount}, (_, i) => i + 1);
+      const occupiedSeats = table.guests.map(g => g.seat);
+
+      let seatsHTML = '';
+      allSeats.forEach(seatNum => {
+        const angle = SEATING_DATA.seatAngles[seatNum];
+        const radius = 85;
+        const x = 107 + radius * Math.sin(angle * Math.PI / 180);
+        const y = 107 - radius * Math.cos(angle * Math.PI / 180);
+        const isOccupied = occupiedSeats.includes(seatNum);
+        const emptyClass = isOccupied ? '' : ' empty';
+
+        seatsHTML += `<div class="seat-position${emptyClass}" style="left:${x}px; top:${y}px">${seatNum}</div>`;
+      });
+
+      const existingSeats = seatDiagram.querySelectorAll('.seat-position');
+      existingSeats.forEach(seat => seat.remove());
+      seatDiagram.insertAdjacentHTML('beforeend', seatsHTML);
+    }
+
+    // Update guest list
+    const guestList = document.querySelector('.guest-list');
+    if (guestList) {
+      guestList.innerHTML = '';
+      table.guests.forEach(guest => {
+        const honorific = guest.honorific || '';
+        const note = guest.note ? `<span class="guest-role">　${guest.note}</span>` : '';
+        const guestHTML = `
+          <div class="guest-item">
+            <span class="seat-number">${guest.seat}</span>
+            <span class="guest-name">${guest.name}${honorific}${note}</span>
+          </div>
+        `;
+        guestList.insertAdjacentHTML('beforeend', guestHTML);
+      });
     }
   }
 
@@ -227,6 +287,49 @@
     }
   }, { passive: false });
 
+  // Render table list view
+  function renderTableList() {
+    const tableListContainer = document.querySelector('.table-list');
+    if (!tableListContainer) return;
+
+    tableListContainer.innerHTML = '';
+
+    // Filter out takasago (head table) and render regular tables
+    const regularTables = SEATING_DATA.tables.filter(t => t.shape === 'round');
+
+    regularTables.forEach(table => {
+      const firstGuest = table.guests[0];
+      const guestName = firstGuest ? `${firstGuest.name}${firstGuest.honorific || ''}` : '';
+      const otherCount = table.guests.length > 1 ? ` 他 ${table.guests.length - 1}名` : '';
+
+      const itemHTML = `
+        <div class="table-list-item" data-table="${table.id}">
+          <div class="table-avatar"></div>
+          <div class="table-info">
+            <div class="table-badge">TABLE ${table.label}</div>
+            <div class="table-title">${table.category}</div>
+            <div class="table-guests">${guestName}${otherCount}</div>
+          </div>
+          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C2C1B9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 4l6 6-6 6"></path>
+          </svg>
+        </div>
+      `;
+      tableListContainer.insertAdjacentHTML('beforeend', itemHTML);
+    });
+
+    // Re-attach click event listeners for dynamically created items
+    const newTableItems = document.querySelectorAll('.table-list-item');
+    newTableItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        const tableId = item.getAttribute('data-table');
+        if (tableId) {
+          showTableDetail(tableId);
+        }
+      });
+    });
+  }
+
   // Initialize from URL hash
   function init() {
     const hash = window.location.hash.slice(1);
@@ -241,6 +344,9 @@
 
     // Initialize post sliders
     initPostSliders();
+
+    // Render table list
+    renderTableList();
   }
 
   // Start the app
