@@ -1163,7 +1163,6 @@ body {
   display: inline;
 }
 
-.content-expanded .read-more,
-.content-expanded .profile-read-more {
+.content-expanded .read-more {
   display: none;
 }

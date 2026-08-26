@@ -516,9 +516,10 @@
     const profileReadMore = document.querySelector('.profile-read-more');
     if (profileReadMore) {
       profileReadMore.addEventListener('click', () => {
-        const profileBio = document.querySelector('.profile-bio');
+        const profileBio = profileReadMore.previousElementSibling;
         if (profileBio) {
           profileBio.classList.add('content-expanded');
+          profileReadMore.style.display = 'none';
         }
       });
     }
