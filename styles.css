@@ -703,6 +703,11 @@ body {
   margin-bottom: 4px;
 }
 
+.table-list-item .table-badge {
+  color: var(--color-white);
+  background: var(--color-black);
+}
+
 .table-title {
   font-size: 17px;
   font-weight: 600;
