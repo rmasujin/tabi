@@ -196,7 +196,7 @@
           <circle cx="9" cy="9" r="5.4"></circle>
           <path d="M13.2 13.2 17 17"></path>
         </svg>
-        <input type="text" id="search-input" class="search-input" placeholder="お名前で席をさがす">
+        <span class="search-placeholder">お名前で席をさがす</span>
       </div>
 
       <div class="seats-tabs">
@@ -432,6 +432,38 @@
           <span class="seat-number">8</span>
           <span class="guest-name">末藤 洸洋様</span>
         </div>
+      </div>
+
+      <div class="bottom-spacer"></div>
+    </div>
+  </div>
+
+  <!-- SEARCH Screen -->
+  <div id="screen-search" class="screen">
+    <div class="header">
+      <div class="header-left">
+        <button class="back-btn" id="back-to-seats-from-search">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A0A0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4l-6 6 6 6"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="search-header-input">
+        <svg class="search-icon" width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#8A8A82" stroke-width="1.8" stroke-linecap="round">
+          <circle cx="9" cy="9" r="5.4"></circle>
+          <path d="M13.2 13.2 17 17"></path>
+        </svg>
+        <input type="text" id="search-header-input" class="search-input" placeholder="お名前で席をさがす" autofocus>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="search-results-header">
+        <span class="results-count" id="results-count">68 GUESTS</span>
+      </div>
+
+      <div class="search-results" id="search-results">
+        <!-- Results will be dynamically rendered here -->
       </div>
 
       <div class="bottom-spacer"></div>

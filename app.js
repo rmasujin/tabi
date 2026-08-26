@@ -13,7 +13,8 @@
     menu: document.getElementById('screen-menu'),
     seats: document.getElementById('screen-seats'),
     profile: document.getElementById('screen-profile'),
-    tableDetail: document.getElementById('screen-table-detail')
+    tableDetail: document.getElementById('screen-table-detail'),
+    search: document.getElementById('screen-search')
   };
 
   const navButtons = {
@@ -128,8 +129,13 @@
         const x = 107 + radius * Math.sin(angle * Math.PI / 180);
         const y = 107 - radius * Math.cos(angle * Math.PI / 180);
 
+        // Highlight selected guest from search
+        const isHighlighted = selectedGuestForHighlight && guest.id === selectedGuestForHighlight;
+        const bgColor = isHighlighted ? '#0A0A0A' : '#F4F4F0';
+        const textColor = isHighlighted ? '#fff' : '#0A0A0A';
+
         // Use sequential numbering (1, 2, 3...) instead of original seat numbers
-        seatsHTML += `<div class="seat-position" style="left:${x}px; top:${y}px">${index + 1}</div>`;
+        seatsHTML += `<div class="seat-position" style="left:${x}px; top:${y}px; background:${bgColor}; color:${textColor}">${index + 1}</div>`;
       });
 
       const existingSeats = seatDiagram.querySelectorAll('.seat-position');
@@ -144,8 +150,10 @@
       table.guests.forEach((guest, index) => {
         const honorific = guest.honorific || '';
         const note = guest.note ? `<span class="guest-role">　${guest.note}</span>` : '';
+        const isHighlighted = selectedGuestForHighlight && guest.id === selectedGuestForHighlight;
+        const highlightStyle = isHighlighted ? ' style="font-weight: 700;"' : '';
         const guestHTML = `
-          <div class="guest-item">
+          <div class="guest-item"${highlightStyle}>
             <span class="seat-number">${index + 1}</span>
             <span class="guest-name">${guest.name}${honorific}${note}</span>
           </div>
@@ -288,29 +296,14 @@
   }, { passive: false });
 
   // Render table list view
-  function renderTableList(searchQuery = '') {
+  function renderTableList() {
     const tableListContainer = document.querySelector('.table-list');
     if (!tableListContainer) return;
 
     tableListContainer.innerHTML = '';
 
     // Filter out takasago (head table) and render regular tables
-    let regularTables = SEATING_DATA.tables.filter(t => t.shape === 'round');
-
-    // Apply search filter if query exists
-    if (searchQuery) {
-      regularTables = regularTables.filter(table => {
-        return table.guests.some(guest =>
-          guest.name.includes(searchQuery) ||
-          guest.kana.includes(searchQuery)
-        );
-      });
-    }
-
-    if (regularTables.length === 0) {
-      tableListContainer.innerHTML = '<div style="padding: 40px 16px; text-align: center; color: #8A8A82; font-size: 15px;">該当するゲストが見つかりません</div>';
-      return;
-    }
+    const regularTables = SEATING_DATA.tables.filter(t => t.shape === 'round');
 
     regularTables.forEach(table => {
       const firstGuest = table.guests[0];
@@ -346,43 +339,113 @@
   }
 
   // Search functionality
-  function setupSearch() {
-    const searchInput = document.getElementById('search-input');
-    if (!searchInput) return;
+  let selectedGuestForHighlight = null;
 
-    searchInput.addEventListener('input', (e) => {
-      const query = e.target.value.trim();
+  function showSearch() {
+    showScreen('search');
+    selectedGuestForHighlight = null;
 
-      // Update list view
-      renderTableList(query);
+    // Focus the search input
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-header-input');
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+      renderSearchResults('');
+    }, 100);
+  }
 
-      // Highlight matching tables in map view if query exists
-      const tableCircles = document.querySelectorAll('.table-circle');
-      if (query) {
-        tableCircles.forEach(circle => {
-          const tableId = circle.getAttribute('data-table');
-          const table = SEATING_DATA.tables.find(t => t.id === tableId);
-
-          if (table) {
-            const hasMatch = table.guests.some(guest =>
-              guest.name.includes(query) ||
-              guest.kana.includes(query)
-            );
-
-            if (hasMatch) {
-              circle.style.opacity = '1';
-            } else {
-              circle.style.opacity = '0.3';
-            }
-          }
-        });
-      } else {
-        // Reset opacity when search is cleared
-        tableCircles.forEach(circle => {
-          circle.style.opacity = '1';
+  function getAllGuests() {
+    const allGuests = [];
+    SEATING_DATA.tables.forEach(table => {
+      if (table.shape === 'round') {
+        table.guests.forEach((guest, index) => {
+          allGuests.push({
+            ...guest,
+            tableId: table.id,
+            tableLabel: table.label,
+            seatIndex: index + 1
+          });
         });
       }
     });
+    return allGuests;
+  }
+
+  function renderSearchResults(query) {
+    const resultsContainer = document.getElementById('search-results');
+    const resultsCount = document.getElementById('results-count');
+    if (!resultsContainer || !resultsCount) return;
+
+    let guests = getAllGuests();
+
+    // Filter if there's a query
+    if (query) {
+      guests = guests.filter(guest =>
+        guest.name.includes(query) ||
+        guest.kana.includes(query)
+      );
+    } else {
+      // Sort alphabetically by kana when no query
+      guests.sort((a, b) => a.kana.localeCompare(b.kana, 'ja'));
+    }
+
+    // Update count
+    const countText = query ? `${guests.length} RESULT${guests.length !== 1 ? 'S' : ''}` : '68 GUESTS';
+    resultsCount.textContent = countText;
+
+    // Render results
+    resultsContainer.innerHTML = '';
+    guests.forEach(guest => {
+      const honorific = guest.honorific || '';
+      const itemHTML = `
+        <div class="search-result-item" data-table-id="${guest.tableId}" data-guest-id="${guest.id}">
+          <div class="search-result-info">
+            <div class="search-result-name">${guest.name}${honorific}</div>
+            <div class="search-result-relation">${guest.relation}</div>
+          </div>
+          <div class="search-result-table">${guest.tableLabel} — ${guest.seatIndex}</div>
+        </div>
+      `;
+      resultsContainer.insertAdjacentHTML('beforeend', itemHTML);
+    });
+
+    // Add click handlers
+    const resultItems = resultsContainer.querySelectorAll('.search-result-item');
+    resultItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const tableId = item.getAttribute('data-table-id');
+        const guestId = item.getAttribute('data-guest-id');
+        selectedGuestForHighlight = guestId;
+        showTableDetail(tableId);
+      });
+    });
+  }
+
+  function setupSearch() {
+    // Click on search bar opens search screen
+    const searchBar = document.querySelector('.search-bar');
+    if (searchBar) {
+      searchBar.addEventListener('click', showSearch);
+    }
+
+    // Search input in search screen
+    const searchInput = document.getElementById('search-header-input');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.trim();
+        renderSearchResults(query);
+      });
+    }
+
+    // Back button from search
+    const backBtn = document.getElementById('back-to-seats-from-search');
+    if (backBtn) {
+      backBtn.addEventListener('click', () => {
+        showScreen('seats');
+      });
+    }
   }
 
   // Initialize from URL hash
