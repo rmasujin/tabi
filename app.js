@@ -373,6 +373,13 @@
     return allGuests;
   }
 
+  function hiraganaToKatakana(str) {
+    return str.replace(/[\u3041-\u3096]/g, (match) => {
+      const chr = match.charCodeAt(0) + 0x60;
+      return String.fromCharCode(chr);
+    });
+  }
+
   function renderSearchResults(query) {
     const resultsContainer = document.getElementById('search-results');
     const resultsCount = document.getElementById('results-count');
@@ -382,9 +389,11 @@
 
     // Filter if there's a query
     if (query) {
+      const queryKatakana = hiraganaToKatakana(query);
       guests = guests.filter(guest =>
         guest.name.includes(query) ||
-        guest.kana.includes(query)
+        guest.kana.includes(query) ||
+        guest.kana.includes(queryKatakana)
       );
     } else {
       // Sort alphabetically by kana when no query
