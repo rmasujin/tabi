@@ -128,7 +128,8 @@
         const x = 107 + radius * Math.sin(angle * Math.PI / 180);
         const y = 107 - radius * Math.cos(angle * Math.PI / 180);
 
-        seatsHTML += `<div class="seat-position" style="left:${x}px; top:${y}px">${guest.seat}</div>`;
+        // Use sequential numbering (1, 2, 3...) instead of original seat numbers
+        seatsHTML += `<div class="seat-position" style="left:${x}px; top:${y}px">${index + 1}</div>`;
       });
 
       const existingSeats = seatDiagram.querySelectorAll('.seat-position');
@@ -140,12 +141,12 @@
     const guestList = document.querySelector('.guest-list');
     if (guestList) {
       guestList.innerHTML = '';
-      table.guests.forEach(guest => {
+      table.guests.forEach((guest, index) => {
         const honorific = guest.honorific || '';
         const note = guest.note ? `<span class="guest-role">　${guest.note}</span>` : '';
         const guestHTML = `
           <div class="guest-item">
-            <span class="seat-number">${guest.seat}</span>
+            <span class="seat-number">${index + 1}</span>
             <span class="guest-name">${guest.name}${honorific}${note}</span>
           </div>
         `;
