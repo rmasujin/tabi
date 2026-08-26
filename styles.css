@@ -1153,3 +1153,17 @@ body {
   color: var(--color-black);
   flex: none;
 }
+
+/* Read more functionality */
+.content-more {
+  display: none;
+}
+
+.content-expanded .content-more {
+  display: inline;
+}
+
+.content-expanded .read-more,
+.content-expanded .profile-read-more {
+  display: none;
+}

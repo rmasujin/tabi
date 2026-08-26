@@ -498,6 +498,32 @@
     }
   }
 
+  // Read more functionality
+  function setupReadMore() {
+    // Post read more buttons
+    const readMoreButtons = document.querySelectorAll('.read-more');
+    readMoreButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent post click from triggering
+        const article = btn.closest('article');
+        if (article) {
+          article.classList.add('content-expanded');
+        }
+      });
+    });
+
+    // Profile read more button
+    const profileReadMore = document.querySelector('.profile-read-more');
+    if (profileReadMore) {
+      profileReadMore.addEventListener('click', () => {
+        const profileBio = document.querySelector('.profile-bio');
+        if (profileBio) {
+          profileBio.classList.add('content-expanded');
+        }
+      });
+    }
+  }
+
   // Initialize from URL hash
   function init() {
     const hash = window.location.hash.slice(1);
@@ -521,6 +547,9 @@
 
     // Setup profile tabs
     setupProfileTabs();
+
+    // Setup read more functionality
+    setupReadMore();
   }
 
   // Start the app
