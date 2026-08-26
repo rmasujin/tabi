@@ -154,11 +154,55 @@
   // Event listeners - Posts (click to show profile)
   const posts = document.querySelectorAll('.post');
   posts.forEach(post => {
+    // Don't navigate when clicking on slider
+    const slider = post.querySelector('.slider-container');
+    if (slider) {
+      slider.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
     post.addEventListener('click', (e) => {
       showScreen('profile');
     });
     post.style.cursor = 'pointer';
   });
+
+  // Post image slider functionality
+  function initPostSliders() {
+    const sliders = document.querySelectorAll('.slider-container');
+
+    sliders.forEach(container => {
+      const postSlider = container.closest('.post-slider');
+      const postId = postSlider.getAttribute('data-post-id');
+      const dotsContainer = document.querySelector(`.pagination-dots[data-post-id="${postId}"]`);
+      const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
+
+      let isScrolling = false;
+
+      container.addEventListener('scroll', () => {
+        if (isScrolling) return;
+
+        isScrolling = true;
+        requestAnimationFrame(() => {
+          const scrollLeft = container.scrollLeft;
+          const width = container.offsetWidth;
+          const index = Math.round(scrollLeft / width);
+
+          // Update dots
+          dots.forEach((dot, i) => {
+            if (i === index) {
+              dot.classList.add('active');
+            } else {
+              dot.classList.remove('active');
+            }
+          });
+
+          isScrolling = false;
+        });
+      });
+    });
+  }
 
   // Handle URL hash changes
   window.addEventListener('hashchange', () => {
@@ -194,6 +238,9 @@
 
     // Set initial seats view
     switchSeatsView('map');
+
+    // Initialize post sliders
+    initPostSliders();
   }
 
   // Start the app

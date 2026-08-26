@@ -144,6 +144,38 @@ body {
   background-color: #F9F9F7;
 }
 
+/* Post Slider */
+.post-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-track {
+  display: flex;
+  width: fit-content;
+}
+
+.slider-track .post-image-placeholder {
+  width: 100vw;
+  max-width: 100%;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
 .post-header {
   display: flex;
   align-items: baseline;
