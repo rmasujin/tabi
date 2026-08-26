@@ -345,15 +345,18 @@
     showScreen('search');
     selectedGuestForHighlight = null;
 
-    // Focus the search input
-    setTimeout(() => {
-      const searchInput = document.getElementById('search-header-input');
-      if (searchInput) {
-        searchInput.value = '';
+    // Focus the search input immediately for mobile keyboard support
+    const searchInput = document.getElementById('search-header-input');
+    if (searchInput) {
+      searchInput.value = '';
+      // Use requestAnimationFrame for better timing
+      requestAnimationFrame(() => {
         searchInput.focus();
-      }
-      renderSearchResults('');
-    }, 100);
+        // Force keyboard to appear on mobile
+        searchInput.click();
+      });
+    }
+    renderSearchResults('');
   }
 
   function getAllGuests() {
