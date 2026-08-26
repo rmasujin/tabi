@@ -834,10 +834,14 @@ body {
 }
 
 .profile-grid {
-  display: grid;
+  display: none;
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--color-divider);
+}
+
+.profile-grid.active {
+  display: grid;
 }
 
 .grid-item {

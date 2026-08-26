@@ -474,6 +474,30 @@
     }
   }
 
+  // Profile tab switching
+  function setupProfileTabs() {
+    const tabPosts = document.getElementById('tab-posts');
+    const tabFavorites = document.getElementById('tab-favorites');
+    const gridPosts = document.getElementById('grid-posts');
+    const gridFavorites = document.getElementById('grid-favorites');
+
+    if (tabPosts && tabFavorites && gridPosts && gridFavorites) {
+      tabPosts.addEventListener('click', () => {
+        tabPosts.classList.add('active');
+        tabFavorites.classList.remove('active');
+        gridPosts.classList.add('active');
+        gridFavorites.classList.remove('active');
+      });
+
+      tabFavorites.addEventListener('click', () => {
+        tabFavorites.classList.add('active');
+        tabPosts.classList.remove('active');
+        gridFavorites.classList.add('active');
+        gridPosts.classList.remove('active');
+      });
+    }
+  }
+
   // Initialize from URL hash
   function init() {
     const hash = window.location.hash.slice(1);
@@ -494,6 +518,9 @@
 
     // Setup search functionality
     setupSearch();
+
+    // Setup profile tabs
+    setupProfileTabs();
   }
 
   // Start the app
