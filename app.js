@@ -50,10 +50,13 @@
     }
 
     // Update nav buttons (only for main screens)
-    if (screenName !== 'tableDetail' && screenName !== 'profile') {
+    if (screenName !== 'tableDetail' && screenName !== 'profile' && screenName !== 'search') {
       updateNavButtons(screenName);
       // Update URL hash
       window.location.hash = screenName;
+    } else if (screenName === 'search') {
+      // Keep seats button active during search
+      updateNavButtons('seats');
     }
   }
 
