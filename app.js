@@ -116,20 +116,19 @@
       const tableLetter = seatDiagram.querySelector('.table-letter');
       if (tableLetter) tableLetter.textContent = table.label;
 
-      // Update seat positions
-      const allSeats = Array.from({length: table.seatCount}, (_, i) => i + 1);
-      const occupiedSeats = table.guests.map(g => g.seat);
+      // Update seat positions - only show occupied seats, evenly distributed
+      const guests = table.guests;
+      const guestCount = guests.length;
 
       let seatsHTML = '';
-      allSeats.forEach(seatNum => {
-        const angle = SEATING_DATA.seatAngles[seatNum];
+      guests.forEach((guest, index) => {
+        // Distribute evenly around the circle
+        const angle = (360 / guestCount) * index;
         const radius = 85;
         const x = 107 + radius * Math.sin(angle * Math.PI / 180);
         const y = 107 - radius * Math.cos(angle * Math.PI / 180);
-        const isOccupied = occupiedSeats.includes(seatNum);
-        const emptyClass = isOccupied ? '' : ' empty';
 
-        seatsHTML += `<div class="seat-position${emptyClass}" style="left:${x}px; top:${y}px">${seatNum}</div>`;
+        seatsHTML += `<div class="seat-position" style="left:${x}px; top:${y}px">${guest.seat}</div>`;
       });
 
       const existingSeats = seatDiagram.querySelectorAll('.seat-position');
