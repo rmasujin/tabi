@@ -1197,3 +1197,8 @@ body {
 #screen-post-detail {
   z-index: 11;
 }
+
+/* Ensure back button is always clickable */
+.back-to-profile {
+  pointer-events: auto !important;
+}

@@ -416,13 +416,19 @@
 
   // Use event delegation for back to profile button
   document.addEventListener('click', (e) => {
-    if (e.target.closest('.back-to-profile')) {
+    const backBtn = e.target.closest('.back-to-profile');
+    if (backBtn) {
+      console.log('Back to profile button clicked!');
+      console.log('previousProfileScreen:', previousProfileScreen);
+      console.log('currentScreen:', currentScreen);
       e.preventDefault();
       e.stopPropagation();
       // Go back to the profile screen we came from
       if (previousProfileScreen) {
+        console.log('Going back to:', previousProfileScreen);
         showScreen(previousProfileScreen, true);
       } else {
+        console.log('No previous profile, going to profileKanami');
         showScreen('profileKanami', true);
       }
     }
