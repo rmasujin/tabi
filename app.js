@@ -35,18 +35,25 @@
 
   // Navigation functions
   function showScreen(screenName) {
-    // Hide all screens
+    const previousScreen = currentScreen;
+
+    // Hide all screens except the one we're transitioning to
     Object.values(screens).forEach(screen => {
-      if (screen) screen.classList.remove('active');
+      if (screen && !screen.id.includes(screenName)) {
+        screen.classList.remove('active');
+      }
     });
 
     // Show target screen
     if (screens[screenName]) {
-      screens[screenName].classList.add('active');
-      currentScreen = screenName;
+      // Use requestAnimationFrame for smooth animation
+      requestAnimationFrame(() => {
+        screens[screenName].classList.add('active');
+        currentScreen = screenName;
 
-      // Scroll to top
-      screens[screenName].scrollTop = 0;
+        // Scroll to top
+        screens[screenName].scrollTop = 0;
+      });
     }
 
     // Update nav buttons (only for main screens)
