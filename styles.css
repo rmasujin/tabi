@@ -300,16 +300,21 @@ body {
 }
 
 .post-content {
-  padding: 12px 16px 6px;
+  padding: 12px 16px;
   font-size: 16px;
   line-height: 1.65;
   color: var(--color-black);
 }
 
 .read-more {
-  padding: 0 16px 24px;
+  padding: 0 16px 12px;
   font-size: 14px;
   color: #9A9A92;
+}
+
+/* When content is expanded, add bottom padding to match top */
+.content-expanded .post-content {
+  padding-bottom: 12px;
 }
 
 /* Menu Screen */
@@ -760,7 +765,7 @@ body {
 }
 
 .profile-bio {
-  padding: 12px 16px 0;
+  padding: 12px 16px;
   font-size: 16px;
   line-height: 1.75;
   color: var(--color-black);
@@ -774,10 +779,11 @@ body {
   min-height: 44px;
   display: flex;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 16px 12px;
   font-size: 14px;
   color: #9A9A92;
 }
+
 
 .profile-details {
   padding: 0 16px;
@@ -1170,6 +1176,7 @@ body {
 .profile-bio.content-expanded {
   -webkit-line-clamp: unset;
   overflow: visible;
+  padding-bottom: 12px;
 }
 
 /* Slide-in animation for profile and table detail screens */
