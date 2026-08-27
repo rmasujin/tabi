@@ -51,8 +51,14 @@
 
     // For slide-in screens, keep previous screen visible during animation
     const isSlideScreen = screenName === 'profileKanami' || screenName === 'profileRiki' || screenName === 'tableDetail' || screenName === 'postDetail';
+    const wasPreviousSlideScreen = previousScreenName === 'profileKanami' || previousScreenName === 'profileRiki' || previousScreenName === 'tableDetail' || previousScreenName === 'postDetail';
 
-    if (!isSlideScreen) {
+    // If navigating between slide screens, remove active from previous
+    if (isSlideScreen && wasPreviousSlideScreen && previousScreenName !== screenName) {
+      if (screens[previousScreenName]) {
+        screens[previousScreenName].classList.remove('active');
+      }
+    } else if (!isSlideScreen) {
       // For non-sliding screens, hide all other screens immediately
       Object.values(screens).forEach(screen => {
         if (screen && screen !== targetScreen) {
@@ -75,7 +81,7 @@
       }
 
       // For slide-in screens, hide other screens after animation completes
-      if (isSlideScreen) {
+      if (isSlideScreen && !wasPreviousSlideScreen) {
         setTimeout(() => {
           Object.values(screens).forEach(screen => {
             if (screen && screen !== targetScreen && !screen.classList.contains('active')) {
