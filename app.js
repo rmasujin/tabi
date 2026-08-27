@@ -9,6 +9,8 @@
   let scrollPositions = {};
   let previousProfileScreen = null; // Track which profile screen we came from
   let postsData = { posts: [] }; // Will be loaded from JSON
+  let profileData = {}; // Will be loaded from JSON
+  let seatingData = {}; // Will be loaded from JSON
 
   // Get elements
   const screens = {
@@ -125,6 +127,49 @@
     } catch (error) {
       console.error('Failed to load posts data:', error);
       postsData = { posts: [] };
+    }
+  }
+
+  // Load profile data from JSON
+  async function loadProfileData() {
+    try {
+      const response = await fetch('data/profile-data.json');
+      profileData = await response.json();
+      console.log('Profile data loaded:', profileData);
+    } catch (error) {
+      console.error('Failed to load profile data:', error);
+      profileData = {};
+    }
+  }
+
+  // Load seating data from JSON
+  async function loadSeatingData() {
+    try {
+      const response = await fetch('data/seating-data.json');
+      seatingData = await response.json();
+      console.log('Seating data loaded:', seatingData);
+    } catch (error) {
+      console.error('Failed to load seating data:', error);
+      seatingData = {};
+    }
+  }
+
+  // Update profile bio dynamically
+  function updateProfileBios() {
+    // Update KANAMI bio
+    if (profileData.kanami && profileData.kanami.bio) {
+      const kanamiBioEl = document.querySelector('#screen-profile-kanami .profile-bio');
+      if (kanamiBioEl) {
+        kanamiBioEl.textContent = profileData.kanami.bio;
+      }
+    }
+
+    // Update RIKI bio
+    if (profileData.riki && profileData.riki.bio) {
+      const rikiBioEl = document.querySelector('#screen-profile-riki .profile-bio');
+      if (rikiBioEl) {
+        rikiBioEl.textContent = profileData.riki.bio;
+      }
     }
   }
 
@@ -864,12 +909,15 @@
 
   // Initialize from URL hash
   async function init() {
-    // Load posts data first
+    // Load all data first
     await loadPostsData();
+    await loadProfileData();
+    await loadSeatingData();
 
     // Render dynamic content
     renderHomePosts();
     renderAllProfileGrids();
+    updateProfileBios();
 
     const hash = window.location.hash.slice(1);
     if (hash && screens[hash]) {
