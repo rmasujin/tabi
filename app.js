@@ -96,55 +96,150 @@
     }
   }
 
-  // Show post detail
-  function showPostDetail(postNumber) {
+  // Mock post data - KANAMI posts
+  const kanamiPosts = [
+    { number: 1, date: '2026.09.05', author: 'RIKI ＋ KANAMI', content: '本日はお越しいただきありがとうございます。私たちのこれまでを少しだけ。本日のメニューと席次表も下のタブから見られます。', contentMore: '二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。', photos: 3, hasSlider: true },
+    { number: 3, date: '2023.12.24', author: 'KANAMI', content: 'イルミネーションを見に行きました。きれいだった。', photos: 1 },
+    { number: 5, date: '2022.05.20', author: 'KANAMI', content: 'お気に入りのカフェでのんびり。りきはいつもコーヒー、私はカフェラテ。', photos: 1 },
+    { number: 6, date: '2021.11.03', author: 'KANAMI', content: 'はじめて二人で行った旅行。ずっと雨でした。', photos: 1 }
+  ];
+
+  // Mock post data - RIKI posts
+  const rikiPosts = [
+    { number: 2, date: '2024.03.15', author: 'RIKI', content: 'プロポーズした日。すごく緊張した。', contentMore: '思い出の場所で、ずっと考えていた言葉を伝えました。涙で顔がぐちゃぐちゃになったけど、一生忘れられない日になりました。', photos: 1 },
+    { number: 4, date: '2023.08.12', author: 'RIKI', content: '地元の夏祭りに行きました。浴衣姿のかなみがかわいかった。', photos: 1 }
+  ];
+
+  // Mock favorites data
+  const favoritePosts = [
+    { number: 1, date: '2026.09.05', author: 'RIKI ＋ KANAMI', content: 'お気に入りの思い出', photos: 1 },
+    { number: 2, date: '2025.06.10', author: 'KANAMI', content: '大切な一日', photos: 1 },
+    { number: 3, date: '2024.12.25', author: 'KANAMI', content: '特別な瞬間', photos: 1 },
+    { number: 4, date: '2024.08.15', author: 'RIKI', content: '夏の思い出', photos: 1 },
+    { number: 5, date: '2023.03.20', author: 'KANAMI', content: '春の日', photos: 1 }
+  ];
+
+  // Show post detail - now shows all posts in the collection
+  function showPostDetail(postNumber, postType = 'posts', author = 'kanami') {
     const postDetailTitle = document.getElementById('post-detail-title');
-    const postDetailDate = document.getElementById('post-detail-date');
+    const postDetailCount = document.getElementById('post-detail-count');
     const postDetailContent = document.getElementById('post-detail-content');
 
+    // Determine which post collection to use
+    let posts = [];
+    let titleText = '';
+
+    if (postType === 'favorites') {
+      posts = favoritePosts;
+      titleText = 'FAVORITES';
+    } else {
+      if (author === 'riki') {
+        posts = rikiPosts;
+        titleText = 'POSTS';
+      } else {
+        posts = kanamiPosts;
+        titleText = 'POSTS';
+      }
+    }
+
     if (postDetailTitle) {
-      postDetailTitle.textContent = `POST ${String(postNumber).padStart(2, '0')}`;
+      postDetailTitle.textContent = titleText;
     }
 
-    // Mock post data - in real implementation, this would come from a data source
-    const postData = {
-      1: { date: '2026.09.05', content: 'Welcome photo content', photos: 3 },
-      2: { date: '2024.03.15', content: 'Proposal day content', photos: 1 },
-      3: { date: '2023.12.24', content: 'Christmas lights content', photos: 1 }
-    };
-
-    const post = postData[postNumber] || { date: '2026.09.05', content: 'Post content', photos: 1 };
-
-    if (postDetailDate) {
-      postDetailDate.textContent = post.date;
+    if (postDetailCount) {
+      postDetailCount.textContent = `${posts.length} ${titleText}`;
     }
 
-    // Render post content (same structure as HOME screen posts)
+    // Render all posts (same structure as HOME screen)
     if (postDetailContent) {
-      const contentHTML = `
-        <article class="post">
-          <div class="post-header">
-            <span class="post-number">${String(postNumber).padStart(2, '0')}</span>
-            <span class="post-date">${post.date}</span>
-          </div>
-          <div class="post-image-placeholder">
-            <span class="placeholder-text">photo — 4:5</span>
-            <div class="gradient-overlay"></div>
-            <div class="post-authors">
-              <div class="avatar-placeholder single"></div>
-              <span class="author-names">RIKI ＋ KANAMI</span>
-            </div>
-          </div>
-          <div class="post-meta">
-            <span class="photo-count">${post.photos} PHOTO${post.photos > 1 ? 'S' : ''}</span>
-          </div>
-          <div class="post-content">
-            ${post.content}
-          </div>
-        </article>
-        <div class="bottom-spacer"></div>
-      `;
+      let contentHTML = '';
+
+      posts.forEach((post, index) => {
+        const hasMore = post.contentMore ? true : false;
+        const readMoreHTML = hasMore ? '<div class="read-more">続きを読む</div>' : '';
+        const contentMoreHTML = hasMore ? `<span class="content-more">${post.contentMore}</span>` : '';
+
+        if (post.hasSlider) {
+          // Render slider post
+          contentHTML += `
+            <article class="post">
+              <div class="post-header">
+                <span class="post-number">${String(post.number).padStart(2, '0')}</span>
+                <span class="post-date">${post.date}</span>
+              </div>
+              <div class="post-slider" data-post-id="${post.number}">
+                <div class="slider-container">
+                  <div class="slider-track">
+                    <div class="post-image-placeholder">
+                      <span class="placeholder-text">welcome photo 1 — 4:5</span>
+                    </div>
+                    <div class="post-image-placeholder">
+                      <span class="placeholder-text">welcome photo 2 — 4:5</span>
+                    </div>
+                    <div class="post-image-placeholder">
+                      <span class="placeholder-text">welcome photo 3 — 4:5</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="gradient-overlay"></div>
+                <div class="post-authors">
+                  <div class="author-avatars">
+                    <div class="avatar-placeholder"></div>
+                    <div class="avatar-placeholder offset"></div>
+                  </div>
+                  <span class="author-names">${post.author}</span>
+                </div>
+              </div>
+              <div class="post-meta">
+                <span class="photo-count">${post.photos} PHOTOS</span>
+                <div class="pagination-dots" data-post-id="${post.number}">
+                  <span class="dot active" data-index="0"></span>
+                  <span class="dot" data-index="1"></span>
+                  <span class="dot" data-index="2"></span>
+                </div>
+              </div>
+              <div class="post-content">
+                ${post.content}${contentMoreHTML}
+              </div>
+              ${readMoreHTML}
+            </article>
+          `;
+        } else {
+          // Render single image post
+          contentHTML += `
+            <article class="post">
+              <div class="post-header">
+                <span class="post-number">${String(post.number).padStart(2, '0')}</span>
+                <span class="post-date">${post.date}</span>
+              </div>
+              <div class="post-image-placeholder">
+                <span class="placeholder-text">photo — 4:5</span>
+                <div class="gradient-overlay"></div>
+                <div class="post-authors">
+                  <div class="avatar-placeholder single"></div>
+                  <span class="author-names">${post.author}</span>
+                </div>
+              </div>
+              <div class="post-meta">
+                <span class="photo-count">${post.photos} PHOTO${post.photos > 1 ? 'S' : ''}</span>
+              </div>
+              <div class="post-content">
+                ${post.content}${contentMoreHTML}
+              </div>
+              ${readMoreHTML}
+            </article>
+          `;
+        }
+      });
+
+      contentHTML += '<div class="bottom-spacer"></div>';
       postDetailContent.innerHTML = contentHTML;
+
+      // Re-initialize post sliders for the dynamically added content
+      setTimeout(() => {
+        initPostSliders();
+        setupReadMore();
+      }, 100);
     }
 
     showScreen('postDetail');
@@ -633,9 +728,15 @@
     gridItems.forEach(item => {
       item.addEventListener('click', () => {
         const gridNumber = item.querySelector('.grid-number');
-        if (gridNumber) {
+        const grid = item.closest('.profile-grid');
+        const profileScreen = item.closest('.screen');
+
+        if (gridNumber && grid && profileScreen) {
           const postNumber = parseInt(gridNumber.textContent);
-          showPostDetail(postNumber);
+          const gridType = grid.getAttribute('data-grid'); // 'posts' or 'favorites'
+          const author = profileScreen.id.includes('riki') ? 'riki' : 'kanami';
+
+          showPostDetail(postNumber, gridType, author);
         }
       });
       item.style.cursor = 'pointer';
