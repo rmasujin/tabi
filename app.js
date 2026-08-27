@@ -6,6 +6,7 @@
   // State
   let currentScreen = 'home';
   let currentSeatsView = 'map';
+  let scrollPositions = {};
 
   // Get elements
   const screens = {
@@ -35,11 +36,16 @@
   };
 
   // Navigation functions
-  function showScreen(screenName) {
-    const previousScreen = currentScreen;
+  function showScreen(screenName, restoreScroll = false) {
+    const previousScreenName = currentScreen;
     const targetScreen = screens[screenName];
 
     if (!targetScreen) return;
+
+    // Save scroll position of current screen
+    if (screens[previousScreenName]) {
+      scrollPositions[previousScreenName] = screens[previousScreenName].scrollTop;
+    }
 
     // For slide-in screens, keep previous screen visible during animation
     const isSlideScreen = screenName === 'profileKanami' || screenName === 'profileRiki' || screenName === 'tableDetail';
@@ -58,8 +64,13 @@
       targetScreen.classList.add('active');
       currentScreen = screenName;
 
-      // Scroll to top
-      targetScreen.scrollTop = 0;
+      // Restore scroll position or scroll to top
+      if (restoreScroll && scrollPositions[screenName] !== undefined) {
+        targetScreen.scrollTop = scrollPositions[screenName];
+      } else if (isSlideScreen) {
+        // Slide screens always start at top
+        targetScreen.scrollTop = 0;
+      }
 
       // For slide-in screens, hide other screens after animation completes
       if (isSlideScreen) {
@@ -190,10 +201,6 @@
     }
   }
 
-  function backToSeats() {
-    showScreen('seats');
-  }
-
   // Event listeners - Navigation
   if (navButtons.home) {
     navButtons.home.addEventListener('click', () => showScreen('home'));
@@ -238,12 +245,14 @@
   // Event listeners - Back buttons
   const backToSeatsBtn = document.getElementById('back-to-seats');
   if (backToSeatsBtn) {
-    backToSeatsBtn.addEventListener('click', backToSeats);
+    backToSeatsBtn.addEventListener('click', () => {
+      showScreen('seats', true); // Restore scroll position
+    });
   }
 
   const backToHomeBtns = document.querySelectorAll('.back-to-home');
   backToHomeBtns.forEach(btn => {
-    btn.addEventListener('click', () => showScreen('home'));
+    btn.addEventListener('click', () => showScreen('home', true)); // Restore scroll position
   });
 
   // Event listeners - Posts (click to show profile)
@@ -509,7 +518,7 @@
     const backBtn = document.getElementById('back-to-seats-from-search');
     if (backBtn) {
       backBtn.addEventListener('click', () => {
-        showScreen('seats');
+        showScreen('seats', true); // Restore scroll position
       });
     }
   }
