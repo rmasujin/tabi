@@ -541,17 +541,17 @@
       });
     });
 
-    // Profile read more button
-    const profileReadMore = document.querySelector('.profile-read-more');
-    if (profileReadMore) {
-      profileReadMore.addEventListener('click', () => {
-        const profileBio = profileReadMore.previousElementSibling;
+    // Profile read more buttons (handle all profile screens)
+    const profileReadMoreButtons = document.querySelectorAll('.profile-read-more');
+    profileReadMoreButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const profileBio = btn.previousElementSibling;
         if (profileBio) {
           profileBio.classList.add('content-expanded');
-          profileReadMore.style.display = 'none';
+          btn.style.display = 'none';
         }
       });
-    }
+    });
   }
 
   // Initialize from URL hash
