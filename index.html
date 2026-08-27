@@ -65,9 +65,98 @@
       </article>
 
       <!-- Post 2 -->
-      <article class="post">
+      <article class="post" data-author="riki">
         <div class="post-header">
           <span class="post-number">02</span>
+          <span class="post-date">2024.03.15</span>
+        </div>
+        <div class="post-image-placeholder">
+          <span class="placeholder-text">proposal day — 4:5</span>
+          <div class="gradient-overlay"></div>
+          <div class="post-authors">
+            <div class="avatar-placeholder single"></div>
+            <span class="author-names">RIKI</span>
+          </div>
+        </div>
+        <div class="post-meta">
+          <span class="photo-count">1 PHOTO</span>
+        </div>
+        <div class="post-content">
+          プロポーズした日。すごく緊張した。<span class="content-more">思い出の場所で、ずっと考えていた言葉を伝えました。涙で顔がぐちゃぐちゃになったけど、一生忘れられない日になりました。</span>
+        </div>
+        <div class="read-more">続きを読む</div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="post" data-author="kanami">
+        <div class="post-header">
+          <span class="post-number">03</span>
+          <span class="post-date">2023.12.24</span>
+        </div>
+        <div class="post-image-placeholder">
+          <span class="placeholder-text">christmas lights — 4:5</span>
+          <div class="gradient-overlay"></div>
+          <div class="post-authors">
+            <div class="avatar-placeholder single"></div>
+            <span class="author-names">KANAMI</span>
+          </div>
+        </div>
+        <div class="post-meta">
+          <span class="photo-count">1 PHOTO</span>
+        </div>
+        <div class="post-content">
+          イルミネーションを見に行きました。きれいだった。
+        </div>
+      </article>
+
+      <!-- Post 4 -->
+      <article class="post" data-author="riki">
+        <div class="post-header">
+          <span class="post-number">04</span>
+          <span class="post-date">2023.08.12</span>
+        </div>
+        <div class="post-image-placeholder">
+          <span class="placeholder-text">summer festival — 4:5</span>
+          <div class="gradient-overlay"></div>
+          <div class="post-authors">
+            <div class="avatar-placeholder single"></div>
+            <span class="author-names">RIKI</span>
+          </div>
+        </div>
+        <div class="post-meta">
+          <span class="photo-count">1 PHOTO</span>
+        </div>
+        <div class="post-content">
+          地元の夏祭りに行きました。浴衣姿のかなみがかわいかった。
+        </div>
+      </article>
+
+      <!-- Post 5 -->
+      <article class="post" data-author="kanami">
+        <div class="post-header">
+          <span class="post-number">05</span>
+          <span class="post-date">2022.05.20</span>
+        </div>
+        <div class="post-image-placeholder">
+          <span class="placeholder-text">cafe date — 4:5</span>
+          <div class="gradient-overlay"></div>
+          <div class="post-authors">
+            <div class="avatar-placeholder single"></div>
+            <span class="author-names">KANAMI</span>
+          </div>
+        </div>
+        <div class="post-meta">
+          <span class="photo-count">1 PHOTO</span>
+        </div>
+        <div class="post-content">
+          お気に入りのカフェでのんびり。りきはいつもコーヒー、私はカフェラテ。
+        </div>
+      </article>
+
+      <!-- Post 6 -->
+      <article class="post" data-author="kanami">
+        <div class="post-header">
+          <span class="post-number">06</span>
           <span class="post-date">2021.11.03</span>
         </div>
         <div class="post-image-placeholder">
@@ -305,16 +394,16 @@
     </div>
   </div>
 
-  <!-- PROFILE Screen -->
-  <div id="screen-profile" class="screen">
+  <!-- PROFILE Screen - KANAMI -->
+  <div id="screen-profile-kanami" class="screen">
     <div class="header">
       <div class="header-left">
-        <button class="back-btn" id="back-to-home">
+        <button class="back-btn back-to-home">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A0A0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 4l-6 6 6 6"></path>
           </svg>
         </button>
-        <span id="profile-name" class="header-title">KANAMI</span>
+        <span class="header-title">KANAMI</span>
       </div>
       <span class="post-count">8 POSTS</span>
     </div>
@@ -353,11 +442,11 @@
       </div>
 
       <div class="profile-tabs">
-        <div class="profile-tab active" id="tab-posts">POSTS</div>
-        <div class="profile-tab" id="tab-favorites">FAVORITES</div>
+        <div class="profile-tab active" data-tab="posts">POSTS</div>
+        <div class="profile-tab" data-tab="favorites">FAVORITES</div>
       </div>
 
-      <div class="profile-grid active" id="grid-posts">
+      <div class="profile-grid active" data-grid="posts">
         <div class="grid-item">
           <span class="grid-number">01</span>
         </div>
@@ -369,7 +458,93 @@
         </div>
       </div>
 
-      <div class="profile-grid" id="grid-favorites">
+      <div class="profile-grid" data-grid="favorites">
+        <div class="grid-item">
+          <span class="grid-number">01</span>
+        </div>
+        <div class="grid-item">
+          <span class="grid-number">02</span>
+        </div>
+        <div class="grid-item">
+          <span class="grid-number">03</span>
+        </div>
+        <div class="grid-item">
+          <span class="grid-number">04</span>
+        </div>
+        <div class="grid-item">
+          <span class="grid-number">05</span>
+        </div>
+      </div>
+
+      <div class="bottom-spacer"></div>
+    </div>
+  </div>
+
+  <!-- PROFILE Screen - RIKI -->
+  <div id="screen-profile-riki" class="screen">
+    <div class="header">
+      <div class="header-left">
+        <button class="back-btn back-to-home">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#0A0A0A" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4l-6 6 6 6"></path>
+          </svg>
+        </button>
+        <span class="header-title">RIKI</span>
+      </div>
+      <span class="post-count">6 POSTS</span>
+    </div>
+
+    <div class="content">
+      <div class="profile-info">
+        <div class="profile-text">
+          <span class="profile-role">GROOM</span>
+          <h2 class="profile-name-large">RIKI</h2>
+        </div>
+        <div class="profile-avatar"></div>
+      </div>
+
+      <div class="profile-bio">
+        1991年6月生まれ、東京出身です。今はIT企業でエンジニアをしています。休みの日はかなみと過ごすか、一人でランニングをしています。<span class="content-more">共通の友人の家で出会って、最初は友達でした。一緒にいると自然体でいられて、気づいたら大切な存在になっていました。これからもずっと一緒にいたいです。</span>
+      </div>
+      <div class="profile-read-more">続きを読む</div>
+
+      <div class="profile-details">
+        <div class="detail-row">
+          <span class="detail-label">FROM</span>
+          <span class="detail-value">東京都</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">WORK</span>
+          <span class="detail-value">エンジニア</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">SUNDAY</span>
+          <span class="detail-value">かなみと過ごす、ランニング</span>
+        </div>
+        <div class="detail-row">
+          <span class="detail-label">MUSIC</span>
+          <span class="detail-value">スピッツ／King Gnu</span>
+        </div>
+      </div>
+
+      <div class="profile-tabs">
+        <div class="profile-tab active" data-tab="posts">POSTS</div>
+        <div class="profile-tab" data-tab="favorites">FAVORITES</div>
+      </div>
+
+      <div class="profile-grid active" data-grid="posts">
+        <div class="grid-item">
+          <span class="grid-number">01</span>
+        </div>
+        <div class="grid-item">
+          <span class="grid-number">02</span>
+        </div>
+        <div class="grid-item">
+          <span class="grid-number">03</span>
+        </div>
+      </div>
+
+      <div class="profile-grid" data-grid="favorites">
         <div class="grid-item">
           <span class="grid-number">01</span>
         </div>

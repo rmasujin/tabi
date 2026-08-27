@@ -12,7 +12,8 @@
     home: document.getElementById('screen-home'),
     menu: document.getElementById('screen-menu'),
     seats: document.getElementById('screen-seats'),
-    profile: document.getElementById('screen-profile'),
+    profileKanami: document.getElementById('screen-profile-kanami'),
+    profileRiki: document.getElementById('screen-profile-riki'),
     tableDetail: document.getElementById('screen-table-detail'),
     search: document.getElementById('screen-search')
   };
@@ -57,7 +58,7 @@
     }
 
     // Update nav buttons (only for main screens)
-    if (screenName !== 'tableDetail' && screenName !== 'profile' && screenName !== 'search') {
+    if (screenName !== 'tableDetail' && screenName !== 'profileKanami' && screenName !== 'profileRiki' && screenName !== 'search') {
       updateNavButtons(screenName);
       // Update URL hash
       window.location.hash = screenName;
@@ -224,10 +225,10 @@
     backToSeatsBtn.addEventListener('click', backToSeats);
   }
 
-  const backToHomeBtn = document.getElementById('back-to-home');
-  if (backToHomeBtn) {
-    backToHomeBtn.addEventListener('click', () => showScreen('home'));
-  }
+  const backToHomeBtns = document.querySelectorAll('.back-to-home');
+  backToHomeBtns.forEach(btn => {
+    btn.addEventListener('click', () => showScreen('home'));
+  });
 
   // Event listeners - Posts (click to show profile)
   const posts = document.querySelectorAll('.post');
@@ -240,8 +241,24 @@
       });
     }
 
+    // Don't navigate when clicking read more button
+    const readMore = post.querySelector('.read-more');
+    if (readMore) {
+      readMore.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
+
     post.addEventListener('click', (e) => {
-      showScreen('profile');
+      const author = post.getAttribute('data-author');
+      if (author === 'riki') {
+        showScreen('profileRiki');
+      } else if (author === 'kanami') {
+        showScreen('profileKanami');
+      } else {
+        // Default to KANAMI for posts without author (like the first joint post)
+        showScreen('profileKanami');
+      }
     });
     post.style.cursor = 'pointer';
   });
@@ -483,26 +500,31 @@
 
   // Profile tab switching
   function setupProfileTabs() {
-    const tabPosts = document.getElementById('tab-posts');
-    const tabFavorites = document.getElementById('tab-favorites');
-    const gridPosts = document.getElementById('grid-posts');
-    const gridFavorites = document.getElementById('grid-favorites');
+    // Handle all profile tabs using data attributes
+    const allTabs = document.querySelectorAll('.profile-tab');
+    allTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabName = tab.getAttribute('data-tab');
+        const profileScreen = tab.closest('.screen');
 
-    if (tabPosts && tabFavorites && gridPosts && gridFavorites) {
-      tabPosts.addEventListener('click', () => {
-        tabPosts.classList.add('active');
-        tabFavorites.classList.remove('active');
-        gridPosts.classList.add('active');
-        gridFavorites.classList.remove('active');
-      });
+        if (profileScreen && tabName) {
+          // Update tabs
+          const tabs = profileScreen.querySelectorAll('.profile-tab');
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
 
-      tabFavorites.addEventListener('click', () => {
-        tabFavorites.classList.add('active');
-        tabPosts.classList.remove('active');
-        gridFavorites.classList.add('active');
-        gridPosts.classList.remove('active');
+          // Update grids
+          const grids = profileScreen.querySelectorAll('.profile-grid');
+          grids.forEach(g => {
+            if (g.getAttribute('data-grid') === tabName) {
+              g.classList.add('active');
+            } else {
+              g.classList.remove('active');
+            }
+          });
+        }
       });
-    }
+    });
   }
 
   // Read more functionality
