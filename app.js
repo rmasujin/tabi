@@ -37,25 +37,41 @@
   // Navigation functions
   function showScreen(screenName) {
     const previousScreen = currentScreen;
+    const targetScreen = screens[screenName];
 
-    // Hide all screens except the one we're transitioning to
-    Object.values(screens).forEach(screen => {
-      if (screen && !screen.id.includes(screenName)) {
-        screen.classList.remove('active');
-      }
-    });
+    if (!targetScreen) return;
 
-    // Show target screen
-    if (screens[screenName]) {
-      // Use requestAnimationFrame for smooth animation
-      requestAnimationFrame(() => {
-        screens[screenName].classList.add('active');
-        currentScreen = screenName;
+    // For slide-in screens, keep previous screen visible during animation
+    const isSlideScreen = screenName === 'profileKanami' || screenName === 'profileRiki' || screenName === 'tableDetail';
 
-        // Scroll to top
-        screens[screenName].scrollTop = 0;
+    if (!isSlideScreen) {
+      // For non-sliding screens, hide all other screens immediately
+      Object.values(screens).forEach(screen => {
+        if (screen && screen !== targetScreen) {
+          screen.classList.remove('active');
+        }
       });
     }
+
+    // Show target screen
+    requestAnimationFrame(() => {
+      targetScreen.classList.add('active');
+      currentScreen = screenName;
+
+      // Scroll to top
+      targetScreen.scrollTop = 0;
+
+      // For slide-in screens, hide other screens after animation completes
+      if (isSlideScreen) {
+        setTimeout(() => {
+          Object.values(screens).forEach(screen => {
+            if (screen && screen !== targetScreen && !screen.classList.contains('active')) {
+              // This screen should already be inactive from previous navigation
+            }
+          });
+        }, 300); // Match transition duration
+      }
+    });
 
     // Update nav buttons (only for main screens)
     if (screenName !== 'tableDetail' && screenName !== 'profileKanami' && screenName !== 'profileRiki' && screenName !== 'search') {
