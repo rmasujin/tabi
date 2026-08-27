@@ -414,16 +414,18 @@
     btn.addEventListener('click', () => showScreen('home', true)); // Restore scroll position
   });
 
-  const backToProfileBtns = document.querySelectorAll('.back-to-profile');
-  backToProfileBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+  // Use event delegation for back to profile button
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.back-to-profile')) {
+      e.preventDefault();
+      e.stopPropagation();
       // Go back to the profile screen we came from
       if (previousProfileScreen) {
         showScreen(previousProfileScreen, true);
       } else {
         showScreen('profileKanami', true);
       }
-    });
+    }
   });
 
   // Event listeners - Posts (click to show profile)
