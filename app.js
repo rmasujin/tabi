@@ -160,7 +160,8 @@
     if (profileData.kanami && profileData.kanami.bio) {
       const kanamiBioEl = document.querySelector('#screen-profile-kanami .profile-bio');
       if (kanamiBioEl) {
-        kanamiBioEl.textContent = profileData.kanami.bio;
+        // 改行を<br>タグに変換
+        kanamiBioEl.innerHTML = profileData.kanami.bio.replace(/\n/g, '<br>');
       }
     }
 
@@ -168,7 +169,8 @@
     if (profileData.riki && profileData.riki.bio) {
       const rikiBioEl = document.querySelector('#screen-profile-riki .profile-bio');
       if (rikiBioEl) {
-        rikiBioEl.textContent = profileData.riki.bio;
+        // 改行を<br>タグに変換
+        rikiBioEl.innerHTML = profileData.riki.bio.replace(/\n/g, '<br>');
       }
     }
   }
@@ -216,7 +218,10 @@
   function renderPost(post) {
     const hasMore = post.contentMore ? true : false;
     const readMoreHTML = hasMore ? '<div class="read-more">続きを読む</div>' : '';
-    const contentMoreHTML = hasMore ? `<span class="content-more">${post.contentMore}</span>` : '';
+    // 改行を<br>タグに変換
+    const content = post.content.replace(/\n/g, '<br>');
+    const contentMore = post.contentMore ? post.contentMore.replace(/\n/g, '<br>') : '';
+    const contentMoreHTML = hasMore ? `<span class="content-more">${contentMore}</span>` : '';
 
     if (post.hasSlider) {
       // Generate slider images
@@ -259,7 +264,7 @@
             </div>
           </div>
           <div class="post-content">
-            ${post.content}${contentMoreHTML}
+            ${content}${contentMoreHTML}
           </div>
           ${readMoreHTML}
         </article>
@@ -284,7 +289,7 @@
             <span class="photo-count">${post.photos} PHOTO${post.photos > 1 ? 'S' : ''}</span>
           </div>
           <div class="post-content">
-            ${post.content}${contentMoreHTML}
+            ${content}${contentMoreHTML}
           </div>
           ${readMoreHTML}
         </article>
