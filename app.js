@@ -7,6 +7,7 @@
   let currentScreen = 'home';
   let currentSeatsView = 'map';
   let scrollPositions = {};
+  let previousProfileScreen = null; // Track which profile screen we came from
 
   // Get elements
   const screens = {
@@ -106,6 +107,7 @@
 
   // Mock post data - RIKI posts
   const rikiPosts = [
+    { number: 1, date: '2026.09.05', author: 'RIKI ＋ KANAMI', content: '本日はお越しいただきありがとうございます。私たちのこれまでを少しだけ。本日のメニューと席次表も下のタブから見られます。', contentMore: '二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。', photos: 3, hasSlider: true },
     { number: 2, date: '2024.03.15', author: 'RIKI', content: 'プロポーズした日。すごく緊張した。', contentMore: '思い出の場所で、ずっと考えていた言葉を伝えました。涙で顔がぐちゃぐちゃになったけど、一生忘れられない日になりました。', photos: 1 },
     { number: 4, date: '2023.08.12', author: 'RIKI', content: '地元の夏祭りに行きました。浴衣姿のかなみがかわいかった。', photos: 1 }
   ];
@@ -124,6 +126,13 @@
     const postDetailTitle = document.getElementById('post-detail-title');
     const postDetailCount = document.getElementById('post-detail-count');
     const postDetailContent = document.getElementById('post-detail-content');
+
+    // Store which profile we came from
+    if (author === 'riki') {
+      previousProfileScreen = 'profileRiki';
+    } else {
+      previousProfileScreen = 'profileKanami';
+    }
 
     // Determine which post collection to use
     let posts = [];
@@ -408,19 +417,11 @@
   const backToProfileBtns = document.querySelectorAll('.back-to-profile');
   backToProfileBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Determine which profile to go back to based on current context
-      // For now, we'll check which profile was last active
-      if (currentScreen === 'postDetail') {
-        // Go back to whichever profile screen was previously active
-        const prevScreen = Object.keys(screens).find(key =>
-          (key === 'profileKanami' || key === 'profileRiki') &&
-          scrollPositions[key] !== undefined
-        );
-        if (prevScreen) {
-          showScreen(prevScreen, true);
-        } else {
-          showScreen('profileKanami', true);
-        }
+      // Go back to the profile screen we came from
+      if (previousProfileScreen) {
+        showScreen(previousProfileScreen, true);
+      } else {
+        showScreen('profileKanami', true);
       }
     });
   });
