@@ -1177,17 +1177,15 @@ body {
 #screen-profile-riki,
 #screen-table-detail {
   z-index: 10;
-}
-
-#screen-profile-kanami:not(.active),
-#screen-profile-riki:not(.active),
-#screen-table-detail:not(.active) {
+  display: block !important;
   transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+  pointer-events: none;
 }
 
 #screen-profile-kanami.active,
 #screen-profile-riki.active,
 #screen-table-detail.active {
   transform: translateX(0);
-  transition: transform 0.3s ease-out;
+  pointer-events: auto;
 }
