@@ -52,11 +52,8 @@
     document.getElementById('addRikiDetailBtn').addEventListener('click', () => addDetailItem('riki'));
 
     // 席次表管理のイベントリスナー
-    document.getElementById('seatingMapUploadArea').addEventListener('click', () => {
-      document.getElementById('seatingMapInput').click();
-    });
-    document.getElementById('seatingMapInput').addEventListener('change', handleSeatingMapSelect);
-    document.getElementById('saveSeatingMapBtn').addEventListener('click', saveSeatingMap);
+    document.getElementById('addTableBtn').addEventListener('click', addTable);
+    document.getElementById('saveSeatingBtn').addEventListener('click', saveSeating);
 
     // データを読み込み
     await loadPostsData();
@@ -497,8 +494,9 @@
       console.log('Seating data loaded:', seatingData);
     } catch (error) {
       console.log('席次表データが見つかりません。');
-      seatingData = { mapImage: '', tables: [] };
+      seatingData = { tables: [] };
     }
+    renderTables();
   }
 
   // プロフィールフォームを描画
@@ -689,46 +687,110 @@
     }
   }
 
-  // 席次表画像選択
-  async function handleSeatingMapSelect(e) {
+  // テーブル一覧を描画
+  function renderTables() {
+    const container = document.getElementById('tablesContainer');
+    container.innerHTML = '';
+
+    if (!seatingData.tables) {
+      seatingData.tables = [];
+    }
+
+    seatingData.tables.forEach((table, index) => {
+      const tableDiv = document.createElement('div');
+      tableDiv.className = 'table-item';
+      tableDiv.innerHTML = `
+        <div class="table-item-header">
+          <h3>テーブル ${index + 1}</h3>
+          <button type="button" class="remove-table-btn" onclick="window.removeTable(${index})">削除</button>
+        </div>
+        <input type="text" placeholder="テーブル名（例: メインテーブル）" value="${table.name || ''}" data-table-index="${index}" data-field="name">
+        <div class="table-upload-area" data-table-index="${index}">
+          <input type="file" accept="image/*" data-table-index="${index}">
+          <p>📷 クリックして画像を選択</p>
+        </div>
+        <div class="table-preview" data-table-index="${index}">
+          ${table.image ? `<img src="${table.image}" alt="Table ${index + 1}">` : ''}
+        </div>
+      `;
+      container.appendChild(tableDiv);
+
+      // イベントリスナーを追加
+      const uploadArea = tableDiv.querySelector('.table-upload-area');
+      const fileInput = tableDiv.querySelector('input[type="file"]');
+
+      uploadArea.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', (e) => handleTableImageSelect(e, index));
+    });
+  }
+
+  // テーブルを追加
+  function addTable() {
+    if (!seatingData.tables) {
+      seatingData.tables = [];
+    }
+    seatingData.tables.push({ name: '', image: '', uploadedFile: null });
+    renderTables();
+  }
+
+  // テーブルを削除
+  window.removeTable = function(index) {
+    if (confirm('このテーブルを削除しますか？')) {
+      seatingData.tables.splice(index, 1);
+      renderTables();
+    }
+  };
+
+  // テーブル画像選択
+  async function handleTableImageSelect(e, tableIndex) {
     const file = e.target.files[0];
     if (!file) return;
 
     const optimized = await optimizeImage(file);
-    selectedSeatingMap = optimized;
 
-    document.getElementById('seatingMapPreview').innerHTML = `
-      <img src="${optimized.preview}" style="max-width: 100%; border-radius: 4px;">
-    `;
+    // 一時的に保存
+    seatingData.tables[tableIndex].uploadedFile = optimized;
+
+    // プレビュー表示
+    const preview = document.querySelector(`.table-preview[data-table-index="${tableIndex}"]`);
+    preview.innerHTML = `<img src="${optimized.preview}" alt="Table ${tableIndex + 1}">`;
   }
 
-  // 席次表画像を保存
-  async function saveSeatingMap() {
+  // すべてのテーブルを保存
+  async function saveSeating() {
     if (!githubToken) {
       showStatus('GitHub Tokenを設定してください', 'error');
-      return;
-    }
-
-    if (!selectedSeatingMap) {
-      showStatus('画像を選択してください', 'error');
       return;
     }
 
     showStatus('保存中...', 'success');
 
     try {
-      const timestamp = Date.now();
-      const filename = `seating-map-${timestamp}.jpg`;
-      const path = `assets/seating/${filename}`;
+      // テーブル名を更新
+      const nameInputs = document.querySelectorAll('input[data-field="name"]');
+      nameInputs.forEach(input => {
+        const index = parseInt(input.getAttribute('data-table-index'));
+        seatingData.tables[index].name = input.value;
+      });
 
-      await uploadToGitHub(selectedSeatingMap.file, path);
+      // 画像をアップロード
+      for (let i = 0; i < seatingData.tables.length; i++) {
+        const table = seatingData.tables[i];
+        if (table.uploadedFile) {
+          const timestamp = Date.now();
+          const filename = `table-${i + 1}-${timestamp}.jpg`;
+          const path = `assets/seating/${filename}`;
 
-      // 席次表データを更新
-      seatingData.mapImage = path;
+          await uploadToGitHub(table.uploadedFile.file, path);
+          seatingData.tables[i].image = path;
+          delete seatingData.tables[i].uploadedFile;
+        }
+      }
+
       await updateSeatingJSON();
 
       showStatus('席次表を保存しました！', 'success');
-      selectedSeatingMap = null;
+      renderTables();
 
     } catch (error) {
       showStatus('エラーが発生しました: ' + error.message, 'error');

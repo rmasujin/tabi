@@ -1,21 +1,8 @@
 {
-  "mapImage": "assets/seating/seating-map.jpg",
   "tables": [
     {
-      "id": 1,
-      "name": "Main Table",
-      "guests": [
-        { "name": "新郎", "furigana": "しんろう" },
-        { "name": "新婦", "furigana": "しんぷ" }
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Family Table",
-      "guests": [
-        { "name": "山田太郎", "furigana": "やまだたろう" },
-        { "name": "山田花子", "furigana": "やまだはなこ" }
-      ]
+      "name": "メインテーブル",
+      "image": ""
     }
   ]
 }
