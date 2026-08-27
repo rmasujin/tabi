@@ -48,6 +48,8 @@
     document.getElementById('rikiAvatarInput').addEventListener('change', (e) => handleAvatarSelect(e, 'riki'));
     document.getElementById('saveKanamiProfileBtn').addEventListener('click', () => saveProfile('kanami'));
     document.getElementById('saveRikiProfileBtn').addEventListener('click', () => saveProfile('riki'));
+    document.getElementById('addKanamiDetailBtn').addEventListener('click', () => addDetailItem('kanami'));
+    document.getElementById('addRikiDetailBtn').addEventListener('click', () => addDetailItem('riki'));
 
     // 席次表管理のイベントリスナー
     document.getElementById('seatingMapUploadArea').addEventListener('click', () => {
@@ -503,10 +505,71 @@
   function renderProfileForms() {
     if (profileData.kanami) {
       document.getElementById('kanamiBio').value = profileData.kanami.bio || '';
+      renderDetailItems('kanami');
     }
     if (profileData.riki) {
       document.getElementById('rikiBio').value = profileData.riki.bio || '';
+      renderDetailItems('riki');
     }
+  }
+
+  // プロフィール項目を描画
+  function renderDetailItems(author) {
+    const container = document.getElementById(`${author}DetailsContainer`);
+    container.innerHTML = '';
+
+    const details = profileData[author]?.details || [];
+    details.forEach((detail, index) => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'detail-item';
+      itemDiv.innerHTML = `
+        <input type="text" placeholder="項目名（例: 年齢）" value="${detail.label}" data-author="${author}" data-index="${index}" data-field="label">
+        <input type="text" placeholder="値（例: 28歳）" value="${detail.value}" data-author="${author}" data-index="${index}" data-field="value">
+        <button type="button" onclick="window.removeDetailItem('${author}', ${index})">削除</button>
+      `;
+      container.appendChild(itemDiv);
+    });
+  }
+
+  // 項目を追加
+  function addDetailItem(author) {
+    if (!profileData[author]) {
+      profileData[author] = { name: author.toUpperCase(), avatar: '', bio: '', details: [] };
+    }
+    if (!profileData[author].details) {
+      profileData[author].details = [];
+    }
+
+    profileData[author].details.push({ label: '', value: '' });
+    renderDetailItems(author);
+  }
+
+  // 項目を削除
+  window.removeDetailItem = function(author, index) {
+    if (profileData[author] && profileData[author].details) {
+      profileData[author].details.splice(index, 1);
+      renderDetailItems(author);
+    }
+  };
+
+  // 項目の値を取得
+  function getDetailItems(author) {
+    const container = document.getElementById(`${author}DetailsContainer`);
+    const items = container.querySelectorAll('.detail-item');
+    const details = [];
+
+    items.forEach(item => {
+      const labelInput = item.querySelector('[data-field="label"]');
+      const valueInput = item.querySelector('[data-field="value"]');
+      if (labelInput.value && valueInput.value) {
+        details.push({
+          label: labelInput.value,
+          value: valueInput.value
+        });
+      }
+    });
+
+    return details;
   }
 
   // アバター画像選択
@@ -543,6 +606,9 @@
         ? document.getElementById('kanamiBio').value
         : document.getElementById('rikiBio').value;
 
+      // プロフィール項目を取得
+      const details = getDetailItems(author);
+
       // アバター画像をアップロード（選択されている場合）
       let avatarPath = profileData[author]?.avatar || '';
       const selectedAvatar = author === 'kanami' ? selectedKanamiAvatar : selectedRikiAvatar;
@@ -558,7 +624,8 @@
       profileData[author] = {
         ...profileData[author],
         bio: bio,
-        avatar: avatarPath
+        avatar: avatarPath,
+        details: details
       };
 
       await updateProfileJSON();

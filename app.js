@@ -173,6 +173,31 @@
         rikiBioEl.innerHTML = profileData.riki.bio.replace(/\n/g, '<br>');
       }
     }
+
+    // Update profile details
+    updateProfileDetails('kanami');
+    updateProfileDetails('riki');
+  }
+
+  // Update profile details dynamically
+  function updateProfileDetails(author) {
+    const detailsContainer = document.querySelector(`#screen-profile-${author} .profile-details`);
+    if (!detailsContainer) return;
+
+    const details = profileData[author]?.details || [];
+    if (details.length === 0) return;
+
+    let html = '';
+    details.forEach(detail => {
+      html += `
+        <div class="detail-row">
+          <span class="detail-label">${detail.label.toUpperCase()}</span>
+          <span class="detail-value">${detail.value}</span>
+        </div>
+      `;
+    });
+
+    detailsContainer.innerHTML = html;
   }
 
   // Filter posts by criteria
