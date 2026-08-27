@@ -156,10 +156,10 @@
       return;
     }
 
-    // 改行で分割して、2行以上なら自動的に「続きを読む」に分ける
+    // 改行で分割して、3行以上なら自動的に「続きを読む」に分ける
     const lines = fullContent.split('\n');
-    const content = lines[0]; // 最初の1行
-    const contentMore = lines.length > 1 ? lines.slice(1).join('\n') : ''; // 2行目以降
+    const content = lines.slice(0, 2).join('\n'); // 最初の2行
+    const contentMore = lines.length > 2 ? lines.slice(2).join('\n') : ''; // 3行目以降
 
     showStatus('アップロード中...', 'success');
 
