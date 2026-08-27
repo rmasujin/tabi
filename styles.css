@@ -52,6 +52,7 @@ body {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   display: none;
+  background: var(--color-white);
 }
 
 .screen.active {
@@ -1181,7 +1182,6 @@ body {
   transform: translateX(100%);
   transition: transform 0.3s ease-out;
   pointer-events: none;
-  background: var(--color-white);
 }
 
 #screen-profile-kanami.active,
@@ -1189,10 +1189,4 @@ body {
 #screen-table-detail.active {
   transform: translateX(0);
   pointer-events: auto;
-}
-
-/* Ensure background screens stay visible during animation */
-#screen-home,
-#screen-seats {
-  background: var(--color-white);
 }
