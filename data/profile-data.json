@@ -1,0 +1,24 @@
+{
+  "kanami": {
+    "name": "KANAMI",
+    "avatar": "assets/avatar-kanami.jpg",
+    "bio": "いつも笑顔で、周りを明るくする存在。\n旅行と写真が大好き。\n二人で過ごす時間が何より幸せです。",
+    "details": [
+      { "label": "年齢", "value": "28歳" },
+      { "label": "出身", "value": "東京都" },
+      { "label": "趣味", "value": "カメラ、カフェ巡り" },
+      { "label": "好きな食べ物", "value": "パスタ、スイーツ" }
+    ]
+  },
+  "riki": {
+    "name": "RIKI",
+    "avatar": "assets/avatar-riki.jpg",
+    "bio": "穏やかで優しい性格。\nコーヒーと音楽が好き。\nかなみの笑顔が一番の癒しです。",
+    "details": [
+      { "label": "年齢", "value": "30歳" },
+      { "label": "出身", "value": "神奈川県" },
+      { "label": "趣味", "value": "音楽、読書" },
+      { "label": "好きな食べ物", "value": "ラーメン、カレー" }
+    ]
+  }
+}

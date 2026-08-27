@@ -5,10 +5,17 @@
   const REPO = 'rmasujin/tabi';
   const BRANCH = 'main';
   const DATA_PATH = 'data/posts-data.json';
+  const PROFILE_DATA_PATH = 'data/profile-data.json';
+  const SEATING_DATA_PATH = 'data/seating-data.json';
 
   // 状態
   let postsData = { posts: [] };
+  let profileData = {};
+  let seatingData = {};
   let selectedFiles = [];
+  let selectedKanamiAvatar = null;
+  let selectedRikiAvatar = null;
+  let selectedSeatingMap = null;
   let githubToken = localStorage.getItem('githubToken') || '';
 
   // 初期化
@@ -18,7 +25,10 @@
       document.getElementById('githubToken').value = githubToken;
     }
 
-    // イベントリスナー
+    // タブ切り替え
+    setupTabs();
+
+    // 投稿管理のイベントリスナー
     document.getElementById('githubToken').addEventListener('change', saveToken);
     document.getElementById('fileUploadArea').addEventListener('click', () => {
       document.getElementById('imageInput').click();
@@ -27,9 +37,51 @@
     document.getElementById('createPostBtn').addEventListener('click', createPost);
     document.getElementById('resetFormBtn').addEventListener('click', resetForm);
 
-    // 投稿データを読み込み
+    // プロフィール管理のイベントリスナー
+    document.getElementById('kanamiAvatarUploadArea').addEventListener('click', () => {
+      document.getElementById('kanamiAvatarInput').click();
+    });
+    document.getElementById('rikiAvatarUploadArea').addEventListener('click', () => {
+      document.getElementById('rikiAvatarInput').click();
+    });
+    document.getElementById('kanamiAvatarInput').addEventListener('change', (e) => handleAvatarSelect(e, 'kanami'));
+    document.getElementById('rikiAvatarInput').addEventListener('change', (e) => handleAvatarSelect(e, 'riki'));
+    document.getElementById('saveKanamiProfileBtn').addEventListener('click', () => saveProfile('kanami'));
+    document.getElementById('saveRikiProfileBtn').addEventListener('click', () => saveProfile('riki'));
+
+    // 席次表管理のイベントリスナー
+    document.getElementById('seatingMapUploadArea').addEventListener('click', () => {
+      document.getElementById('seatingMapInput').click();
+    });
+    document.getElementById('seatingMapInput').addEventListener('change', handleSeatingMapSelect);
+    document.getElementById('saveSeatingMapBtn').addEventListener('click', saveSeatingMap);
+
+    // データを読み込み
     await loadPostsData();
+    await loadProfileData();
+    await loadSeatingData();
     renderPostsList();
+    renderProfileForms();
+  }
+
+  // タブ切り替え
+  function setupTabs() {
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetTab = tab.getAttribute('data-tab');
+
+        // タブのアクティブ状態を切り替え
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // コンテンツの表示を切り替え
+        document.querySelectorAll('.tab-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        document.getElementById(`tab-${targetTab}`).classList.add('active');
+      });
+    });
   }
 
   // GitHub Tokenを保存
@@ -417,6 +469,247 @@
       setTimeout(() => {
         statusEl.style.display = 'none';
       }, 3000);
+    }
+  }
+
+  // プロフィールデータを読み込み
+  async function loadProfileData() {
+    try {
+      const response = await fetch(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/${PROFILE_DATA_PATH}`);
+      profileData = await response.json();
+      console.log('Profile data loaded:', profileData);
+    } catch (error) {
+      console.log('プロフィールデータが見つかりません。');
+      profileData = {
+        kanami: { name: 'KANAMI', avatar: '', bio: '', details: [] },
+        riki: { name: 'RIKI', avatar: '', bio: '', details: [] }
+      };
+    }
+  }
+
+  // 席次表データを読み込み
+  async function loadSeatingData() {
+    try {
+      const response = await fetch(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/${SEATING_DATA_PATH}`);
+      seatingData = await response.json();
+      console.log('Seating data loaded:', seatingData);
+    } catch (error) {
+      console.log('席次表データが見つかりません。');
+      seatingData = { mapImage: '', tables: [] };
+    }
+  }
+
+  // プロフィールフォームを描画
+  function renderProfileForms() {
+    if (profileData.kanami) {
+      document.getElementById('kanamiBio').value = profileData.kanami.bio || '';
+    }
+    if (profileData.riki) {
+      document.getElementById('rikiBio').value = profileData.riki.bio || '';
+    }
+  }
+
+  // アバター画像選択
+  async function handleAvatarSelect(e, author) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const optimized = await optimizeImage(file);
+
+    if (author === 'kanami') {
+      selectedKanamiAvatar = optimized;
+      document.getElementById('kanamiAvatarPreview').innerHTML = `
+        <img src="${optimized.preview}" style="max-width: 150px; border-radius: 50%;">
+      `;
+    } else {
+      selectedRikiAvatar = optimized;
+      document.getElementById('rikiAvatarPreview').innerHTML = `
+        <img src="${optimized.preview}" style="max-width: 150px; border-radius: 50%;">
+      `;
+    }
+  }
+
+  // プロフィールを保存
+  async function saveProfile(author) {
+    if (!githubToken) {
+      showStatus('GitHub Tokenを設定してください', 'error');
+      return;
+    }
+
+    showStatus('保存中...', 'success');
+
+    try {
+      const bio = author === 'kanami'
+        ? document.getElementById('kanamiBio').value
+        : document.getElementById('rikiBio').value;
+
+      // アバター画像をアップロード（選択されている場合）
+      let avatarPath = profileData[author]?.avatar || '';
+      const selectedAvatar = author === 'kanami' ? selectedKanamiAvatar : selectedRikiAvatar;
+
+      if (selectedAvatar) {
+        const timestamp = Date.now();
+        const filename = `avatar-${author}-${timestamp}.jpg`;
+        avatarPath = `assets/${filename}`;
+        await uploadToGitHub(selectedAvatar.file, avatarPath);
+      }
+
+      // プロフィールデータを更新
+      profileData[author] = {
+        ...profileData[author],
+        bio: bio,
+        avatar: avatarPath
+      };
+
+      await updateProfileJSON();
+
+      showStatus('プロフィールを保存しました！', 'success');
+
+      // 選択をリセット
+      if (author === 'kanami') {
+        selectedKanamiAvatar = null;
+      } else {
+        selectedRikiAvatar = null;
+      }
+
+    } catch (error) {
+      showStatus('エラーが発生しました: ' + error.message, 'error');
+      console.error(error);
+    }
+  }
+
+  // プロフィールJSONを更新
+  async function updateProfileJSON() {
+    let sha = null;
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${REPO}/contents/${PROFILE_DATA_PATH}`,
+        { headers: { 'Authorization': `token ${githubToken}` } }
+      );
+      const data = await response.json();
+      sha = data.sha;
+    } catch (error) {
+      // ファイルが存在しない場合は新規作成
+    }
+
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(profileData, null, 2))));
+
+    const body = {
+      message: 'プロフィールデータを更新',
+      content: content,
+      branch: BRANCH
+    };
+
+    if (sha) {
+      body.sha = sha;
+    }
+
+    const response = await fetch(
+      `https://api.github.com/repos/${REPO}/contents/${PROFILE_DATA_PATH}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${githubToken}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      }
+    );
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message);
+    }
+  }
+
+  // 席次表画像選択
+  async function handleSeatingMapSelect(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const optimized = await optimizeImage(file);
+    selectedSeatingMap = optimized;
+
+    document.getElementById('seatingMapPreview').innerHTML = `
+      <img src="${optimized.preview}" style="max-width: 100%; border-radius: 4px;">
+    `;
+  }
+
+  // 席次表画像を保存
+  async function saveSeatingMap() {
+    if (!githubToken) {
+      showStatus('GitHub Tokenを設定してください', 'error');
+      return;
+    }
+
+    if (!selectedSeatingMap) {
+      showStatus('画像を選択してください', 'error');
+      return;
+    }
+
+    showStatus('保存中...', 'success');
+
+    try {
+      const timestamp = Date.now();
+      const filename = `seating-map-${timestamp}.jpg`;
+      const path = `assets/seating/${filename}`;
+
+      await uploadToGitHub(selectedSeatingMap.file, path);
+
+      // 席次表データを更新
+      seatingData.mapImage = path;
+      await updateSeatingJSON();
+
+      showStatus('席次表を保存しました！', 'success');
+      selectedSeatingMap = null;
+
+    } catch (error) {
+      showStatus('エラーが発生しました: ' + error.message, 'error');
+      console.error(error);
+    }
+  }
+
+  // 席次表JSONを更新
+  async function updateSeatingJSON() {
+    let sha = null;
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${REPO}/contents/${SEATING_DATA_PATH}`,
+        { headers: { 'Authorization': `token ${githubToken}` } }
+      );
+      const data = await response.json();
+      sha = data.sha;
+    } catch (error) {
+      // ファイルが存在しない場合は新規作成
+    }
+
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(seatingData, null, 2))));
+
+    const body = {
+      message: '席次表データを更新',
+      content: content,
+      branch: BRANCH
+    };
+
+    if (sha) {
+      body.sha = sha;
+    }
+
+    const response = await fetch(
+      `https://api.github.com/repos/${REPO}/contents/${SEATING_DATA_PATH}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Authorization': `token ${githubToken}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+      }
+    );
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message);
     }
   }
 

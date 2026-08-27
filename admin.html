@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>投稿管理 - Wedding Site Admin</title>
+<title>管理画面 - Wedding Site Admin</title>
 <style>
 * {
   margin: 0;
@@ -28,8 +28,45 @@ body {
 
 h1 {
   font-size: 24px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #0A0A0A;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ddd;
+}
+
+.tab {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.3s;
+}
+
+.tab:hover {
+  color: #0A0A0A;
+}
+
+.tab.active {
+  color: #0A0A0A;
+  border-bottom-color: #D9FF1F;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
 }
 
 .form-section {
@@ -292,7 +329,14 @@ textarea {
 <body>
 
 <div class="container">
-  <h1>🎉 Wedding Site - 投稿管理</h1>
+  <h1>🎉 Wedding Site - 管理画面</h1>
+
+  <!-- タブ -->
+  <div class="tabs">
+    <button class="tab active" data-tab="posts">投稿管理</button>
+    <button class="tab" data-tab="profile">プロフィール</button>
+    <button class="tab" data-tab="seating">席次表</button>
+  </div>
 
   <!-- GitHub Token設定 -->
   <div class="github-token-section">
@@ -308,6 +352,8 @@ textarea {
   <!-- ステータスメッセージ -->
   <div id="statusMessage" class="status-message"></div>
 
+  <!-- 投稿管理タブ -->
+  <div id="tab-posts" class="tab-content active">
   <!-- 新規投稿フォーム -->
   <div class="form-section">
     <h2>新しい投稿を作成</h2>
@@ -369,6 +415,76 @@ textarea {
       <!-- 投稿がここに表示されます -->
     </div>
   </div>
+  </div>
+
+  <!-- プロフィール管理タブ -->
+  <div id="tab-profile" class="tab-content">
+    <div class="form-section">
+      <h2>KANAMI プロフィール</h2>
+
+      <div class="form-group">
+        <label>プロフィール画像</label>
+        <div class="file-upload" id="kanamiAvatarUploadArea">
+          <input type="file" id="kanamiAvatarInput" accept="image/*">
+          <p>📷 クリックして画像を選択</p>
+        </div>
+        <div id="kanamiAvatarPreview" style="margin-top: 10px;"></div>
+      </div>
+
+      <div class="form-group">
+        <label>自己紹介文</label>
+        <textarea id="kanamiBio" placeholder="自己紹介を入力...（改行可）"></textarea>
+      </div>
+
+      <div>
+        <button class="btn btn-primary" id="saveKanamiProfileBtn">保存</button>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2>RIKI プロフィール</h2>
+
+      <div class="form-group">
+        <label>プロフィール画像</label>
+        <div class="file-upload" id="rikiAvatarUploadArea">
+          <input type="file" id="rikiAvatarInput" accept="image/*">
+          <p>📷 クリックして画像を選択</p>
+        </div>
+        <div id="rikiAvatarPreview" style="margin-top: 10px;"></div>
+      </div>
+
+      <div class="form-group">
+        <label>自己紹介文</label>
+        <textarea id="rikiBio" placeholder="自己紹介を入力...（改行可）"></textarea>
+      </div>
+
+      <div>
+        <button class="btn btn-primary" id="saveRikiProfileBtn">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 席次表管理タブ -->
+  <div id="tab-seating" class="tab-content">
+    <div class="form-section">
+      <h2>席次表画像</h2>
+
+      <div class="form-group">
+        <label>席次表マップ画像</label>
+        <div class="file-upload" id="seatingMapUploadArea">
+          <input type="file" id="seatingMapInput" accept="image/*">
+          <p>📷 クリックして画像を選択</p>
+          <p style="font-size: 12px; color: #666; margin-top: 5px;">席次表の全体図をアップロード</p>
+        </div>
+        <div id="seatingMapPreview" style="margin-top: 10px;"></div>
+      </div>
+
+      <div>
+        <button class="btn btn-primary" id="saveSeatingMapBtn">保存</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script src="admin.js"></script>
