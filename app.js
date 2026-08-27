@@ -16,7 +16,8 @@
     profileKanami: document.getElementById('screen-profile-kanami'),
     profileRiki: document.getElementById('screen-profile-riki'),
     tableDetail: document.getElementById('screen-table-detail'),
-    search: document.getElementById('screen-search')
+    search: document.getElementById('screen-search'),
+    postDetail: document.getElementById('screen-post-detail')
   };
 
   const navButtons = {
@@ -48,7 +49,7 @@
     }
 
     // For slide-in screens, keep previous screen visible during animation
-    const isSlideScreen = screenName === 'profileKanami' || screenName === 'profileRiki' || screenName === 'tableDetail';
+    const isSlideScreen = screenName === 'profileKanami' || screenName === 'profileRiki' || screenName === 'tableDetail' || screenName === 'postDetail';
 
     if (!isSlideScreen) {
       // For non-sliding screens, hide all other screens immediately
@@ -85,7 +86,7 @@
     });
 
     // Update nav buttons (only for main screens)
-    if (screenName !== 'tableDetail' && screenName !== 'profileKanami' && screenName !== 'profileRiki' && screenName !== 'search') {
+    if (screenName !== 'tableDetail' && screenName !== 'profileKanami' && screenName !== 'profileRiki' && screenName !== 'search' && screenName !== 'postDetail') {
       updateNavButtons(screenName);
       // Update URL hash
       window.location.hash = screenName;
@@ -93,6 +94,60 @@
       // Keep seats button active during search
       updateNavButtons('seats');
     }
+  }
+
+  // Show post detail
+  function showPostDetail(postNumber) {
+    const postDetailTitle = document.getElementById('post-detail-title');
+    const postDetailDate = document.getElementById('post-detail-date');
+    const postDetailContent = document.getElementById('post-detail-content');
+
+    if (postDetailTitle) {
+      postDetailTitle.textContent = `POST ${String(postNumber).padStart(2, '0')}`;
+    }
+
+    // Mock post data - in real implementation, this would come from a data source
+    const postData = {
+      1: { date: '2026.09.05', content: 'Welcome photo content', photos: 3 },
+      2: { date: '2024.03.15', content: 'Proposal day content', photos: 1 },
+      3: { date: '2023.12.24', content: 'Christmas lights content', photos: 1 }
+    };
+
+    const post = postData[postNumber] || { date: '2026.09.05', content: 'Post content', photos: 1 };
+
+    if (postDetailDate) {
+      postDetailDate.textContent = post.date;
+    }
+
+    // Render post content (same structure as HOME screen posts)
+    if (postDetailContent) {
+      const contentHTML = `
+        <article class="post">
+          <div class="post-header">
+            <span class="post-number">${String(postNumber).padStart(2, '0')}</span>
+            <span class="post-date">${post.date}</span>
+          </div>
+          <div class="post-image-placeholder">
+            <span class="placeholder-text">photo — 4:5</span>
+            <div class="gradient-overlay"></div>
+            <div class="post-authors">
+              <div class="avatar-placeholder single"></div>
+              <span class="author-names">RIKI ＋ KANAMI</span>
+            </div>
+          </div>
+          <div class="post-meta">
+            <span class="photo-count">${post.photos} PHOTO${post.photos > 1 ? 'S' : ''}</span>
+          </div>
+          <div class="post-content">
+            ${post.content}
+          </div>
+        </article>
+        <div class="bottom-spacer"></div>
+      `;
+      postDetailContent.innerHTML = contentHTML;
+    }
+
+    showScreen('postDetail');
   }
 
   function updateNavButtons(screenName) {
@@ -253,6 +308,26 @@
   const backToHomeBtns = document.querySelectorAll('.back-to-home');
   backToHomeBtns.forEach(btn => {
     btn.addEventListener('click', () => showScreen('home', true)); // Restore scroll position
+  });
+
+  const backToProfileBtns = document.querySelectorAll('.back-to-profile');
+  backToProfileBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Determine which profile to go back to based on current context
+      // For now, we'll check which profile was last active
+      if (currentScreen === 'postDetail') {
+        // Go back to whichever profile screen was previously active
+        const prevScreen = Object.keys(screens).find(key =>
+          (key === 'profileKanami' || key === 'profileRiki') &&
+          scrollPositions[key] !== undefined
+        );
+        if (prevScreen) {
+          showScreen(prevScreen, true);
+        } else {
+          showScreen('profileKanami', true);
+        }
+      }
+    });
   });
 
   // Event listeners - Posts (click to show profile)
@@ -552,6 +627,21 @@
     });
   }
 
+  // Profile grid item clicks
+  function setupProfileGrids() {
+    const gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const gridNumber = item.querySelector('.grid-number');
+        if (gridNumber) {
+          const postNumber = parseInt(gridNumber.textContent);
+          showPostDetail(postNumber);
+        }
+      });
+      item.style.cursor = 'pointer';
+    });
+  }
+
   // Read more functionality
   function setupReadMore() {
     // Post read more buttons
@@ -602,6 +692,9 @@
 
     // Setup profile tabs
     setupProfileTabs();
+
+    // Setup profile grids
+    setupProfileGrids();
 
     // Setup read more functionality
     setupReadMore();

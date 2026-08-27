@@ -1175,7 +1175,8 @@ body {
 /* Slide-in animation for profile and table detail screens */
 #screen-profile-kanami,
 #screen-profile-riki,
-#screen-table-detail {
+#screen-table-detail,
+#screen-post-detail {
   z-index: 10;
   display: block !important;
   transform: translateX(100%);
@@ -1186,7 +1187,13 @@ body {
 
 #screen-profile-kanami.active,
 #screen-profile-riki.active,
-#screen-table-detail.active {
+#screen-table-detail.active,
+#screen-post-detail.active {
   transform: translateX(0);
   pointer-events: auto;
+}
+
+/* Post detail screen has higher z-index to appear above profile screens */
+#screen-post-detail {
+  z-index: 11;
 }
