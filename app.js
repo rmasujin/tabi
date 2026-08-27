@@ -424,6 +424,19 @@
     if (seatsInfo) seatsInfo.textContent = `${table.guests.length} ／ ${table.seatCount} SEATS`;
     if (tableDescription) tableDescription.textContent = table.category;
 
+    // Update table photos from seating data
+    const tablePhotos = document.querySelector('.table-photos');
+    if (tablePhotos && seatingData.tables) {
+      const tableData = seatingData.tables.find(t => t.id === table.label);
+      if (tableData && tableData.images && tableData.images.length > 0) {
+        tablePhotos.innerHTML = tableData.images.map(imagePath =>
+          `<div class="photo-placeholder" style="background-image: url('${imagePath}'); background-size: cover; background-position: center;">
+            <span class="photo-ratio" style="display: none;">4:5</span>
+          </div>`
+        ).join('');
+      }
+    }
+
     // Update seat diagram
     const seatDiagram = document.querySelector('.seat-diagram');
     if (seatDiagram) {

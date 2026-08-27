@@ -687,30 +687,38 @@
     }
   }
 
-  // テーブル一覧を描画
+  // テーブル一覧を描画（A〜K固定）
   function renderTables() {
     const container = document.getElementById('tablesContainer');
     container.innerHTML = '';
+
+    // A〜Kの固定テーブル
+    const tableLabels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
 
     if (!seatingData.tables) {
       seatingData.tables = [];
     }
 
-    seatingData.tables.forEach((table, index) => {
+    tableLabels.forEach((label) => {
+      // 既存データを探す
+      let table = seatingData.tables.find(t => t.id === label);
+      if (!table) {
+        table = { id: label, images: [] };
+        seatingData.tables.push(table);
+      }
+
       const tableDiv = document.createElement('div');
       tableDiv.className = 'table-item';
       tableDiv.innerHTML = `
         <div class="table-item-header">
-          <h3>テーブル ${index + 1}</h3>
-          <button type="button" class="remove-table-btn" onclick="window.removeTable(${index})">削除</button>
+          <h3>TABLE ${label} 卓</h3>
         </div>
-        <input type="text" placeholder="テーブル名（例: メインテーブル）" value="${table.name || ''}" data-table-index="${index}" data-field="name">
-        <div class="table-upload-area" data-table-index="${index}">
-          <input type="file" accept="image/*" data-table-index="${index}">
-          <p>📷 クリックして画像を選択</p>
+        <div class="table-upload-area" data-table-id="${label}">
+          <input type="file" accept="image/*" multiple data-table-id="${label}">
+          <p>📷 クリックして画像を選択（複数可）</p>
         </div>
-        <div class="table-preview" data-table-index="${index}">
-          ${table.image ? `<img src="${table.image}" alt="Table ${index + 1}">` : ''}
+        <div class="table-preview" data-table-id="${label}" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px;">
+          ${table.images && table.images.length > 0 ? table.images.map(img => `<img src="${img}" style="width: 100%; border-radius: 4px;">`).join('') : ''}
         </div>
       `;
       container.appendChild(tableDiv);
@@ -720,40 +728,37 @@
       const fileInput = tableDiv.querySelector('input[type="file"]');
 
       uploadArea.addEventListener('click', () => fileInput.click());
-      fileInput.addEventListener('change', (e) => handleTableImageSelect(e, index));
+      fileInput.addEventListener('change', (e) => handleTableImageSelect(e, label));
     });
   }
 
-  // テーブルを追加
-  function addTable() {
-    if (!seatingData.tables) {
-      seatingData.tables = [];
+  // テーブル画像選択（複数対応）
+  async function handleTableImageSelect(e, tableId) {
+    const files = Array.from(e.target.files);
+    if (files.length === 0) return;
+
+    const table = seatingData.tables.find(t => t.id === tableId);
+    if (!table) return;
+
+    if (!table.uploadedFiles) {
+      table.uploadedFiles = [];
     }
-    seatingData.tables.push({ name: '', image: '', uploadedFile: null });
-    renderTables();
-  }
 
-  // テーブルを削除
-  window.removeTable = function(index) {
-    if (confirm('このテーブルを削除しますか？')) {
-      seatingData.tables.splice(index, 1);
-      renderTables();
+    // 全ての画像を最適化
+    for (const file of files) {
+      const optimized = await optimizeImage(file);
+      table.uploadedFiles.push(optimized);
     }
-  };
-
-  // テーブル画像選択
-  async function handleTableImageSelect(e, tableIndex) {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const optimized = await optimizeImage(file);
-
-    // 一時的に保存
-    seatingData.tables[tableIndex].uploadedFile = optimized;
 
     // プレビュー表示
-    const preview = document.querySelector(`.table-preview[data-table-index="${tableIndex}"]`);
-    preview.innerHTML = `<img src="${optimized.preview}" alt="Table ${tableIndex + 1}">`;
+    const preview = document.querySelector(`.table-preview[data-table-id="${tableId}"]`);
+    const existingImages = table.images || [];
+    const newPreviews = table.uploadedFiles.map(f => f.preview);
+    const allPreviews = [...existingImages, ...newPreviews];
+
+    preview.innerHTML = allPreviews.map(src =>
+      `<img src="${src}" style="width: 100%; border-radius: 4px;">`
+    ).join('');
   }
 
   // すべてのテーブルを保存
@@ -766,24 +771,26 @@
     showStatus('保存中...', 'success');
 
     try {
-      // テーブル名を更新
-      const nameInputs = document.querySelectorAll('input[data-field="name"]');
-      nameInputs.forEach(input => {
-        const index = parseInt(input.getAttribute('data-table-index'));
-        seatingData.tables[index].name = input.value;
-      });
+      // 各テーブルの新しい画像をアップロード
+      for (const table of seatingData.tables) {
+        if (table.uploadedFiles && table.uploadedFiles.length > 0) {
+          if (!table.images) {
+            table.images = [];
+          }
 
-      // 画像をアップロード
-      for (let i = 0; i < seatingData.tables.length; i++) {
-        const table = seatingData.tables[i];
-        if (table.uploadedFile) {
-          const timestamp = Date.now();
-          const filename = `table-${i + 1}-${timestamp}.jpg`;
-          const path = `assets/seating/${filename}`;
+          // 各画像をアップロード
+          for (const uploadedFile of table.uploadedFiles) {
+            const timestamp = Date.now();
+            const random = Math.floor(Math.random() * 1000);
+            const filename = `table-${table.id}-${timestamp}-${random}.jpg`;
+            const path = `assets/seating/${filename}`;
 
-          await uploadToGitHub(table.uploadedFile.file, path);
-          seatingData.tables[i].image = path;
-          delete seatingData.tables[i].uploadedFile;
+            await uploadToGitHub(uploadedFile.file, path);
+            table.images.push(path);
+          }
+
+          // アップロード済みファイルをクリア
+          delete table.uploadedFiles;
         }
       }
 
