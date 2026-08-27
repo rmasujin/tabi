@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>投稿管理 - Wedding Site Admin</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, "Helvetica Neue", sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  color: #0A0A0A;
+}
+
+.form-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
+
+.form-section h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #0A0A0A;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #4A4A44;
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 8px;
+  width: auto;
+}
+
+.file-upload {
+  border: 2px dashed #ddd;
+  border-radius: 4px;
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.file-upload:hover {
+  border-color: #D9FF1F;
+  background: #f9f9f9;
+}
+
+.file-upload input {
+  display: none;
+}
+
+.preview-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.preview-item {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+.preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-item .remove-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 0, 0, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.optimize-info {
+  margin-top: 10px;
+  padding: 10px;
+  background: #e8f5e9;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #2e7d32;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: #D9FF1F;
+  color: #0A0A0A;
+}
+
+.btn-primary:hover {
+  background: #c5e61a;
+}
+
+.btn-secondary {
+  background: #e0e0e0;
+  color: #0A0A0A;
+  margin-left: 10px;
+}
+
+.btn-secondary:hover {
+  background: #d0d0d0;
+}
+
+.posts-list {
+  margin-top: 40px;
+}
+
+.post-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.post-item img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.post-info {
+  flex: 1;
+}
+
+.post-info h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.post-info p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 3px;
+}
+
+.post-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.post-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.edit-btn {
+  background: #D9FF1F;
+  color: #0A0A0A;
+}
+
+.delete-btn {
+  background: #ff5252;
+  color: white;
+}
+
+.github-token-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background: #fff3cd;
+  border-radius: 6px;
+  border: 1px solid #ffc107;
+}
+
+.github-token-section h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #856404;
+}
+
+.github-token-section p {
+  font-size: 13px;
+  color: #856404;
+  margin-bottom: 10px;
+}
+
+.github-token-section input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ffc107;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.status-message {
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.status-message.success {
+  background: #e8f5e9;
+  color: #2e7d32;
+  display: block;
+}
+
+.status-message.error {
+  background: #ffebee;
+  color: #c62828;
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🎉 Wedding Site - 投稿管理</h1>
+
+  <!-- GitHub Token設定 -->
+  <div class="github-token-section">
+    <h3>⚙️ GitHub設定</h3>
+    <p>GitHubのPersonal Access Tokenを入力してください（初回のみ）</p>
+    <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxx">
+    <p style="margin-top: 10px; font-size: 12px;">
+      トークンの作成: GitHub → Settings → Developer settings → Personal access tokens → Generate new token<br>
+      権限: repo (Full control of private repositories)
+    </p>
+  </div>
+
+  <!-- ステータスメッセージ -->
+  <div id="statusMessage" class="status-message"></div>
+
+  <!-- 新規投稿フォーム -->
+  <div class="form-section">
+    <h2>新しい投稿を作成</h2>
+
+    <div class="form-group">
+      <label>投稿者</label>
+      <select id="author">
+        <option value="kanami">KANAMI</option>
+        <option value="riki">RIKI</option>
+        <option value="both">RIKI ＋ KANAMI</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>カテゴリ</label>
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" id="categoryPosts" checked>
+          POSTS
+        </label>
+        <label>
+          <input type="checkbox" id="categoryFavorites">
+          FAVORITES
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>日付</label>
+      <input type="date" id="postDate" required>
+    </div>
+
+    <div class="form-group">
+      <label>投稿内容</label>
+      <textarea id="postContent" placeholder="本文を入力..." required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>続きの内容（オプション）</label>
+      <textarea id="postContentMore" placeholder="「続きを読む」で表示される追加テキスト"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>画像をアップロード</label>
+      <div class="file-upload" id="fileUploadArea">
+        <input type="file" id="imageInput" accept="image/*" multiple>
+        <p>📷 クリックまたはドラッグ&ドロップで画像を選択</p>
+        <p style="font-size: 12px; color: #666; margin-top: 5px;">複数選択可</p>
+      </div>
+      <div id="optimizeInfo" class="optimize-info" style="display: none;"></div>
+      <div id="previewImages" class="preview-images"></div>
+    </div>
+
+    <div>
+      <button class="btn btn-primary" id="createPostBtn">投稿を作成</button>
+      <button class="btn btn-secondary" id="resetFormBtn">リセット</button>
+    </div>
+  </div>
+
+  <!-- 投稿一覧 -->
+  <div class="posts-list">
+    <h2>投稿一覧</h2>
+    <div id="postsContainer">
+      <!-- 投稿がここに表示されます -->
+    </div>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

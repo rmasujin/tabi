@@ -8,6 +8,7 @@
   let currentSeatsView = 'map';
   let scrollPositions = {};
   let previousProfileScreen = null; // Track which profile screen we came from
+  let postsData = { posts: [] }; // Will be loaded from JSON
 
   // Get elements
   const screens = {
@@ -115,29 +116,136 @@
     }
   }
 
-  // Mock post data - KANAMI posts
-  const kanamiPosts = [
-    { number: 1, date: '2026.09.05', author: 'RIKI ＋ KANAMI', content: '本日はお越しいただきありがとうございます。私たちのこれまでを少しだけ。本日のメニューと席次表も下のタブから見られます。', contentMore: '二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。', photos: 3, hasSlider: true },
-    { number: 3, date: '2023.12.24', author: 'KANAMI', content: 'イルミネーションを見に行きました。きれいだった。', photos: 1 },
-    { number: 5, date: '2022.05.20', author: 'KANAMI', content: 'お気に入りのカフェでのんびり。りきはいつもコーヒー、私はカフェラテ。', photos: 1 },
-    { number: 6, date: '2021.11.03', author: 'KANAMI', content: 'はじめて二人で行った旅行。ずっと雨でした。', photos: 1 }
-  ];
+  // Load posts data from JSON
+  async function loadPostsData() {
+    try {
+      const response = await fetch('data/posts-data.json');
+      postsData = await response.json();
+      console.log('Posts data loaded:', postsData);
+    } catch (error) {
+      console.error('Failed to load posts data:', error);
+      postsData = { posts: [] };
+    }
+  }
 
-  // Mock post data - RIKI posts
-  const rikiPosts = [
-    { number: 1, date: '2026.09.05', author: 'RIKI ＋ KANAMI', content: '本日はお越しいただきありがとうございます。私たちのこれまでを少しだけ。本日のメニューと席次表も下のタブから見られます。', contentMore: '二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。', photos: 3, hasSlider: true },
-    { number: 2, date: '2024.03.15', author: 'RIKI', content: 'プロポーズした日。すごく緊張した。', contentMore: '思い出の場所で、ずっと考えていた言葉を伝えました。涙で顔がぐちゃぐちゃになったけど、一生忘れられない日になりました。', photos: 1 },
-    { number: 4, date: '2023.08.12', author: 'RIKI', content: '地元の夏祭りに行きました。浴衣姿のかなみがかわいかった。', photos: 1 }
-  ];
+  // Filter posts by criteria
+  function getPostsByFilter(filterFn) {
+    return postsData.posts.filter(filterFn).map(post => ({
+      number: parseInt(post.number),
+      date: post.date,
+      author: post.authorDisplay,
+      content: post.content,
+      contentMore: post.contentMore || '',
+      photos: post.images.length,
+      hasSlider: post.images.length > 1,
+      images: post.images
+    }));
+  }
 
-  // Mock favorites data
-  const favoritePosts = [
-    { number: 1, date: '2026.09.05', author: 'RIKI ＋ KANAMI', content: 'お気に入りの思い出', photos: 1 },
-    { number: 2, date: '2025.06.10', author: 'KANAMI', content: '大切な一日', photos: 1 },
-    { number: 3, date: '2024.12.25', author: 'KANAMI', content: '特別な瞬間', photos: 1 },
-    { number: 4, date: '2024.08.15', author: 'RIKI', content: '夏の思い出', photos: 1 },
-    { number: 5, date: '2023.03.20', author: 'KANAMI', content: '春の日', photos: 1 }
-  ];
+  // Get posts for HOME screen
+  function getHomePosts() {
+    return getPostsByFilter(post => post.displayIn.home);
+  }
+
+  // Get posts for KANAMI profile
+  function getKanamiPosts() {
+    return getPostsByFilter(post => post.displayIn.kanamiPosts);
+  }
+
+  // Get posts for RIKI profile
+  function getRikiPosts() {
+    return getPostsByFilter(post => post.displayIn.rikiPosts);
+  }
+
+  // Get favorites for KANAMI
+  function getKanamiFavorites() {
+    return getPostsByFilter(post => post.displayIn.kanamiFavorites);
+  }
+
+  // Get favorites for RIKI
+  function getRikiFavorites() {
+    return getPostsByFilter(post => post.displayIn.rikiFavorites);
+  }
+
+  // Render a single post HTML
+  function renderPost(post) {
+    const hasMore = post.contentMore ? true : false;
+    const readMoreHTML = hasMore ? '<div class="read-more">続きを読む</div>' : '';
+    const contentMoreHTML = hasMore ? `<span class="content-more">${post.contentMore}</span>` : '';
+
+    if (post.hasSlider) {
+      // Generate slider images
+      const sliderImagesHTML = post.images.map((imagePath, idx) =>
+        `<div class="post-image-placeholder" style="background-image: url('${imagePath}');">
+          <span class="placeholder-text" style="display: none;">photo ${idx + 1} — 4:5</span>
+        </div>`
+      ).join('');
+
+      // Generate pagination dots
+      const dotsHTML = post.images.map((_, idx) =>
+        `<span class="dot${idx === 0 ? ' active' : ''}" data-index="${idx}"></span>`
+      ).join('');
+
+      return `
+        <article class="post">
+          <div class="post-header">
+            <span class="post-number">${String(post.number).padStart(2, '0')}</span>
+            <span class="post-date">${post.date}</span>
+          </div>
+          <div class="post-slider" data-post-id="${post.number}">
+            <div class="slider-container">
+              <div class="slider-track">
+                ${sliderImagesHTML}
+              </div>
+            </div>
+            <div class="gradient-overlay"></div>
+            <div class="post-authors">
+              <div class="author-avatars">
+                <div class="avatar-placeholder"></div>
+                <div class="avatar-placeholder offset"></div>
+              </div>
+              <span class="author-names">${post.author}</span>
+            </div>
+          </div>
+          <div class="post-meta">
+            <span class="photo-count">${post.photos} PHOTOS</span>
+            <div class="pagination-dots" data-post-id="${post.number}">
+              ${dotsHTML}
+            </div>
+          </div>
+          <div class="post-content">
+            ${post.content}${contentMoreHTML}
+          </div>
+          ${readMoreHTML}
+        </article>
+      `;
+    } else {
+      // Single image post
+      return `
+        <article class="post">
+          <div class="post-header">
+            <span class="post-number">${String(post.number).padStart(2, '0')}</span>
+            <span class="post-date">${post.date}</span>
+          </div>
+          <div class="post-image-placeholder" style="background-image: url('${post.images[0]}');">
+            <span class="placeholder-text" style="display: none;">photo — 4:5</span>
+            <div class="gradient-overlay"></div>
+            <div class="post-authors">
+              <div class="avatar-placeholder single"></div>
+              <span class="author-names">${post.author}</span>
+            </div>
+          </div>
+          <div class="post-meta">
+            <span class="photo-count">${post.photos} PHOTO${post.photos > 1 ? 'S' : ''}</span>
+          </div>
+          <div class="post-content">
+            ${post.content}${contentMoreHTML}
+          </div>
+          ${readMoreHTML}
+        </article>
+      `;
+    }
+  }
 
   // Show post detail - now shows all posts in the collection
   function showPostDetail(postNumber, postType = 'posts', author = 'kanami') {
@@ -157,16 +265,11 @@
     let titleText = '';
 
     if (postType === 'favorites') {
-      posts = favoritePosts;
+      posts = author === 'riki' ? getRikiFavorites() : getKanamiFavorites();
       titleText = 'FAVORITES';
     } else {
-      if (author === 'riki') {
-        posts = rikiPosts;
-        titleText = 'POSTS';
-      } else {
-        posts = kanamiPosts;
-        titleText = 'POSTS';
-      }
+      posts = author === 'riki' ? getRikiPosts() : getKanamiPosts();
+      titleText = 'POSTS';
     }
 
     if (postDetailTitle) {
@@ -179,87 +282,7 @@
 
     // Render all posts (same structure as HOME screen)
     if (postDetailContent) {
-      let contentHTML = '';
-
-      posts.forEach((post, index) => {
-        const hasMore = post.contentMore ? true : false;
-        const readMoreHTML = hasMore ? '<div class="read-more">続きを読む</div>' : '';
-        const contentMoreHTML = hasMore ? `<span class="content-more">${post.contentMore}</span>` : '';
-
-        if (post.hasSlider) {
-          // Render slider post
-          contentHTML += `
-            <article class="post">
-              <div class="post-header">
-                <span class="post-number">${String(post.number).padStart(2, '0')}</span>
-                <span class="post-date">${post.date}</span>
-              </div>
-              <div class="post-slider" data-post-id="${post.number}">
-                <div class="slider-container">
-                  <div class="slider-track">
-                    <div class="post-image-placeholder">
-                      <span class="placeholder-text">welcome photo 1 — 4:5</span>
-                    </div>
-                    <div class="post-image-placeholder">
-                      <span class="placeholder-text">welcome photo 2 — 4:5</span>
-                    </div>
-                    <div class="post-image-placeholder">
-                      <span class="placeholder-text">welcome photo 3 — 4:5</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="gradient-overlay"></div>
-                <div class="post-authors">
-                  <div class="author-avatars">
-                    <div class="avatar-placeholder"></div>
-                    <div class="avatar-placeholder offset"></div>
-                  </div>
-                  <span class="author-names">${post.author}</span>
-                </div>
-              </div>
-              <div class="post-meta">
-                <span class="photo-count">${post.photos} PHOTOS</span>
-                <div class="pagination-dots" data-post-id="${post.number}">
-                  <span class="dot active" data-index="0"></span>
-                  <span class="dot" data-index="1"></span>
-                  <span class="dot" data-index="2"></span>
-                </div>
-              </div>
-              <div class="post-content">
-                ${post.content}${contentMoreHTML}
-              </div>
-              ${readMoreHTML}
-            </article>
-          `;
-        } else {
-          // Render single image post
-          contentHTML += `
-            <article class="post">
-              <div class="post-header">
-                <span class="post-number">${String(post.number).padStart(2, '0')}</span>
-                <span class="post-date">${post.date}</span>
-              </div>
-              <div class="post-image-placeholder">
-                <span class="placeholder-text">photo — 4:5</span>
-                <div class="gradient-overlay"></div>
-                <div class="post-authors">
-                  <div class="avatar-placeholder single"></div>
-                  <span class="author-names">${post.author}</span>
-                </div>
-              </div>
-              <div class="post-meta">
-                <span class="photo-count">${post.photos} PHOTO${post.photos > 1 ? 'S' : ''}</span>
-              </div>
-              <div class="post-content">
-                ${post.content}${contentMoreHTML}
-              </div>
-              ${readMoreHTML}
-            </article>
-          `;
-        }
-      });
-
-      contentHTML += '<div class="bottom-spacer"></div>';
+      const contentHTML = posts.map(post => renderPost(post)).join('') + '<div class="bottom-spacer"></div>';
       postDetailContent.innerHTML = contentHTML;
 
       // Re-initialize post sliders for the dynamically added content
@@ -797,8 +820,57 @@
     });
   }
 
+  // Render HOME screen posts
+  function renderHomePosts() {
+    const homePostsContainer = document.querySelector('#screen-home .posts');
+    if (!homePostsContainer) return;
+
+    const posts = getHomePosts();
+    const contentHTML = posts.map(post => renderPost(post)).join('') + '<div class="bottom-spacer"></div>';
+    homePostsContainer.innerHTML = contentHTML;
+  }
+
+  // Render profile grid
+  function renderProfileGrid(author, gridType) {
+    const screenId = author === 'riki' ? 'screen-profile-riki' : 'screen-profile-kanami';
+    const grid = document.querySelector(`#${screenId} .profile-grid[data-grid="${gridType}"]`);
+    if (!grid) return;
+
+    let posts = [];
+    if (gridType === 'posts') {
+      posts = author === 'riki' ? getRikiPosts() : getKanamiPosts();
+    } else if (gridType === 'favorites') {
+      posts = author === 'riki' ? getRikiFavorites() : getKanamiFavorites();
+    }
+
+    const gridHTML = posts.map(post => `
+      <div class="grid-item">
+        <div class="grid-image" style="background-image: url('${post.images[0]}');">
+          <span class="grid-number">${String(post.number).padStart(2, '0')}</span>
+        </div>
+      </div>
+    `).join('');
+
+    grid.innerHTML = gridHTML;
+  }
+
+  // Render all profile grids
+  function renderAllProfileGrids() {
+    renderProfileGrid('kanami', 'posts');
+    renderProfileGrid('kanami', 'favorites');
+    renderProfileGrid('riki', 'posts');
+    renderProfileGrid('riki', 'favorites');
+  }
+
   // Initialize from URL hash
-  function init() {
+  async function init() {
+    // Load posts data first
+    await loadPostsData();
+
+    // Render dynamic content
+    renderHomePosts();
+    renderAllProfileGrids();
+
     const hash = window.location.hash.slice(1);
     if (hash && screens[hash]) {
       showScreen(hash);
