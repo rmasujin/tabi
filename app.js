@@ -53,8 +53,20 @@
     const isSlideScreen = screenName === 'profileKanami' || screenName === 'profileRiki' || screenName === 'tableDetail' || screenName === 'postDetail';
     const wasPreviousSlideScreen = previousScreenName === 'profileKanami' || previousScreenName === 'profileRiki' || previousScreenName === 'tableDetail' || previousScreenName === 'postDetail';
 
-    // If navigating between slide screens, remove active from previous
-    if (isSlideScreen && wasPreviousSlideScreen && previousScreenName !== screenName) {
+    // Determine if we're going "deeper" (opening detail) or "back" (closing detail)
+    const isGoingDeeper = screenName === 'postDetail' && (previousScreenName === 'profileKanami' || previousScreenName === 'profileRiki');
+    const isGoingBack = (screenName === 'profileKanami' || screenName === 'profileRiki') && previousScreenName === 'postDetail';
+
+    if (isGoingDeeper) {
+      // Opening post detail over profile - keep profile visible
+      // Don't remove active from profile screen
+    } else if (isGoingBack) {
+      // Going back from post detail to profile - remove post detail active
+      if (screens[previousScreenName]) {
+        screens[previousScreenName].classList.remove('active');
+      }
+    } else if (isSlideScreen && wasPreviousSlideScreen && previousScreenName !== screenName) {
+      // Other slide screen transitions
       if (screens[previousScreenName]) {
         screens[previousScreenName].classList.remove('active');
       }
