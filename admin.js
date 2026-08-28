@@ -592,9 +592,14 @@
     showStatus('削除中...', 'success');
 
     try {
-      // 画像を削除
+      // 画像を削除（存在しない場合はスキップ）
       for (const imagePath of post.images) {
-        await deleteFromGitHub(imagePath);
+        try {
+          await deleteFromGitHub(imagePath);
+        } catch (error) {
+          console.log(`画像の削除をスキップ: ${imagePath}`, error);
+          // 画像が存在しない場合はスキップして続行
+        }
       }
 
       // JSONから削除
