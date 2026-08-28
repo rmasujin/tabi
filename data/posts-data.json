@@ -101,7 +101,7 @@
         "posts"
       ],
       "displayIn": {
-        "home": false,
+        "home": true,
         "kanamiPosts": false,
         "rikiPosts": true,
         "kanamiFavorites": false,
