@@ -82,6 +82,11 @@
           content.classList.remove('active');
         });
         document.getElementById(`tab-${targetTab}`).classList.add('active');
+
+        // プロフィールタブに切り替えた時はフォームを再描画
+        if (targetTab === 'profile') {
+          renderProfileForms();
+        }
       });
     });
   }
