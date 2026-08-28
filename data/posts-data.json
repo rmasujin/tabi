@@ -1,116 +1,6 @@
 {
   "posts": [
     {
-      "id": 6,
-      "number": "06",
-      "date": "2021.11.03",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/06-trip.jpg"
-      ],
-      "content": "はじめて二人で行った旅行。ずっと雨でした。",
-      "contentMore": ""
-    },
-    {
-      "id": 5,
-      "number": "05",
-      "date": "2022.05.20",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/05-cafe.jpg"
-      ],
-      "content": "お気に入りのカフェでのんびり。りきはいつもコーヒー、私はカフェラテ。",
-      "contentMore": ""
-    },
-    {
-      "id": 4,
-      "number": "04",
-      "date": "2023.08.12",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/04-festival.jpg"
-      ],
-      "content": "地元の夏祭りに行きました。浴衣姿のかなみがかわいかった。",
-      "contentMore": ""
-    },
-    {
-      "id": 3,
-      "number": "03",
-      "date": "2023.12.24",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/03-christmas.jpg"
-      ],
-      "content": "イルミネーションを見に行きました。きれいだった。",
-      "contentMore": ""
-    },
-    {
-      "id": 2,
-      "number": "02",
-      "date": "2024.03.15",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/02-proposal.jpg"
-      ],
-      "content": "プロポーズした日。すごく緊張した。",
-      "contentMore": "思い出の場所で、ずっと考えていた言葉を伝えました。涙で顔がぐちゃぐちゃになったけど、一生忘れられない日になりました。"
-    },
-    {
       "id": 1,
       "number": "01",
       "date": "2026.09.05",
@@ -155,6 +45,116 @@
         "assets/posts/riki/1787901155068-IMG_3981.jpg"
       ],
       "content": "test",
+      "contentMore": ""
+    },
+    {
+      "id": 2,
+      "number": "02",
+      "date": "2024.03.15",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/02-proposal.jpg"
+      ],
+      "content": "プロポーズした日。すごく緊張した。",
+      "contentMore": "思い出の場所で、ずっと考えていた言葉を伝えました。涙で顔がぐちゃぐちゃになったけど、一生忘れられない日になりました。"
+    },
+    {
+      "id": 3,
+      "number": "03",
+      "date": "2023.12.24",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/03-christmas.jpg"
+      ],
+      "content": "イルミネーションを見に行きました。きれいだった。",
+      "contentMore": ""
+    },
+    {
+      "id": 4,
+      "number": "04",
+      "date": "2023.08.12",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/04-festival.jpg"
+      ],
+      "content": "地元の夏祭りに行きました。浴衣姿のかなみがかわいかった。",
+      "contentMore": ""
+    },
+    {
+      "id": 5,
+      "number": "05",
+      "date": "2022.05.20",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/05-cafe.jpg"
+      ],
+      "content": "お気に入りのカフェでのんびり。りきはいつもコーヒー、私はカフェラテ。",
+      "contentMore": ""
+    },
+    {
+      "id": 6,
+      "number": "06",
+      "date": "2021.11.03",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/06-trip.jpg"
+      ],
+      "content": "はじめて二人で行った旅行。ずっと雨でした。",
       "contentMore": ""
     }
   ]
