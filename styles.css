@@ -877,7 +877,6 @@ body {
 .grid-item {
   aspect-ratio: 4/5;
   position: relative;
-  background-image: repeating-linear-gradient(135deg, #E4E4DF 0 8px, #EDEDE8 8px 16px);
 }
 
 .grid-image {
@@ -886,6 +885,7 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
+  background-image: repeating-linear-gradient(135deg, #E4E4DF 0 8px, #EDEDE8 8px 16px);
 }
 
 .grid-number {
