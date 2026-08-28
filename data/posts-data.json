@@ -26,28 +26,6 @@
       "contentMore": "二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。"
     },
     {
-      "id": 7,
-      "number": "07",
-      "date": "2026-08-28",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1787901155068-IMG_3981.jpg"
-      ],
-      "content": "test",
-      "contentMore": ""
-    },
-    {
       "id": 3,
       "number": "03",
       "date": "2023.12.24",
