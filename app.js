@@ -156,15 +156,15 @@
 
   // Update profile bio dynamically
   function updateProfileBios() {
-    // Update KANAMI name
-    if (profileData.kanami && profileData.kanami.accountName) {
+    // Update KANAMI name (large display - use fullName if available)
+    if (profileData.kanami) {
       const kanamiNameEl = document.querySelector('#screen-profile-kanami .profile-name-large');
       if (kanamiNameEl) {
-        kanamiNameEl.textContent = profileData.kanami.accountName;
+        kanamiNameEl.textContent = profileData.kanami.fullName || profileData.kanami.accountName || 'KANAMI';
       }
     }
 
-    // Update KANAMI header title
+    // Update KANAMI header title (use accountName)
     if (profileData.kanami && profileData.kanami.accountName) {
       const kanamiHeaderEl = document.querySelector('#screen-profile-kanami .header-title');
       if (kanamiHeaderEl) {
@@ -189,15 +189,15 @@
       }
     }
 
-    // Update RIKI name
-    if (profileData.riki && profileData.riki.accountName) {
+    // Update RIKI name (large display - use fullName if available)
+    if (profileData.riki) {
       const rikiNameEl = document.querySelector('#screen-profile-riki .profile-name-large');
       if (rikiNameEl) {
-        rikiNameEl.textContent = profileData.riki.accountName;
+        rikiNameEl.textContent = profileData.riki.fullName || profileData.riki.accountName || 'RIKI';
       }
     }
 
-    // Update RIKI header title
+    // Update RIKI header title (use accountName)
     if (profileData.riki && profileData.riki.accountName) {
       const rikiHeaderEl = document.querySelector('#screen-profile-riki .header-title');
       if (rikiHeaderEl) {
