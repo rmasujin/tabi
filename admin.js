@@ -861,28 +861,85 @@
     const table = seatingData.tables.find(t => t.id === selectedTableId);
     const uploadedFiles = table?.uploadedFiles || [];
 
-    const allImages = [...existingImages, ...uploadedFiles.map(f => f.preview)];
-
-    allImages.forEach((src, index) => {
+    // 既存の画像を表示（削除ボタン付き）
+    existingImages.forEach((src, index) => {
       const imgDiv = document.createElement('div');
       imgDiv.style.position = 'relative';
+      imgDiv.style.marginBottom = '10px';
       imgDiv.innerHTML = `
-        <img src="${src}" style="width: 100%; border-radius: 4px;">
-        ${index >= existingImages.length ? `<button class="remove-btn" data-index="${index - existingImages.length}" style="position: absolute; top: 5px; right: 5px;">×</button>` : ''}
+        <img src="${src}" style="width: 100%; border-radius: 4px; display: block;">
+        <button class="remove-btn existing-remove" data-existing-index="${index}" style="position: absolute; top: 5px; right: 5px;">×</button>
       `;
       preview.appendChild(imgDiv);
     });
 
-    // 削除ボタンのイベント
-    preview.querySelectorAll('.remove-btn').forEach(btn => {
+    // 新しくアップロードした画像を表示
+    uploadedFiles.forEach((item, index) => {
+      const imgDiv = document.createElement('div');
+      imgDiv.style.position = 'relative';
+      imgDiv.style.marginBottom = '10px';
+      imgDiv.innerHTML = `
+        <img src="${item.preview}" style="width: 100%; border-radius: 4px; display: block;">
+        <button class="remove-btn new-remove" data-new-index="${index}" style="position: absolute; top: 5px; right: 5px;">×</button>
+      `;
+      preview.appendChild(imgDiv);
+    });
+
+    // 既存画像の削除ボタン
+    preview.querySelectorAll('.existing-remove').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        const index = parseInt(e.target.dataset.existingIndex);
+        if (confirm('この画像を削除しますか？')) {
+          await deleteTableImage(selectedTableId, index);
+        }
+      });
+    });
+
+    // 新規画像の削除ボタン
+    preview.querySelectorAll('.new-remove').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        const index = parseInt(e.target.dataset.index);
+        const index = parseInt(e.target.dataset.newIndex);
         if (table && table.uploadedFiles) {
           table.uploadedFiles.splice(index, 1);
           renderSelectedTablePreview(existingImages);
         }
       });
     });
+  }
+
+  // テーブル画像を削除
+  async function deleteTableImage(tableId, imageIndex) {
+    if (!githubToken) {
+      showStatus('GitHub Tokenを設定してください', 'error');
+      return;
+    }
+
+    showStatus('削除中...', 'success');
+
+    try {
+      const table = seatingData.tables.find(t => t.id === tableId);
+      if (!table || !table.images || !table.images[imageIndex]) {
+        throw new Error('画像が見つかりません');
+      }
+
+      const imagePath = table.images[imageIndex];
+
+      // GitHubから画像を削除
+      await deleteFromGitHub(imagePath);
+
+      // データから削除
+      table.images.splice(imageIndex, 1);
+      await updateSeatingJSON();
+
+      showStatus('✅ 画像を削除しました', 'success');
+
+      // プレビューを再描画
+      renderSelectedTablePreview(table.images || []);
+
+    } catch (error) {
+      showStatus('削除に失敗しました: ' + error.message, 'error');
+      console.error(error);
+    }
   }
 
   // テーブル画像選択（複数対応）
