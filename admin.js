@@ -452,7 +452,7 @@
       div.innerHTML = `
         <img src="${post.images[0]}" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22><rect fill=%22%23ddd%22 width=%22100%22 height=%22100%22/></svg>'">
         <div class="post-info">
-          <h3>${post.number}. ${post.authorDisplay}</h3>
+          <h3>${post.authorDisplay}</h3>
           <p>📅 ${post.date}</p>
           <p>📷 ${post.images.length}枚の画像</p>
           <p>${post.content.substring(0, 50)}...</p>
