@@ -311,22 +311,42 @@
 
   // Get posts for KANAMI profile
   function getKanamiPosts() {
-    return getPostsByFilter(post => post.displayIn.kanamiPosts);
+    const posts = getPostsByFilter(post => post.displayIn.kanamiPosts);
+    return posts.sort((a, b) => {
+      const dateA = new Date(a.date.replace(/\./g, '-'));
+      const dateB = new Date(b.date.replace(/\./g, '-'));
+      return dateB - dateA; // Descending order
+    });
   }
 
   // Get posts for RIKI profile
   function getRikiPosts() {
-    return getPostsByFilter(post => post.displayIn.rikiPosts);
+    const posts = getPostsByFilter(post => post.displayIn.rikiPosts);
+    return posts.sort((a, b) => {
+      const dateA = new Date(a.date.replace(/\./g, '-'));
+      const dateB = new Date(b.date.replace(/\./g, '-'));
+      return dateB - dateA; // Descending order
+    });
   }
 
   // Get favorites for KANAMI
   function getKanamiFavorites() {
-    return getPostsByFilter(post => post.displayIn.kanamiFavorites);
+    const posts = getPostsByFilter(post => post.displayIn.kanamiFavorites);
+    return posts.sort((a, b) => {
+      const dateA = new Date(a.date.replace(/\./g, '-'));
+      const dateB = new Date(b.date.replace(/\./g, '-'));
+      return dateB - dateA; // Descending order
+    });
   }
 
   // Get favorites for RIKI
   function getRikiFavorites() {
-    return getPostsByFilter(post => post.displayIn.rikiFavorites);
+    const posts = getPostsByFilter(post => post.displayIn.rikiFavorites);
+    return posts.sort((a, b) => {
+      const dateA = new Date(a.date.replace(/\./g, '-'));
+      const dateB = new Date(b.date.replace(/\./g, '-'));
+      return dateB - dateA; // Descending order
+    });
   }
 
   // Generate avatar HTML based on author
@@ -353,7 +373,7 @@
   }
 
   // Render a single post HTML
-  function renderPost(post) {
+  function renderPost(post, displayNumber) {
     const hasMore = post.contentMore ? true : false;
     const readMoreHTML = hasMore ? '<div class="read-more">続きを読む</div>' : '';
     // 改行を<br>タグに変換
@@ -375,9 +395,9 @@
       ).join('');
 
       return `
-        <article class="post">
+        <article class="post" data-post-id="${post.number}">
           <div class="post-header">
-            <span class="post-number">${String(post.number).padStart(2, '0')}</span>
+            <span class="post-number">${String(displayNumber).padStart(2, '0')}</span>
             <span class="post-date">${post.date}</span>
           </div>
           <div class="post-slider" data-post-id="${post.number}">
@@ -409,9 +429,9 @@
     } else {
       // Single image post
       return `
-        <article class="post">
+        <article class="post" data-post-id="${post.number}">
           <div class="post-header">
-            <span class="post-number">${String(post.number).padStart(2, '0')}</span>
+            <span class="post-number">${String(displayNumber).padStart(2, '0')}</span>
             <span class="post-date">${post.date}</span>
           </div>
           <div class="post-image-placeholder" style="background-image: url('${post.images[0]}');">
@@ -469,7 +489,7 @@
 
     // Render all posts (same structure as HOME screen)
     if (postDetailContent) {
-      const contentHTML = posts.map(post => renderPost(post)).join('') + '<div class="bottom-spacer"></div>';
+      const contentHTML = posts.map((post, index) => renderPost(post, index + 1)).join('') + '<div class="bottom-spacer"></div>';
       postDetailContent.innerHTML = contentHTML;
 
       // Re-initialize post sliders for the dynamically added content
@@ -1086,7 +1106,7 @@
     if (!homePostsContainer) return;
 
     const posts = getHomePosts();
-    const contentHTML = posts.map(post => renderPost(post)).join('') + '<div class="bottom-spacer"></div>';
+    const contentHTML = posts.map((post, index) => renderPost(post, index + 1)).join('') + '<div class="bottom-spacer"></div>';
     homePostsContainer.innerHTML = contentHTML;
 
     // Re-initialize sliders and event listeners for newly rendered posts
@@ -1111,10 +1131,10 @@
       posts = author === 'riki' ? getRikiFavorites() : getKanamiFavorites();
     }
 
-    const gridHTML = posts.map(post => `
+    const gridHTML = posts.map((post, index) => `
       <div class="grid-item">
         <div class="grid-image" style="background-image: url('${post.images[0]}');">
-          <span class="grid-number">${String(post.number).padStart(2, '0')}</span>
+          <span class="grid-number">${String(index + 1).padStart(2, '0')}</span>
         </div>
       </div>
     `).join('');
