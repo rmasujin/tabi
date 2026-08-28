@@ -510,17 +510,13 @@
   // プロフィールフォームを描画
   function renderProfileForms() {
     if (profileData.kanami) {
-      document.getElementById('kanamiDisplayName').value = profileData.kanami.displayName || 'KANAMI';
-      document.getElementById('kanamiAccountName').value = profileData.kanami.accountName || '@kanami';
-      document.getElementById('kanamiFullName').value = profileData.kanami.fullName || '';
+      document.getElementById('kanamiAccountName').value = profileData.kanami.accountName || 'KANAMI';
       document.getElementById('kanamiBio').value = profileData.kanami.bio || '';
       renderDetailItems('kanami');
       renderAvatarPreview('kanami');
     }
     if (profileData.riki) {
-      document.getElementById('rikiDisplayName').value = profileData.riki.displayName || 'RIKI';
-      document.getElementById('rikiAccountName').value = profileData.riki.accountName || '@riki';
-      document.getElementById('rikiFullName').value = profileData.riki.fullName || '';
+      document.getElementById('rikiAccountName').value = profileData.riki.accountName || 'RIKI';
       document.getElementById('rikiBio').value = profileData.riki.bio || '';
       renderDetailItems('riki');
       renderAvatarPreview('riki');
@@ -702,14 +698,6 @@
         ? document.getElementById('kanamiAccountName').value
         : document.getElementById('rikiAccountName').value;
 
-      const displayName = author === 'kanami'
-        ? document.getElementById('kanamiDisplayName').value
-        : document.getElementById('rikiDisplayName').value;
-
-      const fullName = author === 'kanami'
-        ? document.getElementById('kanamiFullName').value
-        : document.getElementById('rikiFullName').value;
-
       const bio = author === 'kanami'
         ? document.getElementById('kanamiBio').value
         : document.getElementById('rikiBio').value;
@@ -731,9 +719,7 @@
       // プロフィールデータを更新
       profileData[author] = {
         ...profileData[author],
-        accountName: accountName || (author === 'kanami' ? '@kanami' : '@riki'),
-        displayName: displayName || (author === 'kanami' ? 'KANAMI' : 'RIKI'),
-        fullName: fullName || '',
+        accountName: accountName || (author === 'kanami' ? 'KANAMI' : 'RIKI'),
         bio: bio,
         avatar: avatarPath,
         details: details
