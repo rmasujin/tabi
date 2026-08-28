@@ -121,7 +121,9 @@
   // Load posts data from JSON
   async function loadPostsData() {
     try {
-      const response = await fetch('data/posts-data.json');
+      // キャッシュを回避するためタイムスタンプを追加
+      const timestamp = new Date().getTime();
+      const response = await fetch(`data/posts-data.json?t=${timestamp}`);
       postsData = await response.json();
       console.log('Posts data loaded:', postsData);
     } catch (error) {

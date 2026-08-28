@@ -113,7 +113,9 @@
   // 投稿データを読み込み
   async function loadPostsData() {
     try {
-      const response = await fetch(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/${DATA_PATH}`);
+      // キャッシュを回避するためタイムスタンプを追加
+      const timestamp = new Date().getTime();
+      const response = await fetch(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/${DATA_PATH}?t=${timestamp}`);
       postsData = await response.json();
     } catch (error) {
       console.log('投稿データが見つかりません。新規作成します。');
@@ -605,6 +607,9 @@
       // JSONから削除
       postsData.posts = postsData.posts.filter(p => p.id !== id);
       await updatePostsJSON();
+
+      // 削除後に最新データを再読み込み
+      await loadPostsData();
 
       showStatus('✅ 削除しました', 'success');
       renderPostsList();
