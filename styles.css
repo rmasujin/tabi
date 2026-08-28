@@ -1,5 +1,15 @@
 /* Wedding Site - Styles */
 
+/* Dynamic content - hidden until loaded */
+.dynamic-content {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.dynamic-content.loaded {
+  opacity: 1;
+}
+
 * {
   margin: 0;
   padding: 0;

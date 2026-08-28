@@ -225,6 +225,11 @@
     // Update profile details
     updateProfileDetails('kanami');
     updateProfileDetails('riki');
+
+    // Show dynamic content after loading
+    document.querySelectorAll('.dynamic-content').forEach(el => {
+      el.classList.add('loaded');
+    });
   }
 
   // Update profile details dynamically
