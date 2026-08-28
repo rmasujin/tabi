@@ -574,8 +574,27 @@ textarea {
       <h2>席次表 - 各卓詳細の画像</h2>
       <p style="margin-bottom: 20px; color: #666;">各テーブル詳細画面に表示される画像をアップロードしてください</p>
 
-      <div id="tablesContainer">
-        <!-- テーブルがここに表示されます -->
+      <div class="form-group">
+        <label>卓を選択</label>
+        <div id="tableSelector" style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <!-- テーブル選択ボタンがここに表示されます -->
+        </div>
+      </div>
+
+      <div id="selectedTableArea" style="display: none; margin-top: 30px;">
+        <h3 id="selectedTableTitle" style="font-size: 18px; margin-bottom: 15px;"></h3>
+
+        <div class="form-group">
+          <label>画像をアップロード</label>
+          <div class="file-upload" id="selectedTableUploadArea">
+            <input type="file" id="selectedTableInput" accept="image/*" multiple>
+            <p>📷 クリックして画像を選択（複数可）</p>
+          </div>
+        </div>
+
+        <div id="selectedTablePreview" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px;">
+          <!-- プレビューがここに表示されます -->
+        </div>
       </div>
     </div>
 

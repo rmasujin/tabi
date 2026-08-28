@@ -15,7 +15,7 @@
   let selectedFiles = [];
   let selectedKanamiAvatar = null;
   let selectedRikiAvatar = null;
-  let selectedSeatingMap = null;
+  let selectedTableId = null; // 現在選択されているテーブルID
   let githubToken = localStorage.getItem('githubToken') || '';
 
   // 初期化
@@ -52,7 +52,10 @@
     document.getElementById('addRikiDetailBtn').addEventListener('click', () => addDetailItem('riki'));
 
     // 席次表管理のイベントリスナー
-    document.getElementById('addTableBtn').addEventListener('click', addTable);
+    document.getElementById('selectedTableUploadArea').addEventListener('click', () => {
+      document.getElementById('selectedTableInput').click();
+    });
+    document.getElementById('selectedTableInput').addEventListener('change', handleTableImageSelect);
     document.getElementById('saveSeatingBtn').addEventListener('click', saveSeating);
 
     // データを読み込み
@@ -687,10 +690,10 @@
     }
   }
 
-  // テーブル一覧を描画（A〜K固定）
+  // テーブルセレクターを描画（A〜K固定）
   function renderTables() {
-    const container = document.getElementById('tablesContainer');
-    container.innerHTML = '';
+    const selector = document.getElementById('tableSelector');
+    selector.innerHTML = '';
 
     // A〜Kの固定テーブル
     const tableLabels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'];
@@ -707,58 +710,108 @@
         seatingData.tables.push(table);
       }
 
-      const tableDiv = document.createElement('div');
-      tableDiv.className = 'table-item';
-      tableDiv.innerHTML = `
-        <div class="table-item-header">
-          <h3>TABLE ${label} 卓</h3>
-        </div>
-        <div class="table-upload-area" data-table-id="${label}">
-          <input type="file" accept="image/*" multiple data-table-id="${label}">
-          <p>📷 クリックして画像を選択（複数可）</p>
-        </div>
-        <div class="table-preview" data-table-id="${label}" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px;">
-          ${table.images && table.images.length > 0 ? table.images.map(img => `<img src="${img}" style="width: 100%; border-radius: 4px;">`).join('') : ''}
-        </div>
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'btn btn-secondary';
+      button.textContent = `TABLE ${label}`;
+      button.style.minWidth = '80px';
+
+      if (selectedTableId === label) {
+        button.style.background = '#D9FF1F';
+        button.style.color = '#0A0A0A';
+      }
+
+      button.addEventListener('click', () => selectTable(label));
+      selector.appendChild(button);
+    });
+  }
+
+  // テーブルを選択
+  function selectTable(tableId) {
+    selectedTableId = tableId;
+
+    // ボタンのスタイルを更新
+    renderTables();
+
+    // 選択されたテーブルエリアを表示
+    const selectedArea = document.getElementById('selectedTableArea');
+    selectedArea.style.display = 'block';
+
+    // タイトルを更新
+    document.getElementById('selectedTableTitle').textContent = `TABLE ${tableId} 卓`;
+
+    // 既存の画像を表示
+    const table = seatingData.tables.find(t => t.id === tableId);
+    renderSelectedTablePreview(table ? table.images : []);
+  }
+
+  // 選択されたテーブルのプレビューを表示
+  function renderSelectedTablePreview(existingImages = []) {
+    if (!selectedTableId) return;
+
+    const preview = document.getElementById('selectedTablePreview');
+    preview.innerHTML = '';
+
+    const table = seatingData.tables.find(t => t.id === selectedTableId);
+    const uploadedFiles = table?.uploadedFiles || [];
+
+    const allImages = [...existingImages, ...uploadedFiles.map(f => f.preview)];
+
+    allImages.forEach((src, index) => {
+      const imgDiv = document.createElement('div');
+      imgDiv.style.position = 'relative';
+      imgDiv.innerHTML = `
+        <img src="${src}" style="width: 100%; border-radius: 4px;">
+        ${index >= existingImages.length ? `<button class="remove-btn" data-index="${index - existingImages.length}" style="position: absolute; top: 5px; right: 5px;">×</button>` : ''}
       `;
-      container.appendChild(tableDiv);
+      preview.appendChild(imgDiv);
+    });
 
-      // イベントリスナーを追加
-      const uploadArea = tableDiv.querySelector('.table-upload-area');
-      const fileInput = tableDiv.querySelector('input[type="file"]');
-
-      uploadArea.addEventListener('click', () => fileInput.click());
-      fileInput.addEventListener('change', (e) => handleTableImageSelect(e, label));
+    // 削除ボタンのイベント
+    preview.querySelectorAll('.remove-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const index = parseInt(e.target.dataset.index);
+        if (table && table.uploadedFiles) {
+          table.uploadedFiles.splice(index, 1);
+          renderSelectedTablePreview(existingImages);
+        }
+      });
     });
   }
 
   // テーブル画像選択（複数対応）
-  async function handleTableImageSelect(e, tableId) {
+  async function handleTableImageSelect(e) {
     const files = Array.from(e.target.files);
     if (files.length === 0) return;
 
-    const table = seatingData.tables.find(t => t.id === tableId);
+    if (!selectedTableId) {
+      showStatus('先にテーブルを選択してください', 'error');
+      return;
+    }
+
+    const table = seatingData.tables.find(t => t.id === selectedTableId);
     if (!table) return;
 
+    showStatus('画像を最適化中...', 'success');
+
+    // uploadedFilesを初期化
     if (!table.uploadedFiles) {
       table.uploadedFiles = [];
     }
 
-    // 全ての画像を最適化
+    // 全ての画像を最適化してテーブルに追加
     for (const file of files) {
       const optimized = await optimizeImage(file);
       table.uploadedFiles.push(optimized);
     }
 
-    // プレビュー表示
-    const preview = document.querySelector(`.table-preview[data-table-id="${tableId}"]`);
-    const existingImages = table.images || [];
-    const newPreviews = table.uploadedFiles.map(f => f.preview);
-    const allPreviews = [...existingImages, ...newPreviews];
+    // プレビュー表示を更新
+    renderSelectedTablePreview(table.images || []);
 
-    preview.innerHTML = allPreviews.map(src =>
-      `<img src="${src}" style="width: 100%; border-radius: 4px;">`
-    ).join('');
+    // ファイル入力をリセット
+    e.target.value = '';
+
+    showStatus('画像を追加しました', 'success');
   }
 
   // すべてのテーブルを保存
@@ -797,7 +850,12 @@
       await updateSeatingJSON();
 
       showStatus('席次表を保存しました！', 'success');
-      renderTables();
+
+      // 選択中のテーブルがあれば再表示
+      if (selectedTableId) {
+        const table = seatingData.tables.find(t => t.id === selectedTableId);
+        renderSelectedTablePreview(table ? table.images : []);
+      }
 
     } catch (error) {
       showStatus('エラーが発生しました: ' + error.message, 'error');
