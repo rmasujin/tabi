@@ -117,11 +117,25 @@
 
   // 画像を最適化
   async function optimizeImage(file) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const reader = new FileReader();
+
+      reader.onerror = () => {
+        console.error('FileReader error:', reader.error);
+        reject(new Error('ファイルの読み込みに失敗しました'));
+      };
+
       reader.onload = (e) => {
         const img = new Image();
+
+        img.onerror = () => {
+          console.error('Image load error for file:', file.name, file.type);
+          reject(new Error(`画像の読み込みに失敗しました: ${file.name}\nHEICファイルの場合はJPEGまたはPNGに変換してください`));
+        };
+
         img.onload = () => {
+          console.log('Image loaded successfully:', img.width, 'x', img.height);
+
           // Canvas でリサイズ
           const canvas = document.createElement('canvas');
           const ctx = canvas.getContext('2d');
@@ -139,7 +153,12 @@
 
           // JPEG 85%品質で圧縮
           canvas.toBlob((blob) => {
-            const optimizedFile = new File([blob], file.name, {
+            if (!blob) {
+              reject(new Error('画像の圧縮に失敗しました'));
+              return;
+            }
+
+            const optimizedFile = new File([blob], file.name.replace(/\.[^.]+$/, '.jpg'), {
               type: 'image/jpeg',
               lastModified: Date.now()
             });
@@ -149,9 +168,14 @@
             const optimizedSize = (optimizedFile.size / 1024 / 1024).toFixed(2);
             const reduction = ((1 - optimizedFile.size / file.size) * 100).toFixed(0);
 
-            document.getElementById('optimizeInfo').style.display = 'block';
-            document.getElementById('optimizeInfo').textContent =
-              `最適化完了: ${originalSize}MB → ${optimizedSize}MB (${reduction}%削減)`;
+            const optimizeInfoEl = document.getElementById('optimizeInfo');
+            if (optimizeInfoEl) {
+              optimizeInfoEl.style.display = 'block';
+              optimizeInfoEl.textContent =
+                `最適化完了: ${originalSize}MB → ${optimizedSize}MB (${reduction}%削減)`;
+            }
+
+            console.log('Optimization complete:', optimizedFile.name, optimizedSize + 'MB');
 
             resolve({
               file: optimizedFile,
@@ -159,8 +183,10 @@
             });
           }, 'image/jpeg', 0.85);
         };
+
         img.src = e.target.result;
       };
+
       reader.readAsDataURL(file);
     });
   }
@@ -974,22 +1000,28 @@
     }
 
     // 全ての画像を最適化してテーブルに追加
-    for (const file of files) {
-      console.log('Optimizing file:', file.name);
-      const optimized = await optimizeImage(file);
-      table.uploadedFiles.push(optimized);
-      console.log('Added to uploadedFiles. Total:', table.uploadedFiles.length);
+    try {
+      for (const file of files) {
+        console.log('Optimizing file:', file.name, file.type);
+        const optimized = await optimizeImage(file);
+        table.uploadedFiles.push(optimized);
+        console.log('Added to uploadedFiles. Total:', table.uploadedFiles.length);
+      }
+
+      console.log('Table after adding files:', table);
+
+      // プレビュー表示を更新
+      renderSelectedTablePreview(table.images || []);
+
+      // ファイル入力をリセット
+      e.target.value = '';
+
+      showStatus('✅ 画像を追加しました', 'success');
+    } catch (error) {
+      console.error('Error during image optimization:', error);
+      showStatus('エラー: ' + error.message, 'error');
+      e.target.value = '';
     }
-
-    console.log('Table after adding files:', table);
-
-    // プレビュー表示を更新
-    renderSelectedTablePreview(table.images || []);
-
-    // ファイル入力をリセット
-    e.target.value = '';
-
-    showStatus('✅ 画像を追加しました', 'success');
   }
 
   // すべてのテーブルを保存
