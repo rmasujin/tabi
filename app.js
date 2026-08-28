@@ -156,12 +156,28 @@
 
   // Update profile bio dynamically
   function updateProfileBios() {
+    // Update KANAMI avatar
+    if (profileData.kanami && profileData.kanami.avatar) {
+      const kanamiAvatarEl = document.querySelector('#screen-profile-kanami .profile-avatar');
+      if (kanamiAvatarEl) {
+        kanamiAvatarEl.style.backgroundImage = `url('${profileData.kanami.avatar}')`;
+      }
+    }
+
     // Update KANAMI bio
     if (profileData.kanami && profileData.kanami.bio) {
       const kanamiBioEl = document.querySelector('#screen-profile-kanami .profile-bio');
       if (kanamiBioEl) {
         // 改行を<br>タグに変換
         kanamiBioEl.innerHTML = profileData.kanami.bio.replace(/\n/g, '<br>');
+      }
+    }
+
+    // Update RIKI avatar
+    if (profileData.riki && profileData.riki.avatar) {
+      const rikiAvatarEl = document.querySelector('#screen-profile-riki .profile-avatar');
+      if (rikiAvatarEl) {
+        rikiAvatarEl.style.backgroundImage = `url('${profileData.riki.avatar}')`;
       }
     }
 
