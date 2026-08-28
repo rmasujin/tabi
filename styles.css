@@ -764,6 +764,9 @@ body {
   flex: none;
   box-shadow: 0 0 0 1px rgba(10, 10, 10, 0.08);
   background-image: repeating-linear-gradient(135deg, #E4E4DF 0 8px, #EDEDE8 8px 16px);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .profile-bio {
