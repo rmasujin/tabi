@@ -532,7 +532,7 @@
 
     // Update table photos from seating data
     const tablePhotos = document.querySelector('.table-photos');
-    const photosCaption = document.querySelector('.photos-caption');
+    const tablePhotoMeta = document.querySelector('.table-photo-meta');
     if (tablePhotos && seatingData.tables) {
       const tableData = seatingData.tables.find(t => t.id === table.label);
       console.log('Table detail - looking for:', table.label, 'found:', tableData);
@@ -545,15 +545,36 @@
             <span class="photo-ratio" style="display: none;">4:5</span>
           </div>`;
         }).join('');
-        // Update photo count
-        if (photosCaption) {
-          photosCaption.textContent = `${tableData.images.length} PHOTO${tableData.images.length > 1 ? 'S' : ''} ／ この卓のみなさんと`;
+
+        // Update photo count and dots
+        if (tablePhotoMeta) {
+          const photoCount = tableData.images.length;
+          const dots = tableData.images.map((_, i) =>
+            `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`
+          ).join('');
+          tablePhotoMeta.innerHTML = `
+            <span class="photo-count">${photoCount} PHOTO${photoCount > 1 ? 'S' : ''}</span>
+            ${photoCount > 1 ? `<div class="pagination-dots">${dots}</div>` : ''}
+          `;
+        }
+
+        // スクロール位置に応じてドットを更新
+        if (tableData.images.length > 1) {
+          tablePhotos.addEventListener('scroll', () => {
+            const scrollLeft = tablePhotos.scrollLeft;
+            const photoWidth = 132 + 1; // width + gap
+            const currentIndex = Math.round(scrollLeft / photoWidth);
+            const dots = tablePhotoMeta.querySelectorAll('.dot');
+            dots.forEach((dot, i) => {
+              dot.classList.toggle('active', i === currentIndex);
+            });
+          });
         }
       } else {
         // 画像がない場合は空にする
         tablePhotos.innerHTML = '';
-        if (photosCaption) {
-          photosCaption.textContent = '';
+        if (tablePhotoMeta) {
+          tablePhotoMeta.innerHTML = '';
         }
       }
     }

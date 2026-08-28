@@ -960,13 +960,24 @@ body {
   color: var(--color-gray-mid);
 }
 
-.photos-caption {
+.table-photo-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 8px 16px;
   margin-bottom: 16px;
+}
+
+.table-photo-meta .photo-count {
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.06em;
   color: var(--color-gray-mid);
+}
+
+.table-photo-meta .pagination-dots {
+  display: flex;
+  gap: 6px;
 }
 
 .seat-diagram {
