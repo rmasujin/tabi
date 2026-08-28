@@ -222,6 +222,7 @@
       number: parseInt(post.number),
       date: post.date,
       author: post.authorDisplay,
+      authorType: post.author, // 'kanami', 'riki', or 'both'
       content: post.content,
       contentMore: post.contentMore || '',
       photos: post.images.length,
@@ -253,6 +254,29 @@
   // Get favorites for RIKI
   function getRikiFavorites() {
     return getPostsByFilter(post => post.displayIn.rikiFavorites);
+  }
+
+  // Generate avatar HTML based on author
+  function getAvatarHTML(authorType, isSingle = false) {
+    const kanamiAvatar = profileData.kanami?.avatar || '';
+    const rikiAvatar = profileData.riki?.avatar || '';
+
+    if (authorType === 'both') {
+      // Show both avatars
+      const kanamiStyle = kanamiAvatar ? `style="background-image: url('${kanamiAvatar}'); background-size: cover; background-position: center;"` : '';
+      const rikiStyle = rikiAvatar ? `style="background-image: url('${rikiAvatar}'); background-size: cover; background-position: center;"` : '';
+      return `
+        <div class="avatar-placeholder" ${kanamiStyle}></div>
+        <div class="avatar-placeholder offset" ${rikiStyle}></div>
+      `;
+    } else if (authorType === 'kanami') {
+      const style = kanamiAvatar ? `style="background-image: url('${kanamiAvatar}'); background-size: cover; background-position: center;"` : '';
+      return `<div class="avatar-placeholder${isSingle ? ' single' : ''}" ${style}></div>`;
+    } else if (authorType === 'riki') {
+      const style = rikiAvatar ? `style="background-image: url('${rikiAvatar}'); background-size: cover; background-position: center;"` : '';
+      return `<div class="avatar-placeholder${isSingle ? ' single' : ''}" ${style}></div>`;
+    }
+    return '<div class="avatar-placeholder"></div>';
   }
 
   // Render a single post HTML
@@ -292,8 +316,7 @@
             <div class="gradient-overlay"></div>
             <div class="post-authors">
               <div class="author-avatars">
-                <div class="avatar-placeholder"></div>
-                <div class="avatar-placeholder offset"></div>
+                ${getAvatarHTML(post.authorType)}
               </div>
               <span class="author-names">${post.author}</span>
             </div>
@@ -322,7 +345,7 @@
             <span class="placeholder-text" style="display: none;">photo — 4:5</span>
             <div class="gradient-overlay"></div>
             <div class="post-authors">
-              <div class="avatar-placeholder single"></div>
+              ${getAvatarHTML(post.authorType, true)}
               <span class="author-names">${post.author}</span>
             </div>
           </div>
