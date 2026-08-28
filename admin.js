@@ -17,6 +17,7 @@
   let selectedRikiAvatar = null;
   let selectedTableId = null; // 現在選択されているテーブルID
   let currentPostsFilter = 'all'; // 投稿フィルター（all, kanami, riki, both）
+  let editingPostId = null; // 編集中の投稿ID（nullの場合は新規作成モード）
   let githubToken = localStorage.getItem('githubToken') || '';
 
   // 初期化
@@ -257,15 +258,10 @@
     });
   }
 
-  // 投稿を作成
+  // 投稿を作成または更新
   async function createPost() {
     if (!githubToken) {
       showStatus('GitHub Tokenを設定してください', 'error');
-      return;
-    }
-
-    if (selectedFiles.length === 0) {
-      showStatus('画像を選択してください', 'error');
       return;
     }
 
@@ -275,57 +271,114 @@
       return;
     }
 
+    // 編集モードの場合、画像は既存のものを維持（新しい画像が選択されている場合は置き換え）
+    const isEditMode = editingPostId !== null;
+
+    if (!isEditMode && selectedFiles.length === 0) {
+      showStatus('画像を選択してください', 'error');
+      return;
+    }
+
     // 改行で分割して、3行以上なら自動的に「続きを読む」に分ける
     const lines = fullContent.split('\n');
     const content = lines.slice(0, 2).join('\n'); // 最初の2行
     const contentMore = lines.length > 2 ? lines.slice(2).join('\n') : ''; // 3行目以降
 
-    showStatus('アップロード中...', 'success');
+    showStatus(isEditMode ? '更新中...' : 'アップロード中...', 'success');
 
     try {
-      // 1. 画像をアップロード
       const author = document.getElementById('author').value;
       const folder = author === 'both' ? 'shared' : author;
-      const uploadedImages = [];
+      let uploadedImages = [];
 
-      for (const item of selectedFiles) {
-        const timestamp = Date.now();
-        const filename = `${timestamp}-${item.file.name}`;
-        const path = `assets/posts/${folder}/${filename}`;
-
-        await uploadToGitHub(item.file, path);
-        uploadedImages.push(path);
+      // 1. 画像処理
+      if (isEditMode) {
+        const existingPost = postsData.posts.find(p => p.id === editingPostId);
+        if (selectedFiles.length > 0) {
+          // 新しい画像が選択されている場合、古い画像を削除して新しい画像をアップロード
+          for (const imagePath of existingPost.images) {
+            await deleteFromGitHub(imagePath);
+          }
+          for (const item of selectedFiles) {
+            const timestamp = Date.now();
+            const filename = `${timestamp}-${item.file.name}`;
+            const path = `assets/posts/${folder}/${filename}`;
+            await uploadToGitHub(item.file, path);
+            uploadedImages.push(path);
+          }
+        } else {
+          // 画像が選択されていない場合は既存の画像を維持
+          uploadedImages = existingPost.images;
+        }
+      } else {
+        // 新規作成の場合は画像をアップロード
+        for (const item of selectedFiles) {
+          const timestamp = Date.now();
+          const filename = `${timestamp}-${item.file.name}`;
+          const path = `assets/posts/${folder}/${filename}`;
+          await uploadToGitHub(item.file, path);
+          uploadedImages.push(path);
+        }
       }
 
-      // 2. 投稿データを作成
-      const newPost = {
-        id: postsData.posts.length > 0 ? Math.max(...postsData.posts.map(p => p.id)) + 1 : 1,
-        number: String(postsData.posts.length + 1).padStart(2, '0'),
-        date: document.getElementById('postDate').value,
-        author: author,
-        authorDisplay: author === 'both' ? 'RIKI ＋ KANAMI' :
-                       author === 'riki' ? 'RIKI' : 'KANAMI',
-        category: [
-          document.getElementById('categoryPosts').checked ? 'posts' : null,
-          document.getElementById('categoryFavorites').checked ? 'favorites' : null
-        ].filter(Boolean),
-        displayIn: {
-          home: document.getElementById('categoryPosts').checked,
-          kanamiPosts: author === 'kanami' || author === 'both',
-          rikiPosts: author === 'riki' || author === 'both',
-          kanamiFavorites: author === 'kanami' && document.getElementById('categoryFavorites').checked,
-          rikiFavorites: author === 'riki' && document.getElementById('categoryFavorites').checked
-        },
-        images: uploadedImages,
-        content: content,
-        contentMore: contentMore
-      };
+      // 2. 投稿データを作成または更新
+      if (isEditMode) {
+        // 既存の投稿を更新
+        const postIndex = postsData.posts.findIndex(p => p.id === editingPostId);
+        if (postIndex !== -1) {
+          postsData.posts[postIndex] = {
+            ...postsData.posts[postIndex],
+            date: document.getElementById('postDate').value,
+            author: author,
+            authorDisplay: author === 'both' ? 'RIKI ＋ KANAMI' :
+                           author === 'riki' ? 'RIKI' : 'KANAMI',
+            category: [
+              document.getElementById('categoryPosts').checked ? 'posts' : null,
+              document.getElementById('categoryFavorites').checked ? 'favorites' : null
+            ].filter(Boolean),
+            displayIn: {
+              home: document.getElementById('categoryPosts').checked,
+              kanamiPosts: author === 'kanami' || author === 'both',
+              rikiPosts: author === 'riki' || author === 'both',
+              kanamiFavorites: author === 'kanami' && document.getElementById('categoryFavorites').checked,
+              rikiFavorites: author === 'riki' && document.getElementById('categoryFavorites').checked
+            },
+            images: uploadedImages,
+            content: content,
+            contentMore: contentMore
+          };
+        }
+      } else {
+        // 新規投稿を作成
+        const newPost = {
+          id: postsData.posts.length > 0 ? Math.max(...postsData.posts.map(p => p.id)) + 1 : 1,
+          number: String(postsData.posts.length + 1).padStart(2, '0'),
+          date: document.getElementById('postDate').value,
+          author: author,
+          authorDisplay: author === 'both' ? 'RIKI ＋ KANAMI' :
+                         author === 'riki' ? 'RIKI' : 'KANAMI',
+          category: [
+            document.getElementById('categoryPosts').checked ? 'posts' : null,
+            document.getElementById('categoryFavorites').checked ? 'favorites' : null
+          ].filter(Boolean),
+          displayIn: {
+            home: document.getElementById('categoryPosts').checked,
+            kanamiPosts: author === 'kanami' || author === 'both',
+            rikiPosts: author === 'riki' || author === 'both',
+            kanamiFavorites: author === 'kanami' && document.getElementById('categoryFavorites').checked,
+            rikiFavorites: author === 'riki' && document.getElementById('categoryFavorites').checked
+          },
+          images: uploadedImages,
+          content: content,
+          contentMore: contentMore
+        };
+        postsData.posts.push(newPost);
+      }
 
       // 3. JSONファイルを更新
-      postsData.posts.push(newPost);
       await updatePostsJSON();
 
-      showStatus('✅ 投稿を作成しました！', 'success');
+      showStatus(isEditMode ? '✅ 投稿を更新しました！' : '✅ 投稿を作成しました！', 'success');
       resetForm();
       renderPostsList();
 
@@ -477,6 +530,14 @@
       });
     });
 
+    // 編集ボタン
+    container.querySelectorAll('.edit-btn').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        const id = parseInt(e.target.dataset.id);
+        loadPostForEdit(id);
+      });
+    });
+
     // 削除ボタン
     container.querySelectorAll('.delete-btn').forEach(btn => {
       btn.addEventListener('click', async (e) => {
@@ -486,6 +547,37 @@
         }
       });
     });
+  }
+
+  // 投稿を編集モードで読み込み
+  function loadPostForEdit(id) {
+    const post = postsData.posts.find(p => p.id === id);
+    if (!post) return;
+
+    // 編集モードに設定
+    editingPostId = id;
+
+    // フォームに既存のデータを読み込み
+    document.getElementById('author').value = post.author;
+    document.getElementById('postDate').value = post.date;
+    document.getElementById('categoryPosts').checked = post.category.includes('posts');
+    document.getElementById('categoryFavorites').checked = post.category.includes('favorites');
+
+    // 投稿内容を結合
+    const fullContent = post.contentMore ? `${post.content}\n${post.contentMore}` : post.content;
+    document.getElementById('postContent').value = fullContent;
+
+    // 既存の画像を表示（編集時は既存画像の削除は非対応）
+    selectedFiles = [];
+    renderPreview();
+
+    // ボタンテキストを変更
+    document.getElementById('createPostBtn').textContent = '投稿を更新';
+
+    // フォームの上部にスクロール
+    document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+
+    showStatus('編集モード：既存の投稿データを読み込みました。画像は再度選択してください。', 'success');
   }
 
   // 投稿を削除
@@ -570,6 +662,10 @@
     selectedFiles = [];
     document.getElementById('previewImages').innerHTML = '';
     document.getElementById('optimizeInfo').style.display = 'none';
+
+    // 編集モードをリセット
+    editingPostId = null;
+    document.getElementById('createPostBtn').textContent = '投稿を作成';
   }
 
   // ステータスメッセージを表示
