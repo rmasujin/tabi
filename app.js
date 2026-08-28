@@ -300,7 +300,13 @@
 
   // Get posts for HOME screen
   function getHomePosts() {
-    return getPostsByFilter(post => post.displayIn.home);
+    const posts = getPostsByFilter(post => post.displayIn.home);
+    // Sort by date (newest first)
+    return posts.sort((a, b) => {
+      const dateA = new Date(a.date.replace(/\./g, '-'));
+      const dateB = new Date(b.date.replace(/\./g, '-'));
+      return dateB - dateA; // Descending order
+    });
   }
 
   // Get posts for KANAMI profile

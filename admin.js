@@ -412,7 +412,12 @@
 
     container.innerHTML = '';
 
-    postsData.posts.sort((a, b) => b.id - a.id).forEach(post => {
+    // 日付降順でソート
+    postsData.posts.sort((a, b) => {
+      const dateA = new Date(a.date.replace(/\./g, '-'));
+      const dateB = new Date(b.date.replace(/\./g, '-'));
+      return dateB - dateA;
+    }).forEach(post => {
       const div = document.createElement('div');
       div.className = 'post-item';
       div.innerHTML = `
@@ -422,6 +427,10 @@
           <p>📅 ${post.date}</p>
           <p>📷 ${post.images.length}枚の画像</p>
           <p>${post.content.substring(0, 50)}...</p>
+          <label style="display: flex; align-items: center; margin-top: 10px; cursor: pointer;">
+            <input type="checkbox" class="home-display-checkbox" data-id="${post.id}" ${post.displayIn.home ? 'checked' : ''} style="margin-right: 8px;">
+            HOMEに表示
+          </label>
         </div>
         <div class="post-actions">
           <button class="edit-btn" data-id="${post.id}">編集</button>
@@ -429,6 +438,14 @@
         </div>
       `;
       container.appendChild(div);
+    });
+
+    // HOMEチェックボックス
+    container.querySelectorAll('.home-display-checkbox').forEach(checkbox => {
+      checkbox.addEventListener('change', async (e) => {
+        const id = parseInt(e.target.dataset.id);
+        await toggleHomeDisplay(id, e.target.checked);
+      });
     });
 
     // 削除ボタン
@@ -464,6 +481,24 @@
 
     } catch (error) {
       showStatus('削除に失敗しました: ' + error.message, 'error');
+    }
+  }
+
+  // HOME表示を切り替え
+  async function toggleHomeDisplay(id, checked) {
+    const post = postsData.posts.find(p => p.id === id);
+    if (!post) return;
+
+    showStatus('更新中...', 'success');
+
+    try {
+      post.displayIn.home = checked;
+      await updatePostsJSON();
+      showStatus(`✅ ${checked ? 'HOMEに表示されます' : 'HOMEから非表示になります'}`, 'success');
+    } catch (error) {
+      showStatus('更新に失敗しました: ' + error.message, 'error');
+      // エラーの場合、チェックボックスを元に戻す
+      renderPostsList();
     }
   }
 
