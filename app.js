@@ -164,11 +164,11 @@
       }
     }
 
-    // Update KANAMI name
-    if (profileData.kanami && profileData.kanami.displayName) {
+    // Update KANAMI name (use fullName if available, fallback to displayName)
+    if (profileData.kanami) {
       const kanamiNameEl = document.querySelector('#screen-profile-kanami .profile-name-large');
       if (kanamiNameEl) {
-        kanamiNameEl.textContent = profileData.kanami.displayName;
+        kanamiNameEl.textContent = profileData.kanami.fullName || profileData.kanami.displayName || 'KANAMI';
       }
     }
 
@@ -197,11 +197,11 @@
       }
     }
 
-    // Update RIKI name
-    if (profileData.riki && profileData.riki.displayName) {
+    // Update RIKI name (use fullName if available, fallback to displayName)
+    if (profileData.riki) {
       const rikiNameEl = document.querySelector('#screen-profile-riki .profile-name-large');
       if (rikiNameEl) {
-        rikiNameEl.textContent = profileData.riki.displayName;
+        rikiNameEl.textContent = profileData.riki.fullName || profileData.riki.displayName || 'RIKI';
       }
     }
 

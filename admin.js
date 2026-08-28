@@ -510,15 +510,17 @@
   // プロフィールフォームを描画
   function renderProfileForms() {
     if (profileData.kanami) {
-      document.getElementById('kanamiAccountName').value = profileData.kanami.accountName || '@kanami';
       document.getElementById('kanamiDisplayName').value = profileData.kanami.displayName || 'KANAMI';
+      document.getElementById('kanamiAccountName').value = profileData.kanami.accountName || '@kanami';
+      document.getElementById('kanamiFullName').value = profileData.kanami.fullName || '';
       document.getElementById('kanamiBio').value = profileData.kanami.bio || '';
       renderDetailItems('kanami');
       renderAvatarPreview('kanami');
     }
     if (profileData.riki) {
-      document.getElementById('rikiAccountName').value = profileData.riki.accountName || '@riki';
       document.getElementById('rikiDisplayName').value = profileData.riki.displayName || 'RIKI';
+      document.getElementById('rikiAccountName').value = profileData.riki.accountName || '@riki';
+      document.getElementById('rikiFullName').value = profileData.riki.fullName || '';
       document.getElementById('rikiBio').value = profileData.riki.bio || '';
       renderDetailItems('riki');
       renderAvatarPreview('riki');
@@ -704,6 +706,10 @@
         ? document.getElementById('kanamiDisplayName').value
         : document.getElementById('rikiDisplayName').value;
 
+      const fullName = author === 'kanami'
+        ? document.getElementById('kanamiFullName').value
+        : document.getElementById('rikiFullName').value;
+
       const bio = author === 'kanami'
         ? document.getElementById('kanamiBio').value
         : document.getElementById('rikiBio').value;
@@ -727,6 +733,7 @@
         ...profileData[author],
         accountName: accountName || (author === 'kanami' ? '@kanami' : '@riki'),
         displayName: displayName || (author === 'kanami' ? 'KANAMI' : 'RIKI'),
+        fullName: fullName || '',
         bio: bio,
         avatar: avatarPath,
         details: details
