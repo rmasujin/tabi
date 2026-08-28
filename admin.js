@@ -90,7 +90,7 @@
   function saveToken(e) {
     githubToken = e.target.value;
     localStorage.setItem('githubToken', githubToken);
-    showStatus('トークンを保存しました', 'success');
+    showStatus('✅ トークンを保存しました', 'success');
   }
 
   // 投稿データを読み込み
@@ -260,7 +260,7 @@
       postsData.posts.push(newPost);
       await updatePostsJSON();
 
-      showStatus('投稿を作成しました！', 'success');
+      showStatus('✅ 投稿を作成しました！', 'success');
       resetForm();
       renderPostsList();
 
@@ -412,7 +412,7 @@
       postsData.posts = postsData.posts.filter(p => p.id !== id);
       await updatePostsJSON();
 
-      showStatus('削除しました', 'success');
+      showStatus('✅ 削除しました', 'success');
       renderPostsList();
 
     } catch (error) {
@@ -466,11 +466,18 @@
     const statusEl = document.getElementById('statusMessage');
     statusEl.textContent = message;
     statusEl.className = `status-message ${type}`;
+    statusEl.style.display = 'block';
 
+    // 既存のタイマーをクリア
+    if (statusEl.timeout) {
+      clearTimeout(statusEl.timeout);
+    }
+
+    // 成功メッセージは5秒後に自動で消える
     if (type === 'success') {
-      setTimeout(() => {
+      statusEl.timeout = setTimeout(() => {
         statusEl.style.display = 'none';
-      }, 3000);
+      }, 5000);
     }
   }
 
@@ -507,10 +514,22 @@
     if (profileData.kanami) {
       document.getElementById('kanamiBio').value = profileData.kanami.bio || '';
       renderDetailItems('kanami');
+      // 既存のアバター画像を表示
+      if (profileData.kanami.avatar) {
+        document.getElementById('kanamiAvatarPreview').innerHTML = `
+          <img src="${profileData.kanami.avatar}" style="max-width: 150px; border-radius: 50%;">
+        `;
+      }
     }
     if (profileData.riki) {
       document.getElementById('rikiBio').value = profileData.riki.bio || '';
       renderDetailItems('riki');
+      // 既存のアバター画像を表示
+      if (profileData.riki.avatar) {
+        document.getElementById('rikiAvatarPreview').innerHTML = `
+          <img src="${profileData.riki.avatar}" style="max-width: 150px; border-radius: 50%;">
+        `;
+      }
     }
   }
 
@@ -631,7 +650,7 @@
 
       await updateProfileJSON();
 
-      showStatus('プロフィールを保存しました！', 'success');
+      showStatus('✅ プロフィールを保存しました！', 'success');
 
       // 選択をリセット
       if (author === 'kanami') {
@@ -639,6 +658,9 @@
       } else {
         selectedRikiAvatar = null;
       }
+
+      // プロフィールフォームを再描画（保存後の画像を表示）
+      renderProfileForms();
 
     } catch (error) {
       showStatus('エラーが発生しました: ' + error.message, 'error');
@@ -811,7 +833,7 @@
     // ファイル入力をリセット
     e.target.value = '';
 
-    showStatus('画像を追加しました', 'success');
+    showStatus('✅ 画像を追加しました', 'success');
   }
 
   // すべてのテーブルを保存
@@ -849,7 +871,7 @@
 
       await updateSeatingJSON();
 
-      showStatus('席次表を保存しました！', 'success');
+      showStatus('✅ 席次表を保存しました！', 'success');
 
       // 選択中のテーブルがあれば再表示
       if (selectedTableId) {
