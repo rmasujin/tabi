@@ -964,6 +964,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
+  margin-bottom: 16px;
   border-bottom: 1px solid var(--color-divider);
 }
 
@@ -997,7 +998,7 @@ body {
 .seat-diagram {
   display: flex;
   justify-content: center;
-  padding: 16px 0 16px 0;
+  padding: 0 0 16px 0;
   position: relative;
   width: 250px;
   height: 250px;
