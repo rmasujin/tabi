@@ -70,28 +70,6 @@
       "contentMore": ""
     },
     {
-      "id": 4,
-      "number": "04",
-      "date": "2023.08.12",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/04-festival.jpg"
-      ],
-      "content": "地元の夏祭りに行きました。浴衣姿のかなみがかわいかった。",
-      "contentMore": ""
-    },
-    {
       "id": 5,
       "number": "05",
       "date": "2022.05.20",
