@@ -510,11 +510,13 @@
   // プロフィールフォームを描画
   function renderProfileForms() {
     if (profileData.kanami) {
+      document.getElementById('kanamiDisplayName').value = profileData.kanami.displayName || 'KANAMI';
       document.getElementById('kanamiBio').value = profileData.kanami.bio || '';
       renderDetailItems('kanami');
       renderAvatarPreview('kanami');
     }
     if (profileData.riki) {
+      document.getElementById('rikiDisplayName').value = profileData.riki.displayName || 'RIKI';
       document.getElementById('rikiBio').value = profileData.riki.bio || '';
       renderDetailItems('riki');
       renderAvatarPreview('riki');
@@ -692,6 +694,10 @@
     showStatus('保存中...', 'success');
 
     try {
+      const displayName = author === 'kanami'
+        ? document.getElementById('kanamiDisplayName').value
+        : document.getElementById('rikiDisplayName').value;
+
       const bio = author === 'kanami'
         ? document.getElementById('kanamiBio').value
         : document.getElementById('rikiBio').value;
@@ -713,6 +719,7 @@
       // プロフィールデータを更新
       profileData[author] = {
         ...profileData[author],
+        displayName: displayName || (author === 'kanami' ? 'KANAMI' : 'RIKI'),
         bio: bio,
         avatar: avatarPath,
         details: details
