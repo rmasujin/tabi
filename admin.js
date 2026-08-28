@@ -19,12 +19,16 @@
   let currentPostsFilter = 'all'; // 投稿フィルター（all, kanami, riki, both）
   let editingPostId = null; // 編集中の投稿ID（nullの場合は新規作成モード）
   let githubToken = localStorage.getItem('githubToken') || '';
+  let vercelDeployHook = localStorage.getItem('vercelDeployHook') || '';
 
   // 初期化
   async function init() {
-    // トークンを読み込み
+    // トークンとDeploy Hookを読み込み
     if (githubToken) {
       document.getElementById('githubToken').value = githubToken;
+    }
+    if (vercelDeployHook) {
+      document.getElementById('vercelDeployHook').value = vercelDeployHook;
     }
 
     // タブ切り替え
@@ -32,6 +36,7 @@
 
     // 投稿管理のイベントリスナー
     document.getElementById('githubToken').addEventListener('change', saveToken);
+    document.getElementById('vercelDeployHook').addEventListener('change', saveDeployHook);
     document.getElementById('fileUploadArea').addEventListener('click', () => {
       document.getElementById('imageInput').click();
     });
@@ -108,6 +113,28 @@
     githubToken = e.target.value;
     localStorage.setItem('githubToken', githubToken);
     showStatus('✅ トークンを保存しました', 'success');
+  }
+
+  // Vercel Deploy Hookを保存
+  function saveDeployHook(e) {
+    vercelDeployHook = e.target.value;
+    localStorage.setItem('vercelDeployHook', vercelDeployHook);
+    showStatus('✅ Deploy Hookを保存しました', 'success');
+  }
+
+  // Vercelの自動デプロイをトリガー
+  async function triggerVercelDeploy() {
+    if (!vercelDeployHook) {
+      console.log('Deploy Hook URLが設定されていません');
+      return;
+    }
+
+    try {
+      await fetch(vercelDeployHook, { method: 'POST' });
+      console.log('✅ Vercelデプロイをトリガーしました');
+    } catch (error) {
+      console.error('Vercelデプロイのトリガーに失敗:', error);
+    }
   }
 
   // 投稿データを読み込み
@@ -474,6 +501,9 @@
       const error = await response.json();
       throw new Error(error.message);
     }
+
+    // GitHubに更新したのでVercelデプロイをトリガー
+    await triggerVercelDeploy();
   }
 
   // 投稿一覧を表示
