@@ -497,6 +497,19 @@
         initPostSliders();
         setupReadMore();
       }, 100);
+
+      // Scroll to the clicked post
+      setTimeout(() => {
+        const targetPost = postDetailContent.querySelector(`article[data-post-id="${postNumber}"]`);
+        if (targetPost) {
+          const postDetailScreen = document.getElementById('screen-post-detail');
+          if (postDetailScreen) {
+            const headerHeight = 50; // Header height
+            const targetPosition = targetPost.offsetTop - headerHeight;
+            postDetailScreen.scrollTop = targetPosition;
+          }
+        }
+      }, 150);
     }
 
     showScreen('postDetail');
@@ -1036,16 +1049,15 @@
     const gridItems = document.querySelectorAll('.grid-item');
     gridItems.forEach(item => {
       item.addEventListener('click', () => {
-        const gridNumber = item.querySelector('.grid-number');
         const grid = item.closest('.profile-grid');
         const profileScreen = item.closest('.screen');
+        const postId = item.getAttribute('data-post-id');
 
-        if (gridNumber && grid && profileScreen) {
-          const postNumber = parseInt(gridNumber.textContent);
+        if (grid && profileScreen && postId) {
           const gridType = grid.getAttribute('data-grid'); // 'posts' or 'favorites'
           const author = profileScreen.id.includes('riki') ? 'riki' : 'kanami';
 
-          showPostDetail(postNumber, gridType, author);
+          showPostDetail(parseInt(postId), gridType, author);
         }
       });
       item.style.cursor = 'pointer';
@@ -1132,7 +1144,7 @@
     }
 
     const gridHTML = posts.map((post, index) => `
-      <div class="grid-item">
+      <div class="grid-item" data-post-id="${post.number}">
         <div class="grid-image" style="background-image: url('${post.images[0]}');">
           <span class="grid-number">${String(index + 1).padStart(2, '0')}</span>
         </div>
