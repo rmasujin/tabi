@@ -117,6 +117,29 @@
 
   // 画像を最適化
   async function optimizeImage(file) {
+    // HEICファイルの場合、先にJPEGに変換
+    if (file.type === 'image/heic' || file.type === 'image/heif' || file.name.toLowerCase().endsWith('.heic') || file.name.toLowerCase().endsWith('.heif')) {
+      console.log('HEIC file detected, converting to JPEG...');
+      try {
+        if (typeof heic2any === 'undefined') {
+          throw new Error('HEIC変換ライブラリが読み込まれていません');
+        }
+        const convertedBlob = await heic2any({
+          blob: file,
+          toType: 'image/jpeg',
+          quality: 0.9
+        });
+        file = new File([convertedBlob], file.name.replace(/\.heic$/i, '.jpg'), {
+          type: 'image/jpeg',
+          lastModified: Date.now()
+        });
+        console.log('HEIC conversion successful');
+      } catch (error) {
+        console.error('HEIC conversion failed:', error);
+        throw new Error('HEIC画像の変換に失敗しました: ' + error.message);
+      }
+    }
+
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
 
@@ -130,7 +153,7 @@
 
         img.onerror = () => {
           console.error('Image load error for file:', file.name, file.type);
-          reject(new Error(`画像の読み込みに失敗しました: ${file.name}\nHEICファイルの場合はJPEGまたはPNGに変換してください`));
+          reject(new Error(`画像の読み込みに失敗しました: ${file.name}`));
         };
 
         img.onload = () => {
