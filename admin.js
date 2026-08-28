@@ -38,14 +38,7 @@
     document.getElementById('resetFormBtn').addEventListener('click', resetForm);
 
     // プロフィール管理のイベントリスナー
-    document.getElementById('kanamiAvatarUploadArea').addEventListener('click', () => {
-      document.getElementById('kanamiAvatarInput').click();
-    });
-    document.getElementById('rikiAvatarUploadArea').addEventListener('click', () => {
-      document.getElementById('rikiAvatarInput').click();
-    });
-    document.getElementById('kanamiAvatarInput').addEventListener('change', (e) => handleAvatarSelect(e, 'kanami'));
-    document.getElementById('rikiAvatarInput').addEventListener('change', (e) => handleAvatarSelect(e, 'riki'));
+    // アバター画像のイベントリスナーは動的に設定されるため、ここでは不要
     document.getElementById('saveKanamiProfileBtn').addEventListener('click', () => saveProfile('kanami'));
     document.getElementById('saveRikiProfileBtn').addEventListener('click', () => saveProfile('riki'));
     document.getElementById('addKanamiDetailBtn').addEventListener('click', () => addDetailItem('kanami'));
@@ -519,24 +512,97 @@
     if (profileData.kanami) {
       document.getElementById('kanamiBio').value = profileData.kanami.bio || '';
       renderDetailItems('kanami');
-      // 既存のアバター画像を表示
-      if (profileData.kanami.avatar) {
-        document.getElementById('kanamiAvatarPreview').innerHTML = `
-          <img src="${profileData.kanami.avatar}" style="max-width: 150px; border-radius: 50%;">
-        `;
-      }
+      renderAvatarPreview('kanami');
     }
     if (profileData.riki) {
       document.getElementById('rikiBio').value = profileData.riki.bio || '';
       renderDetailItems('riki');
-      // 既存のアバター画像を表示
-      if (profileData.riki.avatar) {
-        document.getElementById('rikiAvatarPreview').innerHTML = `
-          <img src="${profileData.riki.avatar}" style="max-width: 150px; border-radius: 50%;">
-        `;
+      renderAvatarPreview('riki');
+    }
+  }
+
+  // アバタープレビューを描画
+  function renderAvatarPreview(author) {
+    const previewEl = document.getElementById(`${author}AvatarPreview`);
+    const avatar = profileData[author]?.avatar;
+    const selectedAvatar = author === 'kanami' ? selectedKanamiAvatar : selectedRikiAvatar;
+
+    if (selectedAvatar) {
+      // 新しく選択された画像を表示
+      previewEl.innerHTML = `
+        <div style="position: relative; display: inline-block;">
+          <img src="${selectedAvatar.preview}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+          <button type="button" class="remove-btn" onclick="window.removeAvatar('${author}')" style="position: absolute; top: 5px; right: 5px;">×</button>
+        </div>
+      `;
+    } else if (avatar) {
+      // 既存の画像を表示
+      previewEl.innerHTML = `
+        <div style="position: relative; display: inline-block;">
+          <img src="${avatar}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+          <button type="button" class="btn btn-secondary" onclick="window.deleteAvatar('${author}')" style="margin-top: 10px;">画像を削除</button>
+        </div>
+      `;
+    } else {
+      // 画像がない場合はアップロードエリアを表示
+      previewEl.innerHTML = `
+        <div class="file-upload" id="${author}AvatarUploadArea">
+          <input type="file" id="${author}AvatarInput" accept="image/*">
+          <p>📷 クリックして画像を選択</p>
+        </div>
+      `;
+      // イベントリスナーを再設定
+      const uploadArea = document.getElementById(`${author}AvatarUploadArea`);
+      const fileInput = document.getElementById(`${author}AvatarInput`);
+      if (uploadArea && fileInput) {
+        uploadArea.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => handleAvatarSelect(e, author));
       }
     }
   }
+
+  // 選択した画像を削除（保存前）
+  window.removeAvatar = function(author) {
+    if (author === 'kanami') {
+      selectedKanamiAvatar = null;
+    } else {
+      selectedRikiAvatar = null;
+    }
+    renderAvatarPreview(author);
+  };
+
+  // 保存済み画像を削除
+  window.deleteAvatar = async function(author) {
+    if (!confirm('プロフィール画像を削除しますか？')) {
+      return;
+    }
+
+    if (!githubToken) {
+      showStatus('GitHub Tokenを設定してください', 'error');
+      return;
+    }
+
+    showStatus('削除中...', 'success');
+
+    try {
+      const avatarPath = profileData[author]?.avatar;
+      if (avatarPath) {
+        // GitHubから画像を削除
+        await deleteFromGitHub(avatarPath);
+      }
+
+      // プロフィールデータから削除
+      profileData[author].avatar = '';
+      await updateProfileJSON();
+
+      showStatus('✅ 画像を削除しました', 'success');
+      renderAvatarPreview(author);
+
+    } catch (error) {
+      showStatus('削除に失敗しました: ' + error.message, 'error');
+      console.error(error);
+    }
+  };
 
   // プロフィール項目を描画
   function renderDetailItems(author) {
@@ -602,19 +668,18 @@
     const file = e.target.files[0];
     if (!file) return;
 
+    showStatus('画像を最適化中...', 'success');
+
     const optimized = await optimizeImage(file);
 
     if (author === 'kanami') {
       selectedKanamiAvatar = optimized;
-      document.getElementById('kanamiAvatarPreview').innerHTML = `
-        <img src="${optimized.preview}" style="max-width: 150px; border-radius: 50%;">
-      `;
     } else {
       selectedRikiAvatar = optimized;
-      document.getElementById('rikiAvatarPreview').innerHTML = `
-        <img src="${optimized.preview}" style="max-width: 150px; border-radius: 50%;">
-      `;
     }
+
+    renderAvatarPreview(author);
+    showStatus('✅ 画像を選択しました（保存ボタンを押してください）', 'success');
   }
 
   // プロフィールを保存
