@@ -48,28 +48,6 @@
       "contentMore": ""
     },
     {
-      "id": 2,
-      "number": "02",
-      "date": "2024.03.15",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/02-proposal.jpg"
-      ],
-      "content": "プロポーズした日。すごく緊張した。",
-      "contentMore": "思い出の場所で、ずっと考えていた言葉を伝えました。涙で顔がぐちゃぐちゃになったけど、一生忘れられない日になりました。"
-    },
-    {
       "id": 3,
       "number": "03",
       "date": "2023.12.24",
