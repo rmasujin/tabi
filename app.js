@@ -1143,6 +1143,16 @@
       posts = author === 'riki' ? getRikiFavorites() : getKanamiFavorites();
     }
 
+    if (posts.length === 0) {
+      // 投稿が0件の場合はグリッドを非表示
+      grid.style.display = 'none';
+      grid.innerHTML = '';
+      return;
+    }
+
+    // 投稿がある場合はグリッドを表示
+    grid.style.display = '';
+
     const gridHTML = posts.map((post, index) => `
       <div class="grid-item" data-post-id="${post.number}">
         <div class="grid-image" style="background-image: url('${post.images[0]}');">
