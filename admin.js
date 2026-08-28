@@ -1100,12 +1100,13 @@
 
       showStatus('✅ 席次表を保存しました！', 'success');
 
-      // データを再読み込み
-      await loadSeatingData();
+      console.log('Save complete. seatingData:', seatingData);
 
       // 選択中のテーブルがあれば再表示
+      // 注：seatingDataは既に更新されているので、再読み込み不要
       if (selectedTableId) {
         const table = seatingData.tables.find(t => t.id === selectedTableId);
+        console.log('Rendering preview for table:', selectedTableId, 'images:', table?.images);
         renderSelectedTablePreview(table ? table.images : []);
       }
 
