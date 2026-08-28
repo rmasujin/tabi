@@ -136,28 +136,6 @@
       "contentMore": ""
     },
     {
-      "id": 11,
-      "number": "08",
-      "date": "1997.08.02",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1787906532878-1D7BABB4-63E7-470B-8A46-D32C64FAB977-VSCO.jpg"
-      ],
-      "content": "小さいときから祭り大好きだった",
-      "contentMore": ""
-    },
-    {
       "id": 8,
       "number": "06",
       "date": "1995.12.10",
