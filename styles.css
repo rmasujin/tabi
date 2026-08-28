@@ -933,6 +933,7 @@ body {
   gap: 1px;
   padding: 16px 0 0;
   overflow-x: hidden;
+  min-height: 16px;
 }
 
 .photo-placeholder {
@@ -952,7 +953,8 @@ body {
 }
 
 .photos-caption {
-  padding: 8px 16px 0;
+  padding: 8px 16px;
+  margin-bottom: 16px;
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.06em;
