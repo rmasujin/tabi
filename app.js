@@ -261,6 +261,8 @@
     const kanamiAvatar = profileData.kanami?.avatar || '';
     const rikiAvatar = profileData.riki?.avatar || '';
 
+    console.log('getAvatarHTML called:', { authorType, kanamiAvatar, rikiAvatar, profileData });
+
     if (authorType === 'both') {
       // Show both avatars
       const kanamiStyle = kanamiAvatar ? `style="background-image: url('${kanamiAvatar}'); background-size: cover; background-position: center;"` : '';
