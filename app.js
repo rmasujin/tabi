@@ -261,8 +261,6 @@
     const kanamiAvatar = profileData.kanami?.avatar || '';
     const rikiAvatar = profileData.riki?.avatar || '';
 
-    console.log('getAvatarHTML called:', { authorType, kanamiAvatar, rikiAvatar, profileData });
-
     if (authorType === 'both') {
       // Show both avatars
       const kanamiStyle = kanamiAvatar ? `style="background-image: url('${kanamiAvatar}'); background-size: cover; background-position: center;"` : '';
@@ -316,7 +314,7 @@
               </div>
             </div>
             <div class="gradient-overlay"></div>
-            <div class="post-authors">
+            <div class="post-authors" data-author="${post.authorType}" style="cursor: pointer;">
               <div class="author-avatars">
                 ${getAvatarHTML(post.authorType)}
               </div>
@@ -346,7 +344,7 @@
           <div class="post-image-placeholder" style="background-image: url('${post.images[0]}');">
             <span class="placeholder-text" style="display: none;">photo — 4:5</span>
             <div class="gradient-overlay"></div>
-            <div class="post-authors">
+            <div class="post-authors" data-author="${post.authorType}" style="cursor: pointer;">
               ${getAvatarHTML(post.authorType, true)}
               <span class="author-names">${post.author}</span>
             </div>
@@ -922,6 +920,27 @@
     });
   }
 
+  // Setup post author click to navigate to profile
+  function setupPostAuthorClicks() {
+    const postAuthors = document.querySelectorAll('.post-authors[data-author]');
+    postAuthors.forEach(authorEl => {
+      authorEl.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const authorType = authorEl.getAttribute('data-author');
+
+        // Navigate to appropriate profile screen
+        if (authorType === 'kanami') {
+          showScreen('profileKanami');
+        } else if (authorType === 'riki') {
+          showScreen('profileRiki');
+        } else if (authorType === 'both') {
+          // For 'both', default to KANAMI profile
+          showScreen('profileKanami');
+        }
+      });
+    });
+  }
+
   // Read more functionality
   function setupReadMore() {
     // Post read more buttons
@@ -961,6 +980,7 @@
     // Re-initialize sliders and event listeners for newly rendered posts
     initPostSliders();
     setupReadMore();
+    setupPostAuthorClicks();
   }
 
   // Render profile grid
