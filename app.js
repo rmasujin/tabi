@@ -546,28 +546,29 @@
           </div>`;
         }).join('');
 
-        // Update photo count and dots
+        // Update photo count and progress bar
         if (tablePhotoMeta) {
           const photoCount = tableData.images.length;
-          const dots = tableData.images.map((_, i) =>
-            `<span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>`
-          ).join('');
           tablePhotoMeta.innerHTML = `
             <span class="photo-count">${photoCount} PHOTO${photoCount > 1 ? 'S' : ''}</span>
-            ${photoCount > 1 ? `<div class="pagination-dots">${dots}</div>` : ''}
+            ${photoCount > 1 ? `
+              <div class="scroll-progress-container">
+                <div class="scroll-progress-bar"></div>
+              </div>
+            ` : ''}
           `;
         }
 
-        // スクロール位置に応じてドットを更新
+        // スクロール位置に応じてプログレスバーを更新
         if (tableData.images.length > 1) {
+          const progressBar = tablePhotoMeta.querySelector('.scroll-progress-bar');
           tablePhotos.addEventListener('scroll', () => {
             const scrollLeft = tablePhotos.scrollLeft;
-            const photoWidth = 132 + 1; // width + gap
-            const currentIndex = Math.round(scrollLeft / photoWidth);
-            const dots = tablePhotoMeta.querySelectorAll('.dot');
-            dots.forEach((dot, i) => {
-              dot.classList.toggle('active', i === currentIndex);
-            });
+            const maxScroll = tablePhotos.scrollWidth - tablePhotos.clientWidth;
+            const scrollPercentage = (scrollLeft / maxScroll) * 100;
+            if (progressBar) {
+              progressBar.style.width = `${scrollPercentage}%`;
+            }
           });
         }
       } else {
