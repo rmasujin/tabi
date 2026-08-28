@@ -539,6 +539,7 @@
       if (tableData && tableData.images && tableData.images.length > 0) {
         const REPO = 'rmasujin/tabi';
         const BRANCH = 'main';
+        tablePhotos.style.display = 'flex';
         tablePhotos.innerHTML = tableData.images.map(imagePath => {
           const imageUrl = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${imagePath}`;
           return `<div class="photo-placeholder" style="background-image: url('${imageUrl}'); background-size: cover; background-position: center;">
@@ -548,7 +549,7 @@
 
         // Update photo count and progress bar
         if (tablePhotoMeta) {
-          tablePhotoMeta.style.borderBottom = '';
+          tablePhotoMeta.style.display = 'flex';
           const photoCount = tableData.images.length;
           tablePhotoMeta.innerHTML = `
             <span class="photo-count">${photoCount} PHOTO${photoCount > 1 ? 'S' : ''}</span>
@@ -573,11 +574,10 @@
           });
         }
       } else {
-        // 画像がない場合は空にする（余白は残すが下線は消す）
-        tablePhotos.innerHTML = '';
+        // 画像がない場合は要素を非表示
+        tablePhotos.style.display = 'none';
         if (tablePhotoMeta) {
-          tablePhotoMeta.style.borderBottom = 'none';
-          tablePhotoMeta.innerHTML = '';
+          tablePhotoMeta.style.display = 'none';
         }
       }
     }
