@@ -532,14 +532,29 @@
 
     // Update table photos from seating data
     const tablePhotos = document.querySelector('.table-photos');
+    const photosCaption = document.querySelector('.photos-caption');
     if (tablePhotos && seatingData.tables) {
       const tableData = seatingData.tables.find(t => t.id === table.label);
+      console.log('Table detail - looking for:', table.label, 'found:', tableData);
       if (tableData && tableData.images && tableData.images.length > 0) {
-        tablePhotos.innerHTML = tableData.images.map(imagePath =>
-          `<div class="photo-placeholder" style="background-image: url('${imagePath}'); background-size: cover; background-position: center;">
+        const REPO = 'rmasujin/tabi';
+        const BRANCH = 'main';
+        tablePhotos.innerHTML = tableData.images.map(imagePath => {
+          const imageUrl = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${imagePath}`;
+          return `<div class="photo-placeholder" style="background-image: url('${imageUrl}'); background-size: cover; background-position: center;">
             <span class="photo-ratio" style="display: none;">4:5</span>
-          </div>`
-        ).join('');
+          </div>`;
+        }).join('');
+        // Update photo count
+        if (photosCaption) {
+          photosCaption.textContent = `${tableData.images.length} PHOTO${tableData.images.length > 1 ? 'S' : ''} ／ この卓のみなさんと`;
+        }
+      } else {
+        // 画像がない場合は空にする
+        tablePhotos.innerHTML = '';
+        if (photosCaption) {
+          photosCaption.textContent = '';
+        }
       }
     }
 

@@ -917,8 +917,10 @@
       existingImages.forEach((src, index) => {
         const imgDiv = document.createElement('div');
         imgDiv.style.position = 'relative';
+        // GitHubの絶対URLを使用
+        const imageUrl = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${src}`;
         imgDiv.innerHTML = `
-          <img src="${src}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; display: block;">
+          <img src="${imageUrl}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; display: block;">
           <button class="remove-btn existing-remove" data-existing-index="${index}" style="position: absolute; top: 5px; right: 5px;">×</button>
         `;
         existingPreview.appendChild(imgDiv);
