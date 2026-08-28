@@ -114,6 +114,28 @@
       "contentMore": ""
     },
     {
+      "id": 9,
+      "number": "07",
+      "date": "1999-01-25",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1787905305549-BF97B2C4-BBED-4F80-8258-BD94261C9B6F-VSCO.jpg"
+      ],
+      "content": "弟誕生",
+      "contentMore": ""
+    },
+    {
       "id": 8,
       "number": "06",
       "date": "1995-12-10",
@@ -136,9 +158,9 @@
       "contentMore": ""
     },
     {
-      "id": 9,
-      "number": "07",
-      "date": "1999-01-25",
+      "id": 10,
+      "number": "08",
+      "date": "2000.11.15",
       "author": "riki",
       "authorDisplay": "RIKI",
       "category": [
@@ -152,9 +174,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/riki/1787905305549-BF97B2C4-BBED-4F80-8258-BD94261C9B6F-VSCO.jpg"
+        "assets/posts/riki/1787905636889-5E62899F-625F-4DD8-88B7-4C9823FBC4C2-VSCO.jpg"
       ],
-      "content": "弟誕生",
+      "content": "七五三",
       "contentMore": ""
     }
   ]
