@@ -1032,6 +1032,9 @@
     initPostSliders();
     setupReadMore();
     setupPostAuthorClicks();
+
+    // Show content after loading
+    homePostsContainer.classList.add('loaded');
   }
 
   // Render profile grid
