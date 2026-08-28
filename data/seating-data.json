@@ -1,15 +1,49 @@
 {
   "tables": [
-    { "id": "A", "images": [] },
-    { "id": "B", "images": [] },
-    { "id": "C", "images": [] },
-    { "id": "D", "images": [] },
-    { "id": "E", "images": [] },
-    { "id": "F", "images": [] },
-    { "id": "G", "images": [] },
-    { "id": "H", "images": [] },
-    { "id": "I", "images": [] },
-    { "id": "J", "images": [] },
-    { "id": "K", "images": [] }
+    {
+      "id": "A",
+      "images": [],
+      "uploadedFiles": []
+    },
+    {
+      "id": "B",
+      "images": []
+    },
+    {
+      "id": "C",
+      "images": []
+    },
+    {
+      "id": "D",
+      "images": []
+    },
+    {
+      "id": "E",
+      "images": []
+    },
+    {
+      "id": "F",
+      "images": []
+    },
+    {
+      "id": "G",
+      "images": []
+    },
+    {
+      "id": "H",
+      "images": []
+    },
+    {
+      "id": "I",
+      "images": []
+    },
+    {
+      "id": "J",
+      "images": []
+    },
+    {
+      "id": "K",
+      "images": []
+    }
   ]
 }
