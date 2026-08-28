@@ -855,56 +855,62 @@
   function renderSelectedTablePreview(existingImages = []) {
     if (!selectedTableId) return;
 
-    const preview = document.getElementById('selectedTablePreview');
-    preview.innerHTML = '';
+    const existingPreview = document.getElementById('selectedTablePreview');
+    const newPreview = document.getElementById('selectedTableNewPreview');
+    existingPreview.innerHTML = '';
+    newPreview.innerHTML = '';
 
     const table = seatingData.tables.find(t => t.id === selectedTableId);
     const uploadedFiles = table?.uploadedFiles || [];
 
     // 既存の画像を表示（削除ボタン付き）
-    existingImages.forEach((src, index) => {
-      const imgDiv = document.createElement('div');
-      imgDiv.style.position = 'relative';
-      imgDiv.style.marginBottom = '10px';
-      imgDiv.innerHTML = `
-        <img src="${src}" style="width: 100%; border-radius: 4px; display: block;">
-        <button class="remove-btn existing-remove" data-existing-index="${index}" style="position: absolute; top: 5px; right: 5px;">×</button>
-      `;
-      preview.appendChild(imgDiv);
-    });
-
-    // 新しくアップロードした画像を表示
-    uploadedFiles.forEach((item, index) => {
-      const imgDiv = document.createElement('div');
-      imgDiv.style.position = 'relative';
-      imgDiv.style.marginBottom = '10px';
-      imgDiv.innerHTML = `
-        <img src="${item.preview}" style="width: 100%; border-radius: 4px; display: block;">
-        <button class="remove-btn new-remove" data-new-index="${index}" style="position: absolute; top: 5px; right: 5px;">×</button>
-      `;
-      preview.appendChild(imgDiv);
-    });
-
-    // 既存画像の削除ボタン
-    preview.querySelectorAll('.existing-remove').forEach(btn => {
-      btn.addEventListener('click', async (e) => {
-        const index = parseInt(e.target.dataset.existingIndex);
-        if (confirm('この画像を削除しますか？')) {
-          await deleteTableImage(selectedTableId, index);
-        }
+    if (existingImages.length > 0) {
+      existingImages.forEach((src, index) => {
+        const imgDiv = document.createElement('div');
+        imgDiv.style.position = 'relative';
+        imgDiv.innerHTML = `
+          <img src="${src}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; display: block;">
+          <button class="remove-btn existing-remove" data-existing-index="${index}" style="position: absolute; top: 5px; right: 5px;">×</button>
+        `;
+        existingPreview.appendChild(imgDiv);
       });
-    });
 
-    // 新規画像の削除ボタン
-    preview.querySelectorAll('.new-remove').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const index = parseInt(e.target.dataset.newIndex);
-        if (table && table.uploadedFiles) {
-          table.uploadedFiles.splice(index, 1);
-          renderSelectedTablePreview(existingImages);
-        }
+      // 既存画像の削除ボタン
+      existingPreview.querySelectorAll('.existing-remove').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+          const index = parseInt(e.target.dataset.existingIndex);
+          if (confirm('この画像を削除しますか？')) {
+            await deleteTableImage(selectedTableId, index);
+          }
+        });
       });
-    });
+    } else {
+      existingPreview.innerHTML = '<p style="color: #666;">登録済みの画像はありません</p>';
+    }
+
+    // 新しくアップロードした画像を表示（保存前プレビュー）
+    if (uploadedFiles.length > 0) {
+      uploadedFiles.forEach((item, index) => {
+        const imgDiv = document.createElement('div');
+        imgDiv.style.position = 'relative';
+        imgDiv.innerHTML = `
+          <img src="${item.preview}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; display: block;">
+          <button class="remove-btn new-remove" data-new-index="${index}" style="position: absolute; top: 5px; right: 5px;">×</button>
+        `;
+        newPreview.appendChild(imgDiv);
+      });
+
+      // 新規画像の削除ボタン
+      newPreview.querySelectorAll('.new-remove').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const index = parseInt(e.target.dataset.newIndex);
+          if (table && table.uploadedFiles) {
+            table.uploadedFiles.splice(index, 1);
+            renderSelectedTablePreview(existingImages);
+          }
+        });
+      });
+    }
   }
 
   // テーブル画像を削除

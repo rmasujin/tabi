@@ -611,15 +611,21 @@ textarea {
         <h3 id="selectedTableTitle" style="font-size: 18px; margin-bottom: 15px;"></h3>
 
         <div class="form-group">
-          <label>画像をアップロード</label>
+          <label>登録済みの画像</label>
+          <div id="selectedTablePreview" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-bottom: 20px;">
+            <!-- プレビューがここに表示されます -->
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>新しい画像を追加</label>
           <div class="file-upload" id="selectedTableUploadArea">
             <input type="file" id="selectedTableInput" accept="image/*" multiple>
             <p>📷 クリックして画像を選択（複数可）</p>
           </div>
-        </div>
-
-        <div id="selectedTablePreview" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px;">
-          <!-- プレビューがここに表示されます -->
+          <div id="selectedTableNewPreview" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 15px;">
+            <!-- 新規追加画像のプレビューがここに表示されます -->
+          </div>
         </div>
       </div>
     </div>
