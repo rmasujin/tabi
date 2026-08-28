@@ -470,10 +470,14 @@ textarea {
     </p>
 
     <h3 style="margin-top: 20px;">🚀 Vercel Deploy Hook</h3>
-    <p>Vercel Deploy Hook URLを入力してください（自動デプロイに必要）</p>
+    <p>Vercel Deploy Hook URLを入力してください</p>
     <input type="text" id="vercelDeployHook" placeholder="https://api.vercel.com/v1/integrations/deploy/...">
     <p style="margin-top: 10px; font-size: 12px;">
       Hook URLの作成: Vercel Dashboard → プロジェクト → Settings → Git → Deploy Hooks → Create Hook
+    </p>
+    <button id="triggerDeployBtn" class="btn btn-secondary" style="margin-top: 10px;">🚀 Vercelにデプロイ</button>
+    <p style="margin-top: 5px; font-size: 12px; color: #666;">
+      投稿やプロフィールを更新した後、このボタンを押してVercelにデプロイしてください
     </p>
   </div>
 

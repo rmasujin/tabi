@@ -37,6 +37,7 @@
     // 投稿管理のイベントリスナー
     document.getElementById('githubToken').addEventListener('change', saveToken);
     document.getElementById('vercelDeployHook').addEventListener('change', saveDeployHook);
+    document.getElementById('triggerDeployBtn').addEventListener('click', manualDeploy);
     document.getElementById('fileUploadArea').addEventListener('click', () => {
       document.getElementById('imageInput').click();
     });
@@ -134,6 +135,23 @@
       console.log('✅ Vercelデプロイをトリガーしました');
     } catch (error) {
       console.error('Vercelデプロイのトリガーに失敗:', error);
+    }
+  }
+
+  // 手動デプロイ
+  async function manualDeploy() {
+    if (!vercelDeployHook) {
+      showStatus('❌ Deploy Hook URLを設定してください', 'error');
+      return;
+    }
+
+    showStatus('🚀 Vercelにデプロイ中...', 'success');
+
+    try {
+      await fetch(vercelDeployHook, { method: 'POST' });
+      showStatus('✅ Vercelデプロイをトリガーしました。1-2分後にサイトに反映されます。', 'success');
+    } catch (error) {
+      showStatus('❌ デプロイに失敗しました: ' + error.message, 'error');
     }
   }
 
@@ -501,9 +519,6 @@
       const error = await response.json();
       throw new Error(error.message);
     }
-
-    // GitHubに更新したのでVercelデプロイをトリガー
-    await triggerVercelDeploy();
   }
 
   // 投稿一覧を表示
