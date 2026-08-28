@@ -966,6 +966,7 @@ body {
   justify-content: space-between;
   padding: 8px 16px;
   margin-bottom: 16px;
+  border-bottom: 1px solid var(--color-divider);
 }
 
 .table-photo-meta .photo-count {
@@ -998,7 +999,7 @@ body {
 .seat-diagram {
   display: flex;
   justify-content: center;
-  padding: 18px 0 0;
+  padding: 18px 0;
   position: relative;
   width: 250px;
   height: 250px;

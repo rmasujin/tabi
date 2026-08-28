@@ -548,6 +548,7 @@
 
         // Update photo count and progress bar
         if (tablePhotoMeta) {
+          tablePhotoMeta.style.borderBottom = '';
           const photoCount = tableData.images.length;
           tablePhotoMeta.innerHTML = `
             <span class="photo-count">${photoCount} PHOTO${photoCount > 1 ? 'S' : ''}</span>
@@ -572,9 +573,10 @@
           });
         }
       } else {
-        // 画像がない場合は空にする（余白は残す）
+        // 画像がない場合は空にする（余白は残すが下線は消す）
         tablePhotos.innerHTML = '';
         if (tablePhotoMeta) {
+          tablePhotoMeta.style.borderBottom = 'none';
           tablePhotoMeta.innerHTML = '';
         }
       }
