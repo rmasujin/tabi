@@ -224,6 +224,34 @@ textarea {
   margin-top: 40px;
 }
 
+.posts-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  background: #e0e0e0;
+}
+
+.filter-btn.active {
+  background: #D9FF1F;
+  color: #0A0A0A;
+  border-color: #D9FF1F;
+}
+
 .post-item {
   display: flex;
   gap: 15px;
@@ -504,6 +532,12 @@ textarea {
   <!-- 投稿一覧 -->
   <div class="posts-list">
     <h2>投稿一覧</h2>
+    <div class="posts-filter">
+      <button class="filter-btn active" data-filter="all">全て</button>
+      <button class="filter-btn" data-filter="kanami">KANAMI</button>
+      <button class="filter-btn" data-filter="riki">RIKI</button>
+      <button class="filter-btn" data-filter="both">RIKI ＋ KANAMI</button>
+    </div>
     <div id="postsContainer">
       <!-- 投稿がここに表示されます -->
     </div>

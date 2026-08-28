@@ -16,6 +16,7 @@
   let selectedKanamiAvatar = null;
   let selectedRikiAvatar = null;
   let selectedTableId = null; // 現在選択されているテーブルID
+  let currentPostsFilter = 'all'; // 投稿フィルター（all, kanami, riki, both）
   let githubToken = localStorage.getItem('githubToken') || '';
 
   // 初期化
@@ -57,6 +58,23 @@
     await loadSeatingData();
     renderPostsList();
     renderProfileForms();
+    setupPostsFilter();
+  }
+
+  // 投稿フィルターの設定
+  function setupPostsFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // アクティブ状態を切り替え
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // フィルターを変更して再描画
+        currentPostsFilter = btn.getAttribute('data-filter');
+        renderPostsList();
+      });
+    });
   }
 
   // タブ切り替え
@@ -412,8 +430,19 @@
 
     container.innerHTML = '';
 
+    // フィルタリング
+    let filteredPosts = postsData.posts;
+    if (currentPostsFilter !== 'all') {
+      filteredPosts = postsData.posts.filter(post => post.author === currentPostsFilter);
+    }
+
+    if (filteredPosts.length === 0) {
+      container.innerHTML = '<p style="color: #666;">該当する投稿がありません</p>';
+      return;
+    }
+
     // 日付降順でソート
-    postsData.posts.sort((a, b) => {
+    filteredPosts.sort((a, b) => {
       const dateA = new Date(a.date.replace(/\./g, '-'));
       const dateB = new Date(b.date.replace(/\./g, '-'));
       return dateB - dateA;
