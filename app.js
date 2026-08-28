@@ -1160,6 +1160,9 @@
     renderProfileGrid('kanami', 'favorites');
     renderProfileGrid('riki', 'posts');
     renderProfileGrid('riki', 'favorites');
+
+    // Re-setup grid click events after rendering
+    setupProfileGrids();
   }
 
   // Initialize from URL hash
