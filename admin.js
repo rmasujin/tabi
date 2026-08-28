@@ -289,6 +289,8 @@
     try {
       const author = document.getElementById('author').value;
       const folder = author === 'both' ? 'shared' : author;
+      // yyyy-mm-dd形式をyyyy.mm.dd形式に変換
+      const dateValue = document.getElementById('postDate').value.replace(/-/g, '.');
       let uploadedImages = [];
 
       // 1. 画像処理
@@ -328,7 +330,7 @@
         if (postIndex !== -1) {
           postsData.posts[postIndex] = {
             ...postsData.posts[postIndex],
-            date: document.getElementById('postDate').value,
+            date: dateValue,
             author: author,
             authorDisplay: author === 'both' ? 'RIKI ＋ KANAMI' :
                            author === 'riki' ? 'RIKI' : 'KANAMI',
@@ -353,7 +355,7 @@
         const newPost = {
           id: postsData.posts.length > 0 ? Math.max(...postsData.posts.map(p => p.id)) + 1 : 1,
           number: String(postsData.posts.length + 1).padStart(2, '0'),
-          date: document.getElementById('postDate').value,
+          date: dateValue,
           author: author,
           authorDisplay: author === 'both' ? 'RIKI ＋ KANAMI' :
                          author === 'riki' ? 'RIKI' : 'KANAMI',
@@ -559,7 +561,9 @@
 
     // フォームに既存のデータを読み込み
     document.getElementById('author').value = post.author;
-    document.getElementById('postDate').value = post.date;
+    // yyyy.mm.dd形式をyyyy-mm-dd形式に変換
+    const dateForInput = post.date.replace(/\./g, '-');
+    document.getElementById('postDate').value = dateForInput;
     document.getElementById('categoryPosts').checked = post.category.includes('posts');
     document.getElementById('categoryFavorites').checked = post.category.includes('favorites');
 
