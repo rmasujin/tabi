@@ -957,6 +957,10 @@
     const posts = getHomePosts();
     const contentHTML = posts.map(post => renderPost(post)).join('') + '<div class="bottom-spacer"></div>';
     homePostsContainer.innerHTML = contentHTML;
+
+    // Re-initialize sliders and event listeners for newly rendered posts
+    initPostSliders();
+    setupReadMore();
   }
 
   // Render profile grid
