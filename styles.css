@@ -319,6 +319,8 @@ body {
   font-size: 16px;
   line-height: 1.65;
   color: var(--color-black);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .read-more {
@@ -791,6 +793,8 @@ body {
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .profile-read-more {
@@ -832,6 +836,8 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: var(--color-black);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .profile-tabs {
