@@ -951,6 +951,9 @@
   // テーブル画像選択（複数対応）
   async function handleTableImageSelect(e) {
     const files = Array.from(e.target.files);
+    console.log('=== handleTableImageSelect called ===');
+    console.log('Files selected:', files.length);
+
     if (files.length === 0) return;
 
     if (!selectedTableId) {
@@ -959,6 +962,8 @@
     }
 
     const table = seatingData.tables.find(t => t.id === selectedTableId);
+    console.log('Selected table:', selectedTableId, table);
+
     if (!table) return;
 
     showStatus('画像を最適化中...', 'success');
@@ -970,9 +975,13 @@
 
     // 全ての画像を最適化してテーブルに追加
     for (const file of files) {
+      console.log('Optimizing file:', file.name);
       const optimized = await optimizeImage(file);
       table.uploadedFiles.push(optimized);
+      console.log('Added to uploadedFiles. Total:', table.uploadedFiles.length);
     }
+
+    console.log('Table after adding files:', table);
 
     // プレビュー表示を更新
     renderSelectedTablePreview(table.images || []);
@@ -990,12 +999,20 @@
       return;
     }
 
+    console.log('=== saveSeating called ===');
+    console.log('seatingData:', seatingData);
+
     showStatus('保存中...', 'success');
 
     try {
+      let hasChanges = false;
       // 各テーブルの新しい画像をアップロード
       for (const table of seatingData.tables) {
+        console.log(`Checking table ${table.id}:`, table);
         if (table.uploadedFiles && table.uploadedFiles.length > 0) {
+          console.log(`Table ${table.id} has ${table.uploadedFiles.length} files to upload`);
+          hasChanges = true;
+
           if (!table.images) {
             table.images = [];
           }
@@ -1007,13 +1024,21 @@
             const filename = `table-${table.id}-${timestamp}-${random}.jpg`;
             const path = `assets/seating/${filename}`;
 
+            console.log(`Uploading ${filename}...`);
             await uploadToGitHub(uploadedFile.file, path);
+            console.log(`Uploaded ${filename} successfully`);
             table.images.push(path);
           }
 
           // アップロード済みファイルをクリア
           delete table.uploadedFiles;
         }
+      }
+
+      if (!hasChanges) {
+        showStatus('⚠️ アップロードする画像がありません', 'error');
+        console.log('No files to upload');
+        return;
       }
 
       await updateSeatingJSON();
