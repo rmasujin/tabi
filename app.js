@@ -951,7 +951,7 @@
 
   // Render HOME screen posts
   function renderHomePosts() {
-    const homePostsContainer = document.querySelector('#screen-home .posts');
+    const homePostsContainer = document.querySelector('#screen-home .content');
     if (!homePostsContainer) return;
 
     const posts = getHomePosts();
