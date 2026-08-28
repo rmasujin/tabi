@@ -900,6 +900,47 @@
     renderSelectedTablePreview(table ? table.images : []);
   }
 
+  // ドラッグ&ドロップ用の変数
+  let draggedElement = null;
+
+  // ドラッグ開始
+  function handleDragStart(e) {
+    draggedElement = e.target;
+    e.target.style.opacity = '0.4';
+  }
+
+  // ドラッグオーバー
+  function handleDragOver(e) {
+    e.preventDefault();
+    return false;
+  }
+
+  // ドロップ
+  function handleDrop(e) {
+    e.preventDefault();
+    if (draggedElement !== e.target) {
+      // 配列の順序を入れ替え
+      const table = seatingData.tables.find(t => t.id === selectedTableId);
+      if (!table || !table.images) return;
+
+      const fromIndex = parseInt(draggedElement.dataset.imageIndex);
+      const toIndex = parseInt(e.target.dataset.imageIndex);
+
+      // 配列要素を入れ替え
+      const item = table.images.splice(fromIndex, 1)[0];
+      table.images.splice(toIndex, 0, item);
+
+      // 再描画
+      renderSelectedTablePreview(table.images);
+    }
+    return false;
+  }
+
+  // ドラッグ終了
+  function handleDragEnd(e) {
+    e.target.style.opacity = '1';
+  }
+
   // 選択されたテーブルのプレビューを表示
   function renderSelectedTablePreview(existingImages = []) {
     if (!selectedTableId) return;
@@ -912,17 +953,30 @@
     const table = seatingData.tables.find(t => t.id === selectedTableId);
     const uploadedFiles = table?.uploadedFiles || [];
 
-    // 既存の画像を表示（削除ボタン付き）
+    // 既存の画像を表示（削除ボタン付き + ドラッグ&ドロップ対応）
     if (existingImages.length > 0) {
       existingImages.forEach((src, index) => {
         const imgDiv = document.createElement('div');
         imgDiv.style.position = 'relative';
+        imgDiv.style.cursor = 'move';
+        imgDiv.draggable = true;
+        imgDiv.dataset.imagePath = src;
+        imgDiv.dataset.imageIndex = index;
+
         // GitHubの絶対URLを使用
         const imageUrl = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${src}`;
         imgDiv.innerHTML = `
-          <img src="${imageUrl}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; display: block;">
+          <img src="${imageUrl}" style="width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; display: block; pointer-events: none;">
           <button class="remove-btn existing-remove" data-existing-index="${index}" style="position: absolute; top: 5px; right: 5px;">×</button>
+          <div style="position: absolute; bottom: 5px; right: 5px; background: rgba(0,0,0,0.7); color: white; padding: 2px 6px; border-radius: 3px; font-size: 12px;">${index + 1}</div>
         `;
+
+        // ドラッグイベント
+        imgDiv.addEventListener('dragstart', handleDragStart);
+        imgDiv.addEventListener('dragover', handleDragOver);
+        imgDiv.addEventListener('drop', handleDrop);
+        imgDiv.addEventListener('dragend', handleDragEnd);
+
         existingPreview.appendChild(imgDiv);
       });
 
@@ -1062,13 +1116,13 @@
     showStatus('保存中...', 'success');
 
     try {
-      let hasChanges = false;
+      let hasNewFiles = false;
       // 各テーブルの新しい画像をアップロード
       for (const table of seatingData.tables) {
         console.log(`Checking table ${table.id}:`, table);
         if (table.uploadedFiles && table.uploadedFiles.length > 0) {
           console.log(`Table ${table.id} has ${table.uploadedFiles.length} files to upload`);
-          hasChanges = true;
+          hasNewFiles = true;
 
           if (!table.images) {
             table.images = [];
@@ -1092,15 +1146,10 @@
         }
       }
 
-      if (!hasChanges) {
-        showStatus('⚠️ アップロードする画像がありません', 'error');
-        console.log('No files to upload');
-        return;
-      }
-
+      // 新規ファイルのアップロードがなくても、並び替えの保存のためにJSONを更新
       await updateSeatingJSON();
 
-      showStatus('✅ 席次表を保存しました！', 'success');
+      showStatus('✅ 席次表を保存しました！（画像の順序も保存されました）', 'success');
 
       console.log('Save complete. seatingData:', seatingData);
 
