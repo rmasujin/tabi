@@ -538,8 +538,8 @@
     } else if (avatar) {
       // 既存の画像を表示
       previewEl.innerHTML = `
-        <div style="position: relative; display: inline-block;">
-          <img src="${avatar}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+        <div style="display: inline-block; text-align: center;">
+          <img src="${avatar}" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover; display: block;">
           <button type="button" class="btn btn-secondary" onclick="window.deleteAvatar('${author}')" style="margin-top: 10px;">画像を削除</button>
         </div>
       `;
