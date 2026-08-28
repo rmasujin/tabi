@@ -548,6 +548,7 @@
 
         // Update photo count and progress bar
         if (tablePhotoMeta) {
+          tablePhotoMeta.style.display = 'flex';
           const photoCount = tableData.images.length;
           tablePhotoMeta.innerHTML = `
             <span class="photo-count">${photoCount} PHOTO${photoCount > 1 ? 'S' : ''}</span>
@@ -575,6 +576,7 @@
         // 画像がない場合は空にする
         tablePhotos.innerHTML = '';
         if (tablePhotoMeta) {
+          tablePhotoMeta.style.display = 'none';
           tablePhotoMeta.innerHTML = '';
         }
       }
