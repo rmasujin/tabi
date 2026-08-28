@@ -92,6 +92,28 @@
       "contentMore": ""
     },
     {
+      "id": 12,
+      "number": "09",
+      "date": "2004.07.17",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": false,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1787958688960-E340C456-2796-48C7-AF24-995C01DBCA45-VSCO.jpg"
+      ],
+      "content": "マラソン",
+      "contentMore": ""
+    },
+    {
       "id": 10,
       "number": "08",
       "date": "2000.11.15",
@@ -177,28 +199,6 @@
         "assets/posts/riki/1787904369775-26933063-E2D0-46A0-BA26-9958526E11CE-VSCO.jpg"
       ],
       "content": "誕生",
-      "contentMore": ""
-    },
-    {
-      "id": 12,
-      "number": "09",
-      "date": "2004.07.17",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1787958688960-E340C456-2796-48C7-AF24-995C01DBCA45-VSCO.jpg"
-      ],
-      "content": "マラソン",
       "contentMore": ""
     }
   ]
