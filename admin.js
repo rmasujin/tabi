@@ -1020,6 +1020,9 @@
 
       showStatus('✅ 席次表を保存しました！', 'success');
 
+      // データを再読み込み
+      await loadSeatingData();
+
       // 選択中のテーブルがあれば再表示
       if (selectedTableId) {
         const table = seatingData.tables.find(t => t.id === selectedTableId);
