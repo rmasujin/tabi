@@ -183,9 +183,17 @@
     // Update KANAMI bio
     if (profileData.kanami && profileData.kanami.bio) {
       const kanamiBioEl = document.querySelector('#screen-profile-kanami .profile-bio');
+      const kanamiReadMoreBtn = document.querySelector('#screen-profile-kanami .profile-read-more');
       if (kanamiBioEl) {
         // 改行を<br>タグに変換
         kanamiBioEl.innerHTML = profileData.kanami.bio.replace(/\n/g, '<br>');
+
+        // Check if content is truncated (more than 3 lines)
+        // line-clamp is set to 4, so if scrollHeight > clientHeight, it means content is clamped
+        if (kanamiReadMoreBtn) {
+          const isTruncated = kanamiBioEl.scrollHeight > kanamiBioEl.clientHeight;
+          kanamiReadMoreBtn.style.display = isTruncated ? 'flex' : 'none';
+        }
       }
     }
 
@@ -216,9 +224,17 @@
     // Update RIKI bio
     if (profileData.riki && profileData.riki.bio) {
       const rikiBioEl = document.querySelector('#screen-profile-riki .profile-bio');
+      const rikiReadMoreBtn = document.querySelector('#screen-profile-riki .profile-read-more');
       if (rikiBioEl) {
         // 改行を<br>タグに変換
         rikiBioEl.innerHTML = profileData.riki.bio.replace(/\n/g, '<br>');
+
+        // Check if content is truncated (more than 3 lines)
+        // line-clamp is set to 4, so if scrollHeight > clientHeight, it means content is clamped
+        if (rikiReadMoreBtn) {
+          const isTruncated = rikiBioEl.scrollHeight > rikiBioEl.clientHeight;
+          rikiReadMoreBtn.style.display = isTruncated ? 'flex' : 'none';
+        }
       }
     }
 
