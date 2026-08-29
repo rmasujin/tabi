@@ -386,7 +386,8 @@
     if (post.hasSlider) {
       // Generate slider images
       const sliderImagesHTML = post.images.map((imagePath, idx) =>
-        `<div class="post-image-placeholder" style="background-image: url('${imagePath}');">
+        `<div class="post-image-placeholder">
+          <img src="${imagePath}" alt="photo ${idx + 1}">
           <span class="placeholder-text" style="display: none;">photo ${idx + 1} — 4:5</span>
         </div>`
       ).join('');
@@ -436,7 +437,8 @@
             <span class="post-number">${String(displayNumber).padStart(2, '0')}</span>
             <span class="post-date">${post.date}</span>
           </div>
-          <div class="post-image-placeholder" style="background-image: url('${post.images[0]}');">
+          <div class="post-image-placeholder">
+            <img src="${post.images[0]}" alt="photo">
             <span class="placeholder-text" style="display: none;">photo — 4:5</span>
             <div class="gradient-overlay"></div>
             <div class="post-authors" data-author="${post.authorType}" style="cursor: pointer;">
