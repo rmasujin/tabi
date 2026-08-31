@@ -645,11 +645,10 @@
 
         // Highlight selected guest from search
         const isHighlighted = selectedGuestForHighlight && guest.id === selectedGuestForHighlight;
-        const bgColor = isHighlighted ? '#0A0A0A' : '#F4F4F0';
-        const textColor = isHighlighted ? '#fff' : '#0A0A0A';
+        const highlightStyle = isHighlighted ? 'background:#0A0A0A; color:#fff; border-color:#0A0A0A;' : '';
 
         // Use sequential numbering (1, 2, 3...) instead of original seat numbers
-        seatsHTML += `<div class="seat-position" style="left:${x}px; top:${y}px; background:${bgColor}; color:${textColor}">${index + 1}</div>`;
+        seatsHTML += `<div class="seat-position" style="left:${x}px; top:${y}px; ${highlightStyle}">${index + 1}</div>`;
       });
 
       const existingSeats = seatDiagram.querySelectorAll('.seat-position');
