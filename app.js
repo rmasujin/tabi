@@ -931,23 +931,25 @@
     const resultsCount = document.getElementById('results-count');
     if (!resultsContainer || !resultsCount) return;
 
-    let guests = getAllGuests();
-
-    // Filter if there's a query
-    if (query) {
-      const queryKatakana = hiraganaToKatakana(query);
-      guests = guests.filter(guest =>
-        guest.name.includes(query) ||
-        guest.kana.includes(query) ||
-        guest.kana.includes(queryKatakana)
-      );
-    } else {
-      // Sort alphabetically by kana when no query
-      guests.sort((a, b) => a.kana.localeCompare(b.kana, 'ja'));
+    // Clear results if no query
+    if (!query) {
+      resultsContainer.innerHTML = '';
+      resultsCount.textContent = '';
+      return;
     }
 
+    let guests = getAllGuests();
+
+    // Filter by query
+    const queryKatakana = hiraganaToKatakana(query);
+    guests = guests.filter(guest =>
+      guest.name.includes(query) ||
+      guest.kana.includes(query) ||
+      guest.kana.includes(queryKatakana)
+    );
+
     // Update count
-    const countText = query ? `${guests.length} RESULT${guests.length !== 1 ? 'S' : ''}` : '68 GUESTS';
+    const countText = `${guests.length} RESULT${guests.length !== 1 ? 'S' : ''}`;
     resultsCount.textContent = countText;
 
     // Render results
