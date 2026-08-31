@@ -573,56 +573,14 @@
     if (seatsInfo) seatsInfo.textContent = `${table.guests.length} SEATS`;
     if (tableDescription) tableDescription.textContent = table.category;
 
-    // Update table photos from seating data
+    // Hide table photos area
     const tablePhotos = document.querySelector('.table-photos');
     const tablePhotoMeta = document.querySelector('.table-photo-meta');
-    if (tablePhotos && seatingData.tables) {
-      const tableData = seatingData.tables.find(t => t.id === table.label);
-      console.log('Table detail - looking for:', table.label, 'found:', tableData);
-      if (tableData && tableData.images && tableData.images.length > 0) {
-        const REPO = 'rmasujin/tabi';
-        const BRANCH = 'main';
-        tablePhotos.style.display = 'flex';
-        tablePhotos.innerHTML = tableData.images.map(imagePath => {
-          const imageUrl = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${imagePath}`;
-          return `<div class="photo-placeholder" style="background-image: url('${imageUrl}'); background-size: cover; background-position: center;">
-            <span class="photo-ratio" style="display: none;">4:5</span>
-          </div>`;
-        }).join('');
-
-        // Update photo count and progress bar
-        if (tablePhotoMeta) {
-          tablePhotoMeta.style.display = 'flex';
-          const photoCount = tableData.images.length;
-          tablePhotoMeta.innerHTML = `
-            <span class="photo-count">${photoCount} PHOTO${photoCount > 1 ? 'S' : ''}</span>
-            ${photoCount > 1 ? `
-              <div class="scroll-progress-container">
-                <div class="scroll-progress-bar"></div>
-              </div>
-            ` : ''}
-          `;
-        }
-
-        // スクロール位置に応じてプログレスバーを更新
-        if (tableData.images.length > 1) {
-          const progressBar = tablePhotoMeta.querySelector('.scroll-progress-bar');
-          tablePhotos.addEventListener('scroll', () => {
-            const scrollLeft = tablePhotos.scrollLeft;
-            const maxScroll = tablePhotos.scrollWidth - tablePhotos.clientWidth;
-            const scrollPercentage = (scrollLeft / maxScroll) * 100;
-            if (progressBar) {
-              progressBar.style.width = `${scrollPercentage}%`;
-            }
-          });
-        }
-      } else {
-        // 画像がない場合は要素を非表示
-        tablePhotos.style.display = 'none';
-        if (tablePhotoMeta) {
-          tablePhotoMeta.style.display = 'none';
-        }
-      }
+    if (tablePhotos) {
+      tablePhotos.style.display = 'none';
+    }
+    if (tablePhotoMeta) {
+      tablePhotoMeta.style.display = 'none';
     }
 
     // Update seat diagram
