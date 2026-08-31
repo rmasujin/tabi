@@ -1003,7 +1003,7 @@ body {
 .diagram-stage {
   position: absolute;
   left: 50%;
-  top: 0;
+  top: -8px;
   transform: translateX(-50%);
   font-family: var(--font-mono);
   font-size: 13px;
