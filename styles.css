@@ -684,6 +684,10 @@ body {
   cursor: pointer;
 }
 
+.guest-list-item:first-child {
+  border-top: none;
+}
+
 .guest-list-item:active {
   opacity: 0.6;
 }
@@ -709,8 +713,12 @@ body {
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.06em;
-  color: var(--color-black);
+  color: var(--color-white);
+  background: var(--color-black);
+  padding: 6px 10px;
+  border-radius: 6px;
   flex: none;
+  font-weight: 500;
 }
 
 .table-badge {
