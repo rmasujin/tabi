@@ -933,10 +933,11 @@
       searchBar.addEventListener('click', (e) => {
         e.preventDefault();
 
-        // Focus input BEFORE screen transition for iOS
-        // The input element exists in DOM even when screen is hidden
+        // iOS Safari workaround: remove readonly and focus synchronously
+        // This must happen within the user gesture context
         const searchInput = document.getElementById('search-header-input');
         if (searchInput) {
+          searchInput.removeAttribute('readonly');
           searchInput.value = '';
           searchInput.focus();
         }
@@ -961,6 +962,11 @@
     const backBtn = document.getElementById('back-to-seats-from-search');
     if (backBtn) {
       backBtn.addEventListener('click', () => {
+        // Restore readonly attribute for iOS workaround
+        const searchInput = document.getElementById('search-header-input');
+        if (searchInput) {
+          searchInput.setAttribute('readonly', 'readonly');
+        }
         showScreen('seats', true); // Restore scroll position
       });
     }
