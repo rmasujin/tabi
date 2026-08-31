@@ -436,6 +436,11 @@ body {
   text-wrap: pretty;
 }
 
+.item-separator {
+  color: var(--color-gray-mid);
+  font-weight: 400;
+}
+
 .item-description {
   font-size: 15px;
   line-height: 1.7;
