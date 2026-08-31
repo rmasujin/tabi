@@ -62,6 +62,7 @@ body {
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   display: none;
+  background: var(--color-paper);
 }
 
 .screen.active {
@@ -338,9 +339,6 @@ body {
 }
 
 /* Menu Screen */
-.menu-screen {
-  background: var(--color-paper);
-}
 
 .menu-title-block {
   margin: 6px 20px 0;
