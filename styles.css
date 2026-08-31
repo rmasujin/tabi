@@ -78,7 +78,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 5;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(251, 250, 246, 0.94);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   display: flex;
@@ -86,10 +86,6 @@ body {
   justify-content: space-between;
   padding: 6px 16px 10px;
   min-height: 50px;
-}
-
-.menu-screen .header {
-  background: rgba(251, 250, 246, 0.94);
 }
 
 .header img {
