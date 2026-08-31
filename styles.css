@@ -414,13 +414,12 @@ body {
   color: var(--color-gray-mid);
   width: 26px;
   flex: none;
-  padding-top: 4px;
 }
 
 .dish-details {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  gap: 14px;
+  align-items: baseline;
 }
 
 .dish-name {
@@ -428,6 +427,7 @@ body {
   line-height: 1.5;
   font-weight: 600;
   color: var(--color-black);
+  flex: 1;
 }
 
 .dish-category {
@@ -435,6 +435,8 @@ body {
   font-size: 13px;
   letter-spacing: 0.1em;
   color: var(--color-gray-mid);
+  width: 80px;
+  flex: none;
 }
 
 .dish-description {
