@@ -889,14 +889,12 @@
     // Show screen first
     showScreen('search');
 
-    // Focus input after screen transition for mobile keyboard
-    setTimeout(() => {
-      const searchInput = document.getElementById('search-header-input');
-      if (searchInput) {
-        searchInput.value = '';
-        searchInput.focus();
-      }
-    }, 100);
+    // Focus input immediately - must be synchronous for iOS
+    const searchInput = document.getElementById('search-header-input');
+    if (searchInput) {
+      searchInput.value = '';
+      searchInput.focus();
+    }
 
     renderSearchResults('');
   }
