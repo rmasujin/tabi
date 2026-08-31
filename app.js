@@ -570,7 +570,7 @@
     const tableDescription = document.querySelector('#screen-table-detail .table-description');
 
     if (tableBadge) tableBadge.textContent = `TABLE ${table.label}`;
-    if (seatsInfo) seatsInfo.textContent = `${table.guests.length} ／ ${table.seatCount} SEATS`;
+    if (seatsInfo) seatsInfo.textContent = `${table.guests.length} SEATS`;
     if (tableDescription) tableDescription.textContent = table.category;
 
     // Update table photos from seating data
