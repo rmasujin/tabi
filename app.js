@@ -860,7 +860,6 @@
 
       const itemHTML = `
         <div class="table-list-item" data-table="${table.id}">
-          <div class="table-avatar"></div>
           <div class="table-info">
             <div class="table-badge">TABLE ${table.label}</div>
             <div class="table-title">${table.category}</div>

@@ -687,14 +687,6 @@ body {
   background: #F9F9F7;
 }
 
-.table-avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  flex: none;
-  background-image: repeating-linear-gradient(135deg, #E4E4DF 0 8px, #EDEDE8 8px 16px);
-}
-
 .table-info {
   flex: 1;
 }
@@ -1054,10 +1046,18 @@ body {
 
 .seat-number {
   font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--color-gray-mid);
-  width: 20px;
+  font-size: 12px;
+  color: var(--color-black);
+  width: 22px;
+  height: 22px;
   flex: none;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 1.5px solid #D6D5CC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
 }
 
 .guest-name {
