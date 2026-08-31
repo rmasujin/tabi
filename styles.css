@@ -1231,7 +1231,7 @@ body {
   transform: translateX(100%);
   transition: transform 0.3s ease-out;
   pointer-events: none;
-  background: #fff;
+  background: var(--color-paper);
 }
 
 #screen-profile-kanami.active,
