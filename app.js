@@ -662,13 +662,14 @@
       guestList.innerHTML = '';
       table.guests.forEach((guest, index) => {
         const honorific = guest.honorific || '';
-        const relation = guest.relation ? `<span class="guest-role">　${guest.relation}</span>` : '';
+        const relation = guest.relation ? `<span class="guest-role">${guest.relation}</span>` : '';
         const isHighlighted = selectedGuestForHighlight && guest.id === selectedGuestForHighlight;
         const highlightStyle = isHighlighted ? ' style="font-weight: 700;"' : '';
         const guestHTML = `
           <div class="guest-item"${highlightStyle}>
             <span class="seat-number">${index + 1}</span>
-            <span class="guest-name">${guest.name}${honorific}${relation}</span>
+            <span class="guest-name">${guest.name}${honorific}</span>
+            ${relation}
           </div>
         `;
         guestList.insertAdjacentHTML('beforeend', guestHTML);
