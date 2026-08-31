@@ -849,37 +849,33 @@
 
     tableListContainer.innerHTML = '';
 
-    // Filter out takasago (head table) and render regular tables
-    const regularTables = SEATING_DATA.tables.filter(t => t.shape === 'round');
+    // Get all guests and sort alphabetically by kana
+    const guests = getAllGuests();
+    guests.sort((a, b) => a.kana.localeCompare(b.kana, 'ja'));
 
-    regularTables.forEach(table => {
-      const firstGuest = table.guests[0];
-      const guestName = firstGuest ? `${firstGuest.name}${firstGuest.honorific || ''}` : '';
-      const otherCount = table.guests.length > 1 ? ` 他 ${table.guests.length - 1}名` : '';
-
+    // Render all guests
+    guests.forEach(guest => {
+      const honorific = guest.honorific || '';
       const itemHTML = `
-        <div class="table-list-item" data-table="${table.id}">
-          <div class="table-info">
-            <div class="table-badge">TABLE ${table.label}</div>
-            <div class="table-title">${table.category}</div>
-            <div class="table-guests">${guestName}${otherCount}</div>
+        <div class="guest-list-item" data-table-id="${guest.tableId}" data-guest-id="${guest.id}">
+          <div class="guest-list-info">
+            <div class="guest-list-name">${guest.name}${honorific}</div>
+            <div class="guest-list-relation">${guest.relation}</div>
           </div>
-          <svg class="chevron" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#C2C1B9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M8 4l6 6-6 6"></path>
-          </svg>
+          <div class="guest-list-table">${guest.tableLabel} — ${guest.seatIndex}</div>
         </div>
       `;
       tableListContainer.insertAdjacentHTML('beforeend', itemHTML);
     });
 
-    // Re-attach click event listeners for dynamically created items
-    const newTableItems = document.querySelectorAll('.table-list-item');
-    newTableItems.forEach(item => {
-      item.addEventListener('click', (e) => {
-        const tableId = item.getAttribute('data-table');
-        if (tableId) {
-          showTableDetail(tableId);
-        }
+    // Add click handlers
+    const guestItems = tableListContainer.querySelectorAll('.guest-list-item');
+    guestItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const tableId = item.getAttribute('data-table-id');
+        const guestId = item.getAttribute('data-guest-id');
+        selectedGuestForHighlight = guestId;
+        showTableDetail(tableId);
       });
     });
   }
