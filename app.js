@@ -889,12 +889,16 @@
     // Show screen first
     showScreen('search');
 
-    // Focus input immediately - must be synchronous for iOS
-    const searchInput = document.getElementById('search-header-input');
-    if (searchInput) {
-      searchInput.value = '';
-      searchInput.focus();
-    }
+    // Focus input after screen is rendered - use requestAnimationFrame to maintain user gesture context
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const searchInput = document.getElementById('search-header-input');
+        if (searchInput) {
+          searchInput.value = '';
+          searchInput.focus();
+        }
+      });
+    });
 
     renderSearchResults('');
   }
