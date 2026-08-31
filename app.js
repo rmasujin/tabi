@@ -933,17 +933,18 @@
       searchBar.addEventListener('click', (e) => {
         e.preventDefault();
 
-        // Clear and show screen first
-        selectedGuestForHighlight = null;
-        showScreen('search');
-        renderSearchResults('');
-
-        // Focus input synchronously in click handler for iOS
+        // Focus input BEFORE screen transition for iOS
+        // The input element exists in DOM even when screen is hidden
         const searchInput = document.getElementById('search-header-input');
         if (searchInput) {
           searchInput.value = '';
           searchInput.focus();
         }
+
+        // Then show screen
+        selectedGuestForHighlight = null;
+        showScreen('search');
+        renderSearchResults('');
       });
     }
 
