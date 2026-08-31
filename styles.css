@@ -424,6 +424,7 @@ body {
 
 .menu-item:last-child {
   padding-bottom: 4px;
+  border-bottom: none;
 }
 
 .item-category {
