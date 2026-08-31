@@ -885,21 +885,7 @@
 
   function showSearch() {
     selectedGuestForHighlight = null;
-
-    // Show screen first
     showScreen('search');
-
-    // Focus input after screen is rendered - use requestAnimationFrame to maintain user gesture context
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const searchInput = document.getElementById('search-header-input');
-        if (searchInput) {
-          searchInput.value = '';
-          searchInput.focus();
-        }
-      });
-    });
-
     renderSearchResults('');
   }
 
@@ -987,7 +973,18 @@
     if (searchBar) {
       searchBar.addEventListener('click', (e) => {
         e.preventDefault();
-        showSearch();
+
+        // Focus input synchronously in click handler for iOS
+        const searchInput = document.getElementById('search-header-input');
+        if (searchInput) {
+          searchInput.value = '';
+          searchInput.focus();
+        }
+
+        // Then show screen
+        selectedGuestForHighlight = null;
+        showScreen('search');
+        renderSearchResults('');
       });
     }
 
