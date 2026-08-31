@@ -1003,7 +1003,7 @@ body {
 .diagram-stage {
   position: absolute;
   left: 50%;
-  top: -8px;
+  top: 0;
   transform: translateX(-50%);
   font-family: var(--font-mono);
   font-size: 13px;
@@ -1014,7 +1014,7 @@ body {
 .diagram-table {
   position: absolute;
   left: 71px;
-  top: 71px;
+  top: 79px;
   width: 108px;
   height: 108px;
   border-radius: 50%;

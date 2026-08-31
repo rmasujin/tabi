@@ -599,7 +599,7 @@
         const angle = (360 / guestCount) * index;
         const radius = 85;
         const x = 107 + radius * Math.sin(angle * Math.PI / 180);
-        const y = 107 - radius * Math.cos(angle * Math.PI / 180);
+        const y = 115 - radius * Math.cos(angle * Math.PI / 180);
 
         // Highlight selected guest from search
         const isHighlighted = selectedGuestForHighlight && guest.id === selectedGuestForHighlight;
