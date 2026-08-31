@@ -1048,6 +1048,30 @@
     });
   }
 
+  function setupMenuTabs() {
+    // Handle menu tabs (COURSE / DRINK)
+    const menuTabs = document.querySelectorAll('.menu-tab');
+    menuTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabName = tab.getAttribute('data-tab');
+
+        // Update tabs
+        menuTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Update content
+        const contents = document.querySelectorAll('.menu-content');
+        contents.forEach(c => {
+          if (c.getAttribute('data-content') === tabName) {
+            c.classList.add('active');
+          } else {
+            c.classList.remove('active');
+          }
+        });
+      });
+    });
+  }
+
   // Profile grid item clicks
   function setupProfileGrids() {
     const gridItems = document.querySelectorAll('.grid-item');
@@ -1212,6 +1236,9 @@
 
     // Setup profile tabs
     setupProfileTabs();
+
+    // Setup menu tabs
+    setupMenuTabs();
 
     // Setup profile grids
     setupProfileGrids();
