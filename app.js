@@ -886,18 +886,17 @@
   function showSearch() {
     selectedGuestForHighlight = null;
 
-    // Get the input element before screen transition
-    const searchInput = document.getElementById('search-header-input');
-
     // Show screen first
     showScreen('search');
 
-    // Immediately focus and prepare for input
-    if (searchInput) {
-      searchInput.value = '';
-      // Direct focus from user click event (crucial for mobile keyboard)
-      searchInput.focus();
-    }
+    // Focus input after screen transition for mobile keyboard
+    setTimeout(() => {
+      const searchInput = document.getElementById('search-header-input');
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+    }, 100);
 
     renderSearchResults('');
   }
@@ -987,13 +986,6 @@
       searchBar.addEventListener('click', (e) => {
         e.preventDefault();
         showSearch();
-        // Extra focus attempt after a tiny delay to ensure screen has rendered
-        setTimeout(() => {
-          const searchInput = document.getElementById('search-header-input');
-          if (searchInput) {
-            searchInput.focus();
-          }
-        }, 50);
       });
     }
 
