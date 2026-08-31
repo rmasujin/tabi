@@ -438,7 +438,7 @@ body {
 
 .item-separator {
   color: var(--color-gray-mid);
-  font-weight: 400;
+  font-weight: normal;
 }
 
 .item-description {
