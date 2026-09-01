@@ -288,6 +288,28 @@
       ],
       "content": "お菓子を求めて練り歩き👻🍬",
       "contentMore": ""
+    },
+    {
+      "id": 17,
+      "number": "14",
+      "date": "2018.01.07",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267366068-IMG_2283.jpg"
+      ],
+      "content": "成人式📷",
+      "contentMore": ""
     }
   ]
 }
