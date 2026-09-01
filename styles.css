@@ -312,10 +312,10 @@ body {
   height: 5px;
   border-radius: 50%;
   background: #D8D8D2;
+  transition: background 0.2s;
 }
 
 .dot.active {
-  width: 14px;
   background: var(--color-black);
 }
 

@@ -769,7 +769,7 @@
         isScrolling = true;
         requestAnimationFrame(() => {
           const scrollLeft = container.scrollLeft;
-          const width = container.offsetWidth;
+          const width = container.clientWidth;
           const index = Math.round(scrollLeft / width);
 
           // Update dots
