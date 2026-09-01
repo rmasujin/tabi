@@ -376,6 +376,28 @@
       ],
       "content": "🇰🇷",
       "contentMore": ""
+    },
+    {
+      "id": 21,
+      "number": "18",
+      "date": "2020.11.21",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267830002-IMG_5198.jpg"
+      ],
+      "content": "イヌ仲間",
+      "contentMore": ""
     }
   ]
 }
