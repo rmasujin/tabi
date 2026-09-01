@@ -752,6 +752,9 @@
       const dotsContainer = document.querySelector(`.pagination-dots[data-post-id="${postId}"]`);
       const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
 
+      // Reset scroll position to start
+      container.scrollLeft = 0;
+
       let isScrolling = false;
 
       container.addEventListener('scroll', () => {
