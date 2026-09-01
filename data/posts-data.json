@@ -492,6 +492,29 @@
       ],
       "content": "人生第３章はじまり",
       "contentMore": ""
+    },
+    {
+      "id": 26,
+      "number": "23",
+      "date": "2021.05.21",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788268507949-IMG_8534.jpg",
+        "assets/posts/kanami/1788268513188-IMG_8528.jpg"
+      ],
+      "content": "美味しいものに夢中だったあの頃",
+      "contentMore": ""
     }
   ]
 }
