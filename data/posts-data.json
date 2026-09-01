@@ -26,9 +26,9 @@
       "contentMore": "二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。"
     },
     {
-      "id": 3,
-      "number": "03",
-      "date": "2023.12.24",
+      "id": 14,
+      "number": "11",
+      "date": "2026.09.01",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -42,9 +42,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/03-christmas.jpg"
+        "assets/posts/kanami/1788266579129-IMG_8145.jpg"
       ],
-      "content": "イルミネーションを見に行きました。きれいだった。",
+      "content": "Test",
       "contentMore": ""
     },
     {
