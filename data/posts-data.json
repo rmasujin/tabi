@@ -422,6 +422,30 @@
       ],
       "content": "コロナ禍でも頑張って作った卒業動画🎥",
       "contentMore": ""
+    },
+    {
+      "id": 23,
+      "number": "20",
+      "date": "2021.03.21",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788268049916-IMG_7458.jpg",
+        "assets/posts/kanami/1788268053570-FullSizeRender.jpg",
+        "assets/posts/kanami/1788268056897-IMG_7421.jpg"
+      ],
+      "content": "ずっと心に残っている唯一の旅",
+      "contentMore": ""
     }
   ]
 }
