@@ -195,7 +195,7 @@ body {
   font-size: 13px;
   letter-spacing: 0.06em;
   color: var(--color-black);
-  background: var(--color-yellow);
+  background: var(--color-lime);
   padding: 2px 7px;
   border-radius: 5px;
 }

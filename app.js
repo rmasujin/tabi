@@ -989,33 +989,29 @@
   }
 
   // Profile tab switching
-  function setupProfileTabs() {
-    // Handle all profile tabs using data attributes
-    const allTabs = document.querySelectorAll('.profile-tab');
-    allTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tabName = tab.getAttribute('data-tab');
-        const profileScreen = tab.closest('.screen');
-
-        if (profileScreen && tabName) {
-          // Update tabs
-          const tabs = profileScreen.querySelectorAll('.profile-tab');
-          tabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-
-          // Update grids
-          const grids = profileScreen.querySelectorAll('.profile-grid');
-          grids.forEach(g => {
-            if (g.getAttribute('data-grid') === tabName) {
-              g.classList.add('active');
-            } else {
-              g.classList.remove('active');
-            }
-          });
-        }
-      });
-    });
-  }
+  // Profile tabs removed - now only showing POSTS
+  // function setupProfileTabs() {
+  //   const allTabs = document.querySelectorAll('.profile-tab');
+  //   allTabs.forEach(tab => {
+  //     tab.addEventListener('click', () => {
+  //       const tabName = tab.getAttribute('data-tab');
+  //       const profileScreen = tab.closest('.screen');
+  //       if (profileScreen && tabName) {
+  //         const tabs = profileScreen.querySelectorAll('.profile-tab');
+  //         tabs.forEach(t => t.classList.remove('active'));
+  //         tab.classList.add('active');
+  //         const grids = profileScreen.querySelectorAll('.profile-grid');
+  //         grids.forEach(g => {
+  //           if (g.getAttribute('data-grid') === tabName) {
+  //             g.classList.add('active');
+  //           } else {
+  //             g.classList.remove('active');
+  //           }
+  //         });
+  //       }
+  //     });
+  //   });
+  // }
 
   function setupMenuTabs() {
     // Handle menu tabs (COURSE / DRINK)
@@ -1203,8 +1199,8 @@
     // Setup search functionality
     setupSearch();
 
-    // Setup profile tabs
-    setupProfileTabs();
+    // Profile tabs removed - now only showing POSTS
+    // setupProfileTabs();
 
     // Setup menu tabs
     setupMenuTabs();
