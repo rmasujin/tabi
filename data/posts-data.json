@@ -26,6 +26,28 @@
       "contentMore": "二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。"
     },
     {
+      "id": 14,
+      "number": "11",
+      "date": "2026.09.01",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788266579129-IMG_8145.jpg"
+      ],
+      "content": "Test",
+      "contentMore": ""
+    },
+    {
       "id": 3,
       "number": "03",
       "date": "2023.12.24",
@@ -202,6 +224,28 @@
       "contentMore": ""
     },
     {
+      "id": 15,
+      "number": "12",
+      "date": "1997.07.26",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788266810386-IMG_2776.jpg"
+      ],
+      "content": "👶🏻",
+      "contentMore": ""
+    },
+    {
       "id": 8,
       "number": "06",
       "date": "1995.12.10",
@@ -224,9 +268,9 @@
       "contentMore": ""
     },
     {
-      "id": 15,
-      "number": "12",
-      "date": "1997.07.26",
+      "id": 16,
+      "number": "13",
+      "date": "2017.10.31",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -240,9 +284,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788266810386-IMG_2776.jpg"
+        "assets/posts/kanami/1788267274166-IMG_0113.jpg"
       ],
-      "content": "👶🏻",
+      "content": "お菓子を求めて練り歩き👻🍬",
       "contentMore": ""
     }
   ]
