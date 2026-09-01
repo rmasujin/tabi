@@ -712,11 +712,14 @@
   // Event listeners - Posts (click to show profile)
   const posts = document.querySelectorAll('.post');
   posts.forEach(post => {
-    // Don't navigate when clicking on slider
+    // Don't navigate when clicking on slider (but allow clicks on .post-authors)
     const slider = post.querySelector('.slider-container');
     if (slider) {
       slider.addEventListener('click', (e) => {
-        e.stopPropagation();
+        // Allow clicks on post-authors to pass through
+        if (!e.target.closest('.post-authors')) {
+          e.stopPropagation();
+        }
       });
     }
 
@@ -752,8 +755,13 @@
       const dotsContainer = document.querySelector(`.pagination-dots[data-post-id="${postId}"]`);
       const dots = dotsContainer ? dotsContainer.querySelectorAll('.dot') : [];
 
-      // Reset scroll position to start
+      // Reset scroll position to start immediately and after images load
       container.scrollLeft = 0;
+
+      // Also reset after a brief delay to ensure images have loaded
+      setTimeout(() => {
+        container.scrollLeft = 0;
+      }, 50);
 
       let isScrolling = false;
 
