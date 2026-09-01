@@ -310,6 +310,28 @@
       ],
       "content": "成人式📷",
       "contentMore": ""
+    },
+    {
+      "id": 18,
+      "number": "15",
+      "date": "2018.04.18",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267475259-IMG_4607.jpg"
+      ],
+      "content": "先輩になって初めての大型キャンプ",
+      "contentMore": ""
     }
   ]
 }
