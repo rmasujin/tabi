@@ -136,6 +136,28 @@
       "contentMore": ""
     },
     {
+      "id": 13,
+      "number": "10",
+      "date": "2000.04.01",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1787961291724-8E2D256B-125C-49B9-BB97-EAA4479DEFC9-VSCO.jpg"
+      ],
+      "content": "入園",
+      "contentMore": ""
+    },
+    {
       "id": 9,
       "number": "07",
       "date": "1999.01.25",
@@ -202,25 +224,25 @@
       "contentMore": ""
     },
     {
-      "id": 13,
-      "number": "10",
-      "date": "2000.04.01",
-      "author": "riki",
-      "authorDisplay": "RIKI",
+      "id": 14,
+      "number": "11",
+      "date": "2026.09.01",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
       "category": [
         "posts"
       ],
       "displayIn": {
         "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
         "kanamiFavorites": false,
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/riki/1787961291724-8E2D256B-125C-49B9-BB97-EAA4479DEFC9-VSCO.jpg"
+        "assets/posts/kanami/1788266579129-IMG_8145.jpg"
       ],
-      "content": "入園",
+      "content": "Test",
       "contentMore": ""
     }
   ]
