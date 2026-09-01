@@ -933,19 +933,35 @@
       searchBar.addEventListener('click', (e) => {
         e.preventDefault();
 
-        // iOS Safari workaround: remove readonly and focus synchronously
-        // This must happen within the user gesture context
+        // For iOS Safari: Show search screen SYNCHRONOUSLY before calling focus()
+        // iOS requires the input element to be visible when focus() is called
+        selectedGuestForHighlight = null;
+
+        // Hide all other screens immediately
+        Object.values(screens).forEach(screen => {
+          screen.classList.remove('active');
+        });
+
+        // Show search screen synchronously (no requestAnimationFrame)
+        const searchScreen = screens['search'];
+        if (searchScreen) {
+          searchScreen.classList.add('active');
+          currentScreen = 'search';
+        }
+
+        // Update nav buttons
+        updateNavButtons('seats');
+
+        // Clear search results
+        renderSearchResults('');
+
+        // NOW focus the input (it's visible)
         const searchInput = document.getElementById('search-header-input');
         if (searchInput) {
           searchInput.removeAttribute('readonly');
           searchInput.value = '';
           searchInput.focus();
         }
-
-        // Then show screen
-        selectedGuestForHighlight = null;
-        showScreen('search');
-        renderSearchResults('');
       });
     }
 
