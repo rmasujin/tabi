@@ -354,6 +354,28 @@
       ],
       "content": "ゼミ旅行①",
       "contentMore": ""
+    },
+    {
+      "id": 20,
+      "number": "17",
+      "date": "2019.09.04",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267732884-IMG_7975.jpg"
+      ],
+      "content": "🇰🇷",
+      "contentMore": ""
     }
   ]
 }
