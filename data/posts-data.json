@@ -446,6 +446,29 @@
       ],
       "content": "ずっと心に残っている唯一の旅",
       "contentMore": ""
+    },
+    {
+      "id": 24,
+      "number": "21",
+      "date": "2021.03.23",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788268168263-IMG_8033.jpg",
+        "assets/posts/kanami/1788268171455-IMG_8120.jpg"
+      ],
+      "content": "卒業！この数日後、八王子へ",
+      "contentMore": ""
     }
   ]
 }
