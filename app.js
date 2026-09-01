@@ -411,9 +411,7 @@
             </div>
             <div class="gradient-overlay"></div>
             <div class="post-authors" data-author="${post.authorType}" style="cursor: pointer;">
-              <div class="author-avatars">
-                ${getAvatarHTML(post.authorType)}
-              </div>
+              ${getAvatarHTML(post.authorType, true)}
               <span class="author-names">${post.author}</span>
             </div>
           </div>
