@@ -181,11 +181,6 @@ body {
   width: 100vw;
   flex-shrink: 0;
   scroll-snap-align: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #000;
-  min-height: 500px;
 }
 
 .post-header {
