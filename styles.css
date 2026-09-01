@@ -209,11 +209,12 @@ body {
 
 .post-image-placeholder {
   width: 100%;
-  background-image: repeating-linear-gradient(135deg, #E4E4DF 0 8px, #EDEDE8 8px 16px);
-  background-size: cover;
-  background-position: center;
+  background-color: #000;
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
 }
 
 .post-image-placeholder img {
@@ -263,7 +264,7 @@ body {
   height: 26px;
   border-radius: 50%;
   border: 2px solid var(--color-white);
-  background-image: repeating-linear-gradient(135deg, #E4E4DF 0 8px, #EDEDE8 8px 16px);
+  background-color: #000;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -287,6 +288,7 @@ body {
   font-size: 15px;
   font-weight: 600;
   color: var(--color-white);
+  cursor: pointer;
 }
 
 .post-meta {
