@@ -92,6 +92,29 @@
       "contentMore": ""
     },
     {
+      "id": 30,
+      "number": "27",
+      "date": "2021.12.11",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788349191550-IMG_0524.jpg",
+        "assets/posts/kanami/1788349193667-F9E0643A-3394-4BC8-9001-43538699F002.jpg"
+      ],
+      "content": "チームラボ🫧",
+      "contentMore": ""
+    },
+    {
       "id": 6,
       "number": "06",
       "date": "2021.11.03",
@@ -583,9 +606,9 @@
       "contentMore": ""
     },
     {
-      "id": 30,
-      "number": "27",
-      "date": "2021.12.11",
+      "id": 31,
+      "number": "28",
+      "date": "2026.09.02",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -599,11 +622,12 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788349191550-IMG_0524.jpg",
-        "assets/posts/kanami/1788349193667-F9E0643A-3394-4BC8-9001-43538699F002.jpg"
+        "assets/posts/kanami/1788349313857-IMG_0687.jpg",
+        "assets/posts/kanami/1788349316176-IMG_0693.jpg",
+        "assets/posts/kanami/1788349320043-IMG_0702.jpg"
       ],
-      "content": "チームラボ🫧",
-      "contentMore": ""
+      "content": "毎年恒例OFクリスマス会🎄\nこの年から始まった！",
+      "contentMore": "2025年度開催は利樹くんも参加しました🙌🏻"
     }
   ]
 }
