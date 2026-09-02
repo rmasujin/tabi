@@ -114,6 +114,255 @@
       "contentMore": ""
     },
     {
+      "id": 26,
+      "number": "23",
+      "date": "2021.05.21",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788268507949-IMG_8534.jpg",
+        "assets/posts/kanami/1788268513188-IMG_8528.jpg"
+      ],
+      "content": "美味しいものに夢中だったあの頃",
+      "contentMore": ""
+    },
+    {
+      "id": 25,
+      "number": "22",
+      "date": "2021.04.01",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788268394701-IMG_8177.jpg",
+        "assets/posts/kanami/1788268397707-IMG_8178.jpg"
+      ],
+      "content": "人生第３章はじまり",
+      "contentMore": ""
+    },
+    {
+      "id": 24,
+      "number": "21",
+      "date": "2021.03.23",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788268168263-IMG_8033.jpg",
+        "assets/posts/kanami/1788268171455-IMG_8120.jpg"
+      ],
+      "content": "卒業！この数日後、八王子へ",
+      "contentMore": ""
+    },
+    {
+      "id": 23,
+      "number": "20",
+      "date": "2021.03.21",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788268049916-IMG_7458.jpg",
+        "assets/posts/kanami/1788268053570-FullSizeRender.jpg",
+        "assets/posts/kanami/1788268056897-IMG_7421.jpg"
+      ],
+      "content": "ずっと心に残っている旅",
+      "contentMore": ""
+    },
+    {
+      "id": 22,
+      "number": "19",
+      "date": "2021.02.19",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267928652-IMG_6999.jpg",
+        "assets/posts/kanami/1788267931406-IMG_6501.jpg",
+        "assets/posts/kanami/1788267933915-IMG_6518.jpg"
+      ],
+      "content": "コロナ禍でも頑張って作った卒業動画🎥",
+      "contentMore": ""
+    },
+    {
+      "id": 21,
+      "number": "18",
+      "date": "2020.11.21",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267830002-IMG_5198.jpg"
+      ],
+      "content": "イヌ仲間",
+      "contentMore": ""
+    },
+    {
+      "id": 20,
+      "number": "17",
+      "date": "2019.09.04",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267732884-IMG_7975.jpg"
+      ],
+      "content": "🇰🇷",
+      "contentMore": ""
+    },
+    {
+      "id": 19,
+      "number": "16",
+      "date": "2019.08.02",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267631360-IMG_7010.jpg"
+      ],
+      "content": "ゼミ旅行①",
+      "contentMore": ""
+    },
+    {
+      "id": 18,
+      "number": "15",
+      "date": "2018.04.18",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267475259-IMG_4607.jpg"
+      ],
+      "content": "先輩になって初めての大型キャンプ",
+      "contentMore": ""
+    },
+    {
+      "id": 17,
+      "number": "14",
+      "date": "2018.01.07",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267366068-IMG_2283.jpg"
+      ],
+      "content": "成人式📷",
+      "contentMore": ""
+    },
+    {
+      "id": 16,
+      "number": "13",
+      "date": "2017.10.31",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788267274166-IMG_0113.jpg"
+      ],
+      "content": "お菓子を求めて練り歩き👻🍬",
+      "contentMore": ""
+    },
+    {
       "id": 12,
       "number": "09",
       "date": "2004.07.17",
@@ -265,255 +514,6 @@
         "assets/posts/riki/1787904369775-26933063-E2D0-46A0-BA26-9958526E11CE-VSCO.jpg"
       ],
       "content": "誕生",
-      "contentMore": ""
-    },
-    {
-      "id": 16,
-      "number": "13",
-      "date": "2017.10.31",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788267274166-IMG_0113.jpg"
-      ],
-      "content": "お菓子を求めて練り歩き👻🍬",
-      "contentMore": ""
-    },
-    {
-      "id": 17,
-      "number": "14",
-      "date": "2018.01.07",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788267366068-IMG_2283.jpg"
-      ],
-      "content": "成人式📷",
-      "contentMore": ""
-    },
-    {
-      "id": 18,
-      "number": "15",
-      "date": "2018.04.18",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788267475259-IMG_4607.jpg"
-      ],
-      "content": "先輩になって初めての大型キャンプ",
-      "contentMore": ""
-    },
-    {
-      "id": 19,
-      "number": "16",
-      "date": "2019.08.02",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788267631360-IMG_7010.jpg"
-      ],
-      "content": "ゼミ旅行①",
-      "contentMore": ""
-    },
-    {
-      "id": 20,
-      "number": "17",
-      "date": "2019.09.04",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788267732884-IMG_7975.jpg"
-      ],
-      "content": "🇰🇷",
-      "contentMore": ""
-    },
-    {
-      "id": 21,
-      "number": "18",
-      "date": "2020.11.21",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788267830002-IMG_5198.jpg"
-      ],
-      "content": "イヌ仲間",
-      "contentMore": ""
-    },
-    {
-      "id": 22,
-      "number": "19",
-      "date": "2021.02.19",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788267928652-IMG_6999.jpg",
-        "assets/posts/kanami/1788267931406-IMG_6501.jpg",
-        "assets/posts/kanami/1788267933915-IMG_6518.jpg"
-      ],
-      "content": "コロナ禍でも頑張って作った卒業動画🎥",
-      "contentMore": ""
-    },
-    {
-      "id": 23,
-      "number": "20",
-      "date": "2021.03.21",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788268049916-IMG_7458.jpg",
-        "assets/posts/kanami/1788268053570-FullSizeRender.jpg",
-        "assets/posts/kanami/1788268056897-IMG_7421.jpg"
-      ],
-      "content": "ずっと心に残っている唯一の旅",
-      "contentMore": ""
-    },
-    {
-      "id": 24,
-      "number": "21",
-      "date": "2021.03.23",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788268168263-IMG_8033.jpg",
-        "assets/posts/kanami/1788268171455-IMG_8120.jpg"
-      ],
-      "content": "卒業！この数日後、八王子へ",
-      "contentMore": ""
-    },
-    {
-      "id": 25,
-      "number": "22",
-      "date": "2021.04.01",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788268394701-IMG_8177.jpg",
-        "assets/posts/kanami/1788268397707-IMG_8178.jpg"
-      ],
-      "content": "人生第３章はじまり",
-      "contentMore": ""
-    },
-    {
-      "id": 26,
-      "number": "23",
-      "date": "2021.05.21",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788268507949-IMG_8534.jpg",
-        "assets/posts/kanami/1788268513188-IMG_8528.jpg"
-      ],
-      "content": "美味しいものに夢中だったあの頃",
       "contentMore": ""
     }
   ]
