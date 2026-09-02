@@ -429,6 +429,28 @@
       "contentMore": ""
     },
     {
+      "id": 28,
+      "number": "25",
+      "date": "2000.02.11",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788348772689-写真を復元 2026-08-06 12.29_1.jpg"
+      ],
+      "content": "ピサの斜塔になりたかった頃",
+      "contentMore": ""
+    },
+    {
       "id": 27,
       "number": "24",
       "date": "1999.05.09",
@@ -536,28 +558,6 @@
         "assets/posts/riki/1787904369775-26933063-E2D0-46A0-BA26-9958526E11CE-VSCO.jpg"
       ],
       "content": "誕生",
-      "contentMore": ""
-    },
-    {
-      "id": 28,
-      "number": "25",
-      "date": "2000.02.11",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788348772689-写真を復元 2026-08-06 12.29_1.jpg"
-      ],
-      "content": "ピサの斜塔になりたかった頃",
       "contentMore": ""
     }
   ]
