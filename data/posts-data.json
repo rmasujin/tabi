@@ -515,6 +515,28 @@
       ],
       "content": "誕生",
       "contentMore": ""
+    },
+    {
+      "id": 27,
+      "number": "24",
+      "date": "1999.05.09",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788348693061-写真を復元 2026-08-06 12.30_1.jpg"
+      ],
+      "content": "プーさん大好き幼少期",
+      "contentMore": ""
     }
   ]
 }
