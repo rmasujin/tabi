@@ -48,9 +48,9 @@
       "contentMore": ""
     },
     {
-      "id": 3,
-      "number": "03",
-      "date": "2023.12.24",
+      "id": 34,
+      "number": "31",
+      "date": "2023.07.27",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -64,9 +64,10 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/03-christmas.jpg"
+        "assets/posts/kanami/1788350108044-IMG_5550.jpg",
+        "assets/posts/kanami/1788350111340-IMG_5591.jpg"
       ],
-      "content": "イルミネーションを見に行きました。きれいだった。",
+      "content": "先輩方とキャーキャー言いながら10分1000円の占いへ🔮",
       "contentMore": ""
     },
     {
@@ -674,29 +675,6 @@
         "assets/posts/riki/1787904369775-26933063-E2D0-46A0-BA26-9958526E11CE-VSCO.jpg"
       ],
       "content": "誕生",
-      "contentMore": ""
-    },
-    {
-      "id": 34,
-      "number": "31",
-      "date": "2023.07.27",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788350108044-IMG_5550.jpg",
-        "assets/posts/kanami/1788350111340-IMG_5591.jpg"
-      ],
-      "content": "先輩方とキャーキャー言いながら10分1000円の占いへ🔮",
       "contentMore": ""
     }
   ]
