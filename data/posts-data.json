@@ -26,30 +26,6 @@
       "contentMore": "二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。"
     },
     {
-      "id": 31,
-      "number": "28",
-      "date": "2021.12.18",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788349313857-IMG_0687.jpg",
-        "assets/posts/kanami/1788349316176-IMG_0693.jpg",
-        "assets/posts/kanami/1788349320043-IMG_0702.jpg"
-      ],
-      "content": "毎年恒例OFクリスマス会🎄\nこの年から始まった！",
-      "contentMore": "2025年度開催は利樹くんも参加しました🙌🏻"
-    },
-    {
       "id": 14,
       "number": "11",
       "date": "2026.09.01",
@@ -114,6 +90,30 @@
       ],
       "content": "お気に入りのカフェでのんびり。りきはいつもコーヒー、私はカフェラテ。",
       "contentMore": ""
+    },
+    {
+      "id": 31,
+      "number": "28",
+      "date": "2021.12.18",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788349313857-IMG_0687.jpg",
+        "assets/posts/kanami/1788349316176-IMG_0693.jpg",
+        "assets/posts/kanami/1788349320043-IMG_0702.jpg"
+      ],
+      "content": "毎年恒例OFクリスマス会🎄\nこの年から始まった！",
+      "contentMore": "2025年度開催は利樹くんも参加しました🙌🏻"
     },
     {
       "id": 30,
@@ -627,6 +627,29 @@
         "assets/posts/riki/1787904369775-26933063-E2D0-46A0-BA26-9958526E11CE-VSCO.jpg"
       ],
       "content": "誕生",
+      "contentMore": ""
+    },
+    {
+      "id": 32,
+      "number": "29",
+      "date": "2022.08.17",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788349544346-IMG_4790.jpg",
+        "assets/posts/kanami/1788349548094-IMG_4781.jpg"
+      ],
+      "content": "中2ぶりの沖縄旅行は、中2でも同じクラスだったふたりと🌺✈️",
       "contentMore": ""
     }
   ]
