@@ -700,6 +700,29 @@
       ],
       "content": "2回目の八戸🐟",
       "contentMore": ""
+    },
+    {
+      "id": 37,
+      "number": "32",
+      "date": "2025.12.14",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788353760870-DE42F927-8F80-49C9-8742-AFC507C6F9A1.jpg",
+        "assets/posts/kanami/1788353764223-IMG_4948.jpg"
+      ],
+      "content": "夫にお願いをしてクリスマスツリーを導入しました🎄",
+      "contentMore": ""
     }
   ]
 }
