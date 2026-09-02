@@ -676,6 +676,30 @@
       ],
       "content": "三小ボウリング大会開催🎳",
       "contentMore": ""
+    },
+    {
+      "id": 36,
+      "number": "31",
+      "date": "2026.05.10",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788353475947-IMG_6254.jpg",
+        "assets/posts/kanami/1788353479008-DAF68697-AAAE-49F5-A662-2A9FF684941C.jpg",
+        "assets/posts/kanami/1788353482745-IMG_6248.jpg"
+      ],
+      "content": "2回目の八戸🐟",
+      "contentMore": ""
     }
   ]
 }
