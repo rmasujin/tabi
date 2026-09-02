@@ -559,6 +559,28 @@
       ],
       "content": "誕生",
       "contentMore": ""
+    },
+    {
+      "id": 29,
+      "number": "26",
+      "date": "2021.09.20",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788349099858-IMG_9861.jpg"
+      ],
+      "content": "愛するルディくんとの出会い",
+      "contentMore": ""
     }
   ]
 }
