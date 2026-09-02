@@ -165,6 +165,28 @@
       "contentMore": ""
     },
     {
+      "id": 6,
+      "number": "06",
+      "date": "2021.11.03",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/06-trip.jpg"
+      ],
+      "content": "はじめて二人で行った旅行。ずっと雨でした。",
+      "contentMore": ""
+    },
+    {
       "id": 29,
       "number": "26",
       "date": "2021.09.20",
@@ -631,6 +653,28 @@
         "assets/posts/riki/1787904369775-26933063-E2D0-46A0-BA26-9958526E11CE-VSCO.jpg"
       ],
       "content": "誕生",
+      "contentMore": ""
+    },
+    {
+      "id": 35,
+      "number": "30",
+      "date": "2026.07.28",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788353306841-IMG_7501.jpg"
+      ],
+      "content": "三小ボウリング大会開催🎳",
       "contentMore": ""
     }
   ]
