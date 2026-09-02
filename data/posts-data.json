@@ -114,6 +114,28 @@
       "contentMore": ""
     },
     {
+      "id": 29,
+      "number": "26",
+      "date": "2021.09.20",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788349099858-IMG_9861.jpg"
+      ],
+      "content": "愛するルディくんとの出会い",
+      "contentMore": ""
+    },
+    {
       "id": 26,
       "number": "23",
       "date": "2021.05.21",
@@ -561,9 +583,9 @@
       "contentMore": ""
     },
     {
-      "id": 29,
-      "number": "26",
-      "date": "2021.09.20",
+      "id": 30,
+      "number": "27",
+      "date": "2021.12.11",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -577,9 +599,10 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788349099858-IMG_9861.jpg"
+        "assets/posts/kanami/1788349191550-IMG_0524.jpg",
+        "assets/posts/kanami/1788349193667-F9E0643A-3394-4BC8-9001-43538699F002.jpg"
       ],
-      "content": "愛するルディくんとの出会い",
+      "content": "チームラボ🫧",
       "contentMore": ""
     }
   ]
