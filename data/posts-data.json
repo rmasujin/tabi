@@ -70,6 +70,30 @@
       "contentMore": ""
     },
     {
+      "id": 33,
+      "number": "30",
+      "date": "2022.12.29",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788349887685-IMG_3759.jpg",
+        "assets/posts/kanami/1788349890109-0B16618B-5848-4DDE-A83A-FD755431ADB8.jpg",
+        "assets/posts/kanami/1788349892503-IMG_3665.jpg"
+      ],
+      "content": "こちらも毎年恒例のゼミ旅行\nそれぞれの地元へ行こう〜！とこの年はカワベの地元大阪へ",
+      "contentMore": "振り返ってみると、この年はみんなで夏にディズニーにも行ってた！"
+    },
+    {
       "id": 32,
       "number": "29",
       "date": "2022.08.17",
@@ -653,9 +677,9 @@
       "contentMore": ""
     },
     {
-      "id": 33,
-      "number": "30",
-      "date": "2022.12.29",
+      "id": 34,
+      "number": "31",
+      "date": "2023.07.27",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -669,12 +693,11 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788349887685-IMG_3759.jpg",
-        "assets/posts/kanami/1788349890109-0B16618B-5848-4DDE-A83A-FD755431ADB8.jpg",
-        "assets/posts/kanami/1788349892503-IMG_3665.jpg"
+        "assets/posts/kanami/1788350108044-IMG_5550.jpg",
+        "assets/posts/kanami/1788350111340-IMG_5591.jpg"
       ],
-      "content": "こちらも毎年恒例のゼミ旅行\nそれぞれの地元へ行こう〜！とこの年はカワベの地元大阪へ",
-      "contentMore": "振り返ってみると、この年はみんなで夏にディズニーにも行ってた！"
+      "content": "先輩方とキャーキャー言いながら10分1000円の占いへ🔮",
+      "contentMore": ""
     }
   ]
 }
