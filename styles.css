@@ -388,7 +388,7 @@ body {
 }
 
 .post-content {
-  padding: 12px 16px 0;
+  padding: 12px 16px;
   font-size: 16px;
   line-height: 1.65;
   color: var(--color-black);
@@ -399,6 +399,11 @@ body {
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* When read more button is present, remove bottom padding from content */
+.post-content:has(+ .read-more) {
+  padding-bottom: 0;
 }
 
 .read-more {
