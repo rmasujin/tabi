@@ -388,7 +388,7 @@ body {
 }
 
 .post-content {
-  padding: 12px 16px;
+  padding: 12px 16px 0;
   font-size: 16px;
   line-height: 1.65;
   color: var(--color-black);
@@ -398,10 +398,11 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .read-more {
-  padding: 0 16px 12px;
+  padding: 8px 16px 12px;
   font-size: 14px;
   color: #9A9A92;
   cursor: pointer;
