@@ -174,7 +174,7 @@
         "posts"
       ],
       "displayIn": {
-        "home": true,
+        "home": false,
         "kanamiPosts": true,
         "rikiPosts": false,
         "kanamiFavorites": false,
