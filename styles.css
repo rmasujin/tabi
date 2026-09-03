@@ -126,6 +126,13 @@ body {
   color: var(--color-black);
 }
 
+.header-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-gray-mid);
+  margin-left: 4px;
+}
+
 /* Content */
 .content {
   padding: 0;
