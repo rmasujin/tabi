@@ -57,7 +57,7 @@
         "posts"
       ],
       "displayIn": {
-        "home": true,
+        "home": false,
         "kanamiPosts": true,
         "rikiPosts": false,
         "kanamiFavorites": false,
@@ -213,7 +213,7 @@
     {
       "id": 30,
       "number": "27",
-      "date": "2021.12.18",
+      "date": "2021.12.11",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -227,10 +227,33 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788417464041-IMG_0695.jpg"
+        "assets/posts/kanami/1788349191550-IMG_0524.jpg",
+        "assets/posts/kanami/1788349193667-F9E0643A-3394-4BC8-9001-43538699F002.jpg"
       ],
-      "content": "毎年恒例OFクリスマス会🎄\nこの年から始まった！",
-      "contentMore": "2025年度開催は利樹くんも参加しました🙌🏻"
+      "content": "チームラボ🫧",
+      "contentMore": ""
+    },
+    {
+      "id": 6,
+      "number": "06",
+      "date": "2021.11.03",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/06-trip.jpg"
+      ],
+      "content": "はじめて二人で行った旅行。ずっと雨でした。",
+      "contentMore": ""
     },
     {
       "id": 29,
