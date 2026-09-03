@@ -76,16 +76,11 @@ body {
 
 /* Header */
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  background: rgba(251, 250, 246, 0.94);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--color-paper);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 6px 16px 10px;
+  padding: 16px 16px 12px;
   min-height: 50px;
 }
 
@@ -124,8 +119,11 @@ body {
 }
 
 .header-title {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: var(--color-black);
 }
 
 /* Content */
