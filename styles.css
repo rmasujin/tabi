@@ -289,7 +289,7 @@ body {
   display: flex;
   align-items: center;
   gap: 11px;
-  z-index: 10;
+  z-index: 3;
   pointer-events: none;
 }
 
@@ -301,6 +301,7 @@ body {
   position: relative;
   width: 44px;
   height: 36px;
+  flex-shrink: 0;
 }
 
 .avatar-placeholder {
@@ -334,6 +335,8 @@ body {
   font-weight: 600;
   color: var(--color-white);
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .post-meta {
