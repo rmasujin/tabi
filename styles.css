@@ -84,6 +84,17 @@ body {
   min-height: 50px;
 }
 
+/* Headers with back button should stick on scroll */
+.header:has(.header-left) {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(251, 250, 246, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 6px 16px 10px;
+}
+
 .header img {
   display: block;
 }
