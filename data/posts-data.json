@@ -298,6 +298,28 @@
       "contentMore": ""
     },
     {
+      "id": 6,
+      "number": "06",
+      "date": "2021.11.03",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": false,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/06-trip.jpg"
+      ],
+      "content": "はじめて二人で行った旅行。ずっと雨でした。",
+      "contentMore": ""
+    },
+    {
       "id": 29,
       "number": "26",
       "date": "2021.09.20",
@@ -587,7 +609,7 @@
       "images": [
         "assets/posts/riki/1787958688960-E340C456-2796-48C7-AF24-995C01DBCA45-VSCO.jpg"
       ],
-      "content": "マラソン",
+      "content": "お父さんと一緒に練習して走ったマラソン大会🏃\n長距離は得意で、2年生～6年生までの校内マラソン大会は1位🏅",
       "contentMore": ""
     },
     {
