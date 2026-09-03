@@ -376,12 +376,11 @@
 
   // Render a single post HTML
   function renderPost(post, displayNumber) {
-    const hasMore = post.contentMore ? true : false;
-    const readMoreHTML = hasMore ? '<div class="read-more">続きを読む</div>' : '';
     // 改行を<br>タグに変換
     const content = post.content.replace(/\n/g, '<br>');
     const contentMore = post.contentMore ? post.contentMore.replace(/\n/g, '<br>') : '';
-    const contentMoreHTML = hasMore ? `<span class="content-more">${contentMore}</span>` : '';
+    // contentとcontentMoreを統合
+    const fullContent = contentMore ? `${content}<br>${contentMore}` : content;
 
     if (post.hasSlider) {
       // Generate slider images
@@ -422,9 +421,8 @@
             </div>
           </div>
           <div class="post-content">
-            ${content}${contentMoreHTML}
+            ${fullContent}
           </div>
-          ${readMoreHTML}
         </article>
       `;
     } else {
@@ -448,9 +446,8 @@
             <span class="photo-count">${post.photos} PHOTO${post.photos > 1 ? 'S' : ''}</span>
           </div>
           <div class="post-content">
-            ${content}${contentMoreHTML}
+            ${fullContent}
           </div>
-          ${readMoreHTML}
         </article>
       `;
     }
@@ -1093,6 +1090,35 @@
 
   // Read more functionality
   function setupReadMore() {
+    // Check if post content needs "read more" button
+    const posts = document.querySelectorAll('article.post');
+    posts.forEach(post => {
+      const postContent = post.querySelector('.post-content');
+      if (!postContent) return;
+
+      // Check if content is truncated (overflowing)
+      const isOverflowing = postContent.scrollHeight > postContent.clientHeight;
+
+      // Add or show read more button if content is truncated
+      if (isOverflowing) {
+        let readMoreBtn = post.querySelector('.read-more');
+        if (!readMoreBtn) {
+          readMoreBtn = document.createElement('div');
+          readMoreBtn.className = 'read-more';
+          readMoreBtn.textContent = '続きを読む';
+          postContent.after(readMoreBtn);
+        } else {
+          readMoreBtn.style.display = 'block';
+        }
+      } else {
+        // Hide read more button if content fits in 2 lines
+        const readMoreBtn = post.querySelector('.read-more');
+        if (readMoreBtn) {
+          readMoreBtn.style.display = 'none';
+        }
+      }
+    });
+
     // Post read more buttons
     const readMoreButtons = document.querySelectorAll('.read-more');
     readMoreButtons.forEach(btn => {
@@ -1101,6 +1127,7 @@
         const article = btn.closest('article');
         if (article) {
           article.classList.add('content-expanded');
+          btn.style.display = 'none';
         }
       });
     });

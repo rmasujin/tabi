@@ -394,17 +394,24 @@ body {
   color: var(--color-black);
   word-break: break-word;
   overflow-wrap: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .read-more {
   padding: 0 16px 12px;
   font-size: 14px;
   color: #9A9A92;
+  cursor: pointer;
 }
 
-/* When content is expanded, add bottom padding to match top */
+/* When content is expanded, show all content */
 .content-expanded .post-content {
   padding-bottom: 12px;
+  -webkit-line-clamp: unset;
+  overflow: visible;
 }
 
 /* Menu Screen */
