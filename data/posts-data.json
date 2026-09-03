@@ -165,28 +165,6 @@
       "contentMore": ""
     },
     {
-      "id": 5,
-      "number": "05",
-      "date": "2022.05.20",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": false,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/05-cafe.jpg"
-      ],
-      "content": "お気に入りのカフェでのんびり。りきはいつもコーヒー、私はカフェラテ。",
-      "contentMore": ""
-    },
-    {
       "id": 31,
       "number": "28",
       "date": "2021.12.18",
