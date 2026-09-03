@@ -140,6 +140,28 @@
       "contentMore": ""
     },
     {
+      "id": 39,
+      "number": "33",
+      "date": "2023.03.05",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788418146233-IMG_4259.jpg"
+      ],
+      "content": "職場の仲間とスキーへ⛄️",
+      "contentMore": ""
+    },
+    {
       "id": 33,
       "number": "30",
       "date": "2022.12.29",
@@ -723,9 +745,9 @@
       "contentMore": ""
     },
     {
-      "id": 39,
-      "number": "33",
-      "date": "2023.03.05",
+      "id": 40,
+      "number": "34",
+      "date": "2023.08.03",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -739,9 +761,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788418146233-IMG_4259.jpg"
+        "assets/posts/kanami/1788418238484-IMG_2321.jpg"
       ],
-      "content": "職場の仲間とスキーへ⛄️",
+      "content": "疲れを癒す旅♨️",
       "contentMore": ""
     }
   ]
