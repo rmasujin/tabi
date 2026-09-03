@@ -387,7 +387,7 @@
       // Generate slider images
       const sliderImagesHTML = post.images.map((imagePath, idx) =>
         `<div class="post-image-placeholder">
-          <img src="${imagePath}" alt="photo ${idx + 1}">
+          <img src="${imagePath}" alt="photo ${idx + 1}" loading="lazy">
           <span class="placeholder-text" style="display: none;">photo ${idx + 1} — 4:5</span>
         </div>`
       ).join('');
@@ -436,7 +436,7 @@
             <span class="post-date">${post.date}</span>
           </div>
           <div class="post-image-placeholder">
-            <img src="${post.images[0]}" alt="photo">
+            <img src="${post.images[0]}" alt="photo" loading="lazy">
             <span class="placeholder-text" style="display: none;">photo — 4:5</span>
             <div class="gradient-overlay"></div>
             <div class="post-authors" data-author="${post.authorType}" style="cursor: pointer;">
@@ -498,6 +498,7 @@
       setTimeout(() => {
         initPostSliders();
         setupReadMore();
+        setupImageLoadHandlers();
       }, 100);
 
       // Scroll to the clicked post
@@ -1130,9 +1131,34 @@
     initPostSliders();
     setupReadMore();
     setupPostAuthorClicks();
+    setupImageLoadHandlers();
 
     // Show content after loading
     homePostsContainer.classList.add('loaded');
+  }
+
+  // Setup image load handlers for lazy loading
+  function setupImageLoadHandlers() {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    lazyImages.forEach(img => {
+      if (img.complete) {
+        img.classList.add('loaded');
+        // Stop shimmer animation when image is loaded
+        const placeholder = img.closest('.post-image-placeholder');
+        if (placeholder) {
+          placeholder.style.setProperty('--shimmer-active', '0');
+        }
+      } else {
+        img.addEventListener('load', () => {
+          img.classList.add('loaded');
+          // Stop shimmer animation when image is loaded
+          const placeholder = img.closest('.post-image-placeholder');
+          if (placeholder) {
+            placeholder.style.setProperty('--shimmer-active', '0');
+          }
+        }, { once: true });
+      }
+    });
   }
 
   // Render profile grid

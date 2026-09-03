@@ -211,12 +211,61 @@ body {
   width: 100%;
   position: relative;
   display: block;
+  /* 4:5 aspect ratio for placeholder */
+  aspect-ratio: 4 / 5;
+  background: var(--color-divider);
+  overflow: hidden;
+}
+
+/* Loading animation skeleton */
+.post-image-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Stop shimmer when image is loaded */
+.post-image-placeholder:has(img.loaded)::before {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .post-image-placeholder img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Fade in image when loaded */
+.post-image-placeholder img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+.post-image-placeholder img[loading="lazy"].loaded,
+.post-image-placeholder img:not([loading="lazy"]) {
+  opacity: 1;
 }
 
 .placeholder-text {
