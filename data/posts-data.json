@@ -48,6 +48,53 @@
       "contentMore": ""
     },
     {
+      "id": 36,
+      "number": "31",
+      "date": "2026.05.10",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788353475947-IMG_6254.jpg",
+        "assets/posts/kanami/1788353479008-DAF68697-AAAE-49F5-A662-2A9FF684941C.jpg",
+        "assets/posts/kanami/1788353482745-IMG_6248.jpg"
+      ],
+      "content": "2回目の八戸🐟",
+      "contentMore": ""
+    },
+    {
+      "id": 37,
+      "number": "32",
+      "date": "2025.12.14",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788353760870-DE42F927-8F80-49C9-8742-AFC507C6F9A1.jpg",
+        "assets/posts/kanami/1788353764223-IMG_4948.jpg"
+      ],
+      "content": "夫にお願いをしてクリスマスツリーを導入しました🎄",
+      "contentMore": ""
+    },
+    {
       "id": 34,
       "number": "31",
       "date": "2023.07.27",
@@ -92,7 +139,7 @@
         "assets/posts/kanami/1788349892503-IMG_3665.jpg"
       ],
       "content": "こちらも毎年恒例のゼミ旅行\nそれぞれの地元へ行こう〜！とこの年はカワベの地元大阪へ",
-      "contentMore": "振り返ってみると、この年はみんなで夏にディズニーにも行ってた！"
+      "contentMore": "\n振り返ってみると、この年はみんなで夏にディズニーにも行ってた！"
     },
     {
       "id": 32,
