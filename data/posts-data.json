@@ -699,6 +699,28 @@
       ],
       "content": "誕生",
       "contentMore": ""
+    },
+    {
+      "id": 38,
+      "number": "32",
+      "date": "2023.03.18",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788418091073-IMG_4324.jpg"
+      ],
+      "content": "定期🍻",
+      "contentMore": ""
     }
   ]
 }
