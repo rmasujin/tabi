@@ -75,7 +75,7 @@ const SEATING_DATA = {
           "seat": 1,
           "name": "西山 清志郎",
           "kana": "ニシヤマ キヨシロウ",
-          "relation": "新郎 会社の先輩",
+          "relation": "新郎 先輩",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -85,7 +85,7 @@ const SEATING_DATA = {
           "seat": 2,
           "name": "小森 暁介",
           "kana": "コモリ キョウスケ",
-          "relation": "新郎 会社の同僚",
+          "relation": "新郎 同僚",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -95,7 +95,7 @@ const SEATING_DATA = {
           "seat": 3,
           "name": "安達 祐貴",
           "kana": "アダチ ユウキ",
-          "relation": "新郎 会社の同僚",
+          "relation": "新郎 同僚",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -105,7 +105,7 @@ const SEATING_DATA = {
           "seat": 6,
           "name": "宮本 藍",
           "kana": "ミヤモト ラン",
-          "relation": "新郎 会社の同僚",
+          "relation": "新郎 同僚",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -115,7 +115,7 @@ const SEATING_DATA = {
           "seat": 7,
           "name": "清松 雅斗",
           "kana": "キヨマツ マサト",
-          "relation": "新郎 会社の同僚",
+          "relation": "新郎 同僚",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -125,7 +125,7 @@ const SEATING_DATA = {
           "seat": 8,
           "name": "臼井 健太",
           "kana": "ウスイ ケンタ",
-          "relation": "新郎 会社の先輩",
+          "relation": "新郎 先輩",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -147,7 +147,7 @@ const SEATING_DATA = {
           "seat": 1,
           "name": "吉藤 久子",
           "kana": "ヨシフジ ヒサコ",
-          "relation": "新婦 職場の上司",
+          "relation": "新婦 上司",
           "side": "bride",
           "photo": null,
           "honorific": "様"
@@ -157,7 +157,7 @@ const SEATING_DATA = {
           "seat": 2,
           "name": "三津村 康子",
           "kana": "ミツムラ ヤスコ",
-          "relation": "新婦 職場の同僚",
+          "relation": "新婦 同僚",
           "side": "bride",
           "photo": null,
           "honorific": "様"
@@ -167,7 +167,7 @@ const SEATING_DATA = {
           "seat": 6,
           "name": "渡辺 大介",
           "kana": "ワタナベ ダイスケ",
-          "relation": "新婦 職場の同僚",
+          "relation": "新婦 同僚",
           "side": "bride",
           "photo": null,
           "honorific": "様"
@@ -177,7 +177,7 @@ const SEATING_DATA = {
           "seat": 7,
           "name": "藤原 裕樹",
           "kana": "フジワラ ユウキ",
-          "relation": "新婦 職場の同僚",
+          "relation": "新婦 同僚",
           "side": "bride",
           "photo": null,
           "honorific": "様"
@@ -187,7 +187,7 @@ const SEATING_DATA = {
           "seat": 8,
           "name": "大宝院 清孝",
           "kana": "ダイホウイン キヨタカ",
-          "relation": "新婦 職場の上司",
+          "relation": "新婦 上司",
           "side": "bride",
           "photo": null,
           "note": "主賓挨拶・乾杯挨拶",
@@ -210,7 +210,7 @@ const SEATING_DATA = {
           "seat": 1,
           "name": "松田 美穂子",
           "kana": "マツダ ミホコ",
-          "relation": "新婦 職場の同僚",
+          "relation": "新婦 同僚",
           "side": "bride",
           "photo": null,
           "honorific": "様"
@@ -220,7 +220,7 @@ const SEATING_DATA = {
           "seat": 2,
           "name": "田代 真由",
           "kana": "タシロ マユ",
-          "relation": "新婦 職場の同僚",
+          "relation": "新婦 同僚",
           "side": "bride",
           "photo": null,
           "honorific": "様"
@@ -230,7 +230,7 @@ const SEATING_DATA = {
           "seat": 6,
           "name": "高崎 蒼生",
           "kana": "タカサキ アオイ",
-          "relation": "新婦 職場の同僚",
+          "relation": "新婦 同僚",
           "side": "bride",
           "photo": null,
           "honorific": "様"
@@ -240,7 +240,7 @@ const SEATING_DATA = {
           "seat": 7,
           "name": "青木 日花",
           "kana": "アオキ ニチカ",
-          "relation": "新婦 職場の同僚",
+          "relation": "新婦 同僚",
           "side": "bride",
           "photo": null,
           "honorific": "様"
@@ -250,7 +250,7 @@ const SEATING_DATA = {
           "seat": 8,
           "name": "藤田 茉莉",
           "kana": "フジタ マリ",
-          "relation": "新婦 職場の同僚",
+          "relation": "新婦 同僚",
           "side": "bride",
           "photo": null,
           "honorific": "様"
@@ -272,7 +272,7 @@ const SEATING_DATA = {
           "seat": 1,
           "name": "瀧川 光輝",
           "kana": "タキガワ コウキ",
-          "relation": "新郎 会社の同僚",
+          "relation": "新郎 同僚",
           "side": "groom",
           "photo": null,
           "note": "受付",
@@ -283,7 +283,7 @@ const SEATING_DATA = {
           "seat": 2,
           "name": "佐藤 達哉",
           "kana": "サトウ タツヤ",
-          "relation": "新郎 会社の同僚",
+          "relation": "新郎 同僚",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -293,7 +293,7 @@ const SEATING_DATA = {
           "seat": 3,
           "name": "中村 優太",
           "kana": "ナカムラ ユウタ",
-          "relation": "新郎 会社の同僚",
+          "relation": "新郎 同僚",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -303,7 +303,7 @@ const SEATING_DATA = {
           "seat": 6,
           "name": "武藤 克弥",
           "kana": "ムトウ カツヤ",
-          "relation": "新郎 会社の同僚",
+          "relation": "新郎 同僚",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -313,7 +313,7 @@ const SEATING_DATA = {
           "seat": 7,
           "name": "丹野 遼平",
           "kana": "タンノ リョウヘイ",
-          "relation": "新郎 会社の同僚",
+          "relation": "新郎 同僚",
           "side": "groom",
           "photo": null,
           "note": "受付",
@@ -324,7 +324,7 @@ const SEATING_DATA = {
           "seat": 8,
           "name": "末藤 洸洋",
           "kana": "スエトウ コウヨウ",
-          "relation": "新郎 会社の同僚",
+          "relation": "新郎 同僚",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -376,16 +376,6 @@ const SEATING_DATA = {
           "seat": 4,
           "name": "森山 真澄",
           "kana": "モリヤマ マスミ",
-          "relation": "新婦 友人",
-          "side": "bride",
-          "photo": null,
-          "honorific": "様"
-        },
-        {
-          "id": "e5",
-          "seat": 5,
-          "name": "安永 彩実",
-          "kana": "ヤスナガ アミ",
           "relation": "新婦 友人",
           "side": "bride",
           "photo": null,
@@ -448,7 +438,7 @@ const SEATING_DATA = {
           "seat": 2,
           "name": "中島 そら",
           "kana": "ナカシマ ソラ",
-          "relation": "中島 真里恵さま お子さま",
+          "relation": "真里恵様 お子さま",
           "side": "bride",
           "photo": null,
           "honorific": "様"
@@ -771,7 +761,7 @@ const SEATING_DATA = {
           "relation": "新郎 母",
           "side": "groom",
           "photo": null,
-          "honorific": "様"
+          "honorific": null
         },
         {
           "id": "j7",
@@ -781,7 +771,7 @@ const SEATING_DATA = {
           "relation": "新郎 父",
           "side": "groom",
           "photo": null,
-          "honorific": "様"
+          "honorific": null
         },
         {
           "id": "j8",
@@ -823,7 +813,7 @@ const SEATING_DATA = {
           "relation": "新婦 父",
           "side": "bride",
           "photo": null,
-          "honorific": "様"
+          "honorific": null
         },
         {
           "id": "k3",
@@ -833,7 +823,7 @@ const SEATING_DATA = {
           "relation": "新婦 母",
           "side": "bride",
           "photo": null,
-          "honorific": "様"
+          "honorific": null
         },
         {
           "id": "k7",
