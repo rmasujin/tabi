@@ -787,6 +787,28 @@
       ],
       "content": "14:25、2682gで爆誕👶",
       "contentMore": ""
+    },
+    {
+      "id": 42,
+      "number": "36",
+      "date": "2005.07.30",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788477976389-FF28FB40-751B-488F-9D21-D3CD2A8B180F (1)-VSCO.jpg"
+      ],
+      "content": "極寒、水泳大会🏊\n6年生まで続けて、たくさん大会に出場しました",
+      "contentMore": ""
     }
   ]
 }
