@@ -75,7 +75,7 @@ const SEATING_DATA = {
           "seat": 1,
           "name": "西山 清志郎",
           "kana": "ニシヤマ キヨシロウ",
-          "relation": "新郎 先輩",
+          "relation": "新郎 会社先輩",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -125,7 +125,7 @@ const SEATING_DATA = {
           "seat": 8,
           "name": "臼井 健太",
           "kana": "ウスイ ケンタ",
-          "relation": "新郎 先輩",
+          "relation": "新郎 会社先輩",
           "side": "groom",
           "photo": null,
           "honorific": "様"
@@ -438,7 +438,7 @@ const SEATING_DATA = {
           "seat": 2,
           "name": "中島 そら",
           "kana": "ナカシマ ソラ",
-          "relation": "真里恵様 お子さま",
+          "relation": "中島 真里恵様 お子さま",
           "side": "bride",
           "photo": null,
           "honorific": "様"

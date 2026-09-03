@@ -594,7 +594,10 @@
       let seatsHTML = '';
       guests.forEach((guest, index) => {
         // Distribute evenly around the circle
-        const angle = (360 / guestCount) * index;
+        // For odd number of seats, offset by half a seat angle so no seat is at 12 o'clock
+        const angleStep = 360 / guestCount;
+        const angleOffset = guestCount % 2 === 1 ? angleStep / 2 : 0;
+        const angle = angleStep * index + angleOffset;
         const radius = 85;
         const x = 107 + radius * Math.sin(angle * Math.PI / 180);
         const y = 115 - radius * Math.cos(angle * Math.PI / 180);
