@@ -1077,6 +1077,28 @@
       ],
       "content": "沖縄旅行🌊\n退職してからも仲良くしてくれて、ありがとう😄",
       "contentMore": ""
+    },
+    {
+      "id": 55,
+      "number": "49",
+      "date": "2024.09.01",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788495927416-IMG_5626.jpg"
+      ],
+      "content": "江戸会、札幌出張編✈️",
+      "contentMore": ""
     }
   ]
 }
