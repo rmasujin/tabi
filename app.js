@@ -1085,8 +1085,74 @@
         } else if (authorType === 'riki') {
           showScreen('profileRiki');
         } else if (authorType === 'both') {
-          // For 'both', default to KANAMI profile
+          // For 'both', show profile selection modal
+          showProfileSelectModal();
+        }
+      });
+    });
+  }
+
+  // Profile Selection Modal
+  function showProfileSelectModal() {
+    const modal = document.getElementById('profile-select-modal');
+    if (modal) {
+      modal.classList.add('show');
+    }
+  }
+
+  function hideProfileSelectModal() {
+    const modal = document.getElementById('profile-select-modal');
+    if (modal) {
+      modal.classList.remove('show');
+    }
+  }
+
+  function setupProfileSelectModal() {
+    const modal = document.getElementById('profile-select-modal');
+    const overlay = modal?.querySelector('.profile-select-overlay');
+    const closeBtn = modal?.querySelector('.profile-select-close');
+    const profileBtns = modal?.querySelectorAll('.profile-select-item');
+
+    // Set avatar images and names
+    const kanamiAvatar = document.getElementById('select-avatar-kanami');
+    const rikiAvatar = document.getElementById('select-avatar-riki');
+    const kanamiName = document.getElementById('select-name-kanami');
+    const rikiName = document.getElementById('select-name-riki');
+
+    if (kanamiAvatar && profileData.kanami?.avatar) {
+      kanamiAvatar.style.backgroundImage = `url('${profileData.kanami.avatar}')`;
+    }
+    if (rikiAvatar && profileData.riki?.avatar) {
+      rikiAvatar.style.backgroundImage = `url('${profileData.riki.avatar}')`;
+    }
+
+    // Get account names from posts data
+    const kanamiPost = postsData.posts.find(p => p.author === 'kanami');
+    const rikiPost = postsData.posts.find(p => p.author === 'riki');
+
+    if (kanamiName && kanamiPost?.authorDisplay) {
+      kanamiName.textContent = kanamiPost.authorDisplay;
+    }
+    if (rikiName && rikiPost?.authorDisplay) {
+      rikiName.textContent = rikiPost.authorDisplay;
+    }
+
+    // Close on overlay click
+    overlay?.addEventListener('click', hideProfileSelectModal);
+
+    // Close on close button
+    closeBtn?.addEventListener('click', hideProfileSelectModal);
+
+    // Navigate on profile selection
+    profileBtns?.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const profile = btn.getAttribute('data-profile');
+        hideProfileSelectModal();
+
+        if (profile === 'kanami') {
           showScreen('profileKanami');
+        } else if (profile === 'riki') {
+          showScreen('profileRiki');
         }
       });
     });
@@ -1412,6 +1478,9 @@
 
     // Setup read more functionality
     setupReadMore();
+
+    // Setup profile selection modal
+    setupProfileSelectModal();
   }
 
   // Start the app

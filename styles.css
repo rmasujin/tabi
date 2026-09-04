@@ -131,6 +131,134 @@
   opacity: 0.7;
 }
 
+/* Profile Selection Modal */
+.profile-select-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9998;
+  display: none;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.profile-select-modal.show {
+  display: flex;
+}
+
+.profile-select-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.profile-select-content {
+  position: relative;
+  background: var(--color-white);
+  border-radius: 20px 20px 0 0;
+  padding: 0 0 32px;
+  width: 100%;
+  max-width: 500px;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.profile-select-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--color-divider);
+  position: relative;
+}
+
+.profile-select-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-black);
+  margin: 0;
+}
+
+.profile-select-close {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--color-gray-mid);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.profile-select-close:active {
+  background: var(--color-bg);
+  color: var(--color-black);
+}
+
+.profile-select-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-select-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--color-white);
+  border: none;
+  border-bottom: 1px solid var(--color-divider);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-align: left;
+}
+
+.profile-select-item:last-child {
+  border-bottom: none;
+}
+
+.profile-select-item:active {
+  background: var(--color-bg);
+}
+
+.profile-select-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--color-divider);
+  background-size: cover;
+  background-position: center;
+  border: 2px solid var(--color-white);
+  flex-shrink: 0;
+}
+
+.profile-select-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
 /* Dynamic content - hidden until loaded */
 .dynamic-content {
   opacity: 0;

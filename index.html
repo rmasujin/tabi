@@ -471,6 +471,32 @@
 
 </div>
 
+<!-- Profile Selection Modal -->
+<div id="profile-select-modal" class="profile-select-modal">
+  <div class="profile-select-overlay"></div>
+  <div class="profile-select-content">
+    <div class="profile-select-header">
+      <h3 class="profile-select-title">アカウント選択</h3>
+      <button class="profile-select-close" aria-label="閉じる">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="profile-select-list">
+      <button class="profile-select-item" data-profile="kanami">
+        <div class="profile-select-avatar" id="select-avatar-kanami"></div>
+        <span class="profile-select-name" id="select-name-kanami"></span>
+      </button>
+      <button class="profile-select-item" data-profile="riki">
+        <div class="profile-select-avatar" id="select-avatar-riki"></div>
+        <span class="profile-select-name" id="select-name-riki"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
 <!-- Bottom Navigation -->
 <div class="bottom-nav">
   <div class="nav-container">
