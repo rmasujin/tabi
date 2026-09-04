@@ -855,6 +855,30 @@
       ],
       "content": "スポ少の写真かな🏀\n高専に入って同じチームになるとは…",
       "contentMore": ""
+    },
+    {
+      "id": 45,
+      "number": "39",
+      "date": "",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788485595726-IMG_6136-VSCO.jpg",
+        "assets/posts/riki/1788485599907-IMG_1604-VSCO.jpg",
+        "assets/posts/riki/1788485601602-IMG_1941-VSCO.jpg"
+      ],
+      "content": "16~18歳のプリクラ記録📷\n校則が自由だったから、髪を染めたりパーマをあてたり。",
+      "contentMore": "この時、CHOKi CHOKi全盛期だったから参考にしたな～👖"
     }
   ]
 }
