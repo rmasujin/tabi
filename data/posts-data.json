@@ -832,6 +832,29 @@
       ],
       "content": "バスケ部の友達と、ゲームやスポーツをして楽しみました🌞",
       "contentMore": ""
+    },
+    {
+      "id": 44,
+      "number": "38",
+      "date": "2007.06.09",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788484571966-0DDE5748-BE2B-4672-9BDF-B5B3F08A4C9B-VSCO (1).jpg",
+        "assets/posts/riki/1788484575452-1E6D8897-6241-4DCF-B528-D0907D184FB7-VSCO (1).jpg"
+      ],
+      "content": "スポ少の写真かな🏀\n高専に入って同じチームになるとは…",
+      "contentMore": ""
     }
   ]
 }
