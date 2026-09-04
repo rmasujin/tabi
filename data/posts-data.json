@@ -1,26 +1,26 @@
 {
   "posts": [
     {
-      "id": 98,
+      "id": 99,
       "number": "87",
       "date": "2026.09.05",
-      "author": "riki",
-      "authorDisplay": "RIKI",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
         "posts"
       ],
       "displayIn": {
         "home": true,
-        "kanamiPosts": false,
+        "kanamiPosts": true,
         "rikiPosts": true,
         "kanamiFavorites": false,
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/riki/1788553108786-526843AD-D958-4634-9494-42251D0B817B.jpg"
+        "assets/posts/shared/1788553509890-6D63873F-381B-42C0-A808-BB06556760E7.jpg"
       ],
-      "content": "本日はお越しいただきありがとうございます。\n",
-      "contentMore": "皆さまと今日という日を迎えられることを\nとても嬉しく思います。\n\nお食事のメニューや席次表は、\n画面下部のメニューからご覧いただけます。\n\nたくさん食べて、飲んで、笑って、\nぜひ最後まで楽しんでいってください！\n\nお会いできることを楽しみにしています。"
+      "content": "本日は私たちの結婚式にお越しいただき\n誠にありがとうございます。",
+      "contentMore": "\n大切な皆さまと今日という日を迎えられることを\nとても嬉しく思います。\n\nお食事のメニューや席次表は、\n画面下部のメニューからご覧いただけます。\n\nたくさん食べて、飲んで、笑って、\nどうぞ最後までお楽しみください！"
     },
     {
       "id": 91,
@@ -1911,28 +1911,6 @@
       ],
       "content": "14:25、2682gで爆誕👶",
       "contentMore": ""
-    },
-    {
-      "id": 99,
-      "number": "87",
-      "date": "2026.09.05",
-      "author": "both",
-      "authorDisplay": "RIKI ＋ KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/shared/1788553509890-6D63873F-381B-42C0-A808-BB06556760E7.jpg"
-      ],
-      "content": "本日は私たちの結婚式にお越しいただき\n誠にありがとうございます。",
-      "contentMore": "\n大切な皆さまと今日という日を迎えられることを\nとても嬉しく思います。\n\nお食事のメニューや席次表は、\n画面下部のメニューからご覧いただけます。\n\nたくさん食べて、飲んで、笑って、\nどうぞ最後までお楽しみください！"
     }
   ]
 }
