@@ -1033,6 +1033,28 @@
       ],
       "content": "最終出社日🏢\n本当に仕事のやりがいを感じ、最高の仲間と働けて幸せでした！",
       "contentMore": ""
+    },
+    {
+      "id": 53,
+      "number": "47",
+      "date": "2016.04.30",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788495355442-IMG_5627.jpg"
+      ],
+      "content": "恒例行事となった江戸会🍺\nいつも行ってた、なか卯の隣のお店の名前なんだっけ…",
+      "contentMore": ""
     }
   ]
 }
