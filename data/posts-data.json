@@ -1806,6 +1806,28 @@
       ],
       "content": "オンでもオフでも、スマブラ🎮\nワリオとかも経て、最終的には村人",
       "contentMore": ""
+    },
+    {
+      "id": 89,
+      "number": "82",
+      "date": "2026.04.17",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788534006375-IMG_4863.jpg"
+      ],
+      "content": "今年は沢山お留守番、2人でしたね",
+      "contentMore": ""
     }
   ]
 }
