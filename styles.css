@@ -1094,7 +1094,7 @@ body {
   padding: 12px 16px 0;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  gap: 16px;
   border-top: 1px solid var(--color-divider);
 }
 
@@ -1102,6 +1102,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  align-items: flex-start;
 }
 
 .profile-role {
@@ -1175,7 +1176,7 @@ body {
   font-size: 13px;
   letter-spacing: 0.08em;
   color: var(--color-gray-mid);
-  width: 78px;
+  width: 100px;
   flex: none;
 }
 
