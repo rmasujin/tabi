@@ -1011,6 +1011,28 @@
       ],
       "content": "いざ、東京へ🚄",
       "contentMore": ""
+    },
+    {
+      "id": 52,
+      "number": "46",
+      "date": "2023.04.12",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788493423718-IMG_1282.jpg"
+      ],
+      "content": "最終出社日🏢\n本当に仕事のやりがいを感じ、最高の仲間と働けて幸せでした！",
+      "contentMore": ""
     }
   ]
 }
