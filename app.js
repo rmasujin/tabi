@@ -637,10 +637,9 @@
       return;
     }
 
-    // Get reference element to maintain scroll position
-    const firstArticle = postDetailContent.querySelector('article');
-    const anchorElement = firstArticle;
-    const anchorOffsetTop = anchorElement ? anchorElement.offsetTop : 0;
+    // Save current scroll position relative to the container
+    const currentScrollTop = postDetailScreen.scrollTop;
+    const currentScrollHeight = postDetailContent.scrollHeight;
 
     const LOAD_COUNT = 10; // Load 10 more posts at a time
     const newStart = Math.max(0, start - LOAD_COUNT);
@@ -648,6 +647,7 @@
 
     // Prepend new posts at the top
     const newHTML = newPosts.map((post, index) => renderPost(post, newStart + index + 1)).join('');
+    const firstArticle = postDetailContent.querySelector('article');
     if (firstArticle) {
       firstArticle.insertAdjacentHTML('beforebegin', newHTML);
     } else {
@@ -657,18 +657,21 @@
     // Update rendered range
     renderedPostIndices.start = newStart;
 
-    // Re-initialize for new posts
+    // Re-initialize for new posts BEFORE scroll adjustment
     initPostSliders();
     setupReadMore();
     setupPostAuthorClicks();
     setupImageLoadHandlers();
 
-    // Restore scroll position by maintaining anchor element position
-    if (anchorElement) {
-      const newAnchorOffsetTop = anchorElement.offsetTop;
-      const scrollAdjustment = newAnchorOffsetTop - anchorOffsetTop;
-      postDetailScreen.scrollTop += scrollAdjustment;
-    }
+    // Force layout recalculation
+    postDetailContent.offsetHeight;
+
+    // Calculate the height of added content after initialization
+    const newScrollHeight = postDetailContent.scrollHeight;
+    const addedHeight = newScrollHeight - currentScrollHeight;
+
+    // Adjust scroll position to maintain visual position
+    postDetailScreen.scrollTop = currentScrollTop + addedHeight;
 
     isLoadingMore = false;
   }
