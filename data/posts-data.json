@@ -870,6 +870,28 @@
       "contentMore": ""
     },
     {
+      "id": 6,
+      "number": "06",
+      "date": "2021.11.03",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": false,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/06-trip.jpg"
+      ],
+      "content": "はじめて二人で行った旅行。ずっと雨でした。",
+      "contentMore": ""
+    },
+    {
       "id": 29,
       "number": "26",
       "date": "2021.09.20",
@@ -1823,28 +1845,6 @@
       ],
       "content": "本日はお越しいただき\nありがとうございます",
       "contentMore": "\n大切な皆さまと\n今日という日を迎えられることを\nとても嬉しく思います\n\n短い時間ではありますが\nどうぞ最後までゆっくりとお楽しみください"
-    },
-    {
-      "id": 94,
-      "number": "86",
-      "date": "2026.09.05",
-      "author": "both",
-      "authorDisplay": "RIKI ＋ KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/shared/1788542509967-F0B1FA03-3CCE-468F-AB39-8A9A979C26F7.jpg"
-      ],
-      "content": "お食事のメニューや席次表は\n画面下部のアイコンからご覧いただけます",
-      "contentMore": "\nぜひお好きなタイミングで\nチェックしてみてください"
     },
     {
       "id": 95,
