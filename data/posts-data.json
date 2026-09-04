@@ -294,6 +294,28 @@
       "contentMore": ""
     },
     {
+      "id": 80,
+      "number": "73",
+      "date": "2024.10.26",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788529634387-IMG_2411.jpg"
+      ],
+      "content": "かなみの友達にみんなで会った日🍻",
+      "contentMore": ""
+    },
+    {
       "id": 74,
       "number": "67",
       "date": "2024.09.28",
@@ -1608,9 +1630,9 @@
       "contentMore": ""
     },
     {
-      "id": 80,
-      "number": "73",
-      "date": "2024.10.26",
+      "id": 81,
+      "number": "74",
+      "date": "2025.09.06",
       "author": "both",
       "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
@@ -1624,9 +1646,11 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/shared/1788529634387-IMG_2411.jpg"
+        "assets/posts/shared/1788529740668-22843605-6DFB-4B7A-BB9C-3612893A2B2F.jpg",
+        "assets/posts/shared/1788529742948-AEE0338C-D29A-4829-BE1F-28B3635497D2.jpg",
+        "assets/posts/shared/1788529744869-IMG_3543.jpg"
       ],
-      "content": "かなみの友達にみんなで会った日🍻",
+      "content": "プロポーズ💍",
       "contentMore": ""
     }
   ]
