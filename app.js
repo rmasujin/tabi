@@ -1126,15 +1126,12 @@
       rikiAvatar.style.backgroundImage = `url('${profileData.riki.avatar}')`;
     }
 
-    // Get account names from posts data
-    const kanamiPost = postsData.posts.find(p => p.author === 'kanami');
-    const rikiPost = postsData.posts.find(p => p.author === 'riki');
-
-    if (kanamiName && kanamiPost?.authorDisplay) {
-      kanamiName.textContent = kanamiPost.authorDisplay;
+    // Get account names from profileData
+    if (kanamiName && profileData.kanami?.accountName) {
+      kanamiName.textContent = profileData.kanami.accountName;
     }
-    if (rikiName && rikiPost?.authorDisplay) {
-      rikiName.textContent = rikiPost.authorDisplay;
+    if (rikiName && profileData.riki?.accountName) {
+      rikiName.textContent = profileData.riki.accountName;
     }
 
     // Close on overlay click
