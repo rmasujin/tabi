@@ -560,20 +560,26 @@
     const scrollHeight = postDetailScreen.scrollHeight;
     const clientHeight = postDetailScreen.clientHeight;
 
-    // Load more when 500px from bottom
     const threshold = 500;
+
+    // Load more when 500px from bottom
     if (scrollHeight - scrollTop - clientHeight < threshold) {
-      loadMorePosts();
+      loadMorePostsDown();
+    }
+
+    // Load more when 500px from top
+    if (scrollTop < threshold) {
+      loadMorePostsUp();
     }
   }
 
-  function loadMorePosts() {
+  function loadMorePostsDown() {
     if (!currentPostDetailData || isLoadingMore) return;
 
     const { posts } = currentPostDetailData;
     const { end } = renderedPostIndices;
 
-    // Check if we've already rendered all posts
+    // Check if we've already rendered all posts at the bottom
     if (end >= posts.length) return;
 
     isLoadingMore = true;
@@ -594,7 +600,7 @@
       bottomSpacer.remove();
     }
 
-    // Append new posts
+    // Append new posts at the bottom
     const newHTML = newPosts.map((post, index) => renderPost(post, end + index + 1)).join('');
     postDetailContent.insertAdjacentHTML('beforeend', newHTML);
 
@@ -609,6 +615,60 @@
     setupReadMore();
     setupPostAuthorClicks();
     setupImageLoadHandlers();
+
+    isLoadingMore = false;
+  }
+
+  function loadMorePostsUp() {
+    if (!currentPostDetailData || isLoadingMore) return;
+
+    const { posts } = currentPostDetailData;
+    const { start } = renderedPostIndices;
+
+    // Check if we've already rendered all posts at the top
+    if (start <= 0) return;
+
+    isLoadingMore = true;
+
+    const postDetailScreen = document.getElementById('screen-post-detail');
+    const postDetailContent = document.getElementById('post-detail-content');
+    if (!postDetailScreen || !postDetailContent) {
+      isLoadingMore = false;
+      return;
+    }
+
+    // Save current scroll position
+    const previousScrollHeight = postDetailContent.scrollHeight;
+    const previousScrollTop = postDetailScreen.scrollTop;
+
+    const LOAD_COUNT = 10; // Load 10 more posts at a time
+    const newStart = Math.max(0, start - LOAD_COUNT);
+    const newPosts = posts.slice(newStart, start);
+
+    // Prepend new posts at the top
+    const newHTML = newPosts.map((post, index) => renderPost(post, newStart + index + 1)).join('');
+    const firstArticle = postDetailContent.querySelector('article');
+    if (firstArticle) {
+      firstArticle.insertAdjacentHTML('beforebegin', newHTML);
+    } else {
+      postDetailContent.insertAdjacentHTML('afterbegin', newHTML);
+    }
+
+    // Update rendered range
+    renderedPostIndices.start = newStart;
+
+    // Re-initialize for new posts
+    initPostSliders();
+    setupReadMore();
+    setupPostAuthorClicks();
+    setupImageLoadHandlers();
+
+    // Restore scroll position (compensate for added content)
+    requestAnimationFrame(() => {
+      const newScrollHeight = postDetailContent.scrollHeight;
+      const addedHeight = newScrollHeight - previousScrollHeight;
+      postDetailScreen.scrollTop = previousScrollTop + addedHeight;
+    });
 
     isLoadingMore = false;
   }
