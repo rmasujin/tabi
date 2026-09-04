@@ -117,6 +117,28 @@
       "contentMore": ""
     },
     {
+      "id": 47,
+      "number": "41",
+      "date": "2024.06.29",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788492192993-IMG_4545.jpg"
+      ],
+      "content": "町中華No1：中華屋 櫂ちゃん@高円寺\n",
+      "contentMore": ""
+    },
+    {
       "id": 41,
       "number": "35",
       "date": "2023.09.16",
@@ -903,9 +925,9 @@
       "contentMore": ""
     },
     {
-      "id": 47,
-      "number": "41",
-      "date": "2024.06.29",
+      "id": 48,
+      "number": "42",
+      "date": "2024.11.02",
       "author": "riki",
       "authorDisplay": "RIKI",
       "category": [
@@ -919,9 +941,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/riki/1788492192993-IMG_4545.jpg"
+        "assets/posts/riki/1788492298033-IMG_4409.jpg"
       ],
-      "content": "町中華No1：中華屋 櫂ちゃん@高円寺\n",
+      "content": "吉祥寺に住んでからの大好きなお散歩コース🐶",
       "contentMore": ""
     }
   ]
