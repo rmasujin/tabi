@@ -1055,6 +1055,28 @@
       ],
       "content": "恒例行事となった江戸会🍺\nいつも行ってた、なか卯の隣のお店の名前なんだっけ…",
       "contentMore": ""
+    },
+    {
+      "id": 54,
+      "number": "48",
+      "date": "2024.07.09",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788495508175-IMG_5629.jpg"
+      ],
+      "content": "沖縄旅行🌊\n退職してからも仲良くしてくれて、ありがとう😄",
+      "contentMore": ""
     }
   ]
 }
