@@ -810,6 +810,28 @@
       ],
       "content": "極寒、水泳大会🏊\n6年生まで続けて、たくさん大会に出場しました",
       "contentMore": ""
+    },
+    {
+      "id": 43,
+      "number": "37",
+      "date": "2007.11.04",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788484406750-B1533C86-D418-452A-8F9C-4456EA78FC55-VSCO (1).jpg"
+      ],
+      "content": "バスケ部の友達と、ゲームやスポーツをして楽しみました🌞",
+      "contentMore": ""
     }
   ]
 }
