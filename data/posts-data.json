@@ -1143,6 +1143,28 @@
       ],
       "content": "誕生日祝ってくれてありがとう🍰",
       "contentMore": ""
+    },
+    {
+      "id": 58,
+      "number": "52",
+      "date": "2023.03.31",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788497334500-IMG_5638.jpg"
+      ],
+      "content": "退職直前、ほぼ毎日一緒に飲んでくれてありがとう😇",
+      "contentMore": ""
     }
   ]
 }
