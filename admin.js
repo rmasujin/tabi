@@ -686,7 +686,7 @@
 
     // 既存の画像をプレビュー表示
     selectedFiles = post.images.map(imagePath => ({
-      preview: imagePath,
+      preview: imagePath.startsWith('/') ? imagePath : '/' + imagePath,
       file: null, // 既存画像の場合はfileオブジェクトなし
       isExisting: true,
       path: imagePath
