@@ -1185,6 +1185,28 @@
       ],
       "content": "プロジェクト計画は立てられるが、旅行計画は立てられず…\nサイコロ切符で行った和歌山🍊",
       "contentMore": ""
+    },
+    {
+      "id": 61,
+      "number": "54",
+      "date": "2011.04.01",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788498299094-5.jpg"
+      ],
+      "content": "プリクラ記録（16歳）📷",
+      "contentMore": ""
     }
   ]
 }
