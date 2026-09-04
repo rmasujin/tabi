@@ -183,6 +183,29 @@
       "contentMore": ""
     },
     {
+      "id": 75,
+      "number": "68",
+      "date": "2025.04.19",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788528987128-IMG_3060.jpg",
+        "assets/posts/shared/1788528989577-861DFCFA-1DB8-4222-A14C-E70E6DD77064.jpg"
+      ],
+      "content": "二人でお揃いしたTANG TANGのTシャツ🌞",
+      "contentMore": ""
+    },
+    {
       "id": 48,
       "number": "42",
       "date": "2024.11.02",
@@ -1497,9 +1520,9 @@
       "contentMore": ""
     },
     {
-      "id": 75,
-      "number": "68",
-      "date": "2025.04.19",
+      "id": 76,
+      "number": "69",
+      "date": "2025.11.03",
       "author": "both",
       "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
@@ -1513,10 +1536,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/shared/1788528987128-IMG_3060.jpg",
-        "assets/posts/shared/1788528989577-861DFCFA-1DB8-4222-A14C-E70E6DD77064.jpg"
+        "assets/posts/shared/1788529105583-IMG_4281.jpg"
       ],
-      "content": "二人でお揃いしたTANG TANGのTシャツ🌞",
+      "content": "定期的にご飯食べに行く、高円寺🍚",
       "contentMore": ""
     }
   ]
