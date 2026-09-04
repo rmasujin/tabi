@@ -318,6 +318,28 @@
       "contentMore": ""
     },
     {
+      "id": 84,
+      "number": "77",
+      "date": "2024.12.28",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788533247980-IMG_5659.jpg"
+      ],
+      "content": "2人のプリクラ📷",
+      "contentMore": ""
+    },
+    {
       "id": 77,
       "number": "70",
       "date": "2024.12.10",
@@ -1698,9 +1720,9 @@
       "contentMore": ""
     },
     {
-      "id": 84,
-      "number": "77",
-      "date": "2024.12.28",
+      "id": 85,
+      "number": "78",
+      "date": "2025.03.30",
       "author": "both",
       "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
@@ -1714,9 +1736,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/shared/1788533247980-IMG_5659.jpg"
+        "assets/posts/shared/1788533323830-IMG_5660.jpg"
       ],
-      "content": "2人のプリクラ📷",
+      "content": "かなみ、初めての青森旅行🍎\n青森屋のプロジェクションマッピング楽しかった",
       "contentMore": ""
     }
   ]
