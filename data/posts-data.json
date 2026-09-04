@@ -26,6 +26,28 @@
       "contentMore": "二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。"
     },
     {
+      "id": 91,
+      "number": "84",
+      "date": "2026.09.01",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788534519982-62616B09-C595-4DC0-BBBC-82A0CFB5FBDC.jpg"
+      ],
+      "content": "お互い使っている、LE LABO香水。\nりきがGAIAC🌲かなみがROSE🌹",
+      "contentMore": ""
+    },
+    {
       "id": 87,
       "number": "80",
       "date": "2026.08.22",
@@ -204,6 +226,28 @@
       "contentMore": ""
     },
     {
+      "id": 89,
+      "number": "82",
+      "date": "2026.04.17",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788534006375-IMG_4863.jpg"
+      ],
+      "content": "今年は沢山お留守番、2人でしたね",
+      "contentMore": ""
+    },
+    {
       "id": 37,
       "number": "32",
       "date": "2025.12.14",
@@ -290,6 +334,28 @@
         "assets/posts/shared/1788529105583-IMG_4281.jpg"
       ],
       "content": "定期的にご飯食べに行く、高円寺🍚",
+      "contentMore": ""
+    },
+    {
+      "id": 90,
+      "number": "83",
+      "date": "2025.10.18",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788534272709-IMG_4225.jpg"
+      ],
+      "content": "テントサウナ＋川、トトノッタ🧖‍♂️",
       "contentMore": ""
     },
     {
@@ -581,6 +647,28 @@
         "assets/posts/riki/1788492192993-IMG_4545.jpg"
       ],
       "content": "町中華No1🥟：中華屋 櫂ちゃん@高円寺",
+      "contentMore": ""
+    },
+    {
+      "id": 92,
+      "number": "85",
+      "date": "2024.06.27",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788534752549-E367B41A-BCE1-44BA-B747-2DEF67CFB6F5.jpg"
+      ],
+      "content": "付き合った記念日、偶然同じ財布を持っていた",
       "contentMore": ""
     },
     {
@@ -919,28 +1007,6 @@
       "contentMore": ""
     },
     {
-      "id": 6,
-      "number": "06",
-      "date": "2021.11.03",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": false,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/06-trip.jpg"
-      ],
-      "content": "はじめて二人で行った旅行。ずっと雨でした。",
-      "contentMore": ""
-    },
-    {
       "id": 29,
       "number": "26",
       "date": "2021.09.20",
@@ -1253,6 +1319,28 @@
         "assets/posts/kanami/1788267366068-IMG_2283.jpg"
       ],
       "content": "成人式📷",
+      "contentMore": ""
+    },
+    {
+      "id": 88,
+      "number": "81",
+      "date": "2017.12.31",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788533899413-IMG_5649.jpg"
+      ],
+      "content": "オンでもオフでも、スマブラ🎮\nワリオとかも経て、最終的には村人",
       "contentMore": ""
     },
     {
@@ -1783,116 +1871,6 @@
         "assets/posts/riki/1787904369775-26933063-E2D0-46A0-BA26-9958526E11CE-VSCO.jpg"
       ],
       "content": "14:25、2682gで爆誕👶",
-      "contentMore": ""
-    },
-    {
-      "id": 88,
-      "number": "81",
-      "date": "2017.12.31",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788533899413-IMG_5649.jpg"
-      ],
-      "content": "オンでもオフでも、スマブラ🎮\nワリオとかも経て、最終的には村人",
-      "contentMore": ""
-    },
-    {
-      "id": 89,
-      "number": "82",
-      "date": "2026.04.17",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788534006375-IMG_4863.jpg"
-      ],
-      "content": "今年は沢山お留守番、2人でしたね",
-      "contentMore": ""
-    },
-    {
-      "id": 90,
-      "number": "83",
-      "date": "2025.10.18",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788534272709-IMG_4225.jpg"
-      ],
-      "content": "テントサウナ＋川、トトノッタ🧖‍♂️",
-      "contentMore": ""
-    },
-    {
-      "id": 91,
-      "number": "84",
-      "date": "2026.09.01",
-      "author": "both",
-      "authorDisplay": "RIKI ＋ KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/shared/1788534519982-62616B09-C595-4DC0-BBBC-82A0CFB5FBDC.jpg"
-      ],
-      "content": "お互い使っている、LE LABO香水。\nりきがGAIAC🌲かなみがROSE🌹",
-      "contentMore": ""
-    },
-    {
-      "id": 92,
-      "number": "85",
-      "date": "2024.06.27",
-      "author": "both",
-      "authorDisplay": "RIKI ＋ KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/shared/1788534752549-E367B41A-BCE1-44BA-B747-2DEF67CFB6F5.jpg"
-      ],
-      "content": "付き合った記念日、偶然同じ財布を持っていた",
       "contentMore": ""
     }
   ]
