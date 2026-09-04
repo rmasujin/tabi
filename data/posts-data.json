@@ -1207,6 +1207,28 @@
       ],
       "content": "プリクラ記録（16歳）📷",
       "contentMore": ""
+    },
+    {
+      "id": 62,
+      "number": "55",
+      "date": "2012.04.01",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788498354582-4.jpg"
+      ],
+      "content": "プリクラ記録（17歳）📷",
+      "contentMore": ""
     }
   ]
 }
