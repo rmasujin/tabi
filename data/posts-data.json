@@ -1828,6 +1828,28 @@
       ],
       "content": "今年は沢山お留守番、2人でしたね",
       "contentMore": ""
+    },
+    {
+      "id": 90,
+      "number": "83",
+      "date": "2025.10.18",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788534272709-IMG_4225.jpg"
+      ],
+      "content": "テントサウナ＋川、トトノッタ🧖‍♂️",
+      "contentMore": ""
     }
   ]
 }
