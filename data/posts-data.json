@@ -1341,6 +1341,28 @@
       "contentMore": ""
     },
     {
+      "id": 69,
+      "number": "62",
+      "date": "1997.07.26",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788526187675-写真を復元 2026-08-06 12.27_1.jpg"
+      ],
+      "content": "ニューボーン🌕\nキャア(//∇//)",
+      "contentMore": ""
+    },
+    {
       "id": 8,
       "number": "06",
       "date": "1995.12.10",
@@ -1363,9 +1385,9 @@
       "contentMore": ""
     },
     {
-      "id": 69,
-      "number": "62",
-      "date": "1997.07.26",
+      "id": 70,
+      "number": "63",
+      "date": "2026.07.10",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -1379,9 +1401,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788526187675-写真を復元 2026-08-06 12.27_1.jpg"
+        "assets/posts/kanami/1788526343494-IMG_7272.jpg"
       ],
-      "content": "ニューボーン🌕\nキャア(//∇//)",
+      "content": "いつもの華金🌸🍺\nこのあとバズを抱えた松田さんと合流笑",
       "contentMore": ""
     }
   ]
