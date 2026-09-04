@@ -282,7 +282,12 @@
 
   // プレビュー表示
   function renderPreview() {
+    console.log('renderPreview called, selectedFiles.length =', selectedFiles.length);
     const container = document.getElementById('previewImages');
+    if (!container) {
+      console.error('previewImages container not found!');
+      return;
+    }
     container.innerHTML = '';
 
     selectedFiles.forEach((item, index) => {
@@ -686,7 +691,9 @@
       isExisting: true,
       path: imagePath
     }));
+    console.log('編集モード: selectedFiles =', selectedFiles);
     renderPreview();
+    console.log('renderPreview完了');
 
     // ボタンテキストを変更
     document.getElementById('createPostBtn').textContent = '投稿を更新';
