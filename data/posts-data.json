@@ -340,6 +340,28 @@
       "contentMore": ""
     },
     {
+      "id": 79,
+      "number": "72",
+      "date": "2024.07.27",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788529529205-C27D8CE9-BA6F-41B8-8A88-A8BA65DCA035.jpg"
+      ],
+      "content": "立川の花火大会、二人で浴衣で楽しんだ🎆",
+      "contentMore": ""
+    },
+    {
       "id": 54,
       "number": "48",
       "date": "2024.07.09",
@@ -1586,9 +1608,9 @@
       "contentMore": ""
     },
     {
-      "id": 79,
-      "number": "72",
-      "date": "2024.07.27",
+      "id": 80,
+      "number": "73",
+      "date": "2024.10.26",
       "author": "both",
       "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
@@ -1602,9 +1624,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/shared/1788529529205-C27D8CE9-BA6F-41B8-8A88-A8BA65DCA035.jpg"
+        "assets/posts/shared/1788529634387-IMG_2411.jpg"
       ],
-      "content": "立川の花火大会、二人で浴衣で楽しんだ🎆",
+      "content": "かなみの友達にみんなで会った日🍻",
       "contentMore": ""
     }
   ]
