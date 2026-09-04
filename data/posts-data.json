@@ -227,6 +227,30 @@
       "contentMore": ""
     },
     {
+      "id": 81,
+      "number": "74",
+      "date": "2025.09.06",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788529740668-22843605-6DFB-4B7A-BB9C-3612893A2B2F.jpg",
+        "assets/posts/shared/1788529742948-AEE0338C-D29A-4829-BE1F-28B3635497D2.jpg",
+        "assets/posts/shared/1788529744869-IMG_3543.jpg"
+      ],
+      "content": "プロポーズ💍",
+      "contentMore": ""
+    },
+    {
       "id": 75,
       "number": "68",
       "date": "2025.04.19",
@@ -1630,9 +1654,9 @@
       "contentMore": ""
     },
     {
-      "id": 81,
-      "number": "74",
-      "date": "2025.09.06",
+      "id": 82,
+      "number": "75",
+      "date": "2026.04.25",
       "author": "both",
       "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
@@ -1646,11 +1670,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/shared/1788529740668-22843605-6DFB-4B7A-BB9C-3612893A2B2F.jpg",
-        "assets/posts/shared/1788529742948-AEE0338C-D29A-4829-BE1F-28B3635497D2.jpg",
-        "assets/posts/shared/1788529744869-IMG_3543.jpg"
+        "assets/posts/shared/1788529809939-IMG_4942.jpg"
       ],
-      "content": "プロポーズ💍",
+      "content": "お互い好きだった、東方神起のLIVEへ参戦🎤",
       "contentMore": ""
     }
   ]
