@@ -1872,6 +1872,28 @@
       ],
       "content": "お互い使っている、LE LABO香水。\nりきがGAIAC🌲かなみがROSE🌹",
       "contentMore": ""
+    },
+    {
+      "id": 92,
+      "number": "85",
+      "date": "2024.06.27",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788534752549-E367B41A-BCE1-44BA-B747-2DEF67CFB6F5.jpg"
+      ],
+      "content": "付き合った記念日、偶然同じ財布を持っていた",
+      "contentMore": ""
     }
   ]
 }
