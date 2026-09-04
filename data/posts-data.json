@@ -48,6 +48,28 @@
       "contentMore": ""
     },
     {
+      "id": 46,
+      "number": "40",
+      "date": "2026.06.20",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788491977400-IMG_5095.jpg"
+      ],
+      "content": "家系ラーメンNo1：麺家 龍@荻窪",
+      "contentMore": ""
+    },
+    {
       "id": 36,
       "number": "31",
       "date": "2026.05.10",
@@ -881,9 +903,9 @@
       "contentMore": ""
     },
     {
-      "id": 46,
-      "number": "40",
-      "date": "2026.06.20",
+      "id": 47,
+      "number": "41",
+      "date": "2024.06.29",
       "author": "riki",
       "authorDisplay": "RIKI",
       "category": [
@@ -897,9 +919,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/riki/1788491977400-IMG_5095.jpg"
+        "assets/posts/riki/1788492192993-IMG_4545.jpg"
       ],
-      "content": "家系ラーメンNo1：麺家 龍@荻窪",
+      "content": "町中華No1：中華屋 櫂ちゃん@高円寺\n",
       "contentMore": ""
     }
   ]
