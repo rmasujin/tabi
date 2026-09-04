@@ -205,6 +205,30 @@
       "contentMore": ""
     },
     {
+      "id": 74,
+      "number": "67",
+      "date": "2024.09.28",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788528826076-IMG_8887.jpg",
+        "assets/posts/shared/1788528828671-IMG_8907.jpg",
+        "assets/posts/shared/1788528830910-D5003652-C4F8-4689-9DC8-CBCD6A2DC0E4.jpg"
+      ],
+      "content": "千葉にドライブして、ガラス細工した！",
+      "contentMore": ""
+    },
+    {
       "id": 55,
       "number": "49",
       "date": "2024.09.01",
@@ -1473,9 +1497,9 @@
       "contentMore": ""
     },
     {
-      "id": 74,
-      "number": "67",
-      "date": "2024.09.28",
+      "id": 75,
+      "number": "68",
+      "date": "2025.04.19",
       "author": "both",
       "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
@@ -1489,11 +1513,10 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/shared/1788528826076-IMG_8887.jpg",
-        "assets/posts/shared/1788528828671-IMG_8907.jpg",
-        "assets/posts/shared/1788528830910-D5003652-C4F8-4689-9DC8-CBCD6A2DC0E4.jpg"
+        "assets/posts/shared/1788528987128-IMG_3060.jpg",
+        "assets/posts/shared/1788528989577-861DFCFA-1DB8-4222-A14C-E70E6DD77064.jpg"
       ],
-      "content": "千葉にドライブして、ガラス細工した！",
+      "content": "二人でお揃いしたTANG TANGのTシャツ🌞",
       "contentMore": ""
     }
   ]
