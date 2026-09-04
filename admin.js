@@ -386,22 +386,40 @@
       // 1. 画像処理
       if (isEditMode) {
         const existingPost = postsData.posts.find(p => p.id === editingPostId);
-        if (selectedFiles.length > 0) {
-          // 新しい画像が選択されている場合、古い画像を削除して新しい画像をアップロード
-          for (const imagePath of existingPost.images) {
-            await deleteFromGitHub(imagePath);
-          }
-          for (const item of selectedFiles) {
-            const timestamp = Date.now();
-            const filename = `${timestamp}-${item.file.name}`;
-            const path = `assets/posts/${folder}/${filename}`;
-            await uploadToGitHub(item.file, path);
-            uploadedImages.push(path);
-          }
-        } else {
-          // 画像が選択されていない場合は既存の画像を維持
-          uploadedImages = existingPost.images;
+
+        // 既存の画像と新規画像を分離
+        const existingImages = selectedFiles.filter(item => item.isExisting);
+        const newImages = selectedFiles.filter(item => !item.isExisting);
+
+        // 削除された既存画像を検出
+        const currentPaths = existingImages.map(item => item.path);
+        const deletedImages = existingPost.images.filter(path => !currentPaths.includes(path));
+
+        // 削除された画像をGitHubから削除
+        for (const imagePath of deletedImages) {
+          await deleteFromGitHub(imagePath);
         }
+
+        // 新規画像をアップロード
+        const newUploadedImages = [];
+        for (const item of newImages) {
+          const timestamp = Date.now();
+          const filename = `${timestamp}-${item.file.name}`;
+          const path = `assets/posts/${folder}/${filename}`;
+          await uploadToGitHub(item.file, path);
+          newUploadedImages.push(path);
+        }
+
+        // 並び替えられた順序で画像パスを構築
+        uploadedImages = selectedFiles.map(item => {
+          if (item.isExisting) {
+            return item.path;
+          } else {
+            // 新規画像は対応するアップロード済みパスを見つける
+            const index = newImages.indexOf(item);
+            return newUploadedImages[index];
+          }
+        });
       } else {
         // 新規作成の場合は画像をアップロード
         for (const item of selectedFiles) {
@@ -661,8 +679,13 @@
     const fullContent = post.contentMore ? `${post.content}\n${post.contentMore}` : post.content;
     document.getElementById('postContent').value = fullContent;
 
-    // 既存の画像を表示（編集時は既存画像の削除は非対応）
-    selectedFiles = [];
+    // 既存の画像をプレビュー表示
+    selectedFiles = post.images.map(imagePath => ({
+      preview: imagePath,
+      file: null, // 既存画像の場合はfileオブジェクトなし
+      isExisting: true,
+      path: imagePath
+    }));
     renderPreview();
 
     // ボタンテキストを変更
@@ -671,7 +694,7 @@
     // フォームの上部にスクロール
     document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
 
-    showStatus('編集モード：既存の投稿データを読み込みました。画像は再度選択してください。', 'success');
+    showStatus('編集モード：既存の投稿データを読み込みました。画像をドラッグ&ドロップで並び替えできます。', 'success');
   }
 
   // 投稿を削除
