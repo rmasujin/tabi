@@ -183,6 +183,28 @@
       "contentMore": ""
     },
     {
+      "id": 76,
+      "number": "69",
+      "date": "2025.11.03",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788529105583-IMG_4281.jpg"
+      ],
+      "content": "定期的にご飯食べに行く、高円寺🍚",
+      "contentMore": ""
+    },
+    {
       "id": 75,
       "number": "68",
       "date": "2025.04.19",
@@ -1520,9 +1542,9 @@
       "contentMore": ""
     },
     {
-      "id": 76,
-      "number": "69",
-      "date": "2025.11.03",
+      "id": 77,
+      "number": "70",
+      "date": "2024.12.10",
       "author": "both",
       "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
@@ -1536,9 +1558,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/shared/1788529105583-IMG_4281.jpg"
+        "assets/posts/shared/1788529247118-IMG_2594.jpg"
       ],
-      "content": "定期的にご飯食べに行く、高円寺🍚",
+      "content": "りきの28歳の誕生日は西荻で和食コース🥢",
       "contentMore": ""
     }
   ]
