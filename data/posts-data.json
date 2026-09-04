@@ -591,6 +591,30 @@
       "contentMore": ""
     },
     {
+      "id": 45,
+      "number": "39",
+      "date": "2013.04.01",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788486178265-3.jpg",
+        "assets/posts/riki/1788486180086-4.jpg",
+        "assets/posts/riki/1788486182128-5.jpg"
+      ],
+      "content": "16~18歳のプリクラ記録📷\n校則が自由だったから、髪を染めたりパーマをかけたり。",
+      "contentMore": "この時、CHOKi CHOKi全盛期だったから参考にしたな～👖"
+    },
+    {
       "id": 43,
       "number": "37",
       "date": "2007.11.04",
@@ -857,9 +881,9 @@
       "contentMore": ""
     },
     {
-      "id": 45,
-      "number": "39",
-      "date": "2013.04.01",
+      "id": 46,
+      "number": "40",
+      "date": "2026.06.20",
       "author": "riki",
       "authorDisplay": "RIKI",
       "category": [
@@ -873,12 +897,10 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/riki/1788486178265-3.jpg",
-        "assets/posts/riki/1788486180086-4.jpg",
-        "assets/posts/riki/1788486182128-5.jpg"
+        "assets/posts/riki/1788491977400-IMG_5095.jpg"
       ],
-      "content": "16~18歳のプリクラ記録📷\n校則が自由だったから、髪を染めたりパーマをかけたり。",
-      "contentMore": "この時、CHOKi CHOKi全盛期だったから参考にしたな～👖"
+      "content": "家系ラーメンNo1：麺家 龍@荻窪",
+      "contentMore": ""
     }
   ]
 }
