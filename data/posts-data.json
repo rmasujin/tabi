@@ -228,6 +228,28 @@
       "contentMore": ""
     },
     {
+      "id": 77,
+      "number": "70",
+      "date": "2024.12.10",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788529247118-IMG_2594.jpg"
+      ],
+      "content": "りきの28歳の誕生日は西荻で和食コース🥢",
+      "contentMore": ""
+    },
+    {
       "id": 48,
       "number": "42",
       "date": "2024.11.02",
@@ -1542,9 +1564,9 @@
       "contentMore": ""
     },
     {
-      "id": 77,
-      "number": "70",
-      "date": "2024.12.10",
+      "id": 78,
+      "number": "71",
+      "date": "2025.11.08",
       "author": "both",
       "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
@@ -1558,9 +1580,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/shared/1788529247118-IMG_2594.jpg"
+        "assets/posts/shared/1788529432422-IMG_4332.jpg"
       ],
-      "content": "りきの28歳の誕生日は西荻で和食コース🥢",
+      "content": "2人で行った2回目のディズニー🎈",
       "contentMore": ""
     }
   ]
