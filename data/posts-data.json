@@ -1891,6 +1891,28 @@
       ],
       "content": "お食事のメニューや席次表は\n画面下部のアイコンからご覧いただけます",
       "contentMore": "\nぜひお好きなタイミングで\nチェックしてみてください"
+    },
+    {
+      "id": 95,
+      "number": "86",
+      "date": "2025.08.11",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788543521412-IMG_3441.jpg"
+      ],
+      "content": "みんなで山梨へ🚙",
+      "contentMore": ""
     }
   ]
 }
