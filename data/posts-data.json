@@ -1187,6 +1187,28 @@
       ],
       "content": "八戸高専登山部発足🧗‍♀️",
       "contentMore": ""
+    },
+    {
+      "id": 60,
+      "number": "54",
+      "date": "2021.09.04",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788498021252-IMG_5640.jpg"
+      ],
+      "content": "プロジェクト計画は立てられるが、旅行計画は立てられず…\nサイコロ切符で行った和歌山🍊",
+      "contentMore": ""
     }
   ]
 }
