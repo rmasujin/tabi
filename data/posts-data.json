@@ -1341,6 +1341,28 @@
       "contentMore": ""
     },
     {
+      "id": 72,
+      "number": "65",
+      "date": "1998.09.17",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788526502403-写真を復元 2026-07-18 12.22_3.jpg"
+      ],
+      "content": "家族写真。めっちゃお父さん似",
+      "contentMore": ""
+    },
+    {
       "id": 11,
       "number": "08",
       "date": "1997.08.02",
@@ -1429,9 +1451,9 @@
       "contentMore": ""
     },
     {
-      "id": 72,
-      "number": "65",
-      "date": "1998.09.17",
+      "id": 73,
+      "number": "66",
+      "date": "2026.05.04",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -1445,9 +1467,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788526502403-写真を復元 2026-07-18 12.22_3.jpg"
+        "assets/posts/kanami/1788526582313-D2EF6188-1BB9-4353-9C02-A72E1DF2B359.jpg"
       ],
-      "content": "家族写真。めっちゃお父さん似",
+      "content": "いつまでもサイゼが好き🍷🍕\nメインディッシュはもちろん間違い探し。トライアルの終わりによくみんなともやったなぁ。",
       "contentMore": ""
     }
   ]
