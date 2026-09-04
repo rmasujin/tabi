@@ -26,28 +26,6 @@
       "contentMore": "二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。"
     },
     {
-      "id": 83,
-      "number": "76",
-      "date": "2025.09.05",
-      "author": "both",
-      "authorDisplay": "RIKI ＋ KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/shared/1788529928132-69C585BA-1507-4F50-8D54-EA88DC6EFA80.jpg"
-      ],
-      "content": "プロポーズ前に行ったフレンチ料理、TROIS VISAGES🥂🍽️",
-      "contentMore": ""
-    },
-    {
       "id": 35,
       "number": "30",
       "date": "2026.07.28",
@@ -292,6 +270,28 @@
         "assets/posts/shared/1788529744869-IMG_3543.jpg"
       ],
       "content": "プロポーズ💍",
+      "contentMore": ""
+    },
+    {
+      "id": 83,
+      "number": "76",
+      "date": "2025.09.05",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788529928132-69C585BA-1507-4F50-8D54-EA88DC6EFA80.jpg"
+      ],
+      "content": "プロポーズ前に行ったフレンチ料理、TROIS VISAGES🥂🍽️",
       "contentMore": ""
     },
     {
@@ -1695,6 +1695,28 @@
         "assets/posts/riki/1787904369775-26933063-E2D0-46A0-BA26-9958526E11CE-VSCO.jpg"
       ],
       "content": "14:25、2682gで爆誕👶",
+      "contentMore": ""
+    },
+    {
+      "id": 84,
+      "number": "77",
+      "date": "2024.12.28",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788533247980-IMG_5659.jpg"
+      ],
+      "content": "2人のプリクラ📷",
       "contentMore": ""
     }
   ]
