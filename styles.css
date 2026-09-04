@@ -1,5 +1,136 @@
 /* Wedding Site - Styles */
 
+/* Password Overlay */
+.password-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-paper);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.password-overlay.show {
+  display: flex;
+}
+
+.password-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.password-container {
+  text-align: center;
+  padding: 32px;
+  max-width: 360px;
+  width: 100%;
+}
+
+.password-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 24px;
+  display: block;
+}
+
+.password-subtitle {
+  font-size: 14px;
+  color: var(--color-gray-mid);
+  margin-bottom: 32px;
+  letter-spacing: 0.01em;
+}
+
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.password-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-input {
+  width: 100%;
+  padding: 16px 48px;
+  font-size: 16px;
+  font-family: var(--font-mono);
+  border: 1.5px solid var(--color-divider);
+  border-radius: 8px;
+  background: var(--color-white);
+  color: var(--color-black);
+  text-align: center;
+  letter-spacing: 0.3em;
+  transition: border-color 0.2s ease;
+}
+
+.password-input:focus {
+  outline: none;
+  border-color: var(--color-lime);
+}
+
+.password-input::placeholder {
+  letter-spacing: normal;
+  color: var(--color-gray-light);
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray-mid);
+  transition: color 0.2s ease;
+}
+
+.toggle-password:hover {
+  color: var(--color-black);
+}
+
+.toggle-password:focus {
+  outline: none;
+}
+
+.password-error {
+  font-size: 13px;
+  color: #E74C3C;
+  min-height: 18px;
+  margin: 0;
+}
+
+.password-submit {
+  width: 100%;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font-sans);
+  background: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  letter-spacing: 0.05em;
+}
+
+.password-submit:active {
+  opacity: 0.7;
+}
+
 /* Dynamic content - hidden until loaded */
 .dynamic-content {
   opacity: 0;
@@ -316,7 +447,7 @@ body {
 .author-avatars {
   position: relative;
   width: 54px;
-  height: 36px;
+  height: 34px;
   flex-shrink: 0;
 }
 
@@ -332,14 +463,14 @@ body {
   background-repeat: no-repeat;
 }
 
-.avatar-placeholder:not(.offset) {
+.avatar-placeholder:not(.offset):not(.single) {
   left: 0;
-  top: 0;
+  top: -4px;
 }
 
 .avatar-placeholder.offset {
   left: 14px;
-  top: 8px;
+  top: 4px;
 }
 
 .avatar-placeholder.single {
@@ -353,6 +484,11 @@ body {
   cursor: pointer;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+/* RIKI+KANAMIの場合（offsetクラスを持つアバターがある場合）余白を追加 */
+.avatar-placeholder.offset ~ .author-names {
+  margin-left: 56px;
 }
 
 .post-meta {

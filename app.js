@@ -3,6 +3,10 @@
 (function() {
   'use strict';
 
+  // Password Authentication
+  const CORRECT_PASSWORD = '0905';
+  const AUTH_KEY = 'wedding_authenticated';
+
   // State
   let currentScreen = 'home';
   let currentSeatsView = 'map';
@@ -1233,12 +1237,145 @@
     setupProfileGrids();
   }
 
+  // Password Authentication Functions
+  function checkAuthentication() {
+    return localStorage.getItem(AUTH_KEY) === 'true';
+  }
+
+  function setAuthenticated() {
+    localStorage.setItem(AUTH_KEY, 'true');
+  }
+
+  async function preloadInitialImages() {
+    // Preload avatar images
+    const avatarImages = [
+      '/assets/kanami-avatar.jpg',
+      '/assets/riki-avatar.jpg'
+    ];
+
+    // Preload first 5 posts from HOME
+    const homePostImages = [];
+    if (postsData && postsData.posts) {
+      const homePosts = postsData.posts
+        .filter(post => !post.profile || post.profile === 'both')
+        .slice(0, 5);
+
+      homePosts.forEach(post => {
+        if (post.images && post.images.length > 0) {
+          post.images.forEach(imagePath => {
+            homePostImages.push(imagePath);
+          });
+        }
+      });
+    }
+
+    // Combine all images to preload
+    const allImages = [...avatarImages, ...homePostImages];
+
+    // Create promises for all images
+    const imagePromises = allImages.map(src => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(src);
+        img.onerror = () => resolve(src); // Resolve even on error to not block
+        img.src = src;
+      });
+    });
+
+    // Wait for all images to load (or fail)
+    await Promise.all(imagePromises);
+  }
+
+  function setupPasswordOverlay() {
+    const overlay = document.getElementById('password-overlay');
+    const form = document.getElementById('password-form');
+    const input = document.getElementById('password-input');
+    const errorMsg = document.getElementById('password-error');
+    const toggleBtn = document.getElementById('toggle-password');
+    const eyeIcon = toggleBtn?.querySelector('.eye-icon');
+    const eyeOffIcon = toggleBtn?.querySelector('.eye-off-icon');
+
+    if (!overlay || !form || !input || !errorMsg) return;
+
+    // Start preloading images as soon as overlay is shown
+    preloadInitialImages();
+
+    // Restrict input to numbers only
+    input.addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/[^0-9]/g, '');
+    });
+
+    // Toggle password visibility
+    if (toggleBtn && eyeIcon && eyeOffIcon) {
+      toggleBtn.addEventListener('click', () => {
+        const isPassword = input.type === 'password';
+        input.type = isPassword ? 'text' : 'password';
+
+        if (isPassword) {
+          eyeIcon.style.display = 'none';
+          eyeOffIcon.style.display = 'block';
+          toggleBtn.setAttribute('aria-label', 'パスワードを非表示');
+        } else {
+          eyeIcon.style.display = 'block';
+          eyeOffIcon.style.display = 'none';
+          toggleBtn.setAttribute('aria-label', 'パスワードを表示');
+        }
+      });
+    }
+
+    // Handle form submission
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const password = input.value.trim();
+
+      if (password === CORRECT_PASSWORD) {
+        // Clear error
+        errorMsg.textContent = '';
+
+        // Wait for images to finish preloading
+        await preloadInitialImages();
+
+        // Set authentication
+        setAuthenticated();
+
+        // Hide overlay with fade out
+        overlay.classList.add('hidden');
+
+        // Remove from DOM after animation
+        setTimeout(() => {
+          overlay.classList.remove('show');
+        }, 400);
+
+        // Clear input
+        input.value = '';
+      } else {
+        // Show error
+        errorMsg.textContent = 'パスワードが正しくありません';
+        input.value = '';
+        input.focus();
+      }
+    });
+  }
+
   // Initialize from URL hash
   async function init() {
     // Load all data first
     await loadPostsData();
     await loadProfileData();
     await loadSeatingData();
+
+    // Check authentication and show/hide password overlay
+    const isAuthenticated = checkAuthentication();
+    const overlay = document.getElementById('password-overlay');
+
+    if (!isAuthenticated) {
+      // Show overlay and setup password handling
+      if (overlay) {
+        overlay.classList.add('show');
+      }
+      setupPasswordOverlay();
+    }
+    // If authenticated, overlay remains display:none (no flicker)
 
     // Render dynamic content
     renderHomePosts();
