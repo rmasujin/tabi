@@ -1317,6 +1317,28 @@
       ],
       "content": "一番好きなアニメ📺\nオール・ハイル・ブリタァニア！",
       "contentMore": ""
+    },
+    {
+      "id": 67,
+      "number": "60",
+      "date": "2014.08.04",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788509223169-IMG_5615-VSCO.jpg"
+      ],
+      "content": "BW2時代連れまわしたポケモン🎮\nピュアに襷持たせて殻割ったり、珠を持ってみたり、しるしを持たせて怯ませてみたり…",
+      "contentMore": ""
     }
   ]
 }
