@@ -1,31 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "number": "01",
-      "date": "2026.09.05",
-      "author": "both",
-      "authorDisplay": "RIKI ＋ KANAMI",
-      "category": [
-        "posts",
-        "favorites"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/shared/01-welcome-1.jpg",
-        "assets/posts/shared/01-welcome-2.jpg",
-        "assets/posts/shared/01-welcome-3.jpg"
-      ],
-      "content": "本日はお越しいただきありがとうございます。私たちのこれまでを少しだけ。本日のメニューと席次表も下のタブから見られます。",
-      "contentMore": "二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。"
-    },
-    {
       "id": 87,
       "number": "80",
       "date": "2026.08.22",
