@@ -637,9 +637,10 @@
       return;
     }
 
-    // Save current scroll position
-    const previousScrollHeight = postDetailContent.scrollHeight;
-    const previousScrollTop = postDetailScreen.scrollTop;
+    // Get reference element to maintain scroll position
+    const firstArticle = postDetailContent.querySelector('article');
+    const anchorElement = firstArticle;
+    const anchorOffsetTop = anchorElement ? anchorElement.offsetTop : 0;
 
     const LOAD_COUNT = 10; // Load 10 more posts at a time
     const newStart = Math.max(0, start - LOAD_COUNT);
@@ -647,7 +648,6 @@
 
     // Prepend new posts at the top
     const newHTML = newPosts.map((post, index) => renderPost(post, newStart + index + 1)).join('');
-    const firstArticle = postDetailContent.querySelector('article');
     if (firstArticle) {
       firstArticle.insertAdjacentHTML('beforebegin', newHTML);
     } else {
@@ -663,12 +663,12 @@
     setupPostAuthorClicks();
     setupImageLoadHandlers();
 
-    // Restore scroll position (compensate for added content)
-    requestAnimationFrame(() => {
-      const newScrollHeight = postDetailContent.scrollHeight;
-      const addedHeight = newScrollHeight - previousScrollHeight;
-      postDetailScreen.scrollTop = previousScrollTop + addedHeight;
-    });
+    // Restore scroll position by maintaining anchor element position
+    if (anchorElement) {
+      const newAnchorOffsetTop = anchorElement.offsetTop;
+      const scrollAdjustment = newAnchorOffsetTop - anchorOffsetTop;
+      postDetailScreen.scrollTop += scrollAdjustment;
+    }
 
     isLoadingMore = false;
   }
