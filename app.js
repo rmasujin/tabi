@@ -457,7 +457,9 @@
     }
   }
 
-  // Show post detail - now shows all posts in the collection
+  // Show post detail - optimized to render only initial posts
+  let currentPostDetailData = null; // Store current post detail context
+
   function showPostDetail(postNumber, postType = 'posts', author = 'kanami') {
     const postDetailTitle = document.getElementById('post-detail-title');
     const postDetailCount = document.getElementById('post-detail-count');
@@ -490,33 +492,43 @@
       postDetailCount.textContent = `${posts.length} ${titleText}`;
     }
 
-    // Render all posts (same structure as HOME screen)
+    // Store context for lazy loading
+    currentPostDetailData = { posts, postNumber, postType, author };
+
+    // Find clicked post index
+    const clickedIndex = posts.findIndex(p => p.number === postNumber);
+    const INITIAL_RENDER_COUNT = 10; // Only render 10 posts initially
+    const startIndex = Math.max(0, clickedIndex - 5); // 5 before
+    const endIndex = Math.min(posts.length, startIndex + INITIAL_RENDER_COUNT); // 5 after
+
+    const initialPosts = posts.slice(startIndex, endIndex);
+
+    // Render only initial posts to reduce memory usage
     if (postDetailContent) {
-      const contentHTML = posts.map((post, index) => renderPost(post, index + 1)).join('') + '<div class="bottom-spacer"></div>';
+      const contentHTML = initialPosts.map((post, index) => renderPost(post, startIndex + index + 1)).join('') + '<div class="bottom-spacer"></div>';
       postDetailContent.innerHTML = contentHTML;
 
-      // Re-initialize post sliders for the dynamically added content
-      setTimeout(() => {
-        initPostSliders();
-        setupReadMore();
-        setupImageLoadHandlers();
-      }, 100);
-
-      // Scroll to the clicked post
-      setTimeout(() => {
-        const targetPost = postDetailContent.querySelector(`article[data-post-id="${postNumber}"]`);
-        if (targetPost) {
-          const postDetailScreen = document.getElementById('screen-post-detail');
-          if (postDetailScreen) {
-            const headerHeight = 50; // Header height
-            const targetPosition = targetPost.offsetTop - headerHeight;
-            postDetailScreen.scrollTop = targetPosition;
-          }
-        }
-      }, 150);
+      // Re-initialize immediately without setTimeout
+      initPostSliders();
+      setupReadMore();
+      setupPostAuthorClicks();
+      setupImageLoadHandlers();
     }
 
     showScreen('postDetail');
+
+    // Scroll to the clicked post after render
+    requestAnimationFrame(() => {
+      const targetPost = postDetailContent.querySelector(`article[data-post-id="${postNumber}"]`);
+      if (targetPost) {
+        const postDetailScreen = document.getElementById('screen-post-detail');
+        if (postDetailScreen) {
+          const headerHeight = 50;
+          const targetPosition = targetPost.offsetTop - headerHeight;
+          postDetailScreen.scrollTop = targetPosition;
+        }
+      }
+    });
   }
 
   function updateNavButtons(screenName) {
