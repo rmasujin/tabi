@@ -1935,6 +1935,28 @@
       ],
       "content": "ルディも連れて、八戸へ🐟",
       "contentMore": ""
+    },
+    {
+      "id": 97,
+      "number": "88",
+      "date": "2026.04.12",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788543769059-IMG_4850.jpg"
+      ],
+      "content": "結婚式二次会🍺",
+      "contentMore": ""
     }
   ]
 }
