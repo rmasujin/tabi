@@ -48,28 +48,6 @@
       "contentMore": ""
     },
     {
-      "id": 59,
-      "number": "53",
-      "date": "2026.07.18",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788497764393-IMG_5639.jpg"
-      ],
-      "content": "八戸高専登山部発足🧗‍♀️",
-      "contentMore": ""
-    },
-    {
       "id": 46,
       "number": "40",
       "date": "2026.06.20",
@@ -139,72 +117,6 @@
       "contentMore": ""
     },
     {
-      "id": 48,
-      "number": "42",
-      "date": "2024.11.02",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788492298033-IMG_4409.jpg"
-      ],
-      "content": "吉祥寺に住んでから、大好きなお散歩コース🐶",
-      "contentMore": ""
-    },
-    {
-      "id": 55,
-      "number": "49",
-      "date": "2024.09.01",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788496927393-IMG_5633.jpg"
-      ],
-      "content": "江戸会、札幌出張編✈️",
-      "contentMore": ""
-    },
-    {
-      "id": 54,
-      "number": "48",
-      "date": "2024.07.09",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788496945204-IMG_5637.jpg"
-      ],
-      "content": "沖縄旅行🌊\n退職してからも仲良くしてくれて、ありがとう😄",
-      "contentMore": ""
-    },
-    {
       "id": 47,
       "number": "41",
       "date": "2024.06.29",
@@ -246,28 +158,6 @@
         "assets/posts/kanami/1788418420865-IMG_7008.jpg"
       ],
       "content": "🇹🇼",
-      "contentMore": ""
-    },
-    {
-      "id": 65,
-      "number": "58",
-      "date": "2023.08.04",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788499997204-IMG_5644.jpg"
-      ],
-      "content": "お父さんの退職祝い🎉\n単身赴任とか大変だっただろうけど、お疲れさま",
       "contentMore": ""
     },
     {
@@ -313,72 +203,6 @@
         "assets/posts/kanami/1788350111340-IMG_5591.jpg"
       ],
       "content": "先輩方とキャーキャー言いながら10分1000円の占いへ🔮",
-      "contentMore": ""
-    },
-    {
-      "id": 51,
-      "number": "45",
-      "date": "2023.04.20",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788492998524-IMG_9174.jpg"
-      ],
-      "content": "いざ、東京へ🚄",
-      "contentMore": ""
-    },
-    {
-      "id": 52,
-      "number": "46",
-      "date": "2023.04.12",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788493423718-IMG_1282.jpg"
-      ],
-      "content": "最終出社日🏢\n本当に仕事のやりがいを感じ、最高の仲間と働けて幸せでした！",
-      "contentMore": ""
-    },
-    {
-      "id": 58,
-      "number": "52",
-      "date": "2023.03.31",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788497334500-IMG_5638.jpg"
-      ],
-      "content": "退職直前、ほぼ毎日一緒に飲んでくれてありがとう😇",
       "contentMore": ""
     },
     {
@@ -450,28 +274,6 @@
       "contentMore": "振り返ってみると、この年はみんなで夏にディズニーにも行ってた！"
     },
     {
-      "id": 56,
-      "number": "50",
-      "date": "2022.12.10",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788496967239-IMG_5636.jpg"
-      ],
-      "content": "謎解き・ボウリング会🎳\nちなみに、謎は一度も解けたことはない・・・",
-      "contentMore": ""
-    },
-    {
       "id": 32,
       "number": "29",
       "date": "2022.08.17",
@@ -540,28 +342,6 @@
       "contentMore": ""
     },
     {
-      "id": 50,
-      "number": "44",
-      "date": "2021.11.27",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788492869185-IMG_9001.jpg"
-      ],
-      "content": "カレーNo1🍛：白銀亭@本町",
-      "contentMore": ""
-    },
-    {
       "id": 6,
       "number": "06",
       "date": "2021.11.03",
@@ -603,28 +383,6 @@
         "assets/posts/kanami/1788349099858-IMG_9861.jpg"
       ],
       "content": "愛するルディくんとの出会い",
-      "contentMore": ""
-    },
-    {
-      "id": 60,
-      "number": "54",
-      "date": "2021.09.04",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788498021252-IMG_5640.jpg"
-      ],
-      "content": "プロジェクト計画は立てられるが、旅行計画は立てられず…\nサイコロ切符で行った和歌山🍊",
       "contentMore": ""
     },
     {
@@ -811,50 +569,6 @@
       "contentMore": ""
     },
     {
-      "id": 49,
-      "number": "43",
-      "date": "2018.07.26",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788492541056-IMG_9155.jpg"
-      ],
-      "content": "研修を終え、大阪配属…😔",
-      "contentMore": ""
-    },
-    {
-      "id": 64,
-      "number": "57",
-      "date": "2018.06.29",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788499881062-IMG_5643.jpg"
-      ],
-      "content": "企画職同期！\n研修期間、色々協力し合って頑張ったな🌐",
-      "contentMore": ""
-    },
-    {
       "id": 18,
       "number": "15",
       "date": "2018.04.18",
@@ -899,28 +613,6 @@
       "contentMore": ""
     },
     {
-      "id": 57,
-      "number": "51",
-      "date": "2017.12.10",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788496988401-IMG_5634.jpg"
-      ],
-      "content": "誕生日祝ってくれてありがとう🍰",
-      "contentMore": ""
-    },
-    {
       "id": 16,
       "number": "13",
       "date": "2017.10.31",
@@ -943,9 +635,9 @@
       "contentMore": ""
     },
     {
-      "id": 53,
-      "number": "47",
-      "date": "2016.04.30",
+      "id": 43,
+      "number": "37",
+      "date": "2006.11.04",
       "author": "riki",
       "authorDisplay": "RIKI",
       "category": [
@@ -959,75 +651,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/riki/1788497012473-IMG_5635.jpg"
+        "assets/posts/riki/1788484406750-B1533C86-D418-452A-8F9C-4456EA78FC55-VSCO (1).jpg"
       ],
-      "content": "恒例行事となった江戸会🍺\nいつも行ってた、なか卯の隣のお店の名前なんだっけ…",
-      "contentMore": ""
-    },
-    {
-      "id": 63,
-      "number": "56",
-      "date": "2013.12.24",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788498421651-3.jpg"
-      ],
-      "content": "プリクラ記録（18歳）📷",
-      "contentMore": ""
-    },
-    {
-      "id": 62,
-      "number": "55",
-      "date": "2012.12.15",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788498354582-4.jpg"
-      ],
-      "content": "プリクラ記録（17歳）📷",
-      "contentMore": ""
-    },
-    {
-      "id": 61,
-      "number": "54",
-      "date": "2012.02.01",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788498299094-5.jpg"
-      ],
-      "content": "プリクラ記録（16歳）📷",
+      "content": "バスケ部の友達と、ゲームやスポーツをして楽しみました🌞",
       "contentMore": ""
     },
     {
@@ -1051,28 +677,6 @@
         "assets/posts/riki/1788484575452-1E6D8897-6241-4DCF-B528-D0907D184FB7-VSCO (1).jpg"
       ],
       "content": "スポ少の写真かな🏀\n高専に入って同じチームになるとは…",
-      "contentMore": ""
-    },
-    {
-      "id": 43,
-      "number": "37",
-      "date": "2006.11.04",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788484406750-B1533C86-D418-452A-8F9C-4456EA78FC55-VSCO (1).jpg"
-      ],
-      "content": "バスケ部の友達と、ゲームやスポーツをして楽しみました🌞",
       "contentMore": ""
     },
     {
@@ -1297,25 +901,421 @@
       "contentMore": ""
     },
     {
-      "id": 66,
-      "number": "59",
-      "date": "1997.07.26",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
+      "id": 48,
+      "number": "42",
+      "date": "2024.11.02",
+      "author": "riki",
+      "authorDisplay": "RIKI",
       "category": [
         "posts"
       ],
       "displayIn": {
         "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
+        "kanamiPosts": false,
+        "rikiPosts": true,
         "kanamiFavorites": false,
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788501449497-写真を復元 2026-08-06 12.27_1.jpg"
+        "assets/posts/riki/1788492298033-IMG_4409.jpg"
       ],
-      "content": "ニューボーン🌕\nキャア(//∇//)",
+      "content": "吉祥寺に住んでから、大好きなお散歩コース🐶",
+      "contentMore": ""
+    },
+    {
+      "id": 49,
+      "number": "43",
+      "date": "2018.07.26",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788492541056-IMG_9155.jpg"
+      ],
+      "content": "研修を終え、大阪配属…😔",
+      "contentMore": ""
+    },
+    {
+      "id": 50,
+      "number": "44",
+      "date": "2021.11.27",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788492869185-IMG_9001.jpg"
+      ],
+      "content": "カレーNo1🍛：白銀亭@本町",
+      "contentMore": ""
+    },
+    {
+      "id": 51,
+      "number": "45",
+      "date": "2023.04.20",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788492998524-IMG_9174.jpg"
+      ],
+      "content": "いざ、東京へ🚄",
+      "contentMore": ""
+    },
+    {
+      "id": 52,
+      "number": "46",
+      "date": "2023.04.12",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788493423718-IMG_1282.jpg"
+      ],
+      "content": "最終出社日🏢\n本当に仕事のやりがいを感じ、最高の仲間と働けて幸せでした！",
+      "contentMore": ""
+    },
+    {
+      "id": 53,
+      "number": "47",
+      "date": "2016.04.30",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788497012473-IMG_5635.jpg"
+      ],
+      "content": "恒例行事となった江戸会🍺\nいつも行ってた、なか卯の隣のお店の名前なんだっけ…",
+      "contentMore": ""
+    },
+    {
+      "id": 54,
+      "number": "48",
+      "date": "2024.07.09",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788496945204-IMG_5637.jpg"
+      ],
+      "content": "沖縄旅行🌊\n退職してからも仲良くしてくれて、ありがとう😄",
+      "contentMore": ""
+    },
+    {
+      "id": 55,
+      "number": "49",
+      "date": "2024.09.01",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788496927393-IMG_5633.jpg"
+      ],
+      "content": "江戸会、札幌出張編✈️",
+      "contentMore": ""
+    },
+    {
+      "id": 56,
+      "number": "50",
+      "date": "2022.12.10",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788496967239-IMG_5636.jpg"
+      ],
+      "content": "謎解き・ボウリング会🎳\nちなみに、謎は一度も解けたことはない・・・",
+      "contentMore": ""
+    },
+    {
+      "id": 57,
+      "number": "51",
+      "date": "2017.12.10",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788496988401-IMG_5634.jpg"
+      ],
+      "content": "誕生日祝ってくれてありがとう🍰",
+      "contentMore": ""
+    },
+    {
+      "id": 58,
+      "number": "52",
+      "date": "2023.03.31",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788497334500-IMG_5638.jpg"
+      ],
+      "content": "退職直前、ほぼ毎日一緒に飲んでくれてありがとう😇",
+      "contentMore": ""
+    },
+    {
+      "id": 59,
+      "number": "53",
+      "date": "2026.07.18",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788497764393-IMG_5639.jpg"
+      ],
+      "content": "八戸高専登山部発足🧗‍♀️",
+      "contentMore": ""
+    },
+    {
+      "id": 60,
+      "number": "54",
+      "date": "2021.09.04",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788498021252-IMG_5640.jpg"
+      ],
+      "content": "プロジェクト計画は立てられるが、旅行計画は立てられず…\nサイコロ切符で行った和歌山🍊",
+      "contentMore": ""
+    },
+    {
+      "id": 61,
+      "number": "54",
+      "date": "2012.02.01",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788498299094-5.jpg"
+      ],
+      "content": "プリクラ記録（16歳）📷",
+      "contentMore": ""
+    },
+    {
+      "id": 62,
+      "number": "55",
+      "date": "2012.12.15",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788498354582-4.jpg"
+      ],
+      "content": "プリクラ記録（17歳）📷",
+      "contentMore": ""
+    },
+    {
+      "id": 63,
+      "number": "56",
+      "date": "2013.12.24",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788498421651-3.jpg"
+      ],
+      "content": "プリクラ記録（18歳）📷",
+      "contentMore": ""
+    },
+    {
+      "id": 64,
+      "number": "57",
+      "date": "2018.06.29",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788499881062-IMG_5643.jpg"
+      ],
+      "content": "企画職同期！\n研修期間、色々協力し合って頑張ったな🌐",
+      "contentMore": ""
+    },
+    {
+      "id": 65,
+      "number": "58",
+      "date": "2023.08.04",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788499997204-IMG_5644.jpg"
+      ],
+      "content": "お父さんの退職祝い🎉\n単身赴任とか大変だっただろうけど、お疲れさま",
+      "contentMore": ""
+    },
+    {
+      "id": 66,
+      "number": "59",
+      "date": "2016.12.18",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788508868416-IMG_5608-VSCO (1).jpg"
+      ],
+      "content": "一番好きなアニメ📺\nオール・ハイル・ブリタァニア！",
       "contentMore": ""
     }
   ]
