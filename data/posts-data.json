@@ -1165,6 +1165,28 @@
       ],
       "content": "退職直前、ほぼ毎日一緒に飲んでくれてありがとう😇",
       "contentMore": ""
+    },
+    {
+      "id": 59,
+      "number": "53",
+      "date": "2026.07.18",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788497764393-IMG_5639.jpg"
+      ],
+      "content": "八戸高専登山部発足🧗‍♀️",
+      "contentMore": ""
     }
   ]
 }
