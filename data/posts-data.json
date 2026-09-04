@@ -227,6 +227,28 @@
       "contentMore": ""
     },
     {
+      "id": 86,
+      "number": "79",
+      "date": "2025.11.07",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788533384801-IMG_5658.jpg"
+      ],
+      "content": "入籍💌",
+      "contentMore": ""
+    },
+    {
       "id": 76,
       "number": "69",
       "date": "2025.11.03",
@@ -1742,9 +1764,9 @@
       "contentMore": ""
     },
     {
-      "id": 86,
-      "number": "79",
-      "date": "2025.11.07",
+      "id": 87,
+      "number": "80",
+      "date": "2026.08.22",
       "author": "both",
       "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
@@ -1758,9 +1780,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/shared/1788533384801-IMG_5658.jpg"
+        "assets/posts/shared/1788533776637-IMG_5569.jpg"
       ],
-      "content": "入籍💌",
+      "content": "当日晴れますように。気象神社でお祈り🙏",
       "contentMore": ""
     }
   ]
