@@ -138,6 +138,28 @@
       "contentMore": ""
     },
     {
+      "id": 73,
+      "number": "66",
+      "date": "2026.05.04",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788526582313-D2EF6188-1BB9-4353-9C02-A72E1DF2B359.jpg"
+      ],
+      "content": "いつまでもサイゼが好き🍷🍕\nメインディッシュはもちろん間違い探し。トライアルの終わりによくみんなともやったなぁ。",
+      "contentMore": ""
+    },
+    {
       "id": 37,
       "number": "32",
       "date": "2025.12.14",
@@ -1423,7 +1445,7 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788526187675-写真を復元 2026-08-06 12.27_1.jpg"
+        "assets/posts/kanami/1788526844823-IMG_2776.jpg"
       ],
       "content": "ニューボーン🌕\nキャア(//∇//)",
       "contentMore": ""
@@ -1448,28 +1470,6 @@
         "assets/posts/riki/1787904369775-26933063-E2D0-46A0-BA26-9958526E11CE-VSCO.jpg"
       ],
       "content": "14:25、2682gで爆誕👶",
-      "contentMore": ""
-    },
-    {
-      "id": 73,
-      "number": "66",
-      "date": "2026.05.04",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788526582313-D2EF6188-1BB9-4353-9C02-A72E1DF2B359.jpg"
-      ],
-      "content": "いつまでもサイゼが好き🍷🍕\nメインディッシュはもちろん間違い探し。トライアルの終わりによくみんなともやったなぁ。",
       "contentMore": ""
     }
   ]
