@@ -136,6 +136,30 @@
       "contentMore": ""
     },
     {
+      "id": 36,
+      "number": "31",
+      "date": "2026.05.10",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": false,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788353475947-IMG_6254.jpg",
+        "assets/posts/kanami/1788353479008-DAF68697-AAAE-49F5-A662-2A9FF684941C.jpg",
+        "assets/posts/kanami/1788353482745-IMG_6248.jpg"
+      ],
+      "content": "2回目の八戸🐟",
+      "contentMore": ""
+    },
+    {
       "id": 73,
       "number": "66",
       "date": "2026.05.04",
@@ -1848,6 +1872,28 @@
       ],
       "content": "付き合った記念日、偶然同じ財布を持っていた",
       "contentMore": ""
+    },
+    {
+      "id": 93,
+      "number": "85",
+      "date": "2026.09.05",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788541266341-DC6DEB7D-1317-475C-B191-598E4B5F3079.jpg"
+      ],
+      "content": "本日はお越しいただき\nありがとうございます",
+      "contentMore": "\n大切な皆さまと\n今日という日を迎えられることを\nとても嬉しく思います\n\n短い時間ではありますが\nどうぞ最後までゆっくりとお楽しみください"
     }
   ]
 }
