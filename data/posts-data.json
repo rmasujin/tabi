@@ -1230,6 +1230,28 @@
       "contentMore": ""
     },
     {
+      "id": 71,
+      "number": "64",
+      "date": "2000.11.04",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788526405779-写真を復元 2026-07-18 12.22_5.jpg"
+      ],
+      "content": "七五三の三",
+      "contentMore": ""
+    },
+    {
       "id": 13,
       "number": "10",
       "date": "2000.04.01",
@@ -1407,9 +1429,9 @@
       "contentMore": ""
     },
     {
-      "id": 71,
-      "number": "64",
-      "date": "2000.11.04",
+      "id": 72,
+      "number": "65",
+      "date": "1998.09.17",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -1423,9 +1445,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788526405779-写真を復元 2026-07-18 12.22_5.jpg"
+        "assets/posts/kanami/1788526502403-写真を復元 2026-07-18 12.22_3.jpg"
       ],
-      "content": "七五三の三",
+      "content": "家族写真。めっちゃお父さん似",
       "contentMore": ""
     }
   ]
