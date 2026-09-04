@@ -288,21 +288,64 @@
     selectedFiles.forEach((item, index) => {
       const div = document.createElement('div');
       div.className = 'preview-item';
+      div.draggable = true;
+      div.dataset.index = index;
       div.innerHTML = `
         <img src="${item.preview}">
         <button class="remove-btn" data-index="${index}">×</button>
+        <div class="drag-handle">⋮⋮</div>
       `;
       container.appendChild(div);
+    });
+
+    // ドラッグ&ドロップイベント
+    const items = container.querySelectorAll('.preview-item');
+    items.forEach(item => {
+      item.addEventListener('dragstart', handleDragStart);
+      item.addEventListener('dragover', handleDragOver);
+      item.addEventListener('drop', handleDrop);
+      item.addEventListener('dragend', handleDragEnd);
     });
 
     // 削除ボタン
     container.querySelectorAll('.remove-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
+        e.stopPropagation();
         const index = parseInt(e.target.dataset.index);
         selectedFiles.splice(index, 1);
         renderPreview();
       });
     });
+  }
+
+  // ドラッグ&ドロップハンドラー
+  let draggedIndex = null;
+
+  function handleDragStart(e) {
+    draggedIndex = parseInt(e.target.dataset.index);
+    e.target.style.opacity = '0.4';
+  }
+
+  function handleDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  }
+
+  function handleDrop(e) {
+    e.preventDefault();
+    const dropIndex = parseInt(e.target.closest('.preview-item').dataset.index);
+
+    if (draggedIndex !== dropIndex) {
+      // 配列の要素を入れ替え
+      const draggedItem = selectedFiles[draggedIndex];
+      selectedFiles.splice(draggedIndex, 1);
+      selectedFiles.splice(dropIndex, 0, draggedItem);
+      renderPreview();
+    }
+  }
+
+  function handleDragEnd(e) {
+    e.target.style.opacity = '1';
   }
 
   // 投稿を作成または更新
