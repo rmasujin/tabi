@@ -1099,6 +1099,28 @@
       ],
       "content": "江戸会、札幌出張編✈️",
       "contentMore": ""
+    },
+    {
+      "id": 56,
+      "number": "50",
+      "date": "2022.12.10",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788496031941-IMG_5628.jpg"
+      ],
+      "content": "謎解き・ボウリング会🎳\nちなみに、謎は一度も解けたことはない・・・",
+      "contentMore": ""
     }
   ]
 }
