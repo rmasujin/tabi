@@ -1913,6 +1913,28 @@
       ],
       "content": "みんなで山梨へ🚙",
       "contentMore": ""
+    },
+    {
+      "id": 96,
+      "number": "87",
+      "date": "2026.05.02",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788543606095-IMG_5668.jpg"
+      ],
+      "content": "ルディも連れて、八戸へ🐟",
+      "contentMore": ""
     }
   ]
 }
