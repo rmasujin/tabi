@@ -26,6 +26,28 @@
       "contentMore": "二人で過ごした時間、お互いの家族や友人と過ごした時間、すべてが今日につながっています。これからもずっと、みなさんと一緒に歩んでいけたら嬉しいです。"
     },
     {
+      "id": 87,
+      "number": "80",
+      "date": "2026.08.22",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788533776637-IMG_5569.jpg"
+      ],
+      "content": "当日晴れますように。気象神社でお祈り🙏",
+      "contentMore": ""
+    },
+    {
       "id": 35,
       "number": "30",
       "date": "2026.07.28",
@@ -1764,25 +1786,25 @@
       "contentMore": ""
     },
     {
-      "id": 87,
-      "number": "80",
-      "date": "2026.08.22",
-      "author": "both",
-      "authorDisplay": "RIKI ＋ KANAMI",
+      "id": 88,
+      "number": "81",
+      "date": "2017.12.31",
+      "author": "riki",
+      "authorDisplay": "RIKI",
       "category": [
         "posts"
       ],
       "displayIn": {
         "home": true,
-        "kanamiPosts": true,
+        "kanamiPosts": false,
         "rikiPosts": true,
         "kanamiFavorites": false,
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/shared/1788533776637-IMG_5569.jpg"
+        "assets/posts/riki/1788533899413-IMG_5649.jpg"
       ],
-      "content": "当日晴れますように。気象神社でお祈り🙏",
+      "content": "オンでもオフでも、スマブラ🎮\nワリオとかも経て、最終的には村人",
       "contentMore": ""
     }
   ]
