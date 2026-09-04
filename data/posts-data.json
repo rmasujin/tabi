@@ -967,6 +967,28 @@
       ],
       "content": "研修を終え、大阪配属…😔",
       "contentMore": ""
+    },
+    {
+      "id": 50,
+      "number": "44",
+      "date": "2021.11.27",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788492869185-IMG_9001.jpg"
+      ],
+      "content": "カレーNo1🍛：白銀亭@本町",
+      "contentMore": ""
     }
   ]
 }
