@@ -1894,6 +1894,28 @@
       ],
       "content": "本日はお越しいただき\nありがとうございます",
       "contentMore": "\n大切な皆さまと\n今日という日を迎えられることを\nとても嬉しく思います\n\n短い時間ではありますが\nどうぞ最後までゆっくりとお楽しみください"
+    },
+    {
+      "id": 94,
+      "number": "86",
+      "date": "2026.09.05",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788541315425-14A59D17-54CA-4C38-83BA-6F9B9356EC94.jpg"
+      ],
+      "content": "お食事のメニューや席次表は\n画面下部のアイコンからご覧いただけます",
+      "contentMore": "\nぜひお好きなタイミングで\nチェックしてみてください"
     }
   ]
 }
