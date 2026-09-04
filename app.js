@@ -457,8 +457,9 @@
     }
   }
 
-  // Show post detail - optimized to render only initial posts
+  // Show post detail - with infinite scroll
   let currentPostDetailData = null; // Store current post detail context
+  let renderedPostIndices = { start: 0, end: 0 }; // Track rendered range
 
   function showPostDetail(postNumber, postType = 'posts', author = 'kanami') {
     const postDetailTitle = document.getElementById('post-detail-title');
@@ -492,18 +493,20 @@
       postDetailCount.textContent = `${posts.length} ${titleText}`;
     }
 
-    // Store context for lazy loading
+    // Store context for infinite scroll
     currentPostDetailData = { posts, postNumber, postType, author };
 
     // Find clicked post index
     const clickedIndex = posts.findIndex(p => p.number === postNumber);
-    const INITIAL_RENDER_COUNT = 10; // Only render 10 posts initially
-    const startIndex = Math.max(0, clickedIndex - 5); // 5 before
-    const endIndex = Math.min(posts.length, startIndex + INITIAL_RENDER_COUNT); // 5 after
+    const INITIAL_RENDER_COUNT = 15; // Render 15 posts initially
+    const startIndex = Math.max(0, clickedIndex - 7); // 7 before
+    const endIndex = Math.min(posts.length, startIndex + INITIAL_RENDER_COUNT); // 8 after
+
+    renderedPostIndices = { start: startIndex, end: endIndex };
 
     const initialPosts = posts.slice(startIndex, endIndex);
 
-    // Render only initial posts to reduce memory usage
+    // Render initial posts
     if (postDetailContent) {
       const contentHTML = initialPosts.map((post, index) => renderPost(post, startIndex + index + 1)).join('') + '<div class="bottom-spacer"></div>';
       postDetailContent.innerHTML = contentHTML;
@@ -517,6 +520,9 @@
 
     showScreen('postDetail');
 
+    // Setup infinite scroll listener
+    setupInfiniteScroll();
+
     // Scroll to the clicked post after render
     requestAnimationFrame(() => {
       const targetPost = postDetailContent.querySelector(`article[data-post-id="${postNumber}"]`);
@@ -529,6 +535,82 @@
         }
       }
     });
+  }
+
+  // Infinite scroll for post detail
+  let isLoadingMore = false;
+
+  function setupInfiniteScroll() {
+    const postDetailScreen = document.getElementById('screen-post-detail');
+    if (!postDetailScreen) return;
+
+    // Remove existing listener if any
+    postDetailScreen.removeEventListener('scroll', handleInfiniteScroll);
+    postDetailScreen.addEventListener('scroll', handleInfiniteScroll, { passive: true });
+  }
+
+  function handleInfiniteScroll() {
+    if (!currentPostDetailData || isLoadingMore) return;
+
+    const postDetailScreen = document.getElementById('screen-post-detail');
+    const postDetailContent = document.getElementById('post-detail-content');
+    if (!postDetailScreen || !postDetailContent) return;
+
+    const scrollTop = postDetailScreen.scrollTop;
+    const scrollHeight = postDetailScreen.scrollHeight;
+    const clientHeight = postDetailScreen.clientHeight;
+
+    // Load more when 500px from bottom
+    const threshold = 500;
+    if (scrollHeight - scrollTop - clientHeight < threshold) {
+      loadMorePosts();
+    }
+  }
+
+  function loadMorePosts() {
+    if (!currentPostDetailData || isLoadingMore) return;
+
+    const { posts } = currentPostDetailData;
+    const { end } = renderedPostIndices;
+
+    // Check if we've already rendered all posts
+    if (end >= posts.length) return;
+
+    isLoadingMore = true;
+
+    const LOAD_COUNT = 10; // Load 10 more posts at a time
+    const newEnd = Math.min(posts.length, end + LOAD_COUNT);
+    const newPosts = posts.slice(end, newEnd);
+
+    const postDetailContent = document.getElementById('post-detail-content');
+    if (!postDetailContent) {
+      isLoadingMore = false;
+      return;
+    }
+
+    // Remove bottom spacer temporarily
+    const bottomSpacer = postDetailContent.querySelector('.bottom-spacer');
+    if (bottomSpacer) {
+      bottomSpacer.remove();
+    }
+
+    // Append new posts
+    const newHTML = newPosts.map((post, index) => renderPost(post, end + index + 1)).join('');
+    postDetailContent.insertAdjacentHTML('beforeend', newHTML);
+
+    // Re-add bottom spacer
+    postDetailContent.insertAdjacentHTML('beforeend', '<div class="bottom-spacer"></div>');
+
+    // Update rendered range
+    renderedPostIndices.end = newEnd;
+
+    // Re-initialize for new posts
+    initPostSliders();
+    setupReadMore();
+    setupPostAuthorClicks();
+    setupImageLoadHandlers();
+
+    isLoadingMore = false;
   }
 
   function updateNavButtons(screenName) {
@@ -762,9 +844,11 @@
 
   // Post image slider functionality
   function initPostSliders() {
-    const sliders = document.querySelectorAll('.slider-container');
+    const sliders = document.querySelectorAll('.slider-container:not([data-slider-init])');
 
     sliders.forEach(container => {
+      container.setAttribute('data-slider-init', 'true');
+
       const postSlider = container.closest('.post-slider');
       const postId = postSlider.getAttribute('data-post-id');
       const dotsContainer = document.querySelector(`.pagination-dots[data-post-id="${postId}"]`);
@@ -800,7 +884,7 @@
 
           isScrolling = false;
         });
-      });
+      }, { passive: true });
     });
   }
 
@@ -1085,8 +1169,9 @@
 
   // Setup post author click to navigate to profile
   function setupPostAuthorClicks() {
-    const postAuthors = document.querySelectorAll('.post-authors[data-author]');
+    const postAuthors = document.querySelectorAll('.post-authors[data-author]:not([data-click-set])');
     postAuthors.forEach(authorEl => {
+      authorEl.setAttribute('data-click-set', 'true');
       authorEl.addEventListener('click', (e) => {
         e.stopPropagation();
         const authorType = authorEl.getAttribute('data-author');
@@ -1199,8 +1284,9 @@
     });
 
     // Post read more buttons
-    const readMoreButtons = document.querySelectorAll('.read-more');
+    const readMoreButtons = document.querySelectorAll('.read-more:not([data-click-set])');
     readMoreButtons.forEach(btn => {
+      btn.setAttribute('data-click-set', 'true');
       btn.addEventListener('click', (e) => {
         e.stopPropagation(); // Prevent post click from triggering
         const article = btn.closest('article');
@@ -1245,8 +1331,9 @@
 
   // Setup image load handlers for lazy loading
   function setupImageLoadHandlers() {
-    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]:not([data-handler-set])');
     lazyImages.forEach(img => {
+      img.setAttribute('data-handler-set', 'true');
       if (img.complete) {
         img.classList.add('loaded');
         // Stop shimmer animation when image is loaded
@@ -1258,6 +1345,13 @@
         img.addEventListener('load', () => {
           img.classList.add('loaded');
           // Stop shimmer animation when image is loaded
+          const placeholder = img.closest('.post-image-placeholder');
+          if (placeholder) {
+            placeholder.style.setProperty('--shimmer-active', '0');
+          }
+        }, { once: true });
+        img.addEventListener('error', () => {
+          img.classList.add('loaded');
           const placeholder = img.closest('.post-image-placeholder');
           if (placeholder) {
             placeholder.style.setProperty('--shimmer-active', '0');
