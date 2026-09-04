@@ -26,8 +26,8 @@
   },
   "riki": {
     "name": "RIKI",
-    "avatar": "",
-    "bio": "testtesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttesttest",
+    "avatar": "assets/avatar-riki-1788544509214.jpg",
+    "bio": "沢山の皆様のご参加ありがとうございます。\n限られた時間ではありますが、お食事・お酒どちらも楽しんでくださいませ🍽️",
     "details": [
       {
         "label": "年齢",
@@ -35,23 +35,23 @@
       },
       {
         "label": "出身",
-        "value": "青森県"
+        "value": "青森県八戸市"
       },
       {
         "label": "趣味",
-        "value": "音楽、読書"
+        "value": "温泉 / サウナ🌄🍃♨️"
       },
       {
         "label": "好きな食べ物",
-        "value": "ラーメン、カレー"
+        "value": "ラーメン🍜 / カレー🍛"
       },
       {
-        "label": "test",
-        "value": "test🎉"
+        "label": "ラブタイプ",
+        "value": "ロマンスマジシャン"
       }
     ],
     "displayName": "舛甚 利樹",
-    "accountName": "@riki_121010",
+    "accountName": "@RIKI_1210",
     "fullName": "舛甚 利樹"
   }
 }
