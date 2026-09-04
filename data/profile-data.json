@@ -1,8 +1,8 @@
 {
   "kanami": {
     "name": "KANAMI",
-    "avatar": "",
-    "bio": "test",
+    "avatar": "assets/avatar-kanami-1788518203270.jpg",
+    "bio": "本日はありがとうございます♪\n楽しんでいただければ嬉しいです🥳",
     "details": [
       {
         "label": "年齢",
@@ -10,17 +10,19 @@
       },
       {
         "label": "出身",
-        "value": "東京都"
-      },
-      {
-        "label": "趣味",
-        "value": "カメラ、カフェ巡り"
+        "value": "新潟県新潟市"
       },
       {
         "label": "好きな食べ物",
-        "value": "パスタ、スイーツ"
+        "value": "餃子🥟🍺"
+      },
+      {
+        "label": "ラブタイプ",
+        "value": "ツンデレヤンキー"
       }
-    ]
+    ],
+    "accountName": "KANAMI",
+    "fullName": "長井奏海"
   },
   "riki": {
     "name": "RIKI",
