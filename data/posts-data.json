@@ -1850,6 +1850,28 @@
       ],
       "content": "テントサウナ＋川、トトノッタ🧖‍♂️",
       "contentMore": ""
+    },
+    {
+      "id": 91,
+      "number": "84",
+      "date": "2026.09.01",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/shared/1788534519982-62616B09-C595-4DC0-BBBC-82A0CFB5FBDC.jpg"
+      ],
+      "content": "お互い使っている、LE LABO香水。\nりきがGAIAC🌲かなみがROSE🌹",
+      "contentMore": ""
     }
   ]
 }
