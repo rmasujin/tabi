@@ -444,6 +444,28 @@
       "contentMore": ""
     },
     {
+      "id": 104,
+      "number": "91",
+      "date": "2025.08.14",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788566966166-IMG_2597.jpg"
+      ],
+      "content": "コウシくん3連続で出た。さすが高志ちゃんたち🫶🏻",
+      "contentMore": ""
+    },
+    {
       "id": 95,
       "number": "86",
       "date": "2025.08.11",
@@ -2001,9 +2023,9 @@
       "contentMore": ""
     },
     {
-      "id": 104,
-      "number": "91",
-      "date": "2025.08.14",
+      "id": 105,
+      "number": "92",
+      "date": "2025.08.30",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -2017,9 +2039,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788566966166-IMG_2597.jpg"
+        "assets/posts/kanami/1788567071680-IMG_2932.jpg"
       ],
-      "content": "コウシくん3連続で出た。さすが高志ちゃんたち🫶🏻",
+      "content": "みさこの結婚式！\nこれからも毎年集まりたいから、誰かイベント企画して〜〜〜(他力本願ロボット🤖)",
       "contentMore": ""
     }
   ]
