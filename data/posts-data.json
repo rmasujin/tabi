@@ -1,6 +1,28 @@
 {
   "posts": [
     {
+      "id": 98,
+      "number": "87",
+      "date": "2026.09.05",
+      "author": "riki",
+      "authorDisplay": "RIKI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": false,
+        "kanamiPosts": false,
+        "rikiPosts": true,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/riki/1788553108786-526843AD-D958-4634-9494-42251D0B817B.jpg"
+      ],
+      "content": "本日はお越しいただきありがとうございます。\n",
+      "contentMore": "皆さまと今日という日を迎えられることを\nとても嬉しく思います。\n\nお食事のメニューや席次表は、\n画面下部のメニューからご覧いただけます。\n\nたくさん食べて、飲んで、笑って、\nぜひ最後まで楽しんでいってください！\n\nお会いできることを楽しみにしています。"
+    },
+    {
       "id": 99,
       "number": "87",
       "date": "2026.09.05",
@@ -422,50 +444,6 @@
       "contentMore": ""
     },
     {
-      "id": 101,
-      "number": "88",
-      "date": "2025.08.16",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788566558820-3DAA68C1-487D-4D8A-B233-4E56148B73DC.jpg"
-      ],
-      "content": "おそろいの三好スリッパ\n",
-      "contentMore": ""
-    },
-    {
-      "id": 104,
-      "number": "91",
-      "date": "2025.08.14",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788566966166-IMG_2597.jpg"
-      ],
-      "content": "コウシくん3連続で出た。さすが高志ちゃんたち🫶🏻",
-      "contentMore": ""
-    },
-    {
       "id": 95,
       "number": "86",
       "date": "2025.08.11",
@@ -485,50 +463,6 @@
         "assets/posts/shared/1788543521412-IMG_3441.jpg"
       ],
       "content": "みんなで山梨へ🚙",
-      "contentMore": ""
-    },
-    {
-      "id": 102,
-      "number": "89",
-      "date": "2025.08.10",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788566731609-A411D84E-B85A-4703-B502-A6872DBE2C11.jpg"
-      ],
-      "content": "年に1回は食べたい吉田のうどん\nお土産ですりだね買ったけど、辛すぎて食べるのにめっちゃ勇気いる😖",
-      "contentMore": ""
-    },
-    {
-      "id": 103,
-      "number": "90",
-      "date": "2025.08.08",
-      "author": "both",
-      "authorDisplay": "RIKI ＋ KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/shared/1788566858182-IMG_2399.jpg"
-      ],
-      "content": "お気に入りの岩盤浴「なごみの湯♨️」\nなごみの湯で整って、野方餃子で締めるのが、私たち流🥟🍺",
       "contentMore": ""
     },
     {
@@ -796,28 +730,6 @@
         "assets/posts/shared/1788534752549-E367B41A-BCE1-44BA-B747-2DEF67CFB6F5.jpg"
       ],
       "content": "付き合った記念日、偶然同じ財布を持っていた",
-      "contentMore": ""
-    },
-    {
-      "id": 100,
-      "number": "87",
-      "date": "2024.06.02",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788566487270-IMG_4995.jpg"
-      ],
-      "content": "ルディも一緒にキャンプ🏕️\n久しぶりにテントで泊まったけど、やっぱり次はグランピングにしようと誓う笑",
       "contentMore": ""
     },
     {
@@ -2020,28 +1932,6 @@
         "assets/posts/riki/1787904369775-26933063-E2D0-46A0-BA26-9958526E11CE-VSCO.jpg"
       ],
       "content": "14:25、2682gで爆誕👶",
-      "contentMore": ""
-    },
-    {
-      "id": 105,
-      "number": "92",
-      "date": "2025.08.30",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": true,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/1788567071680-IMG_2932.jpg"
-      ],
-      "content": "みさこの結婚式！\nこれからも毎年集まりたいから、誰かイベント企画して〜〜〜(他力本願ロボット🤖)",
       "contentMore": ""
     }
   ]
