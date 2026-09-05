@@ -1,28 +1,6 @@
 {
   "posts": [
     {
-      "id": 98,
-      "number": "87",
-      "date": "2026.09.05",
-      "author": "riki",
-      "authorDisplay": "RIKI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": false,
-        "kanamiPosts": false,
-        "rikiPosts": true,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/riki/1788553108786-526843AD-D958-4634-9494-42251D0B817B.jpg"
-      ],
-      "content": "本日はお越しいただきありがとうございます。\n",
-      "contentMore": "皆さまと今日という日を迎えられることを\nとても嬉しく思います。\n\nお食事のメニューや席次表は、\n画面下部のメニューからご覧いただけます。\n\nたくさん食べて、飲んで、笑って、\nぜひ最後まで楽しんでいってください！\n\nお会いできることを楽しみにしています。"
-    },
-    {
       "id": 99,
       "number": "87",
       "date": "2026.09.05",
