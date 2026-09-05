@@ -1068,28 +1068,6 @@
       "contentMore": ""
     },
     {
-      "id": 6,
-      "number": "06",
-      "date": "2021.11.03",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
-      "category": [
-        "posts"
-      ],
-      "displayIn": {
-        "home": false,
-        "kanamiPosts": true,
-        "rikiPosts": false,
-        "kanamiFavorites": false,
-        "rikiFavorites": false
-      },
-      "images": [
-        "assets/posts/kanami/06-trip.jpg"
-      ],
-      "content": "はじめて二人で行った旅行。ずっと雨でした。",
-      "contentMore": ""
-    },
-    {
       "id": 29,
       "number": "26",
       "date": "2021.09.20",
