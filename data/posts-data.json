@@ -711,6 +711,28 @@
       "contentMore": ""
     },
     {
+      "id": 100,
+      "number": "87",
+      "date": "2024.06.02",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788566487270-IMG_4995.jpg"
+      ],
+      "content": "ルディも一緒にキャンプ🏕️\n久しぶりにテントで泊まったけど、やっぱり次はグランピングにしようと誓う笑",
+      "contentMore": ""
+    },
+    {
       "id": 41,
       "number": "35",
       "date": "2023.09.16",
@@ -1913,9 +1935,9 @@
       "contentMore": ""
     },
     {
-      "id": 100,
-      "number": "87",
-      "date": "2024.06.02",
+      "id": 101,
+      "number": "88",
+      "date": "2025.08.16",
       "author": "kanami",
       "authorDisplay": "KANAMI",
       "category": [
@@ -1929,9 +1951,9 @@
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788566487270-IMG_4995.jpg"
+        "assets/posts/kanami/1788566558820-3DAA68C1-487D-4D8A-B233-4E56148B73DC.jpg"
       ],
-      "content": "ルディも一緒にキャンプ🏕️\n久しぶりにテントで泊まったけど、やっぱり次はグランピングにしようと誓う笑",
+      "content": "おそろいの三好スリッパ\n",
       "contentMore": ""
     }
   ]
