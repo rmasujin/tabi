@@ -466,6 +466,28 @@
       "contentMore": ""
     },
     {
+      "id": 102,
+      "number": "89",
+      "date": "2025.08.10",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788566731609-A411D84E-B85A-4703-B502-A6872DBE2C11.jpg"
+      ],
+      "content": "年に1回は食べたい吉田のうどん\nお土産ですりだね買ったけど、辛すぎて食べるのにめっちゃ勇気いる😖",
+      "contentMore": ""
+    },
+    {
       "id": 75,
       "number": "68",
       "date": "2025.04.19",
@@ -1957,25 +1979,25 @@
       "contentMore": ""
     },
     {
-      "id": 102,
-      "number": "89",
-      "date": "2025.08.10",
-      "author": "kanami",
-      "authorDisplay": "KANAMI",
+      "id": 103,
+      "number": "90",
+      "date": "2025.08.08",
+      "author": "both",
+      "authorDisplay": "RIKI ＋ KANAMI",
       "category": [
         "posts"
       ],
       "displayIn": {
         "home": true,
         "kanamiPosts": true,
-        "rikiPosts": false,
+        "rikiPosts": true,
         "kanamiFavorites": false,
         "rikiFavorites": false
       },
       "images": [
-        "assets/posts/kanami/1788566731609-A411D84E-B85A-4703-B502-A6872DBE2C11.jpg"
+        "assets/posts/shared/1788566858182-IMG_2399.jpg"
       ],
-      "content": "年に1回は食べたい吉田のうどん\nお土産ですりだね買ったけど、辛すぎて食べるのにめっちゃ勇気いる😖",
+      "content": "お気に入りの岩盤浴「なごみの湯♨️」\nなごみの湯で整って、野方餃子で締めるのが、私たち流🥟🍺",
       "contentMore": ""
     }
   ]
