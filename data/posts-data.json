@@ -1911,6 +1911,28 @@
       ],
       "content": "14:25、2682gで爆誕👶",
       "contentMore": ""
+    },
+    {
+      "id": 100,
+      "number": "87",
+      "date": "2024.06.02",
+      "author": "kanami",
+      "authorDisplay": "KANAMI",
+      "category": [
+        "posts"
+      ],
+      "displayIn": {
+        "home": true,
+        "kanamiPosts": true,
+        "rikiPosts": false,
+        "kanamiFavorites": false,
+        "rikiFavorites": false
+      },
+      "images": [
+        "assets/posts/kanami/1788566487270-IMG_4995.jpg"
+      ],
+      "content": "ルディも一緒にキャンプ🏕️\n久しぶりにテントで泊まったけど、やっぱり次はグランピングにしようと誓う笑",
+      "contentMore": ""
     }
   ]
 }
